@@ -1,0 +1,459 @@
+{
+  "generatedAt": "2026-10-22T13:01:49.960Z",
+  "scope": "full-package",
+  "passed": true,
+  "markdown": [
+    {
+      "file": "00-executive-summary.md",
+      "relativeLinks": 8
+    },
+    {
+      "file": "01-product-mental-model.md",
+      "relativeLinks": 3
+    },
+    {
+      "file": "02-personas-and-user-journeys.md",
+      "relativeLinks": 3
+    },
+    {
+      "file": "03-functional-requirements.md",
+      "relativeLinks": 5
+    },
+    {
+      "file": "04-nonfunctional-requirements.md",
+      "relativeLinks": 3
+    },
+    {
+      "file": "05-ux-information-architecture.md",
+      "relativeLinks": 19
+    },
+    {
+      "file": "06-data-model-and-tenant-isolation.md",
+      "relativeLinks": 4
+    },
+    {
+      "file": "07-system-architecture.md",
+      "relativeLinks": 12
+    },
+    {
+      "file": "08-planning-center-integration.md",
+      "relativeLinks": 2
+    },
+    {
+      "file": "09-sermon-ingestion-and-transcription.md",
+      "relativeLinks": 8
+    },
+    {
+      "file": "10-ai-workflows-and-guardrails.md",
+      "relativeLinks": 2
+    },
+    {
+      "file": "11-collaboration-approval-and-versioning.md",
+      "relativeLinks": 5
+    },
+    {
+      "file": "12-scheduling-sms-and-notifications.md",
+      "relativeLinks": 2
+    },
+    {
+      "file": "13-auth-security-privacy-and-compliance.md",
+      "relativeLinks": 3
+    },
+    {
+      "file": "14-tech-stack-options-and-tradeoffs.md",
+      "relativeLinks": 2
+    },
+    {
+      "file": "15-cost-model-and-unit-economics.md",
+      "relativeLinks": 7
+    },
+    {
+      "file": "16-phased-build-roadmap.md",
+      "relativeLinks": 2
+    },
+    {
+      "file": "17-testing-observability-and-operations.md",
+      "relativeLinks": 8
+    },
+    {
+      "file": "18-risks-assumptions-and-open-questions.md",
+      "relativeLinks": 3
+    },
+    {
+      "file": "19-competitive-landscape-and-differentiation.md",
+      "relativeLinks": 8
+    },
+    {
+      "file": "20-decisions-and-architecture-decision-records.md",
+      "relativeLinks": 4
+    },
+    {
+      "file": "21-acceptance-criteria-and-test-scenarios.md",
+      "relativeLinks": 3
+    },
+    {
+      "file": "22-delivery-e2e-test-report.md",
+      "relativeLinks": 0
+    },
+    {
+      "file": "23-study-management-workflow-and-engagement.md",
+      "relativeLinks": 20
+    },
+    {
+      "file": "24-church-member-home-and-figma-reference.md",
+      "relativeLinks": 10
+    },
+    {
+      "file": "README.md",
+      "relativeLinks": 44
+    },
+    {
+      "file": "backlog.md",
+      "relativeLinks": 0
+    },
+    {
+      "file": "diagrams/README.md",
+      "relativeLinks": 19
+    },
+    {
+      "file": "evidence/messaging.md",
+      "relativeLinks": 0
+    },
+    {
+      "file": "evidence/planning-center.md",
+      "relativeLinks": 1
+    },
+    {
+      "file": "evidence/security.md",
+      "relativeLinks": 1
+    },
+    {
+      "file": "mockups/README.md",
+      "relativeLinks": 17
+    },
+    {
+      "file": "review-checklist.md",
+      "relativeLinks": 15
+    },
+    {
+      "file": "sources.md",
+      "relativeLinks": 4
+    },
+    {
+      "file": "tools/README.md",
+      "relativeLinks": 0
+    },
+    {
+      "file": "traceability.md",
+      "relativeLinks": 50
+    },
+    {
+      "file": "validation.md",
+      "relativeLinks": 8
+    }
+  ],
+  "sourceIds": {
+    "defined": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S09",
+      "S10",
+      "S11",
+      "S20",
+      "S21",
+      "S22",
+      "S23",
+      "S24",
+      "S25",
+      "S26",
+      "S27",
+      "S28",
+      "S30",
+      "S31",
+      "S32",
+      "S33",
+      "S34",
+      "S35",
+      "S36",
+      "S37",
+      "S38",
+      "S39",
+      "S40",
+      "S41",
+      "S42",
+      "S43",
+      "S44",
+      "S45",
+      "S46",
+      "S47",
+      "S48",
+      "S50",
+      "S51",
+      "S52",
+      "S53",
+      "S54",
+      "S55",
+      "S60",
+      "S61",
+      "S62",
+      "S63",
+      "S64",
+      "S65",
+      "S66",
+      "S67",
+      "S68",
+      "S69",
+      "S70",
+      "S71",
+      "S72",
+      "S73",
+      "S74",
+      "S75",
+      "S76"
+    ],
+    "references": 132
+  },
+  "pngs": [
+    {
+      "file": "mockups/01-church-admin-dashboard.png",
+      "width": 1440,
+      "height": 1050,
+      "bytes": 109619,
+      "sha256": "4f7db8de4d87a9f7ff0dd068a665a6a8d4be11756414817867d6a261db784dea"
+    },
+    {
+      "file": "mockups/02-sermon-library-and-ingestion.png",
+      "width": 1440,
+      "height": 1050,
+      "bytes": 101071,
+      "sha256": "59ccdb955688d9ff67adf96efa4d90bded5711cfbf9c7dc8117f3d75a0f59ae3"
+    },
+    {
+      "file": "mockups/03-weekly-series-date-selector.png",
+      "width": 1440,
+      "height": 1050,
+      "bytes": 76544,
+      "sha256": "c10984adc4b0797a58d5d59a1086a981e669b64b22f524a45826a11a93d9a719"
+    },
+    {
+      "file": "mockups/04-selected-date-creation-dropdown.png",
+      "width": 1440,
+      "height": 1050,
+      "bytes": 98305,
+      "sha256": "02b78b12e5c43b0a4b86fdb24abb6c05b33c38ffda0c015be3cb79cdd6ad5923"
+    },
+    {
+      "file": "mockups/05-ai-proposed-plan.png",
+      "width": 1440,
+      "height": 1050,
+      "bytes": 111322,
+      "sha256": "07452ab588174efcf95ac67c4e534ff53b758c007741e403439e9ea106bc0f40"
+    },
+    {
+      "file": "mockups/06-manual-plan-editor.png",
+      "width": 1440,
+      "height": 1050,
+      "bytes": 118670,
+      "sha256": "1c41986c9fe35c3ce6bd29965b66175a2870381454275feb0a2f7a753e6afe82"
+    },
+    {
+      "file": "mockups/07-manual-editor-ai-assist-open.png",
+      "width": 1440,
+      "height": 1050,
+      "bytes": 116834,
+      "sha256": "b8dac66ffd0f1588ef584cfbe6c7c2daab403b3765d705d1ce02b48909fd22fe"
+    },
+    {
+      "file": "mockups/08-team-comments-and-revisions.png",
+      "width": 1440,
+      "height": 1050,
+      "bytes": 113625,
+      "sha256": "fa1200ba1ccc065c6f954e762a3d1b69636cd7c7f09e2c37d65e4db3841e62e0"
+    },
+    {
+      "file": "mockups/09-pastoral-review-and-approval.png",
+      "width": 1440,
+      "height": 1050,
+      "bytes": 116946,
+      "sha256": "0fd2d7bcce5027e1602063ce6c57138b18914f39ede33c06d1a772999f9b6a45"
+    },
+    {
+      "file": "mockups/10-weekly-calendar-and-status-board.png",
+      "width": 1440,
+      "height": 1050,
+      "bytes": 110523,
+      "sha256": "ee2fe48f3e640b38753a432f43a3d21f6e21049b2b10dd6c01771ab8169fae5d"
+    },
+    {
+      "file": "mockups/11-member-mobile-study.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 46475,
+      "sha256": "66217edbb6e858c5ec6fa7dcde24330c4f4ff1f8703734ba2ce5072c5f68a1f6"
+    },
+    {
+      "file": "mockups/12-member-discussion-and-reactions.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 39196,
+      "sha256": "8eeb9e794ade3d56d8693b107ea98ebd2597f9d2410a22774d8be50a5dc79fe7"
+    },
+    {
+      "file": "mockups/13-sms-preview-and-scheduling.png",
+      "width": 1440,
+      "height": 1200,
+      "bytes": 145046,
+      "sha256": "c9333e1b64373c6f2a7d1d0dfb968d34c632cf8bbcb3fc9d4d51d638fd3cd105"
+    },
+    {
+      "file": "mockups/14-church-settings-and-integrations.png",
+      "width": 1440,
+      "height": 1050,
+      "bytes": 120971,
+      "sha256": "a76a173ce171bcb3e0fc322e24fc97e6a3d87b0ec98e72acb76602622bb412a3"
+    }
+  ],
+  "diagrams": [
+    {
+      "source": "diagrams/container-architecture.mmd",
+      "sourceSha256": "d7aa3c4683c7a8ce03c479ea74b46b3790f8c92c7568ac42c18f012dcc438342",
+      "output": "diagrams/rendered/container-architecture.svg",
+      "diagramType": "flowchart-v2",
+      "bytes": 29010
+    },
+    {
+      "source": "diagrams/content-approval-state-machine.mmd",
+      "sourceSha256": "136687dd256e7c1557b8c2ab5dd09022c265f20f42619e41585e1619962785f1",
+      "output": "diagrams/rendered/content-approval-state-machine.svg",
+      "diagramType": "stateDiagram",
+      "bytes": 51928
+    },
+    {
+      "source": "diagrams/data-flow-and-trust-boundaries.mmd",
+      "sourceSha256": "3028cfdc84371fe78fba39f12da19303da952384ff68f63851dcf625eb8c13b9",
+      "output": "diagrams/rendered/data-flow-and-trust-boundaries.svg",
+      "diagramType": "flowchart-v2",
+      "bytes": 33016
+    },
+    {
+      "source": "diagrams/ingestion-sequence.mmd",
+      "sourceSha256": "c1a4e285830e7d3bc7b7f07d1a1fdcec470399463f1252eeaabefeb35900bd72",
+      "output": "diagrams/rendered/ingestion-sequence.svg",
+      "diagramType": "sequence",
+      "bytes": 32055
+    },
+    {
+      "source": "diagrams/plan-approval-state-machine.mmd",
+      "sourceSha256": "e216447628b669993d53d66917e897a35e2e6ba53677b70cb56d789d3f1edc44",
+      "output": "diagrams/rendered/plan-approval-state-machine.svg",
+      "diagramType": "stateDiagram",
+      "bytes": 42614
+    },
+    {
+      "source": "diagrams/publishing-sequence.mmd",
+      "sourceSha256": "f33f9265a81a5fadc0a8f5808c3808c4deed641baf7d0f7fe63398be283ecf76",
+      "output": "diagrams/rendered/publishing-sequence.svg",
+      "diagramType": "sequence",
+      "bytes": 35113
+    },
+    {
+      "source": "diagrams/study-lifecycle.mmd",
+      "sourceSha256": "607ad0dcd5e9253973192bda376bf1bae24b25b0d6f2163a0fc51fed169f8c2b",
+      "output": "diagrams/rendered/study-lifecycle.svg",
+      "diagramType": "flowchart-v2",
+      "bytes": 28076
+    },
+    {
+      "source": "diagrams/system-context.mmd",
+      "sourceSha256": "41970ee83149c9585c0d2c58e7796f792c6890ea5f55657b765ff2fcf3d84d42",
+      "output": "diagrams/rendered/system-context.svg",
+      "diagramType": "flowchart-v2",
+      "bytes": 23322
+    }
+  ],
+  "ui": [
+    {
+      "name": "Initial date selector has no editor; selecting date expands the pane below dates",
+      "passed": true
+    },
+    {
+      "name": "Exactly two requested creation choices",
+      "passed": true
+    },
+    {
+      "name": "Dates precede creation choices and switch selected day",
+      "passed": true
+    },
+    {
+      "name": "Manual creation opens blank editable plan",
+      "passed": true
+    },
+    {
+      "name": "dashboard: viewport, main landmark, named controls",
+      "passed": true
+    },
+    {
+      "name": "sermons: viewport, main landmark, named controls",
+      "passed": true
+    },
+    {
+      "name": "overview: viewport, main landmark, named controls",
+      "passed": true
+    },
+    {
+      "name": "create: viewport, main landmark, named controls",
+      "passed": true
+    },
+    {
+      "name": "proposed: viewport, main landmark, named controls",
+      "passed": true
+    },
+    {
+      "name": "blank: viewport, main landmark, named controls",
+      "passed": true
+    },
+    {
+      "name": "suggestions: viewport, main landmark, named controls",
+      "passed": true
+    },
+    {
+      "name": "comments: viewport, main landmark, named controls",
+      "passed": true
+    },
+    {
+      "name": "review: viewport, main landmark, named controls",
+      "passed": true
+    },
+    {
+      "name": "calendar: viewport, main landmark, named controls",
+      "passed": true
+    },
+    {
+      "name": "reading: viewport, main landmark, named controls",
+      "passed": true
+    },
+    {
+      "name": "discussion: viewport, main landmark, named controls",
+      "passed": true
+    },
+    {
+      "name": "sms: viewport, main landmark, named controls",
+      "passed": true
+    },
+    {
+      "name": "settings: viewport, main landmark, named controls",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "browser": "156.0.8078.47",
+  "uiLimitations": "Basic DOM and interaction checks only; no full accessibility, usability, device, or contrast acceptance claim. Canonical screenshots and extended workflow checks belong to mockups/source/capture.mjs.",
+  "status": "complete",
+  "completedAt": "2026-10-22T13:01:53.118Z"
+}

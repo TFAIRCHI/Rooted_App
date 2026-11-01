@@ -1,0 +1,48 @@
+{
+  "entries": [
+    {
+      "runStartedAt": "2026-11-01T12:29:59.295Z",
+      "task": "Cancel sharing back to reading",
+      "evidence": "Initial rebuilt core-only helper failed the explicit active-element assertion; no script errors or external requests",
+      "feedback": "Sent exact failing assertion to UX and root",
+      "status": "Resolved: final full independent run13/13 with stable hashes; final PNGs inspected November1",
+      "appSha256": "1ef7f870d3f2ce2ce10d0607a0fdfb254352d4f23a838bbe6d3e41c5558dd55c",
+      "observed": "Correct reader/church/fragment URL, but activeElement.id was empty rather than member-reflection"
+    },
+    {
+      "feedback": "Sent source-error/readiness-fallback correction to UX and root",
+      "observed": "Aborted .webm leaves poster fallback hidden; status remains Real local recording; video.error absent because source-level error is not handled",
+      "runStartedAt": "2026-11-01T12:32:21.345Z",
+      "status": "Resolved: final full independent run13/13 with stable hashes; final PNGs inspected November1",
+      "appSha256": "6fa9fd9b42655f68e4974c48316806dbccb1dede6c4b52fc1e02cde9283d5644",
+      "task": "Actual media request failure",
+      "evidence": "Full helper failed 15s wait. Separate diagnostic confirmed fallbackHidden:true, VTTreadyState:2 and no video.error"
+    },
+    {
+      "feedback": "Requested clean recording plus togglable VTT",
+      "observed": "Burned-in video captions and default-on native VTT duplicate/overlap",
+      "runStartedAt": "2026-11-01T12:32:21.345Z",
+      "status": "Resolved: final full independent run13/13 with stable hashes; final PNGs inspected November1",
+      "task": "Actual homepage image inspection",
+      "evidence": "view_image opened evidence/member-review-homepage-1440.png"
+    },
+    {
+      "observed": "Initial rebuilt reader/preview led with unsaved generic H1 while real title was H2",
+      "status": "Resolved: generic heading removed; final reader image shows authored H1",
+      "task": "Authored primary heading",
+      "feedback": "Requested primary heading from actual authored title",
+      "evidence": "Actual independent rebuilt reader PNG and source reviewed"
+    },
+    {
+      "runStartedAt": "2026-11-01T12:34:49.379Z",
+      "status": "Resolved: final run12:36:01–12:36:10UTC exit0 with identical before/after fingerprints",
+      "feedback": "Requested brief UX freeze and reran",
+      "observed": "All13taskgroups passed but app/styles changed during run",
+      "task": "Stable provenance guard",
+      "evidence": "Before/after source SHA mismatch; helper intentionally exited1"
+    }
+  ],
+  "note": "Earlier separate-Studio/old-selector evidence is archived, not current.",
+  "date": "2026-11-01",
+  "kind": "Independent member peer review correction log"
+}

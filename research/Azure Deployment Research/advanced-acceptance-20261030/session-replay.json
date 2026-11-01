@@ -1,0 +1,12 @@
+{
+  "scenario": "live isolated contributor-session logout and old-cookie replay",
+  "checkedAt": "2026-10-30T13:59:24.354Z",
+  "passed": true,
+  "beforeLogoutStatus": 200,
+  "beforeWorkspaceStatus": 200,
+  "logoutStatus": 200,
+  "oldSessionReplayStatus": 401,
+  "oldWorkspaceReplayStatus": 401,
+  "loggedOutBrowserStatus": 401,
+  "completedAt": "2026-10-30T14:21:07.620Z"
+}

@@ -1,0 +1,300 @@
+{
+  "runId": "97793e5bcb8a4a34af96677a",
+  "startedAt": "2026-10-19T14:05:09.082Z",
+  "status": "targets_missed",
+  "envelope": {
+    "tenants": 20,
+    "membersPerTenant": 500,
+    "editorsPerTenant": 2,
+    "studiesPerTenant": 3,
+    "readersPerBurst": 2000,
+    "readBursts": 2,
+    "saveChains": 40,
+    "savesPerChain": 5
+  },
+  "fullReaderEnvelope": true,
+  "environment": {
+    "node": "v24.11.1",
+    "os": "win32 10.0.26200",
+    "cpu": "11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz",
+    "logicalCpus": 8,
+    "memoryBytes": 16806072320,
+    "runtimePoolMax": 12,
+    "postgres": "PostgreSQL 17.2 on x86_64-windows, compiled by msvc-19.42.34435, 64-bit"
+  },
+  "databases": [
+    "gather_load_97793e5bcb8a4a34af96677a",
+    "gather_restore_97793e5bcb8a4a34af96677a"
+  ],
+  "metrics": {
+    "authenticatedReads": {
+      "count": 2000,
+      "p50Ms": 388.2458999999999,
+      "p95Ms": 790.2866000000004,
+      "maxMs": 851.9816000000001,
+      "targetMs": 500,
+      "pass": false,
+      "errors": 1741,
+      "errorExamples": [
+        "fetch failed",
+        "fetch failed",
+        "fetch failed"
+      ],
+      "durationMs": 871.8052000000007,
+      "offeredConcurrency": 2000
+    },
+    "saves": {
+      "count": 200,
+      "p50Ms": 130.80759999999918,
+      "p95Ms": 405.7469999999994,
+      "maxMs": 435.3128999999999,
+      "targetMs": 1000,
+      "pass": true,
+      "errors": 80,
+      "errorExamples": [
+        "fetch failed",
+        "fetch failed",
+        "fetch failed"
+      ]
+    },
+    "publication": {
+      "count": 20,
+      "p50Ms": 1136.5958,
+      "p95Ms": 1139.13,
+      "maxMs": 1139.2326999999996,
+      "targetMs": 60000,
+      "pass": true,
+      "dueOccurrences": 40,
+      "observedTenants": 20,
+      "duplicateReplay": "no additional publications",
+      "clock": "controlled due instant plus measured elapsed time; no scheduler polling"
+    },
+    "publicReads": {
+      "count": 2000,
+      "p50Ms": 310.3188999999993,
+      "p95Ms": 695.1296000000002,
+      "maxMs": 729.9164000000001,
+      "targetMs": 500,
+      "pass": false,
+      "errors": 1468,
+      "errorExamples": [
+        "fetch failed",
+        "fetch failed",
+        "fetch failed"
+      ],
+      "durationMs": 762.5852999999997,
+      "offeredConcurrency": 2000
+    }
+  },
+  "errors": [],
+  "limits": [
+    "Single host with HTTP client, API and PostgreSQL sharing resources",
+    "Synthetic sessions bypass OIDC issuance; real authentication, CSRF, membership and RLS execute",
+    "Controlled due clock; publication includes worker/database and HTTP visibility, excludes production polling delay",
+    "No cloud availability, regional RPO/RTO, external object/key recovery, SMS/AI throughput or accessibility proof"
+  ],
+  "recovery": {
+    "pass": true,
+    "backupMs": 693.8469999999998,
+    "restoreAndValidateMs": 1994.1929,
+    "tables": {
+      "aggregates": {
+        "count": 160,
+        "sha256": "359dd19442151b4d994344a1fe319680aa1c705cc1eb8ba80a6ab5a02d4d070d"
+      },
+      "approvals": {
+        "count": 120,
+        "sha256": "030e4acc9f94b506a643f3ab3ad08b6ca3a13cebdcda38c6a405a09d17b69fb9"
+      },
+      "audit": {
+        "count": 740,
+        "sha256": "f2165d2f3ccf424e096403a3492bd70173bee5801393bba96feb68a76404a357"
+      },
+      "auth_flows": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "auth_sessions": {
+        "count": 2040,
+        "sha256": "5cd7f5ed5570373567f0c2d6d6071833032c0d974f3a9496ab9d6bc1dbb52f45"
+      },
+      "churches": {
+        "count": 20,
+        "sha256": "b8165af357ea1d3c9e23445c947c02e89a5dbe59a17849d3f052d7981347aca4"
+      },
+      "comments": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "consent": {
+        "count": 10000,
+        "sha256": "6f6b040b8e4ecda40bd2b04f7ff8512f1effd6a9f317a20567315cc360cad3ea"
+      },
+      "delivery": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "discussion_revisions": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "discussions": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "idempotency": {
+        "count": 740,
+        "sha256": "318ba913f9bcff6ce68a0eb91facf46908cc6ed33fe93e3bf73d2e1d559843d2"
+      },
+      "integration_states": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "invitations": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "memberships": {
+        "count": 10040,
+        "sha256": "f29785bea9f52769be79db03c32bec8ae557e47ae178f91994b3d51d034c6dc0"
+      },
+      "mentions": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "moderation_actions": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "notifications": {
+        "count": 340,
+        "sha256": "bd4c3d0de4346ff994a92b8f96a4884c83edf4d51670ac006b8d2dbf50cddba2"
+      },
+      "onboarding_commands": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "outbox": {
+        "count": 60,
+        "sha256": "2e07704f6f59ac0e0701069b512bfd60b9c8439b9951eac5554dec0fa307b2f2"
+      },
+      "privacy_requests": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_adoptions": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_budgets": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_connections": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_consent_events": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_contacts": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_jobs": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_oauth_flows": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_proposals": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_send_intents": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_source_maps": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_source_reviews": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_webhook_inbox": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "publications": {
+        "count": 60,
+        "sha256": "5c9d7bea855a39ddc154deaedc970609e9ebb5baa574b8557b5cb79ab9581369"
+      },
+      "reactions": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "reports": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "reviews": {
+        "count": 120,
+        "sha256": "a79360c983b19d63eb2f6413825b37496c9eae732096da6629699b7f0d3ac466"
+      },
+      "revisions": {
+        "count": 400,
+        "sha256": "9331447353cac7205882bccb071625d4c502257737a5aff400b6dc0d3335ce40"
+      },
+      "schedules": {
+        "count": 60,
+        "sha256": "4b45d32587d6cd3d9a4f1d99c9d9198a76e520a79c7c61e2bb90367670bc2fd7"
+      },
+      "schema_migrations": {
+        "count": 4,
+        "sha256": "9aa688266dc7c952b8d52955b60bdd2c52796ecf75cfa861422426ad8ab19455"
+      },
+      "series": {
+        "count": 20,
+        "sha256": "c01e63303917c21c240e7ac4969cc09166c2197e15c761ed42797c81768e61ab"
+      },
+      "series_sermons": {
+        "count": 20,
+        "sha256": "d01ac91f6154fa51b075bcd66d8949ba02d507f0ba006656592d37328f81b51a"
+      },
+      "sermons": {
+        "count": 20,
+        "sha256": "c800bb41860decb2460ca25555d8dbd62e5504f912751a3db98632530f6e3396"
+      },
+      "slots": {
+        "count": 100,
+        "sha256": "a9826e5b44dc03c2ecb46d8424768d2d3c27d6bd31be0ebc2b0f8fb62bf80406"
+      },
+      "sources": {
+        "count": 20,
+        "sha256": "245947dde9cd95331aad8ccf4b7802fe1fcdd47209e19e5ab18a669ea572ddea"
+      }
+    },
+    "sourceCount": 20,
+    "sourceSnapshotSha256": "8f4548ad5f54754fcc08b6811468566759305b04edfbd9a90814490a99ed5aba",
+    "dumpSha256": "351e6d94ff409614cd8fbcffb485117cbd3036553827ebdd2f16b3443d2f5806",
+    "rlsTenantsChecked": 20,
+    "runtimeRoleUnchanged": true,
+    "scope": "Quiescent logical snapshot; all implemented sources are embedded JSON in PostgreSQL. Sidecar verifies source bytes independently. Not PITR or regional RPO/RTO proof."
+  },
+  "cleanup": [
+    {
+      "database": "gather_restore_97793e5bcb8a4a34af96677a",
+      "dropped": true
+    },
+    {
+      "database": "gather_load_97793e5bcb8a4a34af96677a",
+      "dropped": true
+    }
+  ],
+  "elapsedMs": 19546.9184
+}

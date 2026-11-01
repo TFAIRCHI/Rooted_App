@@ -1,0 +1,79 @@
+{
+  "checkedAt": "2026-11-01T12:38:47.116Z",
+  "base": "http://127.0.0.1:3092",
+  "scope": "Independent rebuilt research concept checks, not application/provider validation",
+  "appSha256": "08b0e4a147a2534290988025c491ffacbdc650e5e186d5844dd17de3b7b89abd",
+  "checks": [
+    {
+      "name": "Single Import action and error-source context disabled",
+      "pass": true
+    },
+    {
+      "name": "Selected URL version/locator retained in assistant context",
+      "pass": true
+    },
+    {
+      "name": "One workspace applies text proposal to current document",
+      "pass": true
+    },
+    {
+      "name": "Undo restores selected document text",
+      "pass": true
+    },
+    {
+      "name": "Artboard position leaves logical reading order unchanged",
+      "pass": true
+    },
+    {
+      "name": "Actual preview DOM order matches edited shared document",
+      "pass": true,
+      "details": {
+        "moved": [
+          "reflection",
+          "title",
+          "connection",
+          "question"
+        ],
+        "projected": [
+          "reflection",
+          "title",
+          "connection",
+          "question"
+        ]
+      }
+    },
+    {
+      "name": "Deck v3 is pinned to approved r10, excluding current r12",
+      "pass": true
+    },
+    {
+      "name": "Stale deck has no simulated approval action",
+      "pass": true
+    },
+    {
+      "name": "Real local video decodes and time advances muted inline",
+      "pass": true,
+      "details": {
+        "time": 0.226537,
+        "width": 1280,
+        "height": 720,
+        "duration": null,
+        "muted": true,
+        "playsInline": true,
+        "ready": 4,
+        "end": 0.943718
+      }
+    },
+    {
+      "name": "Reduced motion pauses autoplay and exposes fallback",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "limits": [
+    "No production/paid provider/native share/SMS/backend calls",
+    "Session-only editing; exact rich-text ranges and blocked-policy cases reviewed in contributor/member evidence",
+    "Library and proposal are simulated; no semantic retrieval engine or editor package trial"
+  ]
+}

@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant U as Authorized contributor
+    participant API as Tenant API
+    participant DB as Tenant database
+    participant W as Ingestion worker
+    participant O as Private object storage
+    participant T as Transcription or extraction adapter
+    U->>API: Submit notes or authorized asset with provenance and rights
+    API->>DB: Commit source metadata and ingestion outbox atomically
+    DB-->>API: Source and operation IDs
+    API-->>U: Accepted with operation status URL
+    W->>DB: Deduplicate job under local tenant context
+    W->>O: Fetch tenant-bound quarantined asset
+    W->>W: Validate type size and source URL policy
+    W->>T: Extract or transcribe minimized authorized source
+    T-->>W: Candidate transcript and confidence metadata
+    W->>DB: Store immutable source version and provenance
+    W-->>U: Notify contributor that source review is required
+    Note over U,DB: Source correction never silently mutates an approved plan

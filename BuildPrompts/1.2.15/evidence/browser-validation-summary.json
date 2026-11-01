@@ -1,0 +1,71 @@
+{
+  "checkedAt": "2026-10-30T18:38:37.280Z",
+  "method": "Latest result per journey: eight passing cases retained from full run; one failing navigation expectation corrected to documented Next streamed-not-found semantics and rerun alone. Application source unchanged after full run.",
+  "total": 9,
+  "passed": 9,
+  "tests": [
+    {
+      "title": "1.2.15 focused public pages preserve the approved layout and accessibility",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 27380,
+      "source": "browser-third-results.json"
+    },
+    {
+      "title": "1.2.15 navigation, disclosure, keyboard, examples, and tour work in the application",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 11030,
+      "source": "browser-navigation-rerun-results.json"
+    },
+    {
+      "title": "1.2.15 legacy homepage links resolve without Back loops and preserve requested examples",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 21553,
+      "source": "browser-third-results.json"
+    },
+    {
+      "title": "1.2.15 server-rendered public navigation works without JavaScript",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 1062,
+      "source": "browser-third-results.json"
+    },
+    {
+      "title": "1.2.15 anonymous public pages match the design, work by keyboard and do not call AI",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 8333,
+      "source": "browser-third-results.json"
+    },
+    {
+      "title": "1.2.13 leader sign-in creates one persisted church after uncertain response and shows actual roles",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 5293,
+      "source": "browser-third-results.json"
+    },
+    {
+      "title": "1.2.13 member entry rejects external links and accepts only an identity-bound invitation",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 5030,
+      "source": "browser-third-results.json"
+    },
+    {
+      "title": "1.2.13 identity continuation rejects external targets, survives callback and cannot be replayed",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2900,
+      "source": "browser-third-results.json"
+    },
+    {
+      "title": "1.2.13 guest member and workspace deep links use the supported sign-in flow",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 3861,
+      "source": "browser-third-results.json"
+    }
+  ]
+}

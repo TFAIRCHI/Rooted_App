@@ -1,0 +1,41 @@
+{
+  "name": "gather-discipleship",
+  "version": "1.1.1",
+  "private": true,
+  "type": "module",
+  "workspaces": ["frontend", "backend"],
+  "engines": { "node": ">=24.11.0" },
+  "scripts": {
+    "dev": "node backend/scripts/development.mjs",
+    "dev:existing": "node backend/scripts/development.mjs --preserve-data",
+    "dev:frontend": "npm run dev --workspace=@gather/frontend",
+    "dev:backend": "npm run dev --workspace=@gather/backend",
+    "dev:identity": "npm run auth:dev --workspace=@gather/backend",
+    "db:start": "node backend/scripts/postgres.mjs start",
+    "db:status": "node backend/scripts/postgres.mjs status",
+    "db:stop": "node backend/scripts/postgres.mjs stop",
+    "db:migrate": "npm run db:migrate --workspace=@gather/backend",
+    "db:seed": "npm run db:seed --workspace=@gather/backend",
+    "lint": "npm run lint --workspaces && npm run lint:tooling",
+    "lint:tooling": "eslint eslint.config.mjs playwright.config.ts backend/scripts/*.mjs",
+    "contracts:generate": "node --import tsx backend/scripts/contracts.mjs",
+    "contracts:check": "node --import tsx backend/scripts/contracts.mjs --check",
+    "typecheck": "npm run contracts:check && npm run typecheck --workspaces",
+    "test:unit": "npm run test:unit --workspaces && npm run test:operations",
+    "test:operations": "node --test backend/tests/operations/*.test.mjs",
+    "test:capacity": "node backend/scripts/load-check.mjs --run",
+    "test:integration": "npm run test:integration --workspace=@gather/backend",
+    "test:e2e": "playwright test",
+    "test:gate": "node backend/scripts/gate.mjs",
+    "test:research": "npm run validate --prefix research/tools",
+    "build": "npm run build --workspaces"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.64.1",
+    "axe-core": "4.14.0",
+    "eslint": "10.13.0",
+    "jsdom": "27.4.0",
+    "typescript-eslint": "8.71.2"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "scope": "Offline synthetic URL validation against current source; sharp PNG export only",
+  "checksPassed": 21,
+  "checks": [
+    "reject http://sermon.example/a",
+    "reject https://credentials@sermon.example/a",
+    "reject https://sermon.example:444/a",
+    "reject https://sermon.example.evil/a",
+    "reject https://sermon.example/a#f",
+    "reject https://2130706433/a",
+    "reject https://0x7f000001/a",
+    "reject mixed public/private DNS",
+    "deny 127.0.0.1",
+    "deny 10.0.0.1",
+    "deny 169.254.169.254",
+    "deny 100.64.0.1",
+    "deny ::1",
+    "deny ::ffff:127.0.0.1",
+    "deny fc00::1",
+    "deny fe80::1",
+    "accept allowlisted public resolution",
+    "deck slide 1 PNG dimensions",
+    "deck slide 2 PNG dimensions",
+    "deck slide 3 PNG dimensions",
+    "slides differ"
+  ],
+  "deckHashes": [
+    "742b701e18a13ad9fa8062254a36072422c1c7c9eb5dbaa8cc57de4d2d5c63ce",
+    "3492006ef15d7e929b8ebd59ad2a247418b73ced2b2600030ab6ccdd06e69bb7",
+    "d87345134ab3cc33bcdf46b7a0ae3660e8cdb56f0d243ddc67b6c44819633724"
+  ],
+  "limits": [
+    "No external DNS/network or browser share invocation",
+    "Rendering does not prove text wrapping, font embedding, brand policy or social acceptance",
+    "No live image/video provider, SMS or Planning Center API tested"
+  ]
+}

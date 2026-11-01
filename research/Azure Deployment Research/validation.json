@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "scope": "research documentation, public pricing retrieval and calculation; no deployment",
+  "researchDate": "2026-10-25",
+  "researchValidator": {
+    "markdownFiles": 66,
+    "errors": []
+  },
+  "localLinksChecked": 30,
+  "mermaidDiagramParsed": true,
+  "priceRefreshScriptExecuted": true,
+  "exampleCoreInfrastructureUsd": 32.02,
+  "currency": "USD",
+  "region": "eastus",
+  "productionCompatibilityVerified": false,
+  "azureResourcesCreated": false,
+  "dnsChanged": false,
+  "optionPricesCount": 9,
+  "optionPriceArithmeticPassed": true,
+  "optionBResourceResearch": {
+    "passed": true,
+    "scope": "Option B research documentation, local links and saved public-price arithmetic; no deployment",
+    "researchDate": "2026-10-25",
+    "documents": 11,
+    "localLinksChecked": 29,
+    "priceArithmeticPassed": true,
+    "azureResourcesCreated": false,
+    "dnsChanged": false,
+    "alternativeEngineCompatibilityTested": false
+  }
+}

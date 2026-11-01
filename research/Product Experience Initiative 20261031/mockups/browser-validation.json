@@ -1,0 +1,396 @@
+{
+  "executedAt": "2026-11-01T12:39:14.695Z",
+  "origin": "http://127.0.0.1:3092",
+  "scope": "Rebuilt research interactions only; not provider/backend validation.",
+  "checks": [
+    {
+      "name": "One Import button, no per-format workflow tiles",
+      "pass": true
+    },
+    {
+      "name": "Broad types in single dialog",
+      "pass": true
+    },
+    {
+      "name": "Connectors explicitly planned",
+      "pass": true
+    },
+    {
+      "name": "Dialog Escape closes and restores opener",
+      "pass": true
+    },
+    {
+      "name": "Imported names immediately show processing",
+      "pass": true
+    },
+    {
+      "name": "Processing source cannot be embedded",
+      "pass": true
+    },
+    {
+      "name": "Batch resolves independently ready/error",
+      "pass": true
+    },
+    {
+      "name": "Selected source name and locator embedded in assistant",
+      "pass": true
+    },
+    {
+      "name": "Single workspace includes editable canvas and assistant",
+      "pass": true
+    },
+    {
+      "name": "No split CoWriter task",
+      "pass": true
+    },
+    {
+      "name": "Proposal replaces selected reflection only",
+      "pass": true
+    },
+    {
+      "name": "Undo restores draft",
+      "pass": true
+    },
+    {
+      "name": "Mode switch preserves actual edit",
+      "pass": true
+    },
+    {
+      "name": "Placement inspector follows selected element",
+      "pass": true
+    },
+    {
+      "name": "Visual placement updates geometry",
+      "pass": true
+    },
+    {
+      "name": "Geometry does not change logical order",
+      "pass": true
+    },
+    {
+      "name": "Keyboard Move up changes logical order",
+      "pass": true
+    },
+    {
+      "name": "preview renders same edited content and order",
+      "pass": true
+    },
+    {
+      "name": "preview actual authored title is only H1",
+      "pass": true
+    },
+    {
+      "name": "reader renders same edited content and order",
+      "pass": true
+    },
+    {
+      "name": "reader actual authored title is only H1",
+      "pass": true
+    },
+    {
+      "name": "Public deck excludes private editing/source data",
+      "pass": true
+    },
+    {
+      "name": "Sharing defaults off",
+      "pass": true
+    },
+    {
+      "name": "Explicit sharing reveals fallbacks",
+      "pass": true
+    },
+    {
+      "name": "Cancel restores reading focus",
+      "pass": true
+    },
+    {
+      "name": "Actual video advances with zero interaction",
+      "pass": true,
+      "evidence": {
+        "t0": 0.054108,
+        "t1": 0.711341
+      }
+    },
+    {
+      "name": "Homepage AI tab selected with visible muted inline video",
+      "pass": true
+    },
+    {
+      "name": "Pause stops actual playback",
+      "pass": true
+    },
+    {
+      "name": "Resume works",
+      "pass": true
+    },
+    {
+      "name": "Reduced motion pauses autoplay with readable fallback",
+      "pass": true
+    },
+    {
+      "name": "Blocked-policy example offers explicit playback",
+      "pass": true
+    },
+    {
+      "name": "Reply preserves unresolved request",
+      "pass": true
+    },
+    {
+      "name": "Unchanged revision can target proposed new cycle",
+      "pass": true
+    },
+    {
+      "name": "First viewport has clear proposal-review entry",
+      "pass": true
+    }
+  ],
+  "reflow": [
+    {
+      "width": 1440,
+      "view": "library",
+      "overflow": false,
+      "height": 1121,
+      "h1": 1
+    },
+    {
+      "width": 1440,
+      "view": "studio",
+      "overflow": false,
+      "height": 1322,
+      "h1": 1
+    },
+    {
+      "width": 1440,
+      "view": "review",
+      "overflow": false,
+      "height": 1167,
+      "h1": 1
+    },
+    {
+      "width": 1440,
+      "view": "demo",
+      "overflow": false,
+      "height": 1063,
+      "h1": 1
+    },
+    {
+      "width": 1440,
+      "view": "phone",
+      "overflow": false,
+      "height": 901,
+      "h1": 1
+    },
+    {
+      "width": 1440,
+      "view": "share",
+      "overflow": false,
+      "height": 1278,
+      "h1": 1
+    },
+    {
+      "width": 1440,
+      "view": "reader",
+      "overflow": false,
+      "height": 995,
+      "h1": 1
+    },
+    {
+      "width": 1024,
+      "view": "library",
+      "overflow": false,
+      "height": 1206,
+      "h1": 1
+    },
+    {
+      "width": 1024,
+      "view": "studio",
+      "overflow": false,
+      "height": 1329,
+      "h1": 1
+    },
+    {
+      "width": 1024,
+      "view": "review",
+      "overflow": false,
+      "height": 1193,
+      "h1": 1
+    },
+    {
+      "width": 1024,
+      "view": "demo",
+      "overflow": false,
+      "height": 1039,
+      "h1": 1
+    },
+    {
+      "width": 1024,
+      "view": "phone",
+      "overflow": false,
+      "height": 901,
+      "h1": 1
+    },
+    {
+      "width": 1024,
+      "view": "share",
+      "overflow": false,
+      "height": 1278,
+      "h1": 1
+    },
+    {
+      "width": 1024,
+      "view": "reader",
+      "overflow": false,
+      "height": 995,
+      "h1": 1
+    },
+    {
+      "width": 800,
+      "view": "library",
+      "overflow": false,
+      "height": 1346,
+      "h1": 1
+    },
+    {
+      "width": 800,
+      "view": "studio",
+      "overflow": false,
+      "height": 1303,
+      "h1": 1
+    },
+    {
+      "width": 800,
+      "view": "review",
+      "overflow": false,
+      "height": 1234,
+      "h1": 1
+    },
+    {
+      "width": 800,
+      "view": "demo",
+      "overflow": false,
+      "height": 961,
+      "h1": 1
+    },
+    {
+      "width": 800,
+      "view": "phone",
+      "overflow": false,
+      "height": 901,
+      "h1": 1
+    },
+    {
+      "width": 800,
+      "view": "share",
+      "overflow": false,
+      "height": 1278,
+      "h1": 1
+    },
+    {
+      "width": 800,
+      "view": "reader",
+      "overflow": false,
+      "height": 995,
+      "h1": 1
+    },
+    {
+      "width": 390,
+      "view": "library",
+      "overflow": false,
+      "height": 1850,
+      "h1": 1
+    },
+    {
+      "width": 390,
+      "view": "studio",
+      "overflow": false,
+      "height": 2306,
+      "h1": 1
+    },
+    {
+      "width": 390,
+      "view": "review",
+      "overflow": false,
+      "height": 1909,
+      "h1": 1
+    },
+    {
+      "width": 390,
+      "view": "demo",
+      "overflow": false,
+      "height": 900,
+      "h1": 1
+    },
+    {
+      "width": 390,
+      "view": "phone",
+      "overflow": false,
+      "height": 901,
+      "h1": 1
+    },
+    {
+      "width": 390,
+      "view": "share",
+      "overflow": false,
+      "height": 1219,
+      "h1": 1
+    },
+    {
+      "width": 390,
+      "view": "reader",
+      "overflow": false,
+      "height": 1052,
+      "h1": 1
+    },
+    {
+      "width": 320,
+      "view": "library",
+      "overflow": false,
+      "height": 2187,
+      "h1": 1
+    },
+    {
+      "width": 320,
+      "view": "studio",
+      "overflow": false,
+      "height": 2554,
+      "h1": 1
+    },
+    {
+      "width": 320,
+      "view": "review",
+      "overflow": false,
+      "height": 2152,
+      "h1": 1
+    },
+    {
+      "width": 320,
+      "view": "demo",
+      "overflow": false,
+      "height": 900,
+      "h1": 1
+    },
+    {
+      "width": 320,
+      "view": "phone",
+      "overflow": false,
+      "height": 901,
+      "h1": 1
+    },
+    {
+      "width": 320,
+      "view": "share",
+      "overflow": false,
+      "height": 1237,
+      "h1": 1
+    },
+    {
+      "width": 320,
+      "view": "reader",
+      "overflow": false,
+      "height": 1219,
+      "h1": 1
+    }
+  ],
+  "scriptErrors": [],
+  "externalRequests": []
+}

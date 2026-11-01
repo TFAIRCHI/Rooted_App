@@ -1,0 +1,28 @@
+{
+  "stats": {
+    "startTime": "2026-10-25T13:52:44.019Z",
+    "duration": 55954.003000000004,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "AC07/08/09/11/12/22 one contributor approval gates explicit publication and member snapshots",
+      "results": [
+        {
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "title": "1.2.9 J1/J3 UI create \u2192 one approval \u2192 member response \u2192 answer \u2192 withdraw \u2192 confirmed Hard Delete",
+      "results": [
+        {
+          "status": "passed"
+        }
+      ]
+    }
+  ]
+}

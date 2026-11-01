@@ -1,0 +1,25 @@
+{
+  "checkedAt": "2026-10-30T18:39:30.763Z",
+  "candidate": "http://127.0.0.1:3081",
+  "configuredPublicOrigin": "https://rooted-together.com",
+  "passed": false,
+  "results": [
+    {
+      "description": "/ returns HTTP 200",
+      "passed": true
+    },
+    {
+      "description": "/ has public title and description",
+      "passed": true
+    },
+    {
+      "description": "/ has correct production canonical and OpenGraph URL",
+      "passed": false
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Candidate API target is Azure-internal and is not exercised locally.",
+    "Page-scale magnification and reduced-viewport reflow do not replace manual assistive-technology testing."
+  ]
+}

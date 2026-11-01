@@ -1,0 +1,118 @@
+{
+  "scope": "synthetic offline stdlib research; no provider calls",
+  "checksPassed": 28,
+  "checks": [
+    "DOCX split runs preserve paragraph text",
+    "DOCX table row/cell boundaries and XML entities",
+    "DOCX source order after table",
+    "XLSX shared strings",
+    "XLSX styled 1900 date",
+    "XLSX formula and cached value retained without evaluation",
+    "XLSX absent cached formula stays unknown",
+    "XLSX boolean and inline string",
+    "XLSX 1904 date has 1462-day difference",
+    "XLSX serial 60 marked invalid",
+    "OOXML rejects path",
+    "OOXML rejects macro",
+    "OOXML rejects external",
+    "OOXML rejects entity",
+    "OOXML rejects size",
+    "rights change invalidates source version hash",
+    "extractor version changes source version hash",
+    "canonical ordering keeps hash stable",
+    "cross-tenant hash differs",
+    "brand update invalidates rendition approval target",
+    "US country selection normalizes formatting",
+    "explicit international number preserves prefix",
+    "phone rejects ambiguous/invalid 2025550100",
+    "phone rejects ambiguous/invalid 2025550100 ext 1",
+    "phone rejects ambiguous/invalid +012345678",
+    "phone rejects ambiguous/invalid 123",
+    "shared household produces ambiguity, not auto link",
+    "names cannot disambiguate duplicate names"
+  ],
+  "docx": [
+    {
+      "locator": "body/block/1",
+      "type": "paragraph",
+      "text": "A synthetic sermon"
+    },
+    {
+      "locator": "body/block/2/row/1",
+      "type": "table-row",
+      "cells": [
+        "Theme",
+        "Hope & service"
+      ]
+    },
+    {
+      "locator": "body/block/3",
+      "type": "paragraph",
+      "text": "Closing reflection"
+    }
+  ],
+  "xlsx": [
+    {
+      "locator": "Sermon!A1",
+      "value": "Hope",
+      "raw": "0",
+      "formula": null,
+      "warning": null
+    },
+    {
+      "locator": "Sermon!B1",
+      "value": "2011-07-05T00:00:00",
+      "raw": "40729",
+      "formula": null,
+      "warning": null
+    },
+    {
+      "locator": "Sermon!C1",
+      "value": 5.0,
+      "raw": "5",
+      "formula": "2+3",
+      "warning": "saved-result-may-be-stale"
+    },
+    {
+      "locator": "Sermon!D1",
+      "value": null,
+      "raw": null,
+      "formula": "NOW()",
+      "warning": "no-saved-result"
+    },
+    {
+      "locator": "Sermon!E1",
+      "value": true,
+      "raw": "1",
+      "formula": null,
+      "warning": null
+    },
+    {
+      "locator": "Sermon!F1",
+      "value": "Reflection",
+      "raw": null,
+      "formula": null,
+      "warning": null
+    }
+  ],
+  "sourceVersionHash": "60d0cb8ad4bac87b5cc99e836b82f2b690b2e68dab016fcc161d78b1e5e67547",
+  "revisionSnapshot": {
+    "revisionId": "r1",
+    "sourceHash": "60d0cb8ad4bac87b5cc99e836b82f2b690b2e68dab016fcc161d78b1e5e67547",
+    "spanIds": [
+      "body/block/1"
+    ]
+  },
+  "householdCandidates": [
+    "person-a",
+    "person-b"
+  ],
+  "limits": [
+    "Fixtures are minimal XML packages, not full Office application interoperability validation.",
+    "Fixed filenames, subset of styles/cells only; no relationship-based workbook traversal.",
+    "No tracked changes, comments, footnotes, textboxes, nested tables or real customer documents.",
+    "No formula recalculation, macros, external links or document rendering.",
+    "Phone normalization is narrow fixture logic, not libphonenumber validity or OTP proof.",
+    "Hash model does not prove database RLS or production workflow integration."
+  ]
+}

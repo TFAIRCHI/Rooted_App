@@ -1,0 +1,110 @@
+{
+  "recordedAt": "2026-10-30T18:45:41.724Z",
+  "modified": [
+    {
+      "file": "frontend/app/layout.tsx",
+      "beforeSha256": "8128c9e629e4521d7155c0c72c72f459ad561d34c780a1e92ddbdb4ace3e8e12",
+      "afterSha256": "608a0061d9ab1212fd20c027022b30730fd04c46de761d3a157ed910a7a8f260"
+    },
+    {
+      "file": "frontend/app/page.tsx",
+      "beforeSha256": "0b75261d94d2e253f2e14ea5236796682e917c8fedaf65c85fba0913bc55bdcd",
+      "afterSha256": "c30f0e7a1935afe232eaa397c9d3081b56909658a1055d8e4eb276a0edeb1b0d"
+    },
+    {
+      "file": "frontend/app/robots.ts",
+      "beforeSha256": "357127b894703884f6cc373cc18341a11f9b7c27e0761542bab592b5719a6146",
+      "afterSha256": "d250b1d315de40948eac0327432897603e12fd6a6242ca3be4dd69d7a0a95893"
+    },
+    {
+      "file": "frontend/app/sitemap.ts",
+      "beforeSha256": "3fa93db09d5256b80a018c4107c91729a940a97ca2b409dc6ef4e0fabe96a44c",
+      "afterSha256": "ae2eae5be59bcf6c9577940029e5a3f01d653149c37ce2a6bb9e2646236833aa"
+    },
+    {
+      "file": "frontend/components/public/frame.tsx",
+      "beforeSha256": "46a9c18b96f6b8831dd00eb97b6b68447bf21bc35a44492c69ee5a98cf2fb289",
+      "afterSha256": "aa15f8c1aad21a181b639b1d5c7f6acff6e643d87890fb95cace86418fe5f991"
+    },
+    {
+      "file": "frontend/components/public/get-started.tsx",
+      "beforeSha256": "c1915430c0964b9dd0b19565586765395579e3101ebe858f3d343bdf36a720b8",
+      "afterSha256": "a3c19139fa099350232e69e5b7b00f09538f3a1f51d32bb6d3ae86fb57ae54d7"
+    },
+    {
+      "file": "frontend/components/public/index.tsx",
+      "beforeSha256": "0e21f2f3777eefd7c63594d1be8db8ce911f845f7f88f9680a667097e42643af",
+      "afterSha256": "a9485a09ee84d6737e3dcff3e378e68db9a07ff944efbae4d2c23b8373df7481"
+    },
+    {
+      "file": "frontend/components/public/product-showcase.tsx",
+      "beforeSha256": "c8ce307b1eb04e073288319c69b0f402b3cd77459ded0552bb23cdf1e3c8375d",
+      "afterSha256": "1453bd04fee2d31f06ee1c7cf34cd3ef60e50be5fde39e33674cf0f941bad3c9"
+    },
+    {
+      "file": "frontend/components/public/sample-study.tsx",
+      "beforeSha256": "12bb6d074846dfc8cc909929363c847bc61fbdd845779e5dc153604a4cb51107",
+      "afterSha256": "a5fe5055e42ded6065ea3bef94e5419494000715543b9521302eab2401d3fe8d"
+    },
+    {
+      "file": "frontend/e2e/public-site.spec.ts",
+      "beforeSha256": "c47e165f4c96f576335247d0878fccb9fa200989eeade215c31e11943732bd01",
+      "afterSha256": "82b4ca4e9cc0ee5a05618efcdfc1f0ce5edfe9b7f4c84ddb027072867357b717"
+    }
+  ],
+  "added": [
+    {
+      "file": "frontend/app/marketing-site.css",
+      "sha256": "dcb11d1676eb38b5d938df41b43ee6857a1faab708f4d9588de502ea40b496e4"
+    },
+    {
+      "file": "frontend/lib/marketing.ts",
+      "sha256": "84c4290420aabf7c75bdbf70f8eb7b48a9dd2dd73582717608c696f849073a4b"
+    },
+    {
+      "file": "frontend/components/skip-link.tsx",
+      "sha256": "f16e23c1c448cfe6737468940ed1e2fcdba92ee218a18c11e43a758a8dc06b04"
+    },
+    {
+      "file": "frontend/components/public/marketing-frame.tsx",
+      "sha256": "29e27ddadc6204dbbb293f8bfd4f5b9ecdb9fc45106e1f184970de4256db7854"
+    },
+    {
+      "file": "frontend/components/public/marketing-header.tsx",
+      "sha256": "d1ed6b06ebcabbfa432ecbe009fdfbf92ea0bf61cdf6c00cdfffa1a66df5d4a0"
+    },
+    {
+      "file": "frontend/components/public/marketing-interactions.tsx",
+      "sha256": "c4fc384f5b9e621bf5cdfae5c75ee9e2d9e59debf0e4ddd8e4534a8cc707ea1a"
+    },
+    {
+      "file": "frontend/components/public/marketing-pages.tsx",
+      "sha256": "87c4db21138db132232a0df8e9df44d74c6c752f29bc53ec0ee5b8d69139d121"
+    },
+    {
+      "file": "frontend/e2e/marketing-navigation.spec.ts",
+      "sha256": "aa2bb1d69c1cadb7b1da5d6d79ffcfa4ce6eb5f669dd24b3e94816dac943a360"
+    },
+    {
+      "file": "frontend/app/why-rooted/page.tsx",
+      "sha256": "4be004ee535917fb12ea08743761294d4c5d69c8744b5b591619408ea13c7797"
+    },
+    {
+      "file": "frontend/app/how-it-works/page.tsx",
+      "sha256": "cccedfe2177852a5167dbfb92571ffb7ba2514727637445d7fcb3a2065838fac"
+    },
+    {
+      "file": "frontend/app/ai-co-writer/page.tsx",
+      "sha256": "315ee036cc8a28c22f255d7fbfecb10740c0d3cfceb86db786a73951b092a27a"
+    },
+    {
+      "file": "frontend/app/power-of-four/page.tsx",
+      "sha256": "ec578c1a13ce48c123faeb6e5ce45b8e91d17fc67916df4a363784b25d4dfc81"
+    },
+    {
+      "file": "frontend/app/questions/page.tsx",
+      "sha256": "2020d01c10886584cb9b7733d2ce40508b7db9f9eb5ecc0e7fff9b2aa965a412"
+    }
+  ],
+  "documentation": "Execution evidence, version tracker/readme/status links, and the dated release handoff were also added/updated."
+}

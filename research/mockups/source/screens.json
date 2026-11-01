@@ -1,0 +1,16 @@
+[
+ {"id":"dashboard","file":"01-church-admin-dashboard.png","title":"Church dashboard","width":1440,"height":1050,"contains":["Next week readiness","Review queue","Blocked sends"]},
+ {"id":"sermons","file":"02-sermon-library-and-ingestion.png","title":"Sermon library","width":1440,"height":1050,"contains":["Sermon library","Rights confirmation","Ingestion"]},
+ {"id":"overview","file":"03-weekly-series-date-selector.png","title":"Weekly date selector","width":1440,"height":1050,"contains":["Choose a date to begin","Anna Mitchell","Content"]},
+ {"id":"create","file":"04-selected-date-creation-dropdown.png","title":"Selected date creation","width":1440,"height":1050,"contains":["How would you like to start?","View proposed study plan"]},
+ {"id":"proposed","file":"05-ai-proposed-plan.png","title":"AI proposed plan","width":1440,"height":1050,"contains":["Proposal evidence","Illustrative sermon notes","Reject proposal"]},
+ {"id":"blank","file":"06-manual-plan-editor.png","title":"Manual plan editor","width":1440,"height":1050,"contains":["Outline / key points","Optional notes","Submit for plan review"]},
+ {"id":"suggestions","file":"07-manual-editor-ai-assist-open.png","title":"Manual editor with assistance","width":1440,"height":1050,"contains":["Ask AI for assistance","Requested scope","Use in objective"]},
+ {"id":"comments","file":"08-team-comments-and-revisions.png","title":"Team comments and revisions","width":1440,"height":1050,"contains":["Revision comparison","Anchored comments","Recovered working copy"]},
+ {"id":"review","file":"09-pastoral-review-and-approval.png","title":"Pastoral review","width":1440,"height":1050,"contains":["Plan revision 3","Source checks","Request changes"]},
+ {"id":"calendar","file":"10-weekly-calendar-and-status-board.png","title":"Calendar and status board","width":1440,"height":1050,"contains":["Weekly status board","Plan status","Content status","Blocked occurrence"]},
+ {"id":"reading","file":"11-member-mobile-study.png","title":"Member study","width":390,"height":844,"contains":["Application","John 6:60–66"]},
+ {"id":"discussion","file":"12-member-discussion-and-reactions.png","title":"Member discussion","width":390,"height":844,"contains":["Encouraged","Pending review","Report"]},
+ {"id":"sms","file":"13-sms-preview-and-scheduling.png","title":"SMS preview and scheduling","width":1440,"height":1200,"contains":["Consented audience","Church sender","Quiet hours","Segments"]},
+ {"id":"settings","file":"14-church-settings-and-integrations.png","title":"Church settings","width":1440,"height":1050,"contains":["America/New_York","Per-day release times","Planning Center","Approval policy"]}
+]

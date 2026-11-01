@@ -1,0 +1,953 @@
+{
+  "reviewedAt": "2026-11-01T12:38:11.156Z",
+  "baselineFiles": 106,
+  "archiveProof": {
+    "files": 106,
+    "archiveMembers": 106,
+    "badMember": null,
+    "mismatches": [],
+    "sha256": "065c9583edacf927871cba3f1881ee71316ccabfbd7ae96a7b5961f78907edf7",
+    "verifiedAt": "2026-11-01T12:38:11.156Z"
+  },
+  "roleAuditStatus": {
+    "roles/contributor-document-audit.json": "present",
+    "evidence/engineering-file-audit.json": "pending",
+    "evidence/member-file-audit.json": "present",
+    "mockups/file-audit.json": "pending"
+  },
+  "files": [
+    {
+      "path": "architecture/product-architecture.mmd",
+      "baselineSha256": "fdac0a636369cc16a846bdc8f9eb5b56ddfc2be254b746dde0c5375e49d8afdf",
+      "currentSha256": "495fb6ca62da243a02f45ab575c25e23f7afb3a2fa08018ac2fe23e508e8f26f",
+      "status": "modified",
+      "rationale": "Regenerated logical graph with broad context, unified creator, publication and identity boundaries.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "architecture/product-architecture.png",
+      "baselineSha256": "46701733c332169365426ee014a3cf864a113ee32b5c2335a21236ec5e356125",
+      "currentSha256": "354fa4c7834248198a379ea0bbebc403258aef0b7a6c2f8d5ac475f75fb50a3c",
+      "status": "modified",
+      "rationale": "Regenerated from new SVG; actual raster decoded and visually reviewed.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "architecture/product-architecture.svg",
+      "baselineSha256": "2960187f971c4eb0664f23524f5bd6e944efc0c2bef27c0ecdc34c8f7f58948d",
+      "currentSha256": "fc3eea9401d1f84b07a09e69a5228c4f6b7d8a3d4b159c92d8172867172605c6",
+      "status": "modified",
+      "rationale": "Regenerated from new architecture renderer and inspected for legibility.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "architecture/README.md",
+      "baselineSha256": "0cae1fcb021c61c255fb97e39be05bfa6e3dc74f798d383e8f32042a390c53a5",
+      "currentSha256": "9f0b5c61c2ca361365ca1bdd48e3ba75563ce58289bc1e939336493df5942b41",
+      "status": "modified",
+      "rationale": "Replaced split verbal/visual boundaries with one semantic draft and source lifecycle.",
+      "roleAuditReferences": [
+        "roles/contributor-document-audit.json"
+      ]
+    },
+    {
+      "path": "architecture/render-overview.mjs",
+      "baselineSha256": "c228c135fac1855b012123ee626c75ae62e8a171fe2cd1a402f670c1e324cc97",
+      "currentSha256": "3e8ae51558ed3b0d72dc42dfc6f5af4ff1387e6b90315fc90543df32f9245c41",
+      "status": "modified",
+      "rationale": "Rewrote reproducible renderer for unified architecture; no application renderer changed.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "architecture/technical-feasibility.md",
+      "baselineSha256": "1d8c22562fa993f50f99b0146820403e857aae56e10666e9422d28676764cc41",
+      "currentSha256": "287fe14817250e49522f530181963bef3473650b29ec58692b9b0d28640a2e9d",
+      "status": "modified",
+      "rationale": "rewrite UX contract and reassess invariants; rebuilt",
+      "roleAuditReferences": [
+        "roles/contributor-document-audit.json",
+        "evidence/engineering-file-audit.json"
+      ]
+    },
+    {
+      "path": "DECISIONS_AND_ROADMAP.md",
+      "baselineSha256": "bc46dd4498a71a2bbb9eee924e920faf2a667f105c2b7fcef340f103f029ad01",
+      "currentSha256": "cb14286e6e76490798858db31e95bd9bbae48ea454386b44ebf98d529c3f3495",
+      "status": "modified",
+      "rationale": "Resequenced broad library, unified rich editing, autoplay and downstream release gates.",
+      "roleAuditReferences": [
+        "roles/contributor-document-audit.json"
+      ]
+    },
+    {
+      "path": "evidence/application-source-baseline.json",
+      "baselineSha256": "49dec6e98fc9af6b160029bb2cf6bdd2c018425c014eca84c1070be93f3812ff",
+      "currentSha256": "49dec6e98fc9af6b160029bb2cf6bdd2c018425c014eca84c1070be93f3812ff",
+      "status": "unchanged",
+      "rationale": "Retain original baseline: original ZIP/SHA match; all215 entries freshly compared, not stale current-UI evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "evidence/application-source-preservation.json",
+      "baselineSha256": "da5d343a8406a645834078c0bcf374baa3eb3a0e50a67dad7544d1e6e36f8de1",
+      "currentSha256": "b33e008f81523b74aa79374160e7b8f27564ddcf2bca84cc9bf9f9fe076f41e6",
+      "status": "modified",
+      "rationale": "Regenerated current comparison for215 app/build and121 prior-release inputs.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "evidence/approval-roundtrip.json",
+      "baselineSha256": "fbe1891ce7a856dbb5006eded1a0af8dbe39a8272b471269af0ae2a9f1dd791f",
+      "currentSha256": "fbe1891ce7a856dbb5006eded1a0af8dbe39a8272b471269af0ae2a9f1dd791f",
+      "status": "unchanged",
+      "rationale": "retain verbatim historical currentAPI evidence; no new run or new design proof claimed",
+      "roleAuditReferences": [
+        "roles/contributor-document-audit.json"
+      ]
+    },
+    {
+      "path": "evidence/approval-roundtrip.ts",
+      "baselineSha256": "bde3077afd50687ff184521e014c4f4c38c696a44cf0da71db857b0f0e40a9d2",
+      "currentSha256": "bde3077afd50687ff184521e014c4f4c38c696a44cf0da71db857b0f0e40a9d2",
+      "status": "unchanged",
+      "rationale": "retain verbatim historical currentAPI evidence; no new run or new design proof claimed",
+      "roleAuditReferences": [
+        "roles/contributor-document-audit.json"
+      ]
+    },
+    {
+      "path": "evidence/artifact-validation.json",
+      "baselineSha256": "436f322327a91663261156cf3b81bea3a922eba631886a20dfbca687fde81378",
+      "currentSha256": "43e90f6cc4ca3d3120f74c246510d4163dc9d8888bd8ddb7f98b42092341005b",
+      "status": "modified",
+      "rationale": "Regenerated current document-link/image integrity checks; old counts superseded.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "evidence/engineering-peer-browser.json",
+      "baselineSha256": "1174ccdcc1955a2c046f951c6de57413fe26c481a3fc5e76f49f4ce6a5544f8a",
+      "currentSha256": "1174ccdcc1955a2c046f951c6de57413fe26c481a3fc5e76f49f4ce6a5544f8a",
+      "status": "unchanged",
+      "rationale": "retained-dated-limited-evidence",
+      "roleAuditReferences": [
+        "evidence/engineering-file-audit.json"
+      ]
+    },
+    {
+      "path": "evidence/engineering-peer-browser.mjs",
+      "baselineSha256": "7075901468057100a7e5565dce4ae5d470d4ed7158831301fc4a52ecb6187c3a",
+      "currentSha256": "3009b6145eddb9452eaea1f57ca7db8b225c860c52202729dedb7a47d7868022",
+      "status": "modified",
+      "rationale": "retired-helper-guarded",
+      "roleAuditReferences": [
+        "evidence/engineering-file-audit.json"
+      ]
+    },
+    {
+      "path": "evidence/engineering-runtime-results.json",
+      "baselineSha256": "448058c1e951bd2667038174d811f867f6aebbfd71f20e75631cb792a78e7802",
+      "currentSha256": "448058c1e951bd2667038174d811f867f6aebbfd71f20e75631cb792a78e7802",
+      "status": "unchanged",
+      "rationale": "retained-dated-limited-evidence",
+      "roleAuditReferences": [
+        "evidence/engineering-file-audit.json"
+      ]
+    },
+    {
+      "path": "evidence/engineering-runtime-spike.ts",
+      "baselineSha256": "11439da298dd6974f5ded709f78fe308d71ca31fde9b8380ad7a5688a20c6ee3",
+      "currentSha256": "9139b296fadbd5f1737b4a96077ffa3ff1ed6cbe3ed6701adddbb263a98b1fb0",
+      "status": "modified",
+      "rationale": "reassessed-rerun-output-isolated",
+      "roleAuditReferences": [
+        "evidence/engineering-file-audit.json"
+      ]
+    },
+    {
+      "path": "evidence/engineering-spike-results.json",
+      "baselineSha256": "00afdcb670f83d2dd65655eccb19eb0e016ebc6092285d58e2cf5c0d5242fd79",
+      "currentSha256": "00afdcb670f83d2dd65655eccb19eb0e016ebc6092285d58e2cf5c0d5242fd79",
+      "status": "unchanged",
+      "rationale": "retained-dated-limited-evidence",
+      "roleAuditReferences": [
+        "evidence/engineering-file-audit.json"
+      ]
+    },
+    {
+      "path": "evidence/engineering-spike.py",
+      "baselineSha256": "8c09a9e4cef58c32c978cb396be5b1e2b8aa997e9aa5603ca21cccd252d0cdf4",
+      "currentSha256": "e81a1d6bb66279260d372bec67bccc2a2d9e5bf4d536b84859800e837afe1789",
+      "status": "modified",
+      "rationale": "reassessed-rerun-output-isolated",
+      "roleAuditReferences": [
+        "evidence/engineering-file-audit.json"
+      ]
+    },
+    {
+      "path": "evidence/engineering-validation.md",
+      "baselineSha256": "01fdc6c708afbe9943b3b72cba910a86ac094327bef9207f2640ad082ae3455d",
+      "currentSha256": "e52830cf109573d08ea13e5d919c207a1a5d38d9551c0f264cfdf1fa9eb5d39e",
+      "status": "modified",
+      "rationale": "revalidate retained evidence; rebuilt",
+      "roleAuditReferences": [
+        "roles/contributor-document-audit.json",
+        "evidence/engineering-file-audit.json"
+      ]
+    },
+    {
+      "path": "evidence/member-peer-review-results.json",
+      "baselineSha256": "fd30ee098cbc58d6be254df06da996c97cfc910b700d34aeb82a31ee77082cc7",
+      "currentSha256": "a03f2dcbf70cac06553aec4bbfe351c952d7935ee4b3afa45d3e9794c2571c21",
+      "status": "modified",
+      "rationale": "replace",
+      "roleAuditReferences": [
+        "evidence/member-file-audit.json"
+      ]
+    },
+    {
+      "path": "evidence/member-peer-review.mjs",
+      "baselineSha256": "f821b79e9c77683e2ea9fed451fd83c77b7c07b7bf66816619b2d94e3136e585",
+      "currentSha256": "b8cd7e42036ebd464e955910f903663d1454fa437b866c6f443731d815c4c6f6",
+      "status": "modified",
+      "rationale": "replace",
+      "roleAuditReferences": [
+        "evidence/member-file-audit.json"
+      ]
+    },
+    {
+      "path": "evidence/member-review-phone-390.png",
+      "baselineSha256": "92d6ef0a65caf0cea4b30dba40fedd8fb385b0e083d70f0529cf272517575a12",
+      "currentSha256": "a6d79bcc21c4a23ab9808736b70224c338ad7ae61816559c2fe226a184197cf4",
+      "status": "modified",
+      "rationale": "replace",
+      "roleAuditReferences": [
+        "evidence/member-file-audit.json"
+      ]
+    },
+    {
+      "path": "evidence/member-review-reader-390.png",
+      "baselineSha256": "dc01543ecb4af831f06f409f94587a643f06d9d0e5a28269628f110b1990e3b6",
+      "currentSha256": "b72bc1439dc244301df5da06d83063f66cd9e96298a84c3c7b59e2bf4fc08879",
+      "status": "modified",
+      "rationale": "replace",
+      "roleAuditReferences": [
+        "evidence/member-file-audit.json"
+      ]
+    },
+    {
+      "path": "evidence/member-review-share-390.png",
+      "baselineSha256": "cc7e2ea7025d803134ca14c723483a1492f2a2704fb109a7e76ad3e4eaf86b53",
+      "currentSha256": "5dfa2d6b497ea2929ec34c8c281cf70bb84d9c58b698bad2c27b8d573a5f759c",
+      "status": "modified",
+      "rationale": "replace",
+      "roleAuditReferences": [
+        "evidence/member-file-audit.json"
+      ]
+    },
+    {
+      "path": "evidence/synthetic-deck-1.png",
+      "baselineSha256": "742b701e18a13ad9fa8062254a36072422c1c7c9eb5dbaa8cc57de4d2d5c63ce",
+      "currentSha256": "742b701e18a13ad9fa8062254a36072422c1c7c9eb5dbaa8cc57de4d2d5c63ce",
+      "status": "unchanged",
+      "rationale": "retained-synthetic-export-only",
+      "roleAuditReferences": [
+        "evidence/engineering-file-audit.json"
+      ]
+    },
+    {
+      "path": "evidence/synthetic-deck-2.png",
+      "baselineSha256": "3492006ef15d7e929b8ebd59ad2a247418b73ced2b2600030ab6ccdd06e69bb7",
+      "currentSha256": "3492006ef15d7e929b8ebd59ad2a247418b73ced2b2600030ab6ccdd06e69bb7",
+      "status": "unchanged",
+      "rationale": "retained-synthetic-export-only",
+      "roleAuditReferences": [
+        "evidence/engineering-file-audit.json"
+      ]
+    },
+    {
+      "path": "evidence/synthetic-deck-3.png",
+      "baselineSha256": "d87345134ab3cc33bcdf46b7a0ae3660e8cdb56f0d243ddc67b6c44819633724",
+      "currentSha256": "d87345134ab3cc33bcdf46b7a0ae3660e8cdb56f0d243ddc67b6c44819633724",
+      "status": "unchanged",
+      "rationale": "retained-synthetic-export-only",
+      "roleAuditReferences": [
+        "evidence/engineering-file-audit.json"
+      ]
+    },
+    {
+      "path": "evidence/synthetic-fixtures/sermon-notes.docx",
+      "baselineSha256": "2ca12a41e2b62581e01e65824f5c8db66f5f6ac41a8e8d2e164a1fb1c318e11c",
+      "currentSha256": "2ca12a41e2b62581e01e65824f5c8db66f5f6ac41a8e8d2e164a1fb1c318e11c",
+      "status": "unchanged",
+      "rationale": "retained-minimal-fixture-only",
+      "roleAuditReferences": [
+        "evidence/engineering-file-audit.json"
+      ]
+    },
+    {
+      "path": "evidence/synthetic-fixtures/study-context.xlsx",
+      "baselineSha256": "1c3dd854ca9e458524d6a614e76feec8f4904d10a032b720b740142b2689f264",
+      "currentSha256": "1c3dd854ca9e458524d6a614e76feec8f4904d10a032b720b740142b2689f264",
+      "status": "unchanged",
+      "rationale": "retained-minimal-fixture-only",
+      "roleAuditReferences": [
+        "evidence/engineering-file-audit.json"
+      ]
+    },
+    {
+      "path": "items/01-cowriter-context-inputs.md",
+      "baselineSha256": "bfc6b00c45aab506f27a07122429f9882d00c248a4b809c6715c1168da6003f6",
+      "currentSha256": "2d763f198b8831683e2cbe6726dd207477fb244de98dcdcf7498e0872ffc9f3b",
+      "status": "modified",
+      "rationale": "Fully reassessed and rewritten for the revised four decisions and their downstream effect; current scope/gates explicit.",
+      "roleAuditReferences": [
+        "roles/contributor-document-audit.json"
+      ]
+    },
+    {
+      "path": "items/02-social-sharing.md",
+      "baselineSha256": "3ef3f07d018b9d5cad8226eabcc2a32b21b2e757985fe07a38a8b1435a764f72",
+      "currentSha256": "65b7f5a1874b5bb0fdfe798f59523464c76b6dd94753a972e1e5303c80447bb9",
+      "status": "modified",
+      "rationale": "Fully reassessed and rewritten for the revised four decisions and their downstream effect; current scope/gates explicit.",
+      "roleAuditReferences": [
+        "roles/contributor-document-audit.json"
+      ]
+    },
+    {
+      "path": "items/03-real-cowriter-demonstration.md",
+      "baselineSha256": "a16ad0c5de9e034f2f3d9dfde76725141b64527cc4cf5a30aa7553d496e3279f",
+      "currentSha256": "8aaae7de51a85fca6be5f16363c01ffb77bc420e7c67a54dd830d9bb0618cb2d",
+      "status": "modified",
+      "rationale": "Fully reassessed and rewritten for the revised four decisions and their downstream effect; current scope/gates explicit.",
+      "roleAuditReferences": [
+        "roles/contributor-document-audit.json"
+      ]
+    },
+    {
+      "path": "items/04-compact-contributor-workspace.md",
+      "baselineSha256": "179c983bfa50e311f6e3a11965853cef35860046ecec5193803ac6a34f4b0456",
+      "currentSha256": "9b4d9f2d8f42ae63c3e98db9e289d05374b83fc6cd6efdfd7ef441a2598d5b8f",
+      "status": "modified",
+      "rationale": "Fully reassessed and rewritten for the revised four decisions and their downstream effect; current scope/gates explicit.",
+      "roleAuditReferences": [
+        "roles/contributor-document-audit.json"
+      ]
+    },
+    {
+      "path": "items/05-studio-creator.md",
+      "baselineSha256": "59e7d3fe8af0798d003527c6c7f0e16929717ee8f972555b5adb63809fbc22eb",
+      "currentSha256": "4415b043e33c6348d7cbb10a10bdcd87ecaa39249a97f4c37cad05d00a665694",
+      "status": "modified",
+      "rationale": "Fully reassessed and rewritten for the revised four decisions and their downstream effect; current scope/gates explicit.",
+      "roleAuditReferences": [
+        "roles/contributor-document-audit.json"
+      ]
+    },
+    {
+      "path": "items/06-member-access.md",
+      "baselineSha256": "3755473544f770130757a41698dae93f7cf97395093cd8f9c88e4b7f1ba619e7",
+      "currentSha256": "379918b80799edf7bdffd567276adb5c433bce8ca51dccfecd1d5c6e5742dbfb",
+      "status": "modified",
+      "rationale": "Fully reassessed and rewritten for the revised four decisions and their downstream effect; current scope/gates explicit.",
+      "roleAuditReferences": [
+        "roles/contributor-document-audit.json"
+      ]
+    },
+    {
+      "path": "items/07-approval-conversation.md",
+      "baselineSha256": "2e11c28d5fe21c527360eecb00e3f3ac78c328563aa7b70cc86a56b4fd9c9954",
+      "currentSha256": "32917268caa3026758103065c487d9cb3f7ff18d3381ad90989cc9f5945bbe05",
+      "status": "modified",
+      "rationale": "rewrite interaction and retain proven trace",
+      "roleAuditReferences": [
+        "roles/contributor-document-audit.json"
+      ]
+    },
+    {
+      "path": "mockups/app.js",
+      "baselineSha256": "838cb7b9074828acc7badcfaabc339ac9c0a737a28a7850387926dc20cb3fdf8",
+      "currentSha256": "08b0e4a147a2534290988025c491ffacbdc650e5e186d5844dd17de3b7b89abd",
+      "status": "modified",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/assets/member-home.webp",
+      "baselineSha256": "59b34c01449497d6d2cf31e642cd306c24973a0a5921eaf00d96cc89515eea49",
+      "currentSha256": "59b34c01449497d6d2cf31e642cd306c24973a0a5921eaf00d96cc89515eea49",
+      "status": "unchanged",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/assets/member-study.webp",
+      "baselineSha256": "0aa2f97bc99202ab9da4c2198587336057d636f2a1eca97516056562c06f8c07",
+      "currentSha256": "0aa2f97bc99202ab9da4c2198587336057d636f2a1eca97516056562c06f8c07",
+      "status": "unchanged",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/assets/team-editor.webp",
+      "baselineSha256": "c8a80237e34c798e4f62cfe2f5c3bd2a3a9e23927d7937f756dfce2030a8af61",
+      "currentSha256": "c8a80237e34c798e4f62cfe2f5c3bd2a3a9e23927d7937f756dfce2030a8af61",
+      "status": "unchanged",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/browser-validation.json",
+      "baselineSha256": "735a097a35b44027d3dff4d161a71955612c7e188360a709d2c94cf9bb588729",
+      "currentSha256": "735a097a35b44027d3dff4d161a71955612c7e188360a709d2c94cf9bb588729",
+      "status": "unchanged",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/capture.mjs",
+      "baselineSha256": "4ae7a99edabc43b5f638d1cd0bd06386ce18ab940027a558fc4b6a32d7dd14c4",
+      "currentSha256": "4ae7a99edabc43b5f638d1cd0bd06386ce18ab940027a558fc4b6a32d7dd14c4",
+      "status": "unchanged",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/00-storyboard.png",
+      "baselineSha256": "d60b816dc37edaa5567562b0de74c8550bd67ee31dbddb6680976d23a9614cb7",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/01-workspace-overview.png",
+      "baselineSha256": "194d9b4827356979e5c33a57c58c14621823eabac8dedfd5942dfbe201c9d506",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/02-source-word-review.png",
+      "baselineSha256": "4cb933ddb18d791c665c877bdb11b6da4a3d8080aa0104f960ab18a1e55826bc",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/03-source-website-review.png",
+      "baselineSha256": "e2c0f09d223ff40aa313a2beadc0decdea227654b3bcab04d5bb898c6f750f92",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/04-source-youtube-review.png",
+      "baselineSha256": "78f7dd90d573caa95926dcdd1f99ba6cfb50a537923e6e48430901d17d146965",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/05-source-excel-review.png",
+      "baselineSha256": "aadc676b2cc6d5c6a4aefcd969533c7e0d833fd99870facd79e8f2cf6b9033aa",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/06-source-empty.png",
+      "baselineSha256": "cfd18233474c0ad02ff3027c0d1c3ee4e72f0892d9db9c6a9f185a9874e6bfb4",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/07-source-error.png",
+      "baselineSha256": "fa20f9b755291fd52d45133eefff9bf5c500540ec4cfcd3d16d43f13d8e21dcf",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/08-cowriter-proposal.png",
+      "baselineSha256": "795060ab390c21fe3ff21e5202f40375086aa5bf3b20abdc29df4e13e8e65f50",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/09-deck-author.png",
+      "baselineSha256": "016c5c3a94489be1ac2ffd160ff71c55d4989a8a1d4e175a6996c5d45709de1a",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/10-deck-approval.png",
+      "baselineSha256": "235e306811fa1bb570785787a5f115d3c5953bb2773265d0c78a867e1198ecd4",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/11-deck-stale.png",
+      "baselineSha256": "da3375bb72ee85f7814d27ae3766d8d9e61869fd5243af975d3cf9c246796812",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/12-homepage-demo.png",
+      "baselineSha256": "c07727024bee0a0c012623628ab6e9897340cf30c69f2bfd95ae735cb24f8e83",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/13-studio-diagram.png",
+      "baselineSha256": "c3949bfe6576cac95caedd78689b13983df04a8f67a825b4f48c47fed3c01764",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/14-studio-chart.png",
+      "baselineSha256": "d2aaf73ad78b732ab2af709bdd8fb819aa85ec8bf3865573fd6fe4373bc9c5c2",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/15-studio-video-empty.png",
+      "baselineSha256": "3b370bd64c7bfdb8ec68ccbb06698544703ebcf1ff04eeadb6b6ada177369eb6",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/16-immersive-preview.png",
+      "baselineSha256": "bda80318dfae162d62e6e1e44846c7eee03e8bbcee3d533d2dff02df89abdbf3",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/17-review-conversation.png",
+      "baselineSha256": "23140fc4898b64e3cbb73af4b9c2fae269f6c725a1702d1b84efc50201c3c608",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/18-church-qr.png",
+      "baselineSha256": "3f0a29489b8d8bad1504557b46a7e09a01a5abeb558626bd2ec930fc3b1dd3b7",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/19-phone-welcome.png",
+      "baselineSha256": "6fe386ae4218149c2786645f96d65ddb481b61d060ca7a6bce95143c95495f4b",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/20-phone-verification.png",
+      "baselineSha256": "cfcc92826c62c4114d4d62806acd07daf690f716b869ec6dc4fffb92d2bebdef",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/21-phone-code-expired.png",
+      "baselineSha256": "0c281c0c299af1c93617c107e91648cbe3d779014692490d59d6275727269b43",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/22-phone-confirm-name.png",
+      "baselineSha256": "b33a9efbfb86337bb9e941e31e8d5bf5b5d0cfb6495e6c8f353b25a3918db433",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/23-phone-church-choice.png",
+      "baselineSha256": "1dc4ac7cc6c630a187b42036684bc6273cfb1240ebd4a72d21b4e3ea71e282e2",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/24-phone-enrollment.png",
+      "baselineSha256": "595dffe69db9dcd90f31e5893b1f50bef9a6592e7468b5e515efe1003451f5d6",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/25-phone-pending.png",
+      "baselineSha256": "1f11fd978e4b280dda0639b2f1f9dd4bedb84d950bb7101ca277a28140eb8291",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/26-phone-identity-conflict.png",
+      "baselineSha256": "b7f7d5fb9bc5fdd0325818dfef81d5965b190a6158350f205f79ee4985f65424",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/27-phone-reading-home.png",
+      "baselineSha256": "1830939730d8aa9ca894e669e2ac1e18dbaaa13d52551a0a40496790c5040f2f",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/28-member-reading.png",
+      "baselineSha256": "56e627e1926e2d6fcddfc6a161cf04c1bfbc33952416252d79a2e806dcf012e0",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/29-member-share.png",
+      "baselineSha256": "9285b3c5d9306f9403542a56b81a849aca12fa9981110118731cf88b2d5c5861",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/30-member-share-options.png",
+      "baselineSha256": "3ce2b3e46b41485f90d25204c2714cd9d0e0eddb5a712836b9edbb3b5fb8040e",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/31-mobile-workspace.png",
+      "baselineSha256": "3b0cc24f54774335819336cc74518389d805520a5a6794103df85f2c3727d08a",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/32-mobile-studio.png",
+      "baselineSha256": "9a1a7857ac8fb705c7701db333f2697bf8bde97b4672e676074da38bf068e501",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/33-mobile-demo.png",
+      "baselineSha256": "cd308ee1eafe097c54ab2c5aef2ed049bcbe89b194feb030d63f1523b0ba9dda",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/34-mobile-review.png",
+      "baselineSha256": "9f810a6f130e7745346a0280096274ebfda27ffc4aac47c19fed939a015dc5a8",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/35-compact-source-first-view.png",
+      "baselineSha256": "22d9f351c03b62e34ff8bd68e2642a6abf6dba4fb89d611fced9f8ab6edd0379",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/36-compact-studio-first-view.png",
+      "baselineSha256": "3072ff0963cf8ee5078999a51f581a92ef9c971640303bd3a8dadb2e2b6ddcb0",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures/37-compact-review-first-view.png",
+      "baselineSha256": "5d844006241ab90ec5ba39b3492704a6affb0a27c2f80e16957f06a4b202632f",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/captures-manifest.json",
+      "baselineSha256": "6a2837796c7befcb0f802cc0bc096e179ff66c8530eb072d48986d652073f4d9",
+      "currentSha256": "6a2837796c7befcb0f802cc0bc096e179ff66c8530eb072d48986d652073f4d9",
+      "status": "unchanged",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/export-deck.mjs",
+      "baselineSha256": "fceebd37d90dfd91ccfbf47fa3a2c90da5784809e0eaba5d9a66a4bee5e885d1",
+      "currentSha256": "fceebd37d90dfd91ccfbf47fa3a2c90da5784809e0eaba5d9a66a4bee5e885d1",
+      "status": "unchanged",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/exports/accessible-caption.txt",
+      "baselineSha256": "df48ca6c3502684c7f37b52a83bf79c828c26d4fbf8900793cdf375d37b7852f",
+      "currentSha256": "df48ca6c3502684c7f37b52a83bf79c828c26d4fbf8900793cdf375d37b7852f",
+      "status": "unchanged",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/exports/grace-rooted-card-1.png",
+      "baselineSha256": "c0b93d6a72525f99698b96ea8a6fba6e9711668042452ea676df60bebd625a47",
+      "currentSha256": "c0b93d6a72525f99698b96ea8a6fba6e9711668042452ea676df60bebd625a47",
+      "status": "unchanged",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/exports/grace-rooted-card-2.png",
+      "baselineSha256": "0750dc69a93c6ece4e1dadf650e1e3bf14c3e88cc9f76a8e861b7b1a2539e75b",
+      "currentSha256": "0750dc69a93c6ece4e1dadf650e1e3bf14c3e88cc9f76a8e861b7b1a2539e75b",
+      "status": "unchanged",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/exports/grace-rooted-card-3.png",
+      "baselineSha256": "da8e9158726968603f2e8a2966f14891d3016d4c8107720215e44bd8359ab27d",
+      "currentSha256": "da8e9158726968603f2e8a2966f14891d3016d4c8107720215e44bd8359ab27d",
+      "status": "unchanged",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/exports/grace-rooted-card-4.png",
+      "baselineSha256": "cfd159a26e67d9f2b2416e4d62dc41ec58e52e58a0bdff4e78b05de2ab48af37",
+      "currentSha256": "cfd159a26e67d9f2b2416e4d62dc41ec58e52e58a0bdff4e78b05de2ab48af37",
+      "status": "unchanged",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/finalize-block-renderer.mjs",
+      "baselineSha256": "ed1670d98500edd6812d8643664400e0fdb79be3bccf7e95b7d175e5af8f0fc3",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/index.html",
+      "baselineSha256": "534a4038b143b67b8a7a585df27b6bcff3ea564d85407fbcd65d479259894b9f",
+      "currentSha256": "37b6150dd15949f31f5384431201b5293f50edd242e884358e5b98fc2b0e32da",
+      "status": "modified",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/keyboard-check.mjs",
+      "baselineSha256": "d85545db5c95ae210315e156fb3c03e35857ca5700963eb43c9fc0389fdf0c0c",
+      "currentSha256": "d85545db5c95ae210315e156fb3c03e35857ca5700963eb43c9fc0389fdf0c0c",
+      "status": "unchanged",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/keyboard-focus-validation.json",
+      "baselineSha256": "e0debe0318d3a35944f3d595bb62266a94ef91086b057119dcefe5c96b330c3e",
+      "currentSha256": "e0debe0318d3a35944f3d595bb62266a94ef91086b057119dcefe5c96b330c3e",
+      "status": "unchanged",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/README.md",
+      "baselineSha256": "a11daa3e40220c523f53ff364f0d8cd4271a7fd80ef0208bbd3222d5d199e95a",
+      "currentSha256": "a11daa3e40220c523f53ff364f0d8cd4271a7fd80ef0208bbd3222d5d199e95a",
+      "status": "unchanged",
+      "rationale": "rewrite guide and manifest",
+      "roleAuditReferences": [
+        "roles/contributor-document-audit.json"
+      ]
+    },
+    {
+      "path": "mockups/refine-member-flow.mjs",
+      "baselineSha256": "dc5594bf9ca6e242de3d1faf871d9b853d358618d04c5f85ac422103dfddbe2b",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/refine-workspace.mjs",
+      "baselineSha256": "750881a4eecbbd2628037453137a88177c5367df42a35e944d7d027e0ca1b378",
+      "currentSha256": null,
+      "status": "removed",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/serve.mjs",
+      "baselineSha256": "74fd710460dfbe3891be7e24161c08c68227a6af413ab7a63f5b61c125ccc41e",
+      "currentSha256": "fef766740cc6f89408bdfe3e9266566520a24815d57e1f08643f6571608ca629",
+      "status": "modified",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "mockups/styles.css",
+      "baselineSha256": "05eb03b52b5193b0210590068193b9683e2f07b55069d50424d24dc991060690",
+      "currentSha256": "812fb65f2fe1af0eb6362df641be614f2c008715d87f5473b39c74e867abfa43",
+      "status": "modified",
+      "rationale": "Reassessed against revised scope; inspect content-change status and role audit evidence.",
+      "roleAuditReferences": []
+    },
+    {
+      "path": "README.md",
+      "baselineSha256": "e3c477969d35bc9cfd6991038df5f2c4dba8e4781f47674e8d3fa7dfc83b6192",
+      "currentSha256": "18ffee3289e6435c4299598e5295d0ecaa7d7ebeac9e1c0067b8670a22930a2e",
+      "status": "modified",
+      "rationale": "Rebuilt entry point, four decisions, new visual links and evidence boundaries.",
+      "roleAuditReferences": [
+        "roles/contributor-document-audit.json"
+      ]
+    },
+    {
+      "path": "RESEARCH_CHARTER.md",
+      "baselineSha256": "5a9e1b6dc35b409d27ac0a289fd363f58c3010564d91cf34599d52f86f11f2ac",
+      "currentSha256": "24588d5562788175aa7f52a821376e837b02f7e4090244cc249288db759eaa59",
+      "status": "modified",
+      "rationale": "Reopened scope and all-file reassessment; removed separate-creator/manual-play assumptions.",
+      "roleAuditReferences": [
+        "roles/contributor-document-audit.json"
+      ]
+    },
+    {
+      "path": "roles/church-member-assessment.md",
+      "baselineSha256": "127b9265458ac63f93e2e9951ce5bc4b71bc0b1000713b8ac9b93839f7ee7c68",
+      "currentSha256": "ac6bca08d1a33bbcc1c65817b5bf44d030bdd9b0d41c44114f720295491e8bc3",
+      "status": "modified",
+      "rationale": "reassess member impact; replace",
+      "roleAuditReferences": [
+        "roles/contributor-document-audit.json",
+        "evidence/member-file-audit.json"
+      ]
+    },
+    {
+      "path": "roles/contributor-assessment.md",
+      "baselineSha256": "88f704a3b2a2f42dffdbcbacd69fba78ddf9f2b8e1307206f74d7cddc528d445",
+      "currentSha256": "f23bb232ae1c102205c8c7bc008a09f6eed854159a6fb105a57cb9918559960d",
+      "status": "modified",
+      "rationale": "rewrite owned",
+      "roleAuditReferences": [
+        "roles/contributor-document-audit.json"
+      ]
+    },
+    {
+      "path": "roles/contributor-peer-review.md",
+      "baselineSha256": "cad1c0f7592cf17aac51fc9db898c7b314a769f2504a6e6cf31f9fc8f82bb2a3",
+      "currentSha256": "980f99205c4550c89569d3927b96a5f5d22bbfe525ce6c19d99ac33b94b08762",
+      "status": "modified",
+      "rationale": "rewrite owned pending newimages",
+      "roleAuditReferences": [
+        "roles/contributor-document-audit.json"
+      ]
+    },
+    {
+      "path": "roles/data-engineer-assessment.md",
+      "baselineSha256": "6590344f0b4552c4699480fe883afe691c03618a35cd79bdb9bb924c6e906528",
+      "currentSha256": "5be346586bd2f6b3af428818e3ae28012c8a713d19a12c37fa5d4f9d28c4265d",
+      "status": "modified",
+      "rationale": "reassess allseven; rebuilt",
+      "roleAuditReferences": [
+        "roles/contributor-document-audit.json",
+        "evidence/engineering-file-audit.json"
+      ]
+    },
+    {
+      "path": "roles/engineering-peer-review.md",
+      "baselineSha256": "3a9ce823a755850df6fe0c85a25a405a84d43a68359f1f0b2460a4fc438c6bce",
+      "currentSha256": "a1e4b7d44ef1e3f48d199e67099c059c13d8d63d215cf4d1c7ae70cebcf7e406",
+      "status": "modified",
+      "rationale": "replace active signoff; rebuilt",
+      "roleAuditReferences": [
+        "roles/contributor-document-audit.json",
+        "evidence/engineering-file-audit.json"
+      ]
+    },
+    {
+      "path": "roles/ux-assessment.md",
+      "baselineSha256": "68e0a5da73bb5b2784cd41c5e1c7216b8c8541b158d6423878eba58936ed828d",
+      "currentSha256": "68e0a5da73bb5b2784cd41c5e1c7216b8c8541b158d6423878eba58936ed828d",
+      "status": "unchanged",
+      "rationale": "rewrite model and proof",
+      "roleAuditReferences": [
+        "roles/contributor-document-audit.json"
+      ]
+    },
+    {
+      "path": "SOURCES.md",
+      "baselineSha256": "06a3d0378dca73021950288a6f14900673f48a29c4d1bc53406ff1142fdbff33",
+      "currentSha256": "050a0308db3f57f7acb19a20a0cd25fb9909ad4d9c12604837e39ae523b2690d",
+      "status": "modified",
+      "rationale": "Primary-source register rebuilt around NotebookLM, Word/Canva, framework licensing and playback policies.",
+      "roleAuditReferences": [
+        "roles/contributor-document-audit.json"
+      ]
+    },
+    {
+      "path": "VALIDATION.md",
+      "baselineSha256": "89494d95b38018b7202f1cce928a51407c89eb048eb687cc567b03383e544671",
+      "currentSha256": "89494d95b38018b7202f1cce928a51407c89eb048eb687cc567b03383e544671",
+      "status": "unchanged",
+      "rationale": "Replaced old current-UI signoff with dated reruns and fresh peer checks; historical proof explicitly scoped.",
+      "roleAuditReferences": [
+        "roles/contributor-document-audit.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "runId": "e5b8a52915ed4c3ba31cd43b",
+  "startedAt": "2026-10-19T14:04:37.623Z",
+  "status": "failed",
+  "envelope": {
+    "tenants": 20,
+    "membersPerTenant": 500,
+    "editorsPerTenant": 2,
+    "studiesPerTenant": 3,
+    "readersPerBurst": 2000,
+    "readBursts": 2,
+    "saveChains": 40,
+    "savesPerChain": 5
+  },
+  "fullReaderEnvelope": true,
+  "environment": {
+    "node": "v24.11.1",
+    "os": "win32 10.0.26200",
+    "cpu": "11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz",
+    "logicalCpus": 8,
+    "memoryBytes": 16806072320,
+    "runtimePoolMax": 12,
+    "postgres": "PostgreSQL 17.2 on x86_64-windows, compiled by msvc-19.42.34435, 64-bit"
+  },
+  "databases": [
+    "gather_load_e5b8a52915ed4c3ba31cd43b",
+    "gather_restore_e5b8a52915ed4c3ba31cd43b"
+  ],
+  "metrics": {},
+  "errors": [
+    "POST /plans/4e1c5b7f-2235-4b9a-b2e3-6e640fd3a4ca/revisions: {\"code\":\"not_assigned\",\"message\":\"Only assigned contributors can edit this day\",\"requestId\":\"req-27\"}\n\n403 !== 201\n"
+  ],
+  "limits": [
+    "Single host with HTTP client, API and PostgreSQL sharing resources",
+    "Synthetic sessions bypass OIDC issuance; real authentication, CSRF, membership and RLS execute",
+    "Controlled due clock; publication includes worker/database and HTTP visibility, excludes production polling delay",
+    "No cloud availability, regional RPO/RTO, external object/key recovery, SMS/AI throughput or accessibility proof"
+  ],
+  "cleanup": [
+    {
+      "database": "gather_load_e5b8a52915ed4c3ba31cd43b",
+      "dropped": true
+    }
+  ],
+  "elapsedMs": 77952.9245
+}

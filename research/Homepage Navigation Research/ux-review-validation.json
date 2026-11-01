@@ -1,0 +1,1081 @@
+{
+  "layouts": [
+    {
+      "width": 1440,
+      "height": 900,
+      "file": "index",
+      "scrollHeight": 900,
+      "overflow": false,
+      "menu": false,
+      "h1": {
+        "top": 207,
+        "bottom": 418,
+        "left": 140,
+        "right": 690
+      },
+      "firstAction": {
+        "top": 547,
+        "bottom": 593,
+        "left": 140,
+        "right": 391
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "file": "why-rooted",
+      "scrollHeight": 1017,
+      "overflow": false,
+      "menu": false,
+      "h1": {
+        "top": 207,
+        "bottom": 324,
+        "left": 140,
+        "right": 1300
+      },
+      "firstAction": {
+        "top": 515,
+        "bottom": 559,
+        "left": 788,
+        "right": 884
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "file": "how-it-works",
+      "scrollHeight": 914,
+      "overflow": false,
+      "menu": false,
+      "h1": {
+        "top": 207,
+        "bottom": 265,
+        "left": 140,
+        "right": 1300
+      },
+      "firstAction": {
+        "top": 338,
+        "bottom": 382,
+        "left": 144,
+        "right": 242
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "file": "ai-co-writer",
+      "scrollHeight": 961,
+      "overflow": false,
+      "menu": false,
+      "h1": {
+        "top": 207,
+        "bottom": 324,
+        "left": 140,
+        "right": 1300
+      },
+      "firstAction": {
+        "top": 515,
+        "bottom": 559,
+        "left": 780,
+        "right": 886
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "file": "power-of-four",
+      "scrollHeight": 929,
+      "overflow": false,
+      "menu": false,
+      "h1": {
+        "top": 207,
+        "bottom": 324,
+        "left": 140,
+        "right": 1300
+      },
+      "firstAction": {
+        "top": 800,
+        "bottom": 844,
+        "left": 750,
+        "right": 901
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "file": "questions",
+      "scrollHeight": 900,
+      "overflow": false,
+      "menu": false,
+      "h1": {
+        "top": 207,
+        "bottom": 265,
+        "left": 140,
+        "right": 1300
+      },
+      "firstAction": {
+        "top": 520,
+        "bottom": 539,
+        "left": 300,
+        "right": 412
+      }
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "file": "index",
+      "scrollHeight": 768,
+      "overflow": false,
+      "menu": false,
+      "h1": {
+        "top": 174,
+        "bottom": 361,
+        "left": 103,
+        "right": 658
+      },
+      "firstAction": {
+        "top": 484,
+        "bottom": 530,
+        "left": 103,
+        "right": 354
+      }
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "file": "why-rooted",
+      "scrollHeight": 949,
+      "overflow": false,
+      "menu": false,
+      "h1": {
+        "top": 178,
+        "bottom": 277,
+        "left": 103,
+        "right": 1263
+      },
+      "firstAction": {
+        "top": 460,
+        "bottom": 504,
+        "left": 751,
+        "right": 847
+      }
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "file": "how-it-works",
+      "scrollHeight": 855,
+      "overflow": false,
+      "menu": false,
+      "h1": {
+        "top": 178,
+        "bottom": 227,
+        "left": 103,
+        "right": 1263
+      },
+      "firstAction": {
+        "top": 292,
+        "bottom": 336,
+        "left": 107,
+        "right": 205
+      }
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "file": "ai-co-writer",
+      "scrollHeight": 870,
+      "overflow": false,
+      "menu": false,
+      "h1": {
+        "top": 178,
+        "bottom": 277,
+        "left": 103,
+        "right": 1263
+      },
+      "firstAction": {
+        "top": 428,
+        "bottom": 472,
+        "left": 743,
+        "right": 849
+      }
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "file": "power-of-four",
+      "scrollHeight": 874,
+      "overflow": false,
+      "menu": false,
+      "h1": {
+        "top": 178,
+        "bottom": 277,
+        "left": 103,
+        "right": 1263
+      },
+      "firstAction": {
+        "top": 745,
+        "bottom": 789,
+        "left": 713,
+        "right": 864
+      }
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "file": "questions",
+      "scrollHeight": 789,
+      "overflow": false,
+      "menu": false,
+      "h1": {
+        "top": 178,
+        "bottom": 227,
+        "left": 103,
+        "right": 1263
+      },
+      "firstAction": {
+        "top": 474,
+        "bottom": 493,
+        "left": 263,
+        "right": 375
+      }
+    },
+    {
+      "width": 1101,
+      "height": 768,
+      "file": "index",
+      "scrollHeight": 768,
+      "overflow": false,
+      "menu": false,
+      "h1": {
+        "top": 174,
+        "bottom": 361,
+        "left": 44,
+        "right": 526
+      },
+      "firstAction": {
+        "top": 484,
+        "bottom": 530,
+        "left": 44,
+        "right": 295
+      }
+    },
+    {
+      "width": 1101,
+      "height": 768,
+      "file": "why-rooted",
+      "scrollHeight": 949,
+      "overflow": false,
+      "menu": false,
+      "h1": {
+        "top": 178,
+        "bottom": 277,
+        "left": 44,
+        "right": 1057
+      },
+      "firstAction": {
+        "top": 460,
+        "bottom": 504,
+        "left": 618,
+        "right": 714
+      }
+    },
+    {
+      "width": 1101,
+      "height": 768,
+      "file": "how-it-works",
+      "scrollHeight": 855,
+      "overflow": false,
+      "menu": false,
+      "h1": {
+        "top": 178,
+        "bottom": 227,
+        "left": 44,
+        "right": 1057
+      },
+      "firstAction": {
+        "top": 292,
+        "bottom": 336,
+        "left": 48,
+        "right": 146
+      }
+    },
+    {
+      "width": 1101,
+      "height": 768,
+      "file": "ai-co-writer",
+      "scrollHeight": 889,
+      "overflow": false,
+      "menu": false,
+      "h1": {
+        "top": 178,
+        "bottom": 277,
+        "left": 44,
+        "right": 1057
+      },
+      "firstAction": {
+        "top": 428,
+        "bottom": 472,
+        "left": 610,
+        "right": 717
+      }
+    },
+    {
+      "width": 1101,
+      "height": 768,
+      "file": "power-of-four",
+      "scrollHeight": 874,
+      "overflow": false,
+      "menu": false,
+      "h1": {
+        "top": 178,
+        "bottom": 277,
+        "left": 44,
+        "right": 1057
+      },
+      "firstAction": {
+        "top": 745,
+        "bottom": 789,
+        "left": 581,
+        "right": 731
+      }
+    },
+    {
+      "width": 1101,
+      "height": 768,
+      "file": "questions",
+      "scrollHeight": 789,
+      "overflow": false,
+      "menu": false,
+      "h1": {
+        "top": 178,
+        "bottom": 227,
+        "left": 44,
+        "right": 1057
+      },
+      "firstAction": {
+        "top": 474,
+        "bottom": 493,
+        "left": 388,
+        "right": 501
+      }
+    },
+    {
+      "width": 1100,
+      "height": 768,
+      "file": "index",
+      "scrollHeight": 768,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 152,
+        "bottom": 326,
+        "left": 28,
+        "right": 538
+      },
+      "firstAction": {
+        "top": 455,
+        "bottom": 501,
+        "left": 28,
+        "right": 279
+      }
+    },
+    {
+      "width": 1100,
+      "height": 768,
+      "file": "why-rooted",
+      "scrollHeight": 934,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 149,
+        "bottom": 240,
+        "left": 28,
+        "right": 1072
+      },
+      "firstAction": {
+        "top": 431,
+        "bottom": 475,
+        "left": 603,
+        "right": 699
+      }
+    },
+    {
+      "width": 1100,
+      "height": 768,
+      "file": "how-it-works",
+      "scrollHeight": 843,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 149,
+        "bottom": 194,
+        "left": 28,
+        "right": 1072
+      },
+      "firstAction": {
+        "top": 267,
+        "bottom": 311,
+        "left": 32,
+        "right": 130
+      }
+    },
+    {
+      "width": 1100,
+      "height": 768,
+      "file": "ai-co-writer",
+      "scrollHeight": 898,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 149,
+        "bottom": 240,
+        "left": 28,
+        "right": 1072
+      },
+      "firstAction": {
+        "top": 431,
+        "bottom": 475,
+        "left": 595,
+        "right": 701
+      }
+    },
+    {
+      "width": 1100,
+      "height": 768,
+      "file": "power-of-four",
+      "scrollHeight": 846,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 149,
+        "bottom": 240,
+        "left": 28,
+        "right": 1072
+      },
+      "firstAction": {
+        "top": 716,
+        "bottom": 760,
+        "left": 568,
+        "right": 718
+      }
+    },
+    {
+      "width": 1100,
+      "height": 768,
+      "file": "questions",
+      "scrollHeight": 768,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 149,
+        "bottom": 194,
+        "left": 28,
+        "right": 1072
+      },
+      "firstAction": {
+        "top": 449,
+        "bottom": 468,
+        "left": 281,
+        "right": 394
+      }
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "file": "index",
+      "scrollHeight": 768,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 152,
+        "bottom": 326,
+        "left": 28,
+        "right": 500
+      },
+      "firstAction": {
+        "top": 455,
+        "bottom": 501,
+        "left": 28,
+        "right": 279
+      }
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "file": "why-rooted",
+      "scrollHeight": 927,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 149,
+        "bottom": 234,
+        "left": 28,
+        "right": 996
+      },
+      "firstAction": {
+        "top": 425,
+        "bottom": 469,
+        "left": 565,
+        "right": 661
+      }
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "file": "how-it-works",
+      "scrollHeight": 840,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 149,
+        "bottom": 191,
+        "left": 28,
+        "right": 996
+      },
+      "firstAction": {
+        "top": 264,
+        "bottom": 308,
+        "left": 32,
+        "right": 130
+      }
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "file": "ai-co-writer",
+      "scrollHeight": 891,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 149,
+        "bottom": 234,
+        "left": 28,
+        "right": 996
+      },
+      "firstAction": {
+        "top": 425,
+        "bottom": 469,
+        "left": 557,
+        "right": 663
+      }
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "file": "power-of-four",
+      "scrollHeight": 839,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 149,
+        "bottom": 234,
+        "left": 28,
+        "right": 996
+      },
+      "firstAction": {
+        "top": 710,
+        "bottom": 754,
+        "left": 530,
+        "right": 680
+      }
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "file": "questions",
+      "scrollHeight": 768,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 149,
+        "bottom": 191,
+        "left": 28,
+        "right": 996
+      },
+      "firstAction": {
+        "top": 446,
+        "bottom": 465,
+        "left": 372,
+        "right": 485
+      }
+    },
+    {
+      "width": 800,
+      "height": 900,
+      "file": "index",
+      "scrollHeight": 900,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 149,
+        "bottom": 323,
+        "left": 28,
+        "right": 388
+      },
+      "firstAction": {
+        "top": 452,
+        "bottom": 498,
+        "left": 28,
+        "right": 279
+      }
+    },
+    {
+      "width": 800,
+      "height": 900,
+      "file": "why-rooted",
+      "scrollHeight": 958,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 149,
+        "bottom": 230,
+        "left": 28,
+        "right": 772
+      },
+      "firstAction": {
+        "top": 455,
+        "bottom": 499,
+        "left": 453,
+        "right": 549
+      }
+    },
+    {
+      "width": 800,
+      "height": 900,
+      "file": "how-it-works",
+      "scrollHeight": 900,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 149,
+        "bottom": 189,
+        "left": 28,
+        "right": 772
+      },
+      "firstAction": {
+        "top": 262,
+        "bottom": 306,
+        "left": 32,
+        "right": 130
+      }
+    },
+    {
+      "width": 800,
+      "height": 900,
+      "file": "ai-co-writer",
+      "scrollHeight": 951,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 149,
+        "bottom": 230,
+        "left": 28,
+        "right": 772
+      },
+      "firstAction": {
+        "top": 420,
+        "bottom": 464,
+        "left": 445,
+        "right": 551
+      }
+    },
+    {
+      "width": 800,
+      "height": 900,
+      "file": "power-of-four",
+      "scrollHeight": 900,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 149,
+        "bottom": 230,
+        "left": 28,
+        "right": 772
+      },
+      "firstAction": {
+        "top": 770,
+        "bottom": 814,
+        "left": 418,
+        "right": 568
+      }
+    },
+    {
+      "width": 800,
+      "height": 900,
+      "file": "questions",
+      "scrollHeight": 900,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 149,
+        "bottom": 189,
+        "left": 28,
+        "right": 772
+      },
+      "firstAction": {
+        "top": 467,
+        "bottom": 486,
+        "left": 281,
+        "right": 394
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "file": "index",
+      "scrollHeight": 1244,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 135,
+        "bottom": 302,
+        "left": 20,
+        "right": 370
+      },
+      "firstAction": {
+        "top": 417,
+        "bottom": 463,
+        "left": 20,
+        "right": 370
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "file": "why-rooted",
+      "scrollHeight": 1449,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 135,
+        "bottom": 223,
+        "left": 20,
+        "right": 370
+      },
+      "firstAction": {
+        "top": 302,
+        "bottom": 346,
+        "left": 20,
+        "right": 156
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "file": "how-it-works",
+      "scrollHeight": 1238,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 135,
+        "bottom": 267,
+        "left": 20,
+        "right": 370
+      },
+      "firstAction": {
+        "top": 359,
+        "bottom": 403,
+        "left": 24,
+        "right": 116
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "file": "ai-co-writer",
+      "scrollHeight": 1448,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 135,
+        "bottom": 223,
+        "left": 20,
+        "right": 370
+      },
+      "firstAction": {
+        "top": 326,
+        "bottom": 370,
+        "left": 20,
+        "right": 184
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "file": "power-of-four",
+      "scrollHeight": 1331,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 135,
+        "bottom": 311,
+        "left": 20,
+        "right": 370
+      },
+      "firstAction": {
+        "top": 1181,
+        "bottom": 1225,
+        "left": 20,
+        "right": 171
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "file": "questions",
+      "scrollHeight": 1187,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 135,
+        "bottom": 223,
+        "left": 20,
+        "right": 370
+      },
+      "firstAction": {
+        "top": 566,
+        "bottom": 585,
+        "left": 68,
+        "right": 181
+      }
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "file": "index",
+      "scrollHeight": 1215,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 135,
+        "bottom": 280,
+        "left": 16,
+        "right": 304
+      },
+      "firstAction": {
+        "top": 420,
+        "bottom": 466,
+        "left": 16,
+        "right": 304
+      }
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "file": "why-rooted",
+      "scrollHeight": 1600,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 135,
+        "bottom": 267,
+        "left": 16,
+        "right": 304
+      },
+      "firstAction": {
+        "top": 346,
+        "bottom": 390,
+        "left": 16,
+        "right": 152
+      }
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "file": "how-it-works",
+      "scrollHeight": 1241,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 135,
+        "bottom": 267,
+        "left": 16,
+        "right": 304
+      },
+      "firstAction": {
+        "top": 384,
+        "bottom": 428,
+        "left": 20,
+        "right": 112
+      }
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "file": "ai-co-writer",
+      "scrollHeight": 1618,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 135,
+        "bottom": 267,
+        "left": 16,
+        "right": 304
+      },
+      "firstAction": {
+        "top": 370,
+        "bottom": 414,
+        "left": 16,
+        "right": 180
+      }
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "file": "power-of-four",
+      "scrollHeight": 1384,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 135,
+        "bottom": 311,
+        "left": 16,
+        "right": 304
+      },
+      "firstAction": {
+        "top": 1234,
+        "bottom": 1278,
+        "left": 16,
+        "right": 167
+      }
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "file": "questions",
+      "scrollHeight": 1251,
+      "overflow": false,
+      "menu": true,
+      "h1": {
+        "top": 135,
+        "bottom": 267,
+        "left": 16,
+        "right": 304
+      },
+      "firstAction": {
+        "top": 643,
+        "bottom": 662,
+        "left": 144,
+        "right": 257
+      }
+    }
+  ],
+  "interactions": [
+    {
+      "name": "800px expanded menu exposes all eight destinations",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Disclosure proceeds into visible navigation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Escape closes disclosure and restores toggle",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "320px menu links fit inside viewport width",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Navigation updates route and selected page",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Back restores source URL",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Forward restores target URL",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Keyboard switches AI example",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Keyboard switches week",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Team calendar reachable",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Skip link moves focus to main",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "1440px sign-in account destination exposes current page",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "1440px get-started account destination exposes current page",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "390px sign-in account destination exposes current page",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "390px get-started account destination exposes current page",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "320px sign-in account destination exposes current page",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "320px get-started account destination exposes current page",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "why-rooted mobile shortcut exposes target below header",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "why-rooted mobile shortcut moves focus to target",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "ai-co-writer mobile shortcut exposes target below header",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "ai-co-writer mobile shortcut moves focus to target",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Four differentiation points remain discoverable",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Scoped context and agreement detail remains discoverable",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

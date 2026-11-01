@@ -1,0 +1,301 @@
+{
+  "checkedAt": "2026-10-30T18:40:12.233Z",
+  "candidate": "http://127.0.0.1:3081",
+  "configuredPublicOrigin": "https://rooted-together.com",
+  "passed": true,
+  "results": [
+    {
+      "description": "/ returns HTTP 200",
+      "passed": true
+    },
+    {
+      "description": "/ has public title and description",
+      "passed": true
+    },
+    {
+      "description": "/ has correct production canonical and OpenGraph URL",
+      "passed": true
+    },
+    {
+      "description": "/ is indexable with production origin",
+      "passed": true
+    },
+    {
+      "description": "/ retains one main and H1",
+      "passed": true
+    },
+    {
+      "description": "/ excludes prototype UI copy",
+      "passed": true
+    },
+    {
+      "description": "/ mobile has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "description": "/why-rooted returns HTTP 200",
+      "passed": true
+    },
+    {
+      "description": "/why-rooted has public title and description",
+      "passed": true
+    },
+    {
+      "description": "/why-rooted has correct production canonical and OpenGraph URL",
+      "passed": true
+    },
+    {
+      "description": "/why-rooted is indexable with production origin",
+      "passed": true
+    },
+    {
+      "description": "/why-rooted retains one main and H1",
+      "passed": true
+    },
+    {
+      "description": "/why-rooted excludes prototype UI copy",
+      "passed": true
+    },
+    {
+      "description": "/why-rooted mobile has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "description": "/how-it-works returns HTTP 200",
+      "passed": true
+    },
+    {
+      "description": "/how-it-works has public title and description",
+      "passed": true
+    },
+    {
+      "description": "/how-it-works has correct production canonical and OpenGraph URL",
+      "passed": true
+    },
+    {
+      "description": "/how-it-works is indexable with production origin",
+      "passed": true
+    },
+    {
+      "description": "/how-it-works retains one main and H1",
+      "passed": true
+    },
+    {
+      "description": "/how-it-works excludes prototype UI copy",
+      "passed": true
+    },
+    {
+      "description": "/how-it-works mobile has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "description": "/ai-co-writer returns HTTP 200",
+      "passed": true
+    },
+    {
+      "description": "/ai-co-writer has public title and description",
+      "passed": true
+    },
+    {
+      "description": "/ai-co-writer has correct production canonical and OpenGraph URL",
+      "passed": true
+    },
+    {
+      "description": "/ai-co-writer is indexable with production origin",
+      "passed": true
+    },
+    {
+      "description": "/ai-co-writer retains one main and H1",
+      "passed": true
+    },
+    {
+      "description": "/ai-co-writer excludes prototype UI copy",
+      "passed": true
+    },
+    {
+      "description": "/ai-co-writer mobile has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "description": "/power-of-four returns HTTP 200",
+      "passed": true
+    },
+    {
+      "description": "/power-of-four has public title and description",
+      "passed": true
+    },
+    {
+      "description": "/power-of-four has correct production canonical and OpenGraph URL",
+      "passed": true
+    },
+    {
+      "description": "/power-of-four is indexable with production origin",
+      "passed": true
+    },
+    {
+      "description": "/power-of-four retains one main and H1",
+      "passed": true
+    },
+    {
+      "description": "/power-of-four excludes prototype UI copy",
+      "passed": true
+    },
+    {
+      "description": "/power-of-four mobile has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "description": "/questions returns HTTP 200",
+      "passed": true
+    },
+    {
+      "description": "/questions has public title and description",
+      "passed": true
+    },
+    {
+      "description": "/questions has correct production canonical and OpenGraph URL",
+      "passed": true
+    },
+    {
+      "description": "/questions is indexable with production origin",
+      "passed": true
+    },
+    {
+      "description": "/questions retains one main and H1",
+      "passed": true
+    },
+    {
+      "description": "/questions excludes prototype UI copy",
+      "passed": true
+    },
+    {
+      "description": "/questions mobile has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "description": "/get-started returns HTTP 200",
+      "passed": true
+    },
+    {
+      "description": "/get-started has public title and description",
+      "passed": true
+    },
+    {
+      "description": "/get-started has correct production canonical and OpenGraph URL",
+      "passed": true
+    },
+    {
+      "description": "/get-started is indexable with production origin",
+      "passed": true
+    },
+    {
+      "description": "/get-started retains one main and H1",
+      "passed": true
+    },
+    {
+      "description": "/get-started excludes prototype UI copy",
+      "passed": true
+    },
+    {
+      "description": "/sample-study returns HTTP 200",
+      "passed": true
+    },
+    {
+      "description": "/sample-study has public title and description",
+      "passed": true
+    },
+    {
+      "description": "/sample-study has correct production canonical and OpenGraph URL",
+      "passed": true
+    },
+    {
+      "description": "/sample-study is indexable with production origin",
+      "passed": true
+    },
+    {
+      "description": "/sample-study retains one main and H1",
+      "passed": true
+    },
+    {
+      "description": "/sample-study excludes prototype UI copy",
+      "passed": true
+    },
+    {
+      "description": "Robots explicitly allows all eight public pages",
+      "passed": true
+    },
+    {
+      "description": "Robots preserves the public allowlist boundary",
+      "passed": true
+    },
+    {
+      "description": "Robots allows the public application screenshot resources",
+      "passed": true
+    },
+    {
+      "description": "Sitemap contains all eight public routes",
+      "passed": true
+    },
+    {
+      "description": "Sitemap excludes private account/church/workspace paths",
+      "passed": true
+    },
+    {
+      "description": "/sign-in retains private cache/indexing headers",
+      "passed": true
+    },
+    {
+      "description": "/dashboard retains private cache/indexing headers",
+      "passed": true
+    },
+    {
+      "description": "/c/river-front-church-demo retains private cache/indexing headers",
+      "passed": true
+    },
+    {
+      "description": "member-home application screenshot is packaged",
+      "passed": true
+    },
+    {
+      "description": "member-study application screenshot is packaged",
+      "passed": true
+    },
+    {
+      "description": "team-dashboard application screenshot is packaged",
+      "passed": true
+    },
+    {
+      "description": "team-editor application screenshot is packaged",
+      "passed": true
+    },
+    {
+      "description": "team-calendar application screenshot is packaged",
+      "passed": true
+    },
+    {
+      "description": "Production-image tour hydrates and optimized calendar image decodes",
+      "passed": true
+    },
+    {
+      "description": "Production legacy link preserves the requested example",
+      "passed": true
+    },
+    {
+      "description": "Browser magnification is permitted",
+      "passed": true
+    },
+    {
+      "description": "Two-times reduced viewport reflows without clipping",
+      "passed": true
+    },
+    {
+      "description": "No browser runtime errors on the production marketing pages",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Candidate API target is Azure-internal and is not exercised locally.",
+    "Page-scale magnification and reduced-viewport reflow do not replace manual assistive-technology testing."
+  ]
+}

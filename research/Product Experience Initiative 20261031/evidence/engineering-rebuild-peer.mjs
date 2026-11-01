@@ -1,0 +1,41 @@
+import {chromium} from '@playwright/test';
+import {readFile,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+const base='http://127.0.0.1:3092',browser=await chromium.launch({channel:'msedge',headless:true});
+const page=await browser.newPage({viewport:{width:1366,height:900}}),checks=[],errors=[],external=[];
+page.on('pageerror',e=>errors.push(e.message));
+await page.route('**/*',r=>new URL(r.request().url()).origin===base?r.continue():(external.push(r.request().url()),r.abort()));
+const check=(name,pass,details)=>checks.push({name,pass,details}),go=q=>page.goto(base+'/?'+q);
+const order=()=>page.locator('[data-block]').evaluateAll(es=>es.map(e=>e.dataset.block));
+try{
+ await go('view=library');
+ check('Single Import action and error-source context disabled',await page.locator('[data-action="import"]').count()===1&&await page.locator('[data-context="s5"]').isDisabled());
+ await page.locator('[data-context="s3"]').check();await go('view=studio');
+ const context=await page.locator('.assistant-context').innerText();
+ check('Selected URL version/locator retained in assistant context',context.includes('https://teaching.example.org/abide')&&context.includes('v2')&&context.includes('article section 2'));
+ const before=await page.locator('[data-edit="reflection"]').innerText();
+ await page.locator('[data-action="apply"]').click();
+ check('One workspace applies text proposal to current document',await page.locator('[data-edit="reflection"]').innerText()!==before);
+ await page.locator('[data-action="undo"]').click();
+ check('Undo restores selected document text',await page.locator('[data-edit="reflection"]').innerText()===before);
+ await page.locator('[data-mode="design"]').click();
+ const beforeOrder=await order();await page.locator('[data-place="x"]').fill('17');await page.locator('[data-place="x"]').dispatchEvent('change');
+ check('Artboard position leaves logical reading order unchanged',JSON.stringify(await order())===JSON.stringify(beforeOrder));
+ await page.locator('[data-action="up"]').click();const moved=await order();
+ await go('view=preview');const projected=await page.locator('[data-reading-block]').evaluateAll(es=>es.map(e=>e.dataset.readingBlock));
+ check('Actual preview DOM order matches edited shared document',JSON.stringify(moved)===JSON.stringify(projected),{moved,projected});
+ await go('view=deck&state=approval');const text=await page.locator('main').innerText();
+ check('Deck v3 is pinned to approved r10, excluding current r12',text.includes('approved source r10')&&text.includes('deck v3')&&text.includes('Current draft r12 is not the public source'));
+ await go('view=deck&state=stale');check('Stale deck has no simulated approval action',await page.locator('[data-action="approve-deck"]').count()===0);
+ await go('view=demo');await page.waitForFunction(()=>{const v=document.querySelector('#workflow-video');return v&&v.currentTime>0.2},{timeout:12000});
+ const start=await page.locator('video').evaluate(v=>({time:v.currentTime,width:v.videoWidth,height:v.videoHeight,duration:v.duration,muted:v.muted,playsInline:v.playsInline,ready:v.readyState}));
+ await page.waitForTimeout(700);const end=await page.locator('video').evaluate(v=>v.currentTime);
+ check('Real local video decodes and time advances muted inline',start.width>0&&start.height>0&&start.duration>10&&start.muted&&start.playsInline&&end>start.time,{...start,end});
+ await page.emulateMedia({reducedMotion:'reduce'});await go('view=demo');await page.waitForTimeout(350);
+ check('Reduced motion pauses autoplay and exposes fallback',await page.locator('video').evaluate(v=>v.paused)&&await page.locator('#video-fallback').isVisible());
+}catch(e){errors.push(e.message)}finally{
+ await browser.close();
+ const source=await readFile(new URL('../mockups/app.js',import.meta.url));
+ const result={checkedAt:new Date().toISOString(),base,scope:'Independent rebuilt research concept checks, not application/provider validation',appSha256:createHash('sha256').update(source).digest('hex'),checks,errors,externalRequests:external,limits:['No production/paid provider/native share/SMS/backend calls','Session-only editing; exact rich-text ranges and blocked-policy cases reviewed in contributor/member evidence','Library and proposal are simulated; no semantic retrieval engine or editor package trial']};
+ await writeFile(new URL('engineering-rebuild-peer.json',import.meta.url),JSON.stringify(result,null,2));console.log(JSON.stringify({checks:checks.length,failed:checks.filter(c=>!c.pass),errors,external}));
+}

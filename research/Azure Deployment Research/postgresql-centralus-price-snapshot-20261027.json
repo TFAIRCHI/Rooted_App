@@ -1,0 +1,42 @@
+{
+  "retrievedOn": "2026-10-27",
+  "source": "https://prices.azure.com/api/retail/prices?$filter=serviceName%20eq%20%27Azure%20Database%20for%20PostgreSQL%27%20and%20armRegionName%20eq%20%27centralus%27&currencyCode=USD",
+  "description": "Selected public retail meters returned by unauthenticated GET; not a subscription-specific quote, quota check or capacity result.",
+  "armRegionName": "centralus",
+  "currencyCode": "USD",
+  "meters": [
+    {
+      "productName": "Azure Database for PostgreSQL Flexible Server Burstable BS Series Compute",
+      "skuName": "B1MS",
+      "meterName": "B1MS",
+      "retailPrice": 0.01921,
+      "unitOfMeasure": "1 Hour",
+      "type": "Consumption"
+    },
+    {
+      "productName": "Azure Database for PostgreSQL Flexible Server Burstable BS Series Compute",
+      "skuName": "B2S",
+      "meterName": "B2S",
+      "retailPrice": 0.07684,
+      "unitOfMeasure": "1 Hour",
+      "type": "Consumption"
+    },
+    {
+      "productName": "Azure Database for PostgreSQL Flex Server Storage",
+      "skuName": "Storage",
+      "meterName": "Storage Data Stored",
+      "retailPrice": 0.13,
+      "unitOfMeasure": "1 GB/Month",
+      "type": "Consumption"
+    }
+  ],
+  "illustrativeEstimate": {
+    "computeHours": 730,
+    "storageMeterUnits": 32,
+    "b1msComputeUsd": 14.0233,
+    "storageUsd": 4.16,
+    "b1msComputePlusStorageUsd": 18.1833,
+    "b2sComputePlusStorageUsd": 60.2532,
+    "excluded": "Taxes, separately billed backup usage, DNS/networking, logs, app compute, ACR and AI. Portal quote for selected configuration governs."
+  }
+}

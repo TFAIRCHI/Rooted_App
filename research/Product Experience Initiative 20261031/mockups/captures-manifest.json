@@ -1,0 +1,507 @@
+{
+  "rebuiltAt": "2026-11-01T12:39:14.694Z",
+  "origin": "http://127.0.0.1:3092",
+  "scope": "All current images freshly rendered from unified rebuild; old separated designs retired.",
+  "captures": [
+    {
+      "file": "captures/00-rebuilt-storyboard.png",
+      "route": "?view=board",
+      "action": null,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": true,
+      "documentHeight": 1050,
+      "documentWidth": 1440,
+      "overflow": false
+    },
+    {
+      "file": "captures/01-channel-source-library.png",
+      "route": "?view=library",
+      "action": null,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": true,
+      "documentHeight": 1121,
+      "documentWidth": 1440,
+      "overflow": false
+    },
+    {
+      "file": "captures/02-single-import-files.png",
+      "route": "?view=library",
+      "action": "import",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": true,
+      "documentHeight": 1121,
+      "documentWidth": 1440,
+      "overflow": false
+    },
+    {
+      "file": "captures/03-import-links.png",
+      "route": "?view=library",
+      "action": "links",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": true,
+      "documentHeight": 1121,
+      "documentWidth": 1440,
+      "overflow": false
+    },
+    {
+      "file": "captures/04-import-cloud-connections.png",
+      "route": "?view=library",
+      "action": "connections",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": true,
+      "documentHeight": 1121,
+      "documentWidth": 1440,
+      "overflow": false
+    },
+    {
+      "file": "captures/05-batch-processing.png",
+      "route": "?view=library",
+      "action": "batch-processing",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": true,
+      "documentHeight": 1363,
+      "documentWidth": 1440,
+      "overflow": false
+    },
+    {
+      "file": "captures/06-library-ready-error.png",
+      "route": "?view=library",
+      "action": "batch-finished",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": true,
+      "documentHeight": 1363,
+      "documentWidth": 1440,
+      "overflow": false
+    },
+    {
+      "file": "captures/07-library-empty.png",
+      "route": "?view=library&state=empty",
+      "action": null,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": true,
+      "documentHeight": 1001,
+      "documentWidth": 1440,
+      "overflow": false
+    },
+    {
+      "file": "captures/08-unified-compose-reading.png",
+      "route": "?view=studio",
+      "action": null,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": true,
+      "documentHeight": 1322,
+      "documentWidth": 1440,
+      "overflow": false
+    },
+    {
+      "file": "captures/09-selected-ai-proposal.png",
+      "route": "?view=studio",
+      "action": "proposal",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": true,
+      "documentHeight": 1322,
+      "documentWidth": 1440,
+      "overflow": false
+    },
+    {
+      "file": "captures/10-compose-design-artboard.png",
+      "route": "?view=studio&mode=design",
+      "action": null,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": true,
+      "documentHeight": 1322,
+      "documentWidth": 1440,
+      "overflow": false
+    },
+    {
+      "file": "captures/11-design-placement-order.png",
+      "route": "?view=studio&mode=design",
+      "action": "placement",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": true,
+      "documentHeight": 1322,
+      "documentWidth": 1440,
+      "overflow": false
+    },
+    {
+      "file": "captures/12-richtext-and-insert.png",
+      "route": "?view=studio",
+      "action": "chart",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": true,
+      "documentHeight": 1371,
+      "documentWidth": 1440,
+      "overflow": false
+    },
+    {
+      "file": "captures/13-immersive-reading.png",
+      "route": "?view=preview",
+      "action": null,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": true,
+      "documentHeight": 1000,
+      "documentWidth": 1440,
+      "overflow": false
+    },
+    {
+      "file": "captures/14-review-conversation.png",
+      "route": "?view=review",
+      "action": null,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": true,
+      "documentHeight": 1167,
+      "documentWidth": 1440,
+      "overflow": false
+    },
+    {
+      "file": "captures/15-deck-author.png",
+      "route": "?view=deck",
+      "action": null,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": true,
+      "documentHeight": 1001,
+      "documentWidth": 1440,
+      "overflow": false
+    },
+    {
+      "file": "captures/16-deck-approved-source.png",
+      "route": "?view=deck&state=approval",
+      "action": null,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": true,
+      "documentHeight": 1001,
+      "documentWidth": 1440,
+      "overflow": false
+    },
+    {
+      "file": "captures/17-deck-stale.png",
+      "route": "?view=deck&state=stale",
+      "action": null,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": true,
+      "documentHeight": 1001,
+      "documentWidth": 1440,
+      "overflow": false
+    },
+    {
+      "file": "captures/18-church-qr.png",
+      "route": "?view=qr",
+      "action": null,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": true,
+      "documentHeight": 1001,
+      "documentWidth": 1440,
+      "overflow": false
+    },
+    {
+      "file": "captures/19-phone-welcome.png",
+      "route": "?view=phone",
+      "action": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "fullPage": true,
+      "documentHeight": 845,
+      "documentWidth": 390,
+      "overflow": false
+    },
+    {
+      "file": "captures/20-phone-verification.png",
+      "route": "?view=phone&state=verify",
+      "action": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "fullPage": true,
+      "documentHeight": 845,
+      "documentWidth": 390,
+      "overflow": false
+    },
+    {
+      "file": "captures/21-phone-expired.png",
+      "route": "?view=phone&state=expired",
+      "action": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "fullPage": true,
+      "documentHeight": 845,
+      "documentWidth": 390,
+      "overflow": false
+    },
+    {
+      "file": "captures/22-phone-name.png",
+      "route": "?view=phone&state=name",
+      "action": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "fullPage": true,
+      "documentHeight": 845,
+      "documentWidth": 390,
+      "overflow": false
+    },
+    {
+      "file": "captures/23-phone-ambiguity.png",
+      "route": "?view=phone&state=ambiguity",
+      "action": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "fullPage": true,
+      "documentHeight": 845,
+      "documentWidth": 390,
+      "overflow": false
+    },
+    {
+      "file": "captures/24-phone-enrollment.png",
+      "route": "?view=phone&state=enroll",
+      "action": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "fullPage": true,
+      "documentHeight": 845,
+      "documentWidth": 390,
+      "overflow": false
+    },
+    {
+      "file": "captures/25-phone-pending.png",
+      "route": "?view=phone&state=pending",
+      "action": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "fullPage": true,
+      "documentHeight": 845,
+      "documentWidth": 390,
+      "overflow": false
+    },
+    {
+      "file": "captures/26-phone-conflict.png",
+      "route": "?view=phone&state=conflict",
+      "action": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "fullPage": true,
+      "documentHeight": 845,
+      "documentWidth": 390,
+      "overflow": false
+    },
+    {
+      "file": "captures/27-phone-reading-entry.png",
+      "route": "?view=phone&state=complete",
+      "action": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "fullPage": true,
+      "documentHeight": 845,
+      "documentWidth": 390,
+      "overflow": false
+    },
+    {
+      "file": "captures/28-member-rendition.png",
+      "route": "?view=reader",
+      "action": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "fullPage": true,
+      "documentHeight": 1052,
+      "documentWidth": 390,
+      "overflow": false
+    },
+    {
+      "file": "captures/29-member-opt-in-share.png",
+      "route": "?view=share",
+      "action": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "fullPage": true,
+      "documentHeight": 1219,
+      "documentWidth": 390,
+      "overflow": false
+    },
+    {
+      "file": "captures/30-member-share-options.png",
+      "route": "?view=share",
+      "action": "share",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "fullPage": true,
+      "documentHeight": 1364,
+      "documentWidth": 390,
+      "overflow": false
+    },
+    {
+      "file": "captures/31-homepage-video-first-view.png",
+      "route": "?view=demo",
+      "action": "video",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "fullPage": false,
+      "documentHeight": 1063,
+      "documentWidth": 1440,
+      "overflow": false
+    },
+    {
+      "file": "captures/32-homepage-video-phone.png",
+      "route": "?view=demo",
+      "action": "video",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "fullPage": false,
+      "documentHeight": 844,
+      "documentWidth": 390,
+      "overflow": false
+    },
+    {
+      "file": "captures/33-homepage-reduced-motion.png",
+      "route": "?view=demo",
+      "action": "reduced",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "fullPage": false,
+      "documentHeight": 1063,
+      "documentWidth": 1440,
+      "overflow": false
+    },
+    {
+      "file": "captures/34-homepage-autoplay-fallback.png",
+      "route": "?view=demo&state=blocked",
+      "action": "blocked",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "fullPage": false,
+      "documentHeight": 1063,
+      "documentWidth": 1440,
+      "overflow": false
+    },
+    {
+      "file": "captures/35-compose-phone.png",
+      "route": "?view=studio",
+      "action": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "fullPage": true,
+      "documentHeight": 2306,
+      "documentWidth": 390,
+      "overflow": false
+    },
+    {
+      "file": "captures/36-library-phone.png",
+      "route": "?view=library",
+      "action": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "fullPage": true,
+      "documentHeight": 1850,
+      "documentWidth": 390,
+      "overflow": false
+    },
+    {
+      "file": "captures/37-review-phone.png",
+      "route": "?view=review",
+      "action": null,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "fullPage": true,
+      "documentHeight": 1909,
+      "documentWidth": 390,
+      "overflow": false
+    }
+  ],
+  "exports": [
+    "exports/grace-rooted-card-1.png",
+    "exports/grace-rooted-card-2.png",
+    "exports/grace-rooted-card-3.png",
+    "exports/grace-rooted-card-4.png"
+  ]
+}

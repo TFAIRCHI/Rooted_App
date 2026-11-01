@@ -1,0 +1,46 @@
+{
+  "recordedAt": "2026-11-01T12:37:52.505Z",
+  "method": "Actual local research UI interactions captured in order; encoded as a silent WebM walkthrough using installed Edge MediaRecorder and canvas captureStream. This is not paid AI or production footage.",
+  "codec": "video/webm;codecs=vp9",
+  "seconds": 18.9,
+  "bytes": 1874594,
+  "frames": [
+    {
+      "file": "frames/01-library.png",
+      "caption": "Begin with the channel source library. Keep names, versions, and processing state."
+    },
+    {
+      "file": "frames/02-import.png",
+      "caption": "One Import dialog for files, links, pasted notes, and planned cloud connections."
+    },
+    {
+      "file": "frames/03-processing.png",
+      "caption": "Each sample import processes independently. No real file or service is used."
+    },
+    {
+      "file": "frames/04-ready-error.png",
+      "caption": "Names remain visible: two sample items are ready; one needs caption permission."
+    },
+    {
+      "file": "frames/05-compose.png",
+      "caption": "Compose in one Studio: editable document and docked assistant share selected sources."
+    },
+    {
+      "file": "frames/06-apply.png",
+      "caption": "Apply only the proposed selection. The rest of the study remains yours."
+    },
+    {
+      "file": "frames/07-undo.png",
+      "caption": "Undo restores the previous text in the same workspace."
+    },
+    {
+      "file": "frames/08-design.png",
+      "caption": "Switch to Design for flexible placements. Logical reading order remains explicit."
+    },
+    {
+      "file": "frames/09-preview.png",
+      "caption": "Preview the same authored content in its accessible logical order."
+    }
+  ],
+  "network": "Localhost research server only"
+}

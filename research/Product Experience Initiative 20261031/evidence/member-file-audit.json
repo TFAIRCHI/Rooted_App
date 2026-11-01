@@ -1,0 +1,104 @@
+{
+  "auditDate": "2026-11-01",
+  "role": "simulated church member",
+  "baseline": "_audit/before-20261101.json",
+  "archive": "_history/20261031-baseline.zip",
+  "entries": [
+    {
+      "path": "evidence/member-peer-review-results.json",
+      "baselineSha256": "fd30ee098cbc58d6be254df06da996c97cfc910b700d34aeb82a31ee77082cc7",
+      "preEditSha256": "fd30ee098cbc58d6be254df06da996c97cfc910b700d34aeb82a31ee77082cc7",
+      "matchesBaseline": true,
+      "verdict": "replace",
+      "proof": "Read complete raw observations; dated October31 and no rebuilt-app fingerprint; never rerun as new evidence.",
+      "replacementStatus": "replaced and final verified",
+      "replacementSha256": "a03f2dcbf70cac06553aec4bbfe351c952d7935ee4b3afa45d3e9794c2571c21",
+      "changedFromBaseline": true,
+      "replacementProof": "Final full run November1 12:36:01–12:36:10UTC:13passed,0failed,stable app/style/index/server/WebM/VTT/poster/helper hashes,0page errors,0external requests."
+    },
+    {
+      "path": "evidence/member-peer-review.mjs",
+      "baselineSha256": "f821b79e9c77683e2ea9fed451fd83c77b7c07b7bf66816619b2d94e3136e585",
+      "preEditSha256": "f821b79e9c77683e2ea9fed451fd83c77b7c07b7bf66816619b2d94e3136e585",
+      "matchesBaseline": true,
+      "verdict": "replace",
+      "proof": "Read complete helper; old phone/share selectors only, no Compose semantic order or homepage autoplay/reduced-motion/fallback checks, no prototype SHA provenance.",
+      "replacementStatus": "replaced and final verified",
+      "replacementSha256": "b8cd7e42036ebd464e955910f903663d1454fa437b866c6f443731d815c4c6f6",
+      "changedFromBaseline": true,
+      "replacementProof": "Replaced obsolete helper with current library/Compose/member/media assertions, explicit full/core modes and SHA provenance. Executed full on3092; exit0."
+    },
+    {
+      "path": "evidence/member-review-phone-390.png",
+      "baselineSha256": "92d6ef0a65caf0cea4b30dba40fedd8fb385b0e083d70f0529cf272517575a12",
+      "preEditSha256": "92d6ef0a65caf0cea4b30dba40fedd8fb385b0e083d70f0529cf272517575a12",
+      "matchesBaseline": true,
+      "verdict": "replace",
+      "proof": "Opened actual original PNG using view_image on November1. Old unchanged-layout evidence must be regenerated against rebuilt prototype; no carry-forward current visual claim.",
+      "replacementStatus": "replaced and final verified",
+      "replacementSha256": "a6d79bcc21c4a23ab9808736b70224c338ad7ae61816559c2fe226a184197cf4",
+      "changedFromBaseline": true,
+      "replacementProof": "Regenerated in final13/13stable full member run and reopened with view_image; actual rebuilt screenshot, no old-image carry-forward."
+    },
+    {
+      "path": "evidence/member-review-reader-390.png",
+      "baselineSha256": "dc01543ecb4af831f06f409f94587a643f06d9d0e5a28269628f110b1990e3b6",
+      "preEditSha256": "dc01543ecb4af831f06f409f94587a643f06d9d0e5a28269628f110b1990e3b6",
+      "matchesBaseline": true,
+      "verdict": "replace",
+      "proof": "Opened actual original PNG using view_image on November1. Old unchanged-layout evidence must be regenerated against rebuilt prototype; no carry-forward current visual claim.",
+      "replacementStatus": "replaced and final verified",
+      "replacementSha256": "b72bc1439dc244301df5da06d83063f66cd9e96298a84c3c7b59e2bf4fc08879",
+      "changedFromBaseline": true,
+      "replacementProof": "Regenerated in final13/13stable full member run and reopened with view_image; actual rebuilt screenshot, no old-image carry-forward."
+    },
+    {
+      "path": "evidence/member-review-share-390.png",
+      "baselineSha256": "cc7e2ea7025d803134ca14c723483a1492f2a2704fb109a7e76ad3e4eaf86b53",
+      "preEditSha256": "cc7e2ea7025d803134ca14c723483a1492f2a2704fb109a7e76ad3e4eaf86b53",
+      "matchesBaseline": true,
+      "verdict": "replace",
+      "proof": "Opened actual original PNG using view_image on November1. Old unchanged-layout evidence must be regenerated against rebuilt prototype; no carry-forward current visual claim.",
+      "replacementStatus": "replaced and final verified",
+      "replacementSha256": "5dfa2d6b497ea2929ec34c8c281cf70bb84d9c58b698bad2c27b8d573a5f759c",
+      "changedFromBaseline": true,
+      "replacementProof": "Regenerated in final13/13stable full member run and reopened with view_image; actual rebuilt screenshot, no old-image carry-forward."
+    },
+    {
+      "path": "roles/church-member-assessment.md",
+      "baselineSha256": "127b9265458ac63f93e2e9951ce5bc4b71bc0b1000713b8ac9b93839f7ee7c68",
+      "preEditSha256": "127b9265458ac63f93e2e9951ce5bc4b71bc0b1000713b8ac9b93839f7ee7c68",
+      "matchesBaseline": true,
+      "verdict": "replace",
+      "proof": "Read complete original assessment; separate Studio recommendation, manually selected homepage storyboard, October31 peer findings and old screenshot references require replacement under four corrections.",
+      "replacementStatus": "replaced and final verified",
+      "replacementSha256": "bb011d83e717bb99edc7daa0be62e14bade0224916eb195cb9e1d725f522ff46",
+      "changedFromBaseline": true,
+      "replacementProof": "Rewritten for four corrections across recommendations/acceptance; prior separate-Studio/manual-demo evidence removed. Documents final actual browser assertions, image review, concrete corrections and remaining gaps."
+    }
+  ],
+  "scope": "Research-only; no human participants or live provider services",
+  "status": "complete",
+  "finalEvidence": {
+    "pageErrors": 0,
+    "prototypeStable": true,
+    "startedAt": "2026-11-01T12:36:01.643Z",
+    "results": "evidence/member-peer-review-results.json",
+    "finishedAt": "2026-11-01T12:36:10.114Z",
+    "groupsPassed": 13,
+    "groupsFailed": 0,
+    "externalRequests": 0
+  },
+  "newArtifacts": [
+    {
+      "purpose": "New actual homepage demo frame, final viewed with view_image",
+      "path": "evidence/member-review-homepage-1440.png",
+      "sha256": "d055bd0f442295a3104b95bbd51abded3549568ce11d967f13e5d350881783b5"
+    },
+    {
+      "purpose": "Honest correction history including failed/intermediate runs",
+      "path": "evidence/member-review-corrections.json",
+      "sha256": "46dbeced25767f84ba7c4519b0a9ab174b75a01ca7b52b2b5477fb17d2be66e0"
+    }
+  ]
+}

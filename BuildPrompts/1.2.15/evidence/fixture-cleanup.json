@@ -1,0 +1,26 @@
+{
+  "completedAt": "2026-10-30T18:47:02.292Z",
+  "scope": "Only four exact disposable databases created by the four recorded browser runs; older fixture databases and the existing local development service are untouched.",
+  "cleaned": [
+    {
+      "name": "gather_e2e_e741b389b8ac401ca761a9ba91c78c20",
+      "created": "2026-10-30T18:25:25.000Z",
+      "reason": "Creation timestamp matches this implementation run; listeners stopped and no active connections."
+    },
+    {
+      "name": "gather_e2e_86add683b3bd468696944adf1ea72766",
+      "created": "2026-10-30T18:30:00.000Z",
+      "reason": "Creation timestamp matches this implementation run; listeners stopped and no active connections."
+    },
+    {
+      "name": "gather_e2e_0fa69ff4253a4397b85ad5334fc1b4ef",
+      "created": "2026-10-30T18:34:08.000Z",
+      "reason": "Creation timestamp matches this implementation run; listeners stopped and no active connections."
+    },
+    {
+      "name": "gather_e2e_d490752379a8495baf25fb1e7b2507f1",
+      "created": "2026-10-30T18:37:07.000Z",
+      "reason": "Creation timestamp matches this implementation run; listeners stopped and no active connections."
+    }
+  ]
+}

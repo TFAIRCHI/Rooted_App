@@ -1,0 +1,218 @@
+{
+  "reviewedAt": "2026-11-01T12:40:04.500856+00:00",
+  "baseline": "_audit/before-20261101.json",
+  "scope": "All 15 baseline files owned by engineering role; _audit/_history/application untouched",
+  "ownedBaselineCount": 15,
+  "files": [
+    {
+      "path": "architecture/technical-feasibility.md",
+      "baselineSha256": "1d8c22562fa993f50f99b0146820403e857aae56e10666e9422d28676764cc41",
+      "currentSha256": "b45595004008c58703cc7a5732e2a9bd176a70965f9460e9961ec67a898388e4",
+      "baselineBytes": 22132,
+      "currentBytes": 24661,
+      "unchanged": false,
+      "verdict": "rebuilt",
+      "proof": [
+        "Full content replaced for four corrections; see revised dated document."
+      ]
+    },
+    {
+      "path": "evidence/engineering-peer-browser.json",
+      "baselineSha256": "1174ccdcc1955a2c046f951c6de57413fe26c481a3fc5e76f49f4ce6a5544f8a",
+      "currentSha256": "1174ccdcc1955a2c046f951c6de57413fe26c481a3fc5e76f49f4ce6a5544f8a",
+      "baselineBytes": 2368,
+      "currentBytes": 2368,
+      "unchanged": true,
+      "verdict": "retained-dated-limited-evidence",
+      "proof": [
+        "JSON parsed; baseline SHA-256 unchanged.",
+        "Not evidence for rebuilt UI. Fresh dated outputs referenced in engineering-validation.md.",
+        "Old 15-check split-task UI acceptance explicitly superseded, not rerun."
+      ]
+    },
+    {
+      "path": "evidence/engineering-peer-browser.mjs",
+      "baselineSha256": "7075901468057100a7e5565dce4ae5d470d4ed7158831301fc4a52ecb6187c3a",
+      "currentSha256": "3009b6145eddb9452eaea1f57ca7db8b225c860c52202729dedb7a47d7868022",
+      "baselineBytes": 5315,
+      "currentBytes": 5582,
+      "unchanged": false,
+      "verdict": "retired-helper-guarded",
+      "proof": [
+        "Old route/selector assertions audited and not reused; explicit legacy flag added.",
+        "New unified UX/media peer checks pending rebuilt prototype."
+      ]
+    },
+    {
+      "path": "evidence/engineering-runtime-results.json",
+      "baselineSha256": "448058c1e951bd2667038174d811f867f6aebbfd71f20e75631cb792a78e7802",
+      "currentSha256": "448058c1e951bd2667038174d811f867f6aebbfd71f20e75631cb792a78e7802",
+      "baselineBytes": 1293,
+      "currentBytes": 1293,
+      "unchanged": true,
+      "verdict": "retained-dated-limited-evidence",
+      "proof": [
+        "JSON parsed; baseline SHA-256 unchanged.",
+        "Not evidence for rebuilt UI. Fresh dated outputs referenced in engineering-validation.md.",
+        "Underlying helper rerun November 1 into separate dated directory."
+      ]
+    },
+    {
+      "path": "evidence/engineering-runtime-spike.ts",
+      "baselineSha256": "11439da298dd6974f5ded709f78fe308d71ca31fde9b8380ad7a5688a20c6ee3",
+      "currentSha256": "9139b296fadbd5f1737b4a96077ffa3ff1ed6cbe3ed6701adddbb263a98b1fb0",
+      "baselineBytes": 3503,
+      "currentBytes": 3573,
+      "unchanged": false,
+      "verdict": "reassessed-rerun-output-isolated",
+      "proof": [
+        "Source read and output directory changed to dated rerun folder to preserve baseline raw evidence.",
+        "Executed November 1; extraction helper 28 checks or runtime helper 21 checks, exit 0."
+      ]
+    },
+    {
+      "path": "evidence/engineering-spike-results.json",
+      "baselineSha256": "00afdcb670f83d2dd65655eccb19eb0e016ebc6092285d58e2cf5c0d5242fd79",
+      "currentSha256": "00afdcb670f83d2dd65655eccb19eb0e016ebc6092285d58e2cf5c0d5242fd79",
+      "baselineBytes": 3576,
+      "currentBytes": 3576,
+      "unchanged": true,
+      "verdict": "retained-dated-limited-evidence",
+      "proof": [
+        "JSON parsed; baseline SHA-256 unchanged.",
+        "Not evidence for rebuilt UI. Fresh dated outputs referenced in engineering-validation.md.",
+        "Underlying helper rerun November 1 into separate dated directory."
+      ]
+    },
+    {
+      "path": "evidence/engineering-spike.py",
+      "baselineSha256": "8c09a9e4cef58c32c978cb396be5b1e2b8aa997e9aa5603ca21cccd252d0cdf4",
+      "currentSha256": "e81a1d6bb66279260d372bec67bccc2a2d9e5bf4d536b84859800e837afe1789",
+      "baselineBytes": 10599,
+      "currentBytes": 10656,
+      "unchanged": false,
+      "verdict": "reassessed-rerun-output-isolated",
+      "proof": [
+        "Source read and output directory changed to dated rerun folder to preserve baseline raw evidence.",
+        "Executed November 1; extraction helper 28 checks or runtime helper 21 checks, exit 0."
+      ]
+    },
+    {
+      "path": "evidence/engineering-validation.md",
+      "baselineSha256": "01fdc6c708afbe9943b3b72cba910a86ac094327bef9207f2640ad082ae3455d",
+      "currentSha256": "54e76a8c67f21671c9ab722f1908269dba8223cb11d5638b2a921e957fc28b22",
+      "baselineBytes": 14002,
+      "currentBytes": 9934,
+      "unchanged": false,
+      "verdict": "rebuilt",
+      "proof": [
+        "Full content replaced for four corrections; see revised dated document."
+      ]
+    },
+    {
+      "path": "evidence/synthetic-deck-1.png",
+      "baselineSha256": "742b701e18a13ad9fa8062254a36072422c1c7c9eb5dbaa8cc57de4d2d5c63ce",
+      "currentSha256": "742b701e18a13ad9fa8062254a36072422c1c7c9eb5dbaa8cc57de4d2d5c63ce",
+      "baselineBytes": 70317,
+      "currentBytes": 70317,
+      "unchanged": true,
+      "verdict": "retained-synthetic-export-only",
+      "proof": [
+        "PNG IHDR 1080x1350; baseline SHA-256 unchanged.",
+        "All three images visually re-inspected November 1; fictional, no Scripture quote, not rebuilt flexible editor.",
+        "Fresh counterpart rendered in dated rerun directory."
+      ]
+    },
+    {
+      "path": "evidence/synthetic-deck-2.png",
+      "baselineSha256": "3492006ef15d7e929b8ebd59ad2a247418b73ced2b2600030ab6ccdd06e69bb7",
+      "currentSha256": "3492006ef15d7e929b8ebd59ad2a247418b73ced2b2600030ab6ccdd06e69bb7",
+      "baselineBytes": 71428,
+      "currentBytes": 71428,
+      "unchanged": true,
+      "verdict": "retained-synthetic-export-only",
+      "proof": [
+        "PNG IHDR 1080x1350; baseline SHA-256 unchanged.",
+        "All three images visually re-inspected November 1; fictional, no Scripture quote, not rebuilt flexible editor.",
+        "Fresh counterpart rendered in dated rerun directory."
+      ]
+    },
+    {
+      "path": "evidence/synthetic-deck-3.png",
+      "baselineSha256": "d87345134ab3cc33bcdf46b7a0ae3660e8cdb56f0d243ddc67b6c44819633724",
+      "currentSha256": "d87345134ab3cc33bcdf46b7a0ae3660e8cdb56f0d243ddc67b6c44819633724",
+      "baselineBytes": 72143,
+      "currentBytes": 72143,
+      "unchanged": true,
+      "verdict": "retained-synthetic-export-only",
+      "proof": [
+        "PNG IHDR 1080x1350; baseline SHA-256 unchanged.",
+        "All three images visually re-inspected November 1; fictional, no Scripture quote, not rebuilt flexible editor.",
+        "Fresh counterpart rendered in dated rerun directory."
+      ]
+    },
+    {
+      "path": "evidence/synthetic-fixtures/sermon-notes.docx",
+      "baselineSha256": "2ca12a41e2b62581e01e65824f5c8db66f5f6ac41a8e8d2e164a1fb1c318e11c",
+      "currentSha256": "2ca12a41e2b62581e01e65824f5c8db66f5f6ac41a8e8d2e164a1fb1c318e11c",
+      "baselineBytes": 318,
+      "currentBytes": 318,
+      "unchanged": true,
+      "verdict": "retained-minimal-fixture-only",
+      "proof": [
+        "ZIP members: word/document.xml",
+        "Baseline SHA-256 unchanged; fixed-member minimal XML package, not Office interoperability corpus.",
+        "Fresh equivalent extraction fixture generated and tested November 1."
+      ]
+    },
+    {
+      "path": "evidence/synthetic-fixtures/study-context.xlsx",
+      "baselineSha256": "1c3dd854ca9e458524d6a614e76feec8f4904d10a032b720b740142b2689f264",
+      "currentSha256": "1c3dd854ca9e458524d6a614e76feec8f4904d10a032b720b740142b2689f264",
+      "baselineBytes": 1004,
+      "currentBytes": 1004,
+      "unchanged": true,
+      "verdict": "retained-minimal-fixture-only",
+      "proof": [
+        "ZIP members: xl/workbook.xml, xl/sharedStrings.xml, xl/styles.xml, xl/worksheets/sheet1.xml",
+        "Baseline SHA-256 unchanged; fixed-member minimal XML package, not Office interoperability corpus.",
+        "Fresh equivalent extraction fixture generated and tested November 1."
+      ]
+    },
+    {
+      "path": "roles/data-engineer-assessment.md",
+      "baselineSha256": "6590344f0b4552c4699480fe883afe691c03618a35cd79bdb9bb924c6e906528",
+      "currentSha256": "79fa6dd47c16bfb612f6c97d6514c2fb6bb90d819c2a2e62ec7f05fd34d7b367",
+      "baselineBytes": 7019,
+      "currentBytes": 4871,
+      "unchanged": false,
+      "verdict": "rebuilt",
+      "proof": [
+        "Full content replaced for four corrections; see revised dated document."
+      ]
+    },
+    {
+      "path": "roles/engineering-peer-review.md",
+      "baselineSha256": "3a9ce823a755850df6fe0c85a25a405a84d43a68359f1f0b2460a4fc438c6bce",
+      "currentSha256": "abf8ed91c7f8b100bc3c69412e22b25c21f9062e600d9762da29140a687692af",
+      "baselineBytes": 7605,
+      "currentBytes": 7354,
+      "unchanged": false,
+      "verdict": "rebuilt",
+      "proof": [
+        "Full content replaced for four corrections; see revised dated document."
+      ]
+    }
+  ],
+  "newEvidence": [
+    "evidence/unified-model-spike.py",
+    "evidence/engineering-rerun-20261101/",
+    "evidence/rebuild-engineering-docs.py",
+    "evidence/engineering-rebuild-peer.mjs",
+    "evidence/engineering-rebuild-peer.json"
+  ],
+  "finalPeerReview": "Complete: 10 independent rebuilt concept browser checks pass; limits and attributed contributor/member evidence in roles/engineering-peer-review.md",
+  "pending": [
+    "Production/editor/provider implementations and real-device/accessibility tests remain future gates; no legacy acceptance carried forward."
+  ]
+}

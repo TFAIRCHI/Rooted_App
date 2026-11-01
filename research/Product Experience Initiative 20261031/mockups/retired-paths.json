@@ -1,0 +1,251 @@
+{
+  "approval": "Root approved exact3helpers and38PNGpaths listed in retirement-proposal.json. No recursive deletion.",
+  "removed": [
+    {
+      "path": "mockups/captures/00-storyboard.png",
+      "baselineSha256": "d60b816dc37edaa5567562b0de74c8550bd67ee31dbddb6680976d23a9614cb7",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/01-workspace-overview.png",
+      "baselineSha256": "194d9b4827356979e5c33a57c58c14621823eabac8dedfd5942dfbe201c9d506",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/02-source-word-review.png",
+      "baselineSha256": "4cb933ddb18d791c665c877bdb11b6da4a3d8080aa0104f960ab18a1e55826bc",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/03-source-website-review.png",
+      "baselineSha256": "e2c0f09d223ff40aa313a2beadc0decdea227654b3bcab04d5bb898c6f750f92",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/04-source-youtube-review.png",
+      "baselineSha256": "78f7dd90d573caa95926dcdd1f99ba6cfb50a537923e6e48430901d17d146965",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/05-source-excel-review.png",
+      "baselineSha256": "aadc676b2cc6d5c6a4aefcd969533c7e0d833fd99870facd79e8f2cf6b9033aa",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/06-source-empty.png",
+      "baselineSha256": "cfd18233474c0ad02ff3027c0d1c3ee4e72f0892d9db9c6a9f185a9874e6bfb4",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/07-source-error.png",
+      "baselineSha256": "fa20f9b755291fd52d45133eefff9bf5c500540ec4cfcd3d16d43f13d8e21dcf",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/08-cowriter-proposal.png",
+      "baselineSha256": "795060ab390c21fe3ff21e5202f40375086aa5bf3b20abdc29df4e13e8e65f50",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/09-deck-author.png",
+      "baselineSha256": "016c5c3a94489be1ac2ffd160ff71c55d4989a8a1d4e175a6996c5d45709de1a",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/10-deck-approval.png",
+      "baselineSha256": "235e306811fa1bb570785787a5f115d3c5953bb2773265d0c78a867e1198ecd4",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/11-deck-stale.png",
+      "baselineSha256": "da3375bb72ee85f7814d27ae3766d8d9e61869fd5243af975d3cf9c246796812",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/12-homepage-demo.png",
+      "baselineSha256": "c07727024bee0a0c012623628ab6e9897340cf30c69f2bfd95ae735cb24f8e83",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/13-studio-diagram.png",
+      "baselineSha256": "c3949bfe6576cac95caedd78689b13983df04a8f67a825b4f48c47fed3c01764",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/14-studio-chart.png",
+      "baselineSha256": "d2aaf73ad78b732ab2af709bdd8fb819aa85ec8bf3865573fd6fe4373bc9c5c2",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/15-studio-video-empty.png",
+      "baselineSha256": "3b370bd64c7bfdb8ec68ccbb06698544703ebcf1ff04eeadb6b6ada177369eb6",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/16-immersive-preview.png",
+      "baselineSha256": "bda80318dfae162d62e6e1e44846c7eee03e8bbcee3d533d2dff02df89abdbf3",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/17-review-conversation.png",
+      "baselineSha256": "23140fc4898b64e3cbb73af4b9c2fae269f6c725a1702d1b84efc50201c3c608",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/18-church-qr.png",
+      "baselineSha256": "3f0a29489b8d8bad1504557b46a7e09a01a5abeb558626bd2ec930fc3b1dd3b7",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/19-phone-welcome.png",
+      "baselineSha256": "6fe386ae4218149c2786645f96d65ddb481b61d060ca7a6bce95143c95495f4b",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/20-phone-verification.png",
+      "baselineSha256": "cfcc92826c62c4114d4d62806acd07daf690f716b869ec6dc4fffb92d2bebdef",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/21-phone-code-expired.png",
+      "baselineSha256": "0c281c0c299af1c93617c107e91648cbe3d779014692490d59d6275727269b43",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/22-phone-confirm-name.png",
+      "baselineSha256": "b33a9efbfb86337bb9e941e31e8d5bf5b5d0cfb6495e6c8f353b25a3918db433",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/23-phone-church-choice.png",
+      "baselineSha256": "1dc4ac7cc6c630a187b42036684bc6273cfb1240ebd4a72d21b4e3ea71e282e2",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/24-phone-enrollment.png",
+      "baselineSha256": "595dffe69db9dcd90f31e5893b1f50bef9a6592e7468b5e515efe1003451f5d6",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/25-phone-pending.png",
+      "baselineSha256": "1f11fd978e4b280dda0639b2f1f9dd4bedb84d950bb7101ca277a28140eb8291",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/26-phone-identity-conflict.png",
+      "baselineSha256": "b7f7d5fb9bc5fdd0325818dfef81d5965b190a6158350f205f79ee4985f65424",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/27-phone-reading-home.png",
+      "baselineSha256": "1830939730d8aa9ca894e669e2ac1e18dbaaa13d52551a0a40496790c5040f2f",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/28-member-reading.png",
+      "baselineSha256": "56e627e1926e2d6fcddfc6a161cf04c1bfbc33952416252d79a2e806dcf012e0",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/29-member-share.png",
+      "baselineSha256": "9285b3c5d9306f9403542a56b81a849aca12fa9981110118731cf88b2d5c5861",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/30-member-share-options.png",
+      "baselineSha256": "3ce2b3e46b41485f90d25204c2714cd9d0e0eddb5a712836b9edbb3b5fb8040e",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/31-mobile-workspace.png",
+      "baselineSha256": "3b0cc24f54774335819336cc74518389d805520a5a6794103df85f2c3727d08a",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/32-mobile-studio.png",
+      "baselineSha256": "9a1a7857ac8fb705c7701db333f2697bf8bde97b4672e676074da38bf068e501",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/33-mobile-demo.png",
+      "baselineSha256": "cd308ee1eafe097c54ab2c5aef2ed049bcbe89b194feb030d63f1523b0ba9dda",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/34-mobile-review.png",
+      "baselineSha256": "9f810a6f130e7745346a0280096274ebfda27ffc4aac47c19fed939a015dc5a8",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/35-compact-source-first-view.png",
+      "baselineSha256": "22d9f351c03b62e34ff8bd68e2642a6abf6dba4fb89d611fced9f8ab6edd0379",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/36-compact-studio-first-view.png",
+      "baselineSha256": "3072ff0963cf8ee5078999a51f581a92ef9c971640303bd3a8dadb2e2b6ddcb0",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/captures/37-compact-review-first-view.png",
+      "baselineSha256": "5d844006241ab90ec5ba39b3492704a6affb0a27c2f80e16957f06a4b202632f",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/refine-member-flow.mjs",
+      "baselineSha256": "dc5594bf9ca6e242de3d1faf871d9b853d358618d04c5f85ac422103dfddbe2b",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/refine-workspace.mjs",
+      "baselineSha256": "750881a4eecbbd2628037453137a88177c5367df42a35e944d7d027e0ca1b378",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    },
+    {
+      "path": "mockups/finalize-block-renderer.mjs",
+      "baselineSha256": "ed1670d98500edd6812d8643664400e0fdb79be3bccf7e95b7d175e5af8f0fc3",
+      "archiveVerified": true,
+      "resolvedWithinMockups": true
+    }
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "runAt": "2026-11-01T12:18:11.793849+00:00",
+  "scope": "Synthetic own source lifecycle + structured editor operations; no provider, embeddings model, real editor engine, database or browser integration",
+  "checksPassed": 30,
+  "checks": [
+    "mixed batch preserves every title and URL",
+    "batch submission is idempotent in same tenant/channel",
+    "batch starts each item processing",
+    "one failure does not roll back ready item",
+    "planned PDF and permissioned YouTube remain honest errors",
+    "processing/error sources cannot enter context",
+    "cross-channel selection rejected",
+    "cross-tenant selection rejected",
+    "refresh creates a new immutable version",
+    "old request remains pinned after refresh",
+    "byte context budget excludes overflow",
+    "retrieval filters tenant before rank",
+    "removed source excluded immediately from retrieval",
+    "citation manifest remains after removal",
+    "removed source cannot be reselected",
+    "rich-text mark represented in one draft model",
+    "stale assistant proposal rejected",
+    "missing selected node rejected",
+    "canvas placement keeps semantic reading order",
+    "design placement invalidates approval",
+    "published snapshot immutable after draft change",
+    "reading reorder independent from z-order",
+    "shared member and preview renderer exact equality",
+    "semantic DOM begins with authored first node",
+    "render escapes untrusted text",
+    "missing image alternative blocks model validation",
+    "duplicate reading ids rejected",
+    "undo restores content while version remains monotonic",
+    "review anchor remains bound to reviewed snapshot",
+    "context change invalidates content approval"
+  ],
+  "registry": {
+    "text/plain": {
+      "kind": "file",
+      "capability": "available",
+      "extractor": "utf8-v1"
+    },
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document": {
+      "kind": "file",
+      "capability": "isolated-subset",
+      "extractor": "docx-research-v1"
+    },
+    "application/pdf": {
+      "kind": "file",
+      "capability": "planned",
+      "extractor": null
+    },
+    "image/png": {
+      "kind": "file",
+      "capability": "planned-ocr",
+      "extractor": null
+    },
+    "audio/mpeg": {
+      "kind": "file",
+      "capability": "requires-provider",
+      "extractor": null
+    },
+    "youtube": {
+      "kind": "link",
+      "capability": "requires-permission",
+      "extractor": null
+    },
+    "google-drive": {
+      "kind": "connector",
+      "capability": "requires-connection",
+      "extractor": null
+    }
+  },
+  "batchItems": [
+    {
+      "id": "church-a:channel-1:batch-1:0",
+      "church": "church-a",
+      "channel": "channel-1",
+      "displayName": "sermon.txt",
+      "originalUrl": null,
+      "kind": "file",
+      "type": "text/plain",
+      "status": "ready",
+      "versions": [
+        {
+          "id": 1,
+          "text": "Hope is the selected teaching context.",
+          "extractor": "utf8-v1",
+          "hash": "fb9e9498c74cd7585879d0230c56f32738f952d59805d861d7d3b41a825bf56a"
+        },
+        {
+          "id": 2,
+          "text": "A refreshed source has a new message.",
+          "extractor": "utf8-v1",
+          "hash": "668ea4cf3af7780bf97b07fe64b185e9584434b6ebce77fab1d2b142124c8134"
+        }
+      ],
+      "activeVersion": 2,
+      "removed": true
+    },
+    {
+      "id": "church-a:channel-1:batch-1:1",
+      "church": "church-a",
+      "channel": "channel-1",
+      "displayName": "teaching.pdf",
+      "originalUrl": null,
+      "kind": "file",
+      "type": "application/pdf",
+      "status": "error",
+      "versions": [],
+      "activeVersion": null,
+      "removed": false,
+      "error": "capability-unavailable"
+    },
+    {
+      "id": "church-a:channel-1:batch-1:2",
+      "church": "church-a",
+      "channel": "channel-1",
+      "displayName": "Sunday clip",
+      "originalUrl": "https://www.youtube.com/watch?v=synthetic",
+      "kind": "link",
+      "type": "youtube",
+      "status": "error",
+      "versions": [],
+      "activeVersion": null,
+      "removed": false,
+      "error": "capability-unavailable"
+    }
+  ],
+  "contextManifest": [
+    {
+      "source": "church-a:channel-1:batch-1:0",
+      "version": 1,
+      "hash": "fb9e9498c74cd7585879d0230c56f32738f952d59805d861d7d3b41a825bf56a",
+      "locator": "paragraph/1"
+    }
+  ],
+  "approvedHash": "395fd163a9db1f157c323b33142237c04b3a920861b2ab154fc879f46f01a934",
+  "finalDraft": {
+    "schemaVersion": 2,
+    "church": "church-a",
+    "version": 5,
+    "nodes": {
+      "intro": {
+        "id": "intro",
+        "kind": "paragraph",
+        "runs": [
+          {
+            "text": "<script>not executable</script>",
+            "marks": []
+          }
+        ]
+      },
+      "diagram": {
+        "id": "diagram",
+        "kind": "image",
+        "assetHash": "synthetic-asset",
+        "alt": "A branch connected to a vine."
+      }
+    },
+    "readingOrder": [
+      "diagram",
+      "intro"
+    ],
+    "layouts": {
+      "document": {
+        "mode": "flow"
+      },
+      "social": {
+        "mode": "canvas",
+        "width": 1080,
+        "height": 1080,
+        "placements": {
+          "intro": {
+            "x": 80,
+            "y": 100,
+            "w": 900,
+            "h": 200,
+            "z": 2
+          },
+          "diagram": {
+            "x": 50,
+            "y": 20,
+            "w": 500,
+            "h": 400,
+            "z": 5
+          }
+        }
+      }
+    },
+    "contextManifest": [
+      {
+        "source": "church-a:channel-1:batch-1:0",
+        "version": 1,
+        "hash": "fb9e9498c74cd7585879d0230c56f32738f952d59805d861d7d3b41a825bf56a",
+        "locator": "paragraph/1"
+      }
+    ]
+  },
+  "limits": [
+    "Retrieval uses a boolean lexical match, not semantic embeddings or RAG quality proof.",
+    "Tenant filters are an in-memory contract model, not DB RLS proof.",
+    "Rich text supports only synthetic paragraph runs/bold/italic; no IME/paste/selection mapping/editor engine proof.",
+    "Undo is snapshot-based single writer, not collaborative selective undo.",
+    "Shared renderer check verifies a deliberately small semantic output only.",
+    "No OCR/PDF/audio/video extraction, Google/YouTube/Drive API or paid calls."
+  ]
+}

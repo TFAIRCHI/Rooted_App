@@ -1,0 +1,67 @@
+{
+  "calculatedAt": "2026-10-25T19:32:21.071Z",
+  "priceSnapshot": "azure-retail-prices-2026-10-25.json",
+  "currency": "USD",
+  "region": "eastus",
+  "model": "Illustrative pilot, not a quote or performance guarantee",
+  "rates": {
+    "cpuActivePerSecond": 0.000024,
+    "memoryActivePerGiBSecond": 0.000003,
+    "postgresB1msPerHour": 0.017,
+    "postgresStoragePerGbMonth": 0.115
+  },
+  "processes": [
+    {
+      "name": "frontend",
+      "vCPU": 0.5,
+      "memoryGiB": 1,
+      "activeHours": 20
+    },
+    {
+      "name": "api",
+      "vCPU": 0.25,
+      "memoryGiB": 0.5,
+      "activeHours": 20
+    },
+    {
+      "name": "continuous worker",
+      "vCPU": 0.25,
+      "memoryGiB": 0.5,
+      "activeHours": 730
+    }
+  ],
+  "sharedMonthlyFreeGrantAssumedAvailable": {
+    "cpuSeconds": 180000,
+    "memoryGiBSeconds": 360000,
+    "requests": 2000000
+  },
+  "usage": {
+    "cpuSeconds": 711000,
+    "memoryGiBSeconds": 1422000
+  },
+  "postgres": {
+    "sku": "B1MS",
+    "hours": 730,
+    "storageGb": 32,
+    "highAvailability": false,
+    "freeOfferApplied": false
+  },
+  "result": {
+    "containerComputeUsd": 15.93,
+    "postgresComputeUsd": 12.41,
+    "postgresStorageUsd": 3.68,
+    "postgresTotalUsd": 16.09,
+    "coreInfrastructureUsd": 32.02
+  },
+  "exclusions": [
+    "AI/model charges",
+    "registry and CI/artifact costs",
+    "logging/monitoring ingestion and retention",
+    "identity premium/SMS charges",
+    "network egress, NAT, private endpoints and other network services",
+    "additional backups or storage/IOPS",
+    "domain renewals and tax",
+    "idle/cooldown allocation beyond the active-hours assumption",
+    "extra app replicas and consumed subscription grants"
+  ]
+}

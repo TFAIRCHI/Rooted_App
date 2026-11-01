@@ -1,0 +1,74 @@
+{
+  "generatedAt": "2026-10-18T19:53:12.404Z",
+  "scope": "diagrams-only",
+  "passed": true,
+  "markdown": [],
+  "sourceIds": {
+    "defined": [],
+    "references": 0
+  },
+  "pngs": [],
+  "diagrams": [
+    {
+      "source": "diagrams/container-architecture.mmd",
+      "sourceSha256": "d7aa3c4683c7a8ce03c479ea74b46b3790f8c92c7568ac42c18f012dcc438342",
+      "output": "diagrams/rendered/container-architecture.svg",
+      "diagramType": "flowchart-v2",
+      "bytes": 29010
+    },
+    {
+      "source": "diagrams/content-approval-state-machine.mmd",
+      "sourceSha256": "136687dd256e7c1557b8c2ab5dd09022c265f20f42619e41585e1619962785f1",
+      "output": "diagrams/rendered/content-approval-state-machine.svg",
+      "diagramType": "stateDiagram",
+      "bytes": 51928
+    },
+    {
+      "source": "diagrams/data-flow-and-trust-boundaries.mmd",
+      "sourceSha256": "3028cfdc84371fe78fba39f12da19303da952384ff68f63851dcf625eb8c13b9",
+      "output": "diagrams/rendered/data-flow-and-trust-boundaries.svg",
+      "diagramType": "flowchart-v2",
+      "bytes": 33016
+    },
+    {
+      "source": "diagrams/ingestion-sequence.mmd",
+      "sourceSha256": "c1a4e285830e7d3bc7b7f07d1a1fdcec470399463f1252eeaabefeb35900bd72",
+      "output": "diagrams/rendered/ingestion-sequence.svg",
+      "diagramType": "sequence",
+      "bytes": 32055
+    },
+    {
+      "source": "diagrams/plan-approval-state-machine.mmd",
+      "sourceSha256": "e216447628b669993d53d66917e897a35e2e6ba53677b70cb56d789d3f1edc44",
+      "output": "diagrams/rendered/plan-approval-state-machine.svg",
+      "diagramType": "stateDiagram",
+      "bytes": 42614
+    },
+    {
+      "source": "diagrams/publishing-sequence.mmd",
+      "sourceSha256": "f33f9265a81a5fadc0a8f5808c3808c4deed641baf7d0f7fe63398be283ecf76",
+      "output": "diagrams/rendered/publishing-sequence.svg",
+      "diagramType": "sequence",
+      "bytes": 35113
+    },
+    {
+      "source": "diagrams/study-lifecycle.mmd",
+      "sourceSha256": "607ad0dcd5e9253973192bda376bf1bae24b25b0d6f2163a0fc51fed169f8c2b",
+      "output": "diagrams/rendered/study-lifecycle.svg",
+      "diagramType": "flowchart-v2",
+      "bytes": 28076
+    },
+    {
+      "source": "diagrams/system-context.mmd",
+      "sourceSha256": "41970ee83149c9585c0d2c58e7796f792c6890ea5f55657b765ff2fcf3d84d42",
+      "output": "diagrams/rendered/system-context.svg",
+      "diagramType": "flowchart-v2",
+      "bytes": 23322
+    }
+  ],
+  "ui": [],
+  "errors": [],
+  "browser": "155.0.8059.80",
+  "status": "complete",
+  "completedAt": "2026-10-18T19:53:15.418Z"
+}

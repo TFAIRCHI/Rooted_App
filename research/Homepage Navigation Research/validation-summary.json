@@ -1,0 +1,79 @@
+{
+  "localFileCheck": {
+    "fileNavigation": true,
+    "fileInteractiveTour": true,
+    "imagesLoaded": true
+  },
+  "pages": 9,
+  "layoutChecks": 72,
+  "interactionChecks": 13,
+  "allInteractionsPassed": true,
+  "horizontalOverflows": 0,
+  "accessibilityScans": 18,
+  "automatedAccessibilityViolations": 0,
+  "scriptErrors": 0,
+  "coreDesktopAt1366": [
+    {
+      "file": "ai-co-writer.html",
+      "height": 870,
+      "screenLengths": 1.13
+    },
+    {
+      "file": "how-it-works.html",
+      "height": 855,
+      "screenLengths": 1.11
+    },
+    {
+      "file": "index.html",
+      "height": 768,
+      "screenLengths": 1
+    },
+    {
+      "file": "power-of-four.html",
+      "height": 874,
+      "screenLengths": 1.14
+    },
+    {
+      "file": "questions.html",
+      "height": 789,
+      "screenLengths": 1.03
+    },
+    {
+      "file": "why-rooted.html",
+      "height": 949,
+      "screenLengths": 1.24
+    }
+  ],
+  "coreMobileAt390": [
+    {
+      "file": "ai-co-writer.html",
+      "height": 1448,
+      "screenLengths": 1.72
+    },
+    {
+      "file": "how-it-works.html",
+      "height": 1238,
+      "screenLengths": 1.47
+    },
+    {
+      "file": "index.html",
+      "height": 1244,
+      "screenLengths": 1.47
+    },
+    {
+      "file": "power-of-four.html",
+      "height": 1331,
+      "screenLengths": 1.58
+    },
+    {
+      "file": "questions.html",
+      "height": 1187,
+      "screenLengths": 1.41
+    },
+    {
+      "file": "why-rooted.html",
+      "height": 1449,
+      "screenLengths": 1.72
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+Azure Database for PostgreSQL Flexible Server - East US region access
+Prepared October 26, 2026. This is request text, not confirmation of submission.
+
+Requested region: East US
+Subscription display name: Azure subscription 1
+Resource group: rooted_study_app
+
+Please enable or confirm PostgreSQL Flexible Server provisioning access in East US for this subscription. East US previously reported that the subscription was not allowed to provision PostgreSQL there. My working Container Apps frontend and its virtual network are already in East US, so this is the preferred database region.
+
+Intended small pilot configuration:
+- Burstable Standard_B1ms, 1 vCore
+- PostgreSQL 17
+- 32 GiB storage
+- 7-day backup retention
+- No high availability or geo-redundant backups
+- Private access through a delegated PostgreSQL subnet
+- No specific availability zone requirement
+
+Related failed attempt in East US 2:
+The original short support summary mentions East US 2 because I also tried that region as an alternative. Retained deployment history for server rooted-postgres-east2 confirms the following requested inputs:
+- location: eastus2
+- vmName: Standard_B1ms
+- serverEdition: Burstable
+- version: 18
+- storageSizeGB: 32
+- backupRetentionDays: 7
+- haEnabled: Disabled
+- geoRedundantBackup: Disabled
+- availabilityZone and standbyAvailabilityZone: blank
+- Private VNet integration through rooted-vnet-eastus2/snet-postgresql and private DNS zone rooted-postgres.private.postgres.database.azure.com
+
+That create operation failed with:
+Code: SkuNotAvailable
+Message: Specified SKU is not supported in this region. Please choose a different SKU.
+
+The deployment screenshot displays a start time of October 26, 2026, 12:13:18 AM; the Portal display timezone has not been established. The deployment correlation ID remains available in Portal and can be supplied if needed.
+
+An earlier reviewed PostgreSQL 17/B1ms request in East US 2 also failed with SkuNotAvailable; its named deployment has not yet been rechecked. B2s was priced in Portal but has no confirmed deployment attempt in the available record. Both failed server resources were subsequently deleted, while the existing application and network resources are being preserved.
+
+Please advise:
+1. Can this subscription provision the intended B1ms/PostgreSQL 17 configuration in East US after region access is enabled?
+2. Are there subscription restrictions or SKU capacity constraints in addition to region access?
+3. If B1ms cannot be provisioned, what is the smallest provisionable Burstable alternative in East US? If East US cannot be enabled, please advise whether East US 2 is a viable fallback and whether a separate request is required.
+
+This is a cost-constrained pilot with a $95/month resource-group budget including application hosting and AI. Please provide availability guidance before I create additional resources; I am not requesting automatic creation of a higher-priced server.
+
+I perform all Azure changes manually through Azure Portal.

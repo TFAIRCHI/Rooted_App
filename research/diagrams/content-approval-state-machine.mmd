@@ -1,0 +1,22 @@
+stateDiagram-v2
+    [*] --> Draft
+    Draft --> InReview: Submit exact head
+    InReview --> ChangesRequested: Reviewer decision
+    InReview --> Approved: Approve content and plan hashes
+    Approved --> Scheduled: Pin approved current head
+    Scheduled --> Published: Commit publication once
+    Scheduled --> Approved: Unschedule
+    Draft --> Draft: Edit creates new revision
+    InReview --> Draft: Edit supersedes review
+    ChangesRequested --> Draft: Edit creates new revision
+    Approved --> Draft: Edit creates new revision
+    Scheduled --> Draft: Edit cancels pending schedule
+    Published --> Draft: Edit keeps prior live pin
+    Draft --> Cancelled: Cancel
+    InReview --> Cancelled: Cancel
+    ChangesRequested --> Cancelled: Cancel
+    Approved --> Cancelled: Cancel
+    Scheduled --> Cancelled: Cancel
+    Cancelled --> [*]
+    state "In Review" as InReview
+    state "Changes Requested" as ChangesRequested

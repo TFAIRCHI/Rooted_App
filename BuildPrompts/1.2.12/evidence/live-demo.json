@@ -1,0 +1,201 @@
+{
+  "version": "1.2.12",
+  "runs": [
+    {
+      "mode": "single-day",
+      "expectedDates": [
+        "2026-11-16"
+      ],
+      "weekStart": "2026-11-15",
+      "startedAt": "2026-10-24T16:05:04.013Z",
+      "passed": true,
+      "runId": "f002a1e4-96f0-492b-bee4-5a10c1e8b769",
+      "noDraftsBeforeConfirmation": true,
+      "resumedAfterReload": true,
+      "mapping": [
+        {
+          "date": "2026-11-16",
+          "planId": "d489b270-c50b-4667-9746-b8b05b1ae75f",
+          "slotId": "3d9f7704-80a5-410c-aac6-6607b66a730f",
+          "contentId": "4313c7b5-b63f-40b9-b968-56ea35b8e93b",
+          "revisionId": "41cd84e6-80d4-49a8-8a6b-934edb8eb18a"
+        }
+      ],
+      "tokensUsed": 3125,
+      "jobs": [
+        {
+          "id": "b602dad2-2657-4ca3-9e8a-62b6bc9d27e5",
+          "kind": "plan",
+          "date": null,
+          "state": "completed",
+          "error": null,
+          "usage": {
+            "inputTokens": 746,
+            "outputTokens": 387
+          }
+        },
+        {
+          "id": "39d2df20-a2b8-47b2-b6f5-a36105563af3",
+          "kind": "day",
+          "date": "2026-11-16",
+          "state": "completed",
+          "error": null,
+          "usage": {
+            "inputTokens": 1079,
+            "outputTokens": 913
+          }
+        }
+      ],
+      "completeFields": [
+        {
+          "date": "2026-11-16",
+          "fields": [
+            "title",
+            "references",
+            "body",
+            "reflection",
+            "discussionQuestion",
+            "application",
+            "outboundPreview"
+          ],
+          "reloaded": true,
+          "state": "draft"
+        }
+      ],
+      "mobileWithinViewport": true,
+      "foreignChurchDenied": true,
+      "finishedAt": "2026-10-24T16:05:22.952Z"
+    },
+    {
+      "mode": "three-day",
+      "expectedDates": [
+        "2026-10-26",
+        "2026-10-28",
+        "2026-10-30"
+      ],
+      "weekStart": "2026-10-25",
+      "startedAt": "2026-10-24T16:05:42.455Z",
+      "passed": true,
+      "runId": "7546b556-d27e-433e-ba64-3a351fe86eb5",
+      "noDraftsBeforeConfirmation": true,
+      "resumedAfterReload": true,
+      "mapping": [
+        {
+          "date": "2026-10-26",
+          "planId": "01fe5945-3053-4700-beec-cb57a44bfe75",
+          "slotId": "128ef532-1c48-44cd-8611-b7722a779f32",
+          "contentId": "79757a43-1388-4c9a-bb3b-68640505f677",
+          "revisionId": "46ed49db-385f-49b7-b33c-3e28ade949f3"
+        },
+        {
+          "date": "2026-10-28",
+          "planId": "638a1ee7-5521-4719-a889-2cb21fd00d95",
+          "slotId": "2541703a-8acf-4731-a857-fb6ed2e96df2",
+          "contentId": "c83563f9-a704-4755-9c9e-ab0a736b2bb1",
+          "revisionId": "345ce6f4-dcf0-4cee-a9a3-d17c5d96d785"
+        },
+        {
+          "date": "2026-10-30",
+          "planId": "bfc71fbc-2a8e-4f9e-9832-ffe30f0a8c52",
+          "slotId": "57141721-b69c-40db-9eba-659b4e6cdc58",
+          "contentId": "5a70967c-7553-480a-9243-31d4acefafcd",
+          "revisionId": "d763eb4e-87d7-4eaf-b8d7-e5539bc85450"
+        }
+      ],
+      "tokensUsed": 7401,
+      "jobs": [
+        {
+          "id": "8a58134a-c866-442a-bea8-4fca5e2417fe",
+          "kind": "plan",
+          "date": null,
+          "state": "completed",
+          "error": null,
+          "usage": {
+            "inputTokens": 763,
+            "outputTokens": 481
+          }
+        },
+        {
+          "id": "463257e2-571b-437e-bdca-bcbacec5703a",
+          "kind": "day",
+          "date": "2026-10-28",
+          "state": "completed",
+          "error": null,
+          "usage": {
+            "inputTokens": 1181,
+            "outputTokens": 864
+          }
+        },
+        {
+          "id": "77cc0dab-4132-461f-9db2-1a39d162649c",
+          "kind": "day",
+          "date": "2026-10-30",
+          "state": "completed",
+          "error": null,
+          "usage": {
+            "inputTokens": 1174,
+            "outputTokens": 883
+          }
+        },
+        {
+          "id": "b8234b21-90b0-4c4a-bfc4-120367747328",
+          "kind": "day",
+          "date": "2026-10-26",
+          "state": "completed",
+          "error": null,
+          "usage": {
+            "inputTokens": 1177,
+            "outputTokens": 878
+          }
+        }
+      ],
+      "completeFields": [
+        {
+          "date": "2026-10-26",
+          "fields": [
+            "title",
+            "references",
+            "body",
+            "reflection",
+            "discussionQuestion",
+            "application",
+            "outboundPreview"
+          ],
+          "reloaded": true,
+          "state": "draft"
+        },
+        {
+          "date": "2026-10-28",
+          "fields": [
+            "title",
+            "references",
+            "body",
+            "reflection",
+            "discussionQuestion",
+            "application",
+            "outboundPreview"
+          ],
+          "reloaded": true,
+          "state": "draft"
+        },
+        {
+          "date": "2026-10-30",
+          "fields": [
+            "title",
+            "references",
+            "body",
+            "reflection",
+            "discussionQuestion",
+            "application",
+            "outboundPreview"
+          ],
+          "reloaded": true,
+          "state": "draft"
+        }
+      ],
+      "mobileWithinViewport": true,
+      "foreignChurchDenied": true,
+      "finishedAt": "2026-10-24T16:08:26.191Z"
+    }
+  ]
+}

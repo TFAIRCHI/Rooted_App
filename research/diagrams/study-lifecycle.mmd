@@ -1,0 +1,18 @@
+flowchart TD
+    CHURCH[Church tenant] --> SERMON[Sermon with source provenance]
+    SERMON --> SERIES[Weekly series with explicit sermon links]
+    SERIES --> SLOT[Dated slot with local calendar intent]
+    SLOT --> PLAN[Plan identity and immutable revisions]
+    PLAN --> PLANREVIEW[Independent plan review]
+    PLANREVIEW --> PLANAPPROVED[Exact approved plan hash]
+    PLANAPPROVED --> CONTENT[Explicit manual or AI-assisted content draft]
+    CONTENT --> CONTENTREVIEW[Independent content review]
+    CONTENTREVIEW --> CONTENTAPPROVED[Content approval binds content and plan hashes]
+    CONTENTAPPROVED --> SCHEDULE[Schedule pins approved current content head]
+    SCHEDULE --> PUBLICATION[Unique publication and live pointer]
+    PUBLICATION --> ENGAGEMENT[Engagement tied to viewed publication]
+    PUBLICATION --> DELIVERY[Consent-checked external delivery]
+    PLAN --> PLANEDIT[Edit creates new Draft and cancels pending schedules]
+    CONTENT --> CONTENTEDIT[Edit creates new Draft and cancels pending schedule]
+    CONTENTEDIT --> RETAIN[Prior published pointer stays until approved replacement]
+    PLANEDIT --> RETAIN

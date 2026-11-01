@@ -1,0 +1,1886 @@
+{
+  "auditedAt": "2026-11-01T12:18:57.637894+00:00",
+  "scope": "All 22 baseline Markdown documents and original approval artifacts reassessed for the November 1 corrections; files assigned to other owners were not edited.",
+  "baselineArchive": "_history/20261031-baseline.zip",
+  "markdownDocumentCount": 22,
+  "documents": [
+    {
+      "path": "README.md",
+      "baselineSha256": "e3c477969d35bc9cfd6991038df5f2c4dba8e4781f47674e8d3fa7dfc83b6192",
+      "baselineBytes": 8098,
+      "baselineLineCount": 71,
+      "disposition": "rewrite overview",
+      "proofExcerpts": [
+        {
+          "line": 21,
+          "text": "| [5. Studio Creator](items/05-studio-creator.md) | Separate visual composition task, stable ordered blocks, shared approved renderer, then AI visual candidates/video | Research block order is shared and tested across previews; du"
+        },
+        {
+          "line": 23,
+          "text": "| [7. Approval comments](items/07-approval-conversation.md) | Protected revision-anchored review history and visible latest request/reply; recover no-edit resubmit | Real current-API roundtrip confirms storage/read gap and reprodu"
+        },
+        {
+          "line": 36,
+          "text": "| Separate Studio canvas and block controls | [Open screenshot](mockups/captures/36-compact-studio-first-view.png) |"
+        },
+        {
+          "line": 69,
+          "text": "Research, source inspection, the named local tests, rendered mockups, architectural proposals and cross-review are complete. [Validation](VALIDATION.md) separates actual results from future gates. Live SMS/People/YouTube account i"
+        }
+      ],
+      "requiredCorrection": "Replace separate Co Writer/Studio task model with channel library + single Import + unified Compose. Put visible autoplay homepage AI-tab demo in scope. Replace legacy 38 screens/test counts with rebuild evidence, while retaining attributed API proof.",
+      "editOwner": "root_or_assigned_role",
+      "currentRebuildSignoff": "not inferred from baseline"
+    },
+    {
+      "path": "RESEARCH_CHARTER.md",
+      "baselineSha256": "5a9e1b6dc35b409d27ac0a289fd363f58c3010564d91cf34599d52f86f11f2ac",
+      "baselineBytes": 5232,
+      "baselineLineCount": 56,
+      "disposition": "rewrite scope",
+      "proofExcerpts": [
+        {
+          "line": 5,
+          "text": "Explore seven requested improvements as one coherent product direction: richer CoWriter sources, approved social decks, a useful genuine-product homepage demonstration, compact contributor/admin workspaces, a separate visual Studi"
+        },
+        {
+          "line": 17,
+          "text": "5. Separate recommendation, demonstrated isolated behavior, existing application test, documented provider capability, and untested live integration."
+        },
+        {
+          "line": 25,
+          "text": "| 2 | Contributor/admin creates branded decks; members choose to share | Approved public excerpt assets tied to a study revision, with separate member consent/action |"
+        },
+        {
+          "line": 28,
+          "text": "| 5 | Separate AI-assisted visual Studio Creator | Reviewed structured media/study blocks, flexible order, consistent immersive member rendering |"
+        },
+        {
+          "line": 34,
+          "text": "- Keep the already completed 35 acceptance checks complete. The local 1.2.15 frontend candidate remains separate from this future initiative; deployment is not part of this work."
+        }
+      ],
+      "requiredCorrection": "Replace separate visual Studio workstream wording; four user corrections become acceptance constraints. Single Import spans broad types with adapters; no forced writing-to-design handoff; visible homepage autoplay with pause/reduced-motion behavior.",
+      "editOwner": "root_or_assigned_role",
+      "currentRebuildSignoff": "not inferred from baseline"
+    },
+    {
+      "path": "DECISIONS_AND_ROADMAP.md",
+      "baselineSha256": "bc46dd4498a71a2bbb9eee924e920faf2a667f105c2b7fcef340f103f029ad01",
+      "baselineBytes": 10432,
+      "baselineLineCount": 91,
+      "disposition": "rewrite decisions",
+      "proofExcerpts": [
+        {
+          "line": 12,
+          "text": "| Separate verbal and visual creation | Need visual control without reopening every writing conversation | Same approved text/order/media in the reader | Distinct CoWriter/Studio tasks, shared versioned content contract and render"
+        },
+        {
+          "line": 13,
+          "text": "| Deck is a public rendition | Church controls brand, excerpt and release | Member chooses sharing and sees what leaves the app | Separate exact-rendition approval/public-audience enablement; download fallback; no private reader s"
+        },
+        {
+          "line": 23,
+          "text": "**Scope:** item 7\u2019s protected history/latest-request display, recoverable resubmission, compact task shell/status/primary actions, and a genuine recorded demo of today\u2019s CoWriter. **Relative effort:** small-to-medium for the targe"
+        },
+        {
+          "line": 25,
+          "text": "Exit: contributor and approver exchange non-empty notes in separate fresh sessions; notes remain after edit/reload; wrong tenant/member access is denied; same-revision retry has a defined recovery; exact-revision approval is prese"
+        },
+        {
+          "line": 60,
+          "text": "**Planning Center People follows separately:** explicit church OAuth People scope, permitted reads, person/phone candidate reconciliation, source-of-truth decisions, rate-limit/revocation/deletion behavior. Publishing integration "
+        }
+      ],
+      "requiredCorrection": "Reverse separate verbal/visual creation decision. Sequence one content model/editor+assistant and channel library; implementation can be staged internally without a user handoff. Review-cycle repair must permit no-edit resubmission rather than fake edits.",
+      "editOwner": "root_or_assigned_role",
+      "currentRebuildSignoff": "not inferred from baseline"
+    },
+    {
+      "path": "SOURCES.md",
+      "baselineSha256": "06a3d0378dca73021950288a6f14900673f48a29c4d1bc53406ff1142fdbff33",
+      "baselineBytes": 6144,
+      "baselineLineCount": 33,
+      "disposition": "reassess register",
+      "proofExcerpts": [
+        {
+          "line": 8,
+          "text": "| [Google: captions list](https://developers.google.com/youtube/v3/docs/captions/list) | Caption-track metadata, not the transcript itself | Separate authorized download needed |"
+        }
+      ],
+      "requiredCorrection": "Preserve dated primary sources with precise limits, add authoritative model references for channel library/import/editing/autoplay as researched. Do not relabel 31 Oct checks as 1 Nov verified. Broader Import UI does not prove format/provider adapters.",
+      "editOwner": "root_or_assigned_role",
+      "currentRebuildSignoff": "not inferred from baseline"
+    },
+    {
+      "path": "VALIDATION.md",
+      "baselineSha256": "89494d95b38018b7202f1cce928a51407c89eb048eb687cc567b03383e544671",
+      "baselineBytes": 9359,
+      "baselineLineCount": 64,
+      "disposition": "rewrite evidence classification",
+      "proofExcerpts": [
+        {
+          "line": 29,
+          "text": "- Resubmission of unchanged revision returned 409 with PostgreSQL uniqueness code 23505; original state/note survived rollback. Saving a new revision then resubmitting returned 200; independent approval returned 201 and retained t"
+        },
+        {
+          "line": 43,
+          "text": "| Source count implied unreviewed content was reviewed | Separate included and awaiting-review states/count, source excerpt locator and gated confirmation |"
+        },
+        {
+          "line": 56,
+          "text": "5. **Studio:** versioned application schema, durable asset jobs, shared published renderer/legacy compatibility, mixed-content approve/publish tests, accessibility/narration, and separate image/video provider quality/cost tests."
+        },
+        {
+          "line": 57,
+          "text": "6. **Member access:** chosen phone-capable identity architecture, owned-number delivery/recovery/abuse tests, safe existing-account linking, three enrollment policies, and separately authorized Planning Center People sync."
+        },
+        {
+          "line": 58,
+          "text": "7. **Review repair:** implement the protected history/UI and defined repeated-review semantics, then run fresh separate browser-session roundtrips. Current storage/API proof is not proof that the UI has already been fixed."
+        }
+      ],
+      "requiredCorrection": "Legacy 37/57/15/22 browser counts prove archived concept only; rebuild tests/images need fresh ledger. Retain unchanged-source API findings with source-hash revalidation; do not treat old separate-Studio approval as current design signoff.",
+      "editOwner": "root_or_assigned_role",
+      "currentRebuildSignoff": "not inferred from baseline"
+    },
+    {
+      "path": "architecture/README.md",
+      "baselineSha256": "0cae1fcb021c61c255fb97e39be05bfa6e3dc74f798d383e8f32042a390c53a5",
+      "baselineBytes": 3758,
+      "baselineLineCount": 38,
+      "disposition": "redraw architecture",
+      "proofExcerpts": [
+        {
+          "line": 25,
+          "text": "| Deck revisions/public rendition | Exact study/deck/brand/renderer/caption/link approval | Public excerpt is intentionally separate from private full study |"
+        },
+        {
+          "line": 34,
+          "text": "Member and staff identity remain separate assurance journeys even if they map to the same person. Directory matching is a candidate association, not a trusted authentication event. Login verification, church enrollment, communicat"
+        }
+      ],
+      "requiredCorrection": "Channel source library\u2192ready selected context\u2192one Compose document/artboard+assistant+review rail. Separate logical content/media services can remain backend boundaries without separate authoring journeys.",
+      "editOwner": "root_or_assigned_role",
+      "currentRebuildSignoff": "not inferred from baseline"
+    },
+    {
+      "path": "architecture/technical-feasibility.md",
+      "baselineSha256": "1d8c22562fa993f50f99b0146820403e857aae56e10666e9422d28676764cc41",
+      "baselineBytes": 22132,
+      "baselineLineCount": 118,
+      "disposition": "rewrite UX contract and reassess invariants",
+      "proofExcerpts": [
+        {
+          "line": 17,
+          "text": "| QR church routing | Existing `/c/[slug]`, safe auth continuation, invitation acceptance | Source trace only; UX prototype separate | Routing feasible; open enrollment policy/API is additional work |"
+        },
+        {
+          "line": 69,
+          "text": "Keep CoWriter focused on verbal proposals; open a distinct Studio route for composition. Introduce a versioned content payload with ordered, stable-id blocks: text/reference, image, deterministic chart and supported video. Retain "
+        },
+        {
+          "line": 75,
+          "text": "The devotional must remain readable when media is unavailable or disabled. Keep meaningful text/caption alternatives and avoid autoplay or compulsory large downloads. Public deck metadata/analytics must not expose private reaction"
+        },
+        {
+          "line": 81,
+          "text": "Separate three concepts: immutable person/account identity; verified contact method; church membership. Current user ids come from verified OIDC `sub` or `entra:<tenant>:<oid>`, and contributor step-up requires the same user id pl"
+        },
+        {
+          "line": 99,
+          "text": "Future Planning Center People association is separate from both Rooted sign-in and church enrollment. Request `people` OAuth permission per church with an appropriately authorized account; retain Publishing independently and handl"
+        }
+      ],
+      "requiredCorrection": "Replace distinct Studio route and actor-private-only import assumptions with channel ownership plus private access tiers. Unified selected-content proposals, apply/undo and one save/hash. Keep parser/SSRF/identity/deck invariants; broaden adapter inventory without invented live support.",
+      "editOwner": "root_or_assigned_role",
+      "currentRebuildSignoff": "not inferred from baseline"
+    },
+    {
+      "path": "evidence/engineering-validation.md",
+      "baselineSha256": "01fdc6c708afbe9943b3b72cba910a86ac094327bef9207f2640ad082ae3455d",
+      "baselineBytes": 14002,
+      "baselineLineCount": 87,
+      "disposition": "revalidate retained evidence",
+      "proofExcerpts": [
+        {
+          "line": 59,
+          "text": "| [YouTube captions list](https://developers.google.com/youtube/data/reference/rest/v3/captions/list) | Last updated 2026-10-15 UTC | Metadata only, 50-unit list operation; separate caption retrieval |"
+        }
+      ],
+      "requiredCorrection": "Review each old extraction/security/export test for newlibrary relevance; synthetic parser/provider limits persist. State oldbrowser evidence archived. Add exact current hashes/results only for genuinely rechecked modules.",
+      "editOwner": "root_or_assigned_role",
+      "currentRebuildSignoff": "not inferred from baseline"
+    },
+    {
+      "path": "items/01-cowriter-context-inputs.md",
+      "baselineSha256": "bfc6b00c45aab506f27a07122429f9882d00c248a4b809c6715c1168da6003f6",
+      "baselineBytes": 6233,
+      "baselineLineCount": 49,
+      "disposition": "replace source journey",
+      "proofExcerpts": [
+        {
+          "line": 3,
+          "text": "**Recommendation:** add a reviewed source tray, not a single \u201cattach anything\u201d button. Start with DOCX and pasted text/cells, extend approved-host website extraction and selected XLSX ranges, then add authorized YouTube captions. "
+        },
+        {
+          "line": 18,
+          "text": "| Excel upload or pasted cells | Support `.xlsx` sheet/range selection and a separate pasted-table/TSV path; show headings, cell addresses, date interpretation and selected rows before inclusion | Distinguish formula expressions f"
+        },
+        {
+          "line": 26,
+          "text": "The preview shows **Not included**, **Ready for review**, **Reviewed**, **Included in this request**, or **Failed** separately. Extraction success is not contributor review; source review is not study approval. Deselecting a sourc"
+        }
+      ],
+      "requiredCorrection": "Opening explicitly rejects single attach-anything button; reverse UI recommendation to one Import-manytypes dialog, channel filename/URL rows and selected ready context. Keep type-specific extraction detail inside row inspector/error recovery, not four primary journeys.",
+      "editOwner": "root_or_assigned_role",
+      "currentRebuildSignoff": "not inferred from baseline"
+    },
+    {
+      "path": "items/02-social-sharing.md",
+      "baselineSha256": "3ef3f07d018b9d5cad8226eabcc2a32b21b2e757985fe07a38a8b1435a764f72",
+      "baselineBytes": 6119,
+      "baselineLineCount": 52,
+      "disposition": "integrate with Compose",
+      "proofExcerpts": [
+        {
+          "line": 3,
+          "text": "**Recommendation:** publish a separately approved **public excerpt deck** from a precise approved study version. The church prepares it; the member previews and chooses whether/what to share. Start with downloadable images and cap"
+        },
+        {
+          "line": 14,
+          "text": "| Study quote | Exact excerpt or separately reviewed adaptation, with the study context retained | Full approved caption plus safe destination link |"
+        },
+        {
+          "line": 21,
+          "text": "A members-only study can have an intentionally public excerpt without making the complete study public. Use a dedicated deck/download/public-landing resource with a separate audience/approval policy. The link should clearly say wh"
+        }
+      ],
+      "requiredCorrection": "Deck becomes output/rendition of unified creator, with approvedsource and exact deck review distinct. Preserve publicrights, brandversion, member optin/download/cancel, revision binding and capability matrix.",
+      "editOwner": "root_or_assigned_role",
+      "currentRebuildSignoff": "not inferred from baseline"
+    },
+    {
+      "path": "items/03-real-cowriter-demonstration.md",
+      "baselineSha256": "a16ad0c5de9e034f2f3d9dfde76725141b64527cc4cf5a30aa7553d496e3279f",
+      "baselineBytes": 5390,
+      "baselineLineCount": 48,
+      "disposition": "rewrite visibility/playback",
+      "proofExcerpts": [
+        {
+          "line": 13,
+          "text": "| Unauthenticated live model playground | Cost, abuse, privacy, doctrinal misuse, latency and quota pressure; approval/publishing cannot be exposed | Defer until a separately designed bounded demonstration service exists |"
+        },
+        {
+          "line": 28,
+          "text": "| 6. Hand off | Show review assignment and an illustrative member-reading destination; do not bypass approval | Preparation and publication remain separate |"
+        }
+      ],
+      "requiredCorrection": "Replace click-to-play-only poster/load-on-intent default with visible automatically progressing homepage AI-tab demonstration. Real product recording vs fixture replay must be labeled; pause/mute/reducedmotion/offscreen behavior explicit; no visitor providercall.",
+      "editOwner": "root_or_assigned_role",
+      "currentRebuildSignoff": "not inferred from baseline"
+    },
+    {
+      "path": "items/04-compact-contributor-workspace.md",
+      "baselineSha256": "179c983bfa50e311f6e3a11965853cef35860046ecec5193803ac6a34f4b0456",
+      "baselineBytes": 6086,
+      "baselineLineCount": 56,
+      "disposition": "replace task architecture",
+      "proofExcerpts": [
+        {
+          "line": 36,
+          "text": "| Church settings | Clear sections for identity, member access, integrations and policy | Focused forms with separate save/error status |"
+        }
+      ],
+      "requiredCorrection": "Remove six-task Sources/Co Writer/Studio navigation. One dynamic Compose canvas with docoutline/library/assistant/review panels; sidebar/channel context, selection-scoped tools, one save state. Compact controls must not hide editable content.",
+      "editOwner": "root_or_assigned_role",
+      "currentRebuildSignoff": "not inferred from baseline"
+    },
+    {
+      "path": "items/05-studio-creator.md",
+      "baselineSha256": "59e7d3fe8af0798d003527c6c7f0e16929717ee8f972555b5adb63809fbc22eb",
+      "baselineBytes": 6338,
+      "baselineLineCount": 52,
+      "disposition": "rewrite entire premise",
+      "proofExcerpts": [
+        {
+          "line": 3,
+          "text": "**Recommendation:** make Studio Creator a distinct composition task alongside the verbal CoWriter. Begin with structured, reorderable study blocks and deterministic diagrams/charts/images, using one renderer for preview and readin"
+        },
+        {
+          "line": 7,
+          "text": "| CoWriter | Studio Creator |"
+        },
+        {
+          "line": 10,
+          "text": "| Proposes words; contributor confirms and edits | Proposes visual candidates; contributor selects/attaches and reviews |"
+        },
+        {
+          "line": 12,
+          "text": "| Shares the source/revision foundation | Shares the source/revision foundation, plus versioned media assets |"
+        },
+        {
+          "line": 14,
+          "text": "There should not be a hidden second AI system rewriting the teaching when the creator asks for a picture. Text changes from Studio must be explicit proposed text edits, reviewed as teaching changes."
+        }
+      ],
+      "requiredCorrection": "Replace separate Co Writer/Studio table with single Word/Canva-like authoring surface, editabletext/richartboard, context-aware ribbon, dockedassistant selected proposals+undo; reading/design share ordered content. Typedblocks/sharedrenderer/media gates still apply.",
+      "editOwner": "root_or_assigned_role",
+      "currentRebuildSignoff": "not inferred from baseline"
+    },
+    {
+      "path": "items/06-member-access.md",
+      "baselineSha256": "3755473544f770130757a41698dae93f7cf97395093cd8f9c88e4b7f1ba619e7",
+      "baselineBytes": 7118,
+      "baselineLineCount": 55,
+      "disposition": "reassess integration",
+      "proofExcerpts": [
+        {
+          "line": 3,
+          "text": "**Recommendation:** preserve the preferred phone-first destination, but separate it from the immediately useful QR routing improvement. A church QR can route to today\u2019s verified login now; true phone-first sign-in needs an identit"
+        },
+        {
+          "line": 37,
+          "text": "- Phone verification, member enrollment, optional reminders and directory association are separate purposes. Reminder opt-in stays off by default in the proposed flow."
+        },
+        {
+          "line": 43,
+          "text": "The existing adapter uses the **Publishing** scope and an allowlist of Publishing routes. People is a separate product scope under Planning Center\u2019s [authentication model](https://api.planningcenteronline.com/docs/overview/authent"
+        }
+      ],
+      "requiredCorrection": "Phone/QR/name/People goal unchanged after explicit review; change creator/deck references and reader parity to unifiededitor. Keep church enrollment/identity/recovery boundaries and do not call QR/current OIDC complete phone-first delivery.",
+      "editOwner": "root_or_assigned_role",
+      "currentRebuildSignoff": "not inferred from baseline"
+    },
+    {
+      "path": "items/07-approval-conversation.md",
+      "baselineSha256": "2e11c28d5fe21c527360eecb00e3f3ac78c328563aa7b70cc86a56b4fd9c9954",
+      "baselineBytes": 17978,
+      "baselineLineCount": 112,
+      "disposition": "rewrite interaction and retain proven trace",
+      "proofExcerpts": [
+        {
+          "line": 15,
+          "text": "| Revision comment | Team adds a comment on an exact revision | `comments.body` | Revisions & comments UI fetches and renders it separately |"
+        },
+        {
+          "line": 25,
+          "text": "3. Submission validates the assigned independent reviewer and inserts the note into `study_review_requests` at [core-routes.ts:225](../../../backend/src/api/core-routes.ts:225). A separate explicit assignment endpoint also persist"
+        },
+        {
+          "line": 54,
+          "text": "4. Reuse exact-revision comments for replies initially. An author response should be visible alongside the next submission, with a simple \u201cReply and resubmit\u201d path after the latest draft saves. Approval remains an explicit indepen"
+        },
+        {
+          "line": 61,
+          "text": "- **Resubmit with no edit:** `study_review_requests` has `UNIQUE(church_id,content_id,revision_id)` at [migration line 14](../../../backend/migrations/012_study_review_requests.sql:14), while submit inserts a request for a supplie"
+        },
+        {
+          "line": 73,
+          "text": "| Approver requests changes; contributor opens separate fresh session | Exact reason readable and actionable | Separate OIDC accounts and real API/DB verified; author readers omit reason; browser pending |"
+        }
+      ],
+      "requiredCorrection": "Revalidated 215 sourcehashes unchanged. Keep original API results historical. Add selection/block/revision anchors in combinededitor reviewrail; repeated cycles same revision allowed by new request/cycle identity, no fake edits. Newreader/rail tests remain future.",
+      "editOwner": "contributor",
+      "currentRebuildSignoff": "not inferred from baseline"
+    },
+    {
+      "path": "mockups/README.md",
+      "baselineSha256": "a11daa3e40220c523f53ff364f0d8cd4271a7fd80ef0208bbd3222d5d199e95a",
+      "baselineBytes": 6841,
+      "baselineLineCount": 50,
+      "disposition": "rewrite guide and manifest",
+      "proofExcerpts": [
+        {
+          "line": 22,
+          "text": "| Separate visual Studio | [Diagram](captures/13-studio-diagram.png), [Chart/data equivalent](captures/14-studio-chart.png), [Video empty state](captures/15-studio-video-empty.png), [Immersive preview](captures/16-immersive-previe"
+        },
+        {
+          "line": 34,
+          "text": "The prototype distinguishes current draft r12 from the deck's separate approved-source r10 example. An author can prepare a draft deck but cannot turn the changes-requested study into an approved public deck. The approver simulati"
+        }
+      ],
+      "requiredCorrection": "All oldnamedcaptures and browser checks belong archived 106 filebaseline. Link regenerated channel/import/compose/ribbon/context/AI/applyundo/review/demo views. No separate Co Writer handoff screenshots as currentdesign.",
+      "editOwner": "root_or_assigned_role",
+      "currentRebuildSignoff": "not inferred from baseline"
+    },
+    {
+      "path": "roles/church-member-assessment.md",
+      "baselineSha256": "127b9265458ac63f93e2e9951ce5bc4b71bc0b1000713b8ac9b93839f7ee7c68",
+      "baselineBytes": 19064,
+      "baselineLineCount": 104,
+      "disposition": "reassess member impact",
+      "proofExcerpts": [
+        {
+          "line": 43,
+          "text": "Acceptance: explicit sample status, captions, transcript, controls and keyboard access; no autoplay audio; a useful text explanation without playing video; no login or paid generation just to view the example. Proposed future Stud"
+        },
+        {
+          "line": 70,
+          "text": "| Reminder choice | Login verification, church enrollment, optional SMS reminders and future directory association are separate choices/purposes. Reading remains available without reminder consent under church policy |"
+        },
+        {
+          "line": 72,
+          "text": "| Future Planning Center | Never block reading if disconnected/unmatched. A household/shared number or name produces a review case, never automatic person merge. Cross-church associations remain separate and revocable |"
+        }
+      ],
+      "requiredCorrection": "Replace separate Studio wording and oldbrowser signoff with rebuiltmember task review. Phone/deck/privacy/cancel/readability invariants survive. Verify newrichcanvas transforms to accessible reading and AI-tab autoplay never affects reader/media choice.",
+      "editOwner": "root_or_assigned_role",
+      "currentRebuildSignoff": "not inferred from baseline"
+    },
+    {
+      "path": "roles/contributor-assessment.md",
+      "baselineSha256": "88f704a3b2a2f42dffdbcbacd69fba78ddf9f2b8e1307206f74d7cddc528d445",
+      "baselineBytes": 22881,
+      "baselineLineCount": 118,
+      "disposition": "rewrite owned",
+      "proofExcerpts": [
+        {
+          "line": 14,
+          "text": "- An autosaving text draft, current member phone preview, revision comparison and comments, a floating per-study CoWriter, and a separate guided CoWriter for planning multiple days. See [content-editor.tsx](../../../frontend/compo"
+        },
+        {
+          "line": 60,
+          "text": "Current proof: the selected study appears below week/calendar controls and other settings. `ContentEditor` hides its writing surface outside workflow step 0, but review-assignment and publication sections have separate render path"
+        },
+        {
+          "line": 80,
+          "text": "Current proof: member sign-in copy says email; authentication delegates to OIDC, with contributor access re-verification separated from reading access. Church-link discovery accepts a same-origin `/c/slug`; enrollment uses named i"
+        },
+        {
+          "line": 90,
+          "text": "Current proof: submission notes and review decisions are stored in separate tables. The submission note is already returned to the frontend but unused; the decision reason lacks an ordinary editorial read path. Existing comments a"
+        },
+        {
+          "line": 94,
+          "text": "Acceptance proposal: two real isolated browser sessions complete submit(note) \u2192 request changes(reason) \u2192 contributor reload \u2192 edit/reply \u2192 resubmit \u2192 approver reload \u2192 approve; every note is readable by its intended role and abse"
+        }
+      ],
+      "requiredCorrection": "Allseven reviewed again underonechannel source library + unified Compose. Preserve current-source limitations; set measurable integrated selection/import/review/deck/phone/demo criteria. Oldmockupsignoff superseded.",
+      "editOwner": "contributor",
+      "currentRebuildSignoff": "not inferred from baseline"
+    },
+    {
+      "path": "roles/contributor-peer-review.md",
+      "baselineSha256": "cad1c0f7592cf17aac51fc9db898c7b314a769f2504a6e6cf31f9fc8f82bb2a3",
+      "baselineBytes": 8377,
+      "baselineLineCount": 45,
+      "disposition": "rewrite owned pending newimages",
+      "proofExcerpts": [
+        {
+          "line": 16,
+          "text": "| [36 \u00b7 compact Studio first view](../mockups/captures/36-compact-studio-first-view.png) | Distinct Studio task, block list, selected diagram, visual description, Move up/down and Immersive preview are visible at 1366\u00d7768. Action "
+        },
+        {
+          "line": 28,
+          "text": "- Author aggregate GET is 200 without either note; latest review-request GET is 200 with the contributor note but without the administrator reason; comments GET is 200 with an empty array. Frontend source separately confirms the r"
+        },
+        {
+          "line": 29,
+          "text": "- Same-revision resubmit produces **409 / 23505**. The failed transaction preserves the original note/status. Saving a changed revision produces 201, resubmission 200, and independent approval 201; the original reason remains in s"
+        },
+        {
+          "line": 34,
+          "text": "The new conversation should not promise that a reply alone permits same-revision resubmission. Choose and explain either an explicit new revision or repeated request cycles against one revision. Preserve exact-revision/hash approv"
+        }
+      ],
+      "requiredCorrection": "Explicitly supersede prior 3 resolvedfindings as archivedconcept evidence. Rebuiltimage/livechecks must cover single Import/context/editability/AIselectedapplyundo/no handoff, plus reviewcycle and decksource separation.",
+      "editOwner": "contributor",
+      "currentRebuildSignoff": "not inferred from baseline"
+    },
+    {
+      "path": "roles/data-engineer-assessment.md",
+      "baselineSha256": "6590344f0b4552c4699480fe883afe691c03618a35cd79bdb9bb924c6e906528",
+      "baselineBytes": 7019,
+      "baselineLineCount": 42,
+      "disposition": "reassess allseven",
+      "proofExcerpts": [
+        {
+          "line": 15,
+          "text": "| 3. Homepage useful demo | No new public AI runtime verified by this role | Prefer a useful clearly labeled guided example or recorded real flow first; live anonymous AI requires separate abuse/budget/content gate |"
+        },
+        {
+          "line": 17,
+          "text": "| 5. Visual Studio | Architecturally feasible; current payload cannot carry typed blocks | Version contract and build shared member renderer first; deterministic charts/images before paid generation; video separately gated |"
+        },
+        {
+          "line": 18,
+          "text": "| 6. Phone/name + QR + future People | QR with existing OIDC is near-term feasible. Phone-first requires a provider/identity architecture decision; People is a separate integration | Choose explicit enrollment policy; use immutabl"
+        },
+        {
+          "line": 19,
+          "text": "| 7. Change-request notes | Contributor role's isolated current-API roundtrip verified both notes persisted, author readers omit decision reason, same-revision resubmit fails 409/23505; edited-revision resubmit/approval succeeds |"
+        },
+        {
+          "line": 38,
+          "text": "Phase A can improve sources, deterministic decks, Studio contract/renderer and QR continuation without a phone-provider migration. Phone-first should have a separate architecture decision record comparing managed OIDC phone identi"
+        }
+      ],
+      "requiredCorrection": "Update source/channel ownership, unifiedcreator and demoautoplay decisions; keep conditional integration gates and provenance/hash model. Identify broad Import type taxonomy vs truly integrated adapters.",
+      "editOwner": "root_or_assigned_role",
+      "currentRebuildSignoff": "not inferred from baseline"
+    },
+    {
+      "path": "roles/engineering-peer-review.md",
+      "baselineSha256": "3a9ce823a755850df6fe0c85a25a405a84d43a68359f1f0b2460a4fc438c6bce",
+      "baselineBytes": 7605,
+      "baselineLineCount": 34,
+      "disposition": "replace active signoff",
+      "proofExcerpts": [
+        {
+          "line": 19,
+          "text": "3. **Keep phone identity and church access separate.** Live checks confirm Salem/North selection survives verification and conflict return. The conflict state rejects name-based bypass/merging. Enrollment describes member reading "
+        }
+      ],
+      "requiredCorrection": "Old 15 browser checks and shared six block order are archivedproof, not rebuiltcanvas support. Newchecks need selectedcontext, selection-scopedapplyundo, richtext/artboard/save contract, reviewcycles; replace save-new-revision instruction policy.",
+      "editOwner": "root_or_assigned_role",
+      "currentRebuildSignoff": "not inferred from baseline"
+    },
+    {
+      "path": "roles/ux-assessment.md",
+      "baselineSha256": "68e0a5da73bb5b2784cd41c5e1c7216b8c8541b158d6423878eba58936ed828d",
+      "baselineBytes": 11127,
+      "baselineLineCount": 49,
+      "disposition": "rewrite model and proof",
+      "proofExcerpts": [
+        {
+          "line": 9,
+          "text": "CoWriter is a verbal collaborator for teaching, planning, and draft proposals. Studio Creator is a separate visual workspace with ordered blocks, selected content, and an inspector. Both operate on the same revisioned study rather"
+        },
+        {
+          "line": 19,
+          "text": "| 3. Useful homepage demo | A short, chaptered, authentic recording of reviewed source \u2192 focused clarification \u2192 draft proposal \u2192 adoption/review. Provide transcript and captions; no autoplay. | The mockup is explicitly a still-fr"
+        },
+        {
+          "line": 23,
+          "text": "| 7. Review conversation | Persistent unresolved request \u2192 pinned change reason and actor/time/revision \u2192 old/current anchored passages \u2192 reply explaining revision \u2192 resubmit exact newly saved revision \u2192 approver resolves. | Reply"
+        },
+        {
+          "line": 27,
+          "text": "The contributor role identified a deck/source-revision inconsistency, inaccurate reviewed-source count, and excessive desktop chrome. These were corrected: the current draft stays blocked from approval, a separately labeled approv"
+        },
+        {
+          "line": 35,
+          "text": "1. At desktop 1366\u00d7768 and 1440\u00d7900, source confirmation with consent, Studio order/preview actions, and review reply/resubmit entry are visible without scrolling; saved revision and review context are visible. Long content can st"
+        }
+      ],
+      "requiredCorrection": "Reverse separate Co Writer/Studio and no autoplay recommendations; one Import/channel library + one editable Compose/ribbon/dockedassistant. Regenerate controls/screens/keyboard/reflow evidence; state role simulation limits.",
+      "editOwner": "root_or_assigned_role",
+      "currentRebuildSignoff": "not inferred from baseline"
+    }
+  ],
+  "approvalEvidenceAssessment": {
+    "artifacts": [
+      {
+        "path": "evidence/approval-roundtrip.ts",
+        "baselineSha256": "bde3077afd50687ff184521e014c4f4c38c696a44cf0da71db857b0f0e40a9d2",
+        "currentSha256": "bde3077afd50687ff184521e014c4f4c38c696a44cf0da71db857b0f0e40a9d2",
+        "unchanged": true,
+        "disposition": "retain verbatim historical currentAPI evidence; no new run or new design proof claimed"
+      },
+      {
+        "path": "evidence/approval-roundtrip.json",
+        "baselineSha256": "fbe1891ce7a856dbb5006eded1a0af8dbe39a8272b471269af0ae2a9f1dd791f",
+        "currentSha256": "fbe1891ce7a856dbb5006eded1a0af8dbe39a8272b471269af0ae2a9f1dd791f",
+        "unchanged": true,
+        "disposition": "retain verbatim historical currentAPI evidence; no new run or new design proof claimed"
+      }
+    ],
+    "comparedSourceCount": 215,
+    "allSourceHashesUnchanged": true,
+    "sourceHashComparison": [
+      {
+        "path": ".dockerignore",
+        "baselineSha256": "d91cc9a2901d0121723e2ae44daf8cee20c18145143033d96e72f5cf5c60942a",
+        "currentSha256": "d91cc9a2901d0121723e2ae44daf8cee20c18145143033d96e72f5cf5c60942a",
+        "unchanged": true
+      },
+      {
+        "path": "Dockerfile",
+        "baselineSha256": "b29aead703c0ab5efc9a35e9d13b92fe9fb4889fdf4135ea22c669c781c133db",
+        "currentSha256": "b29aead703c0ab5efc9a35e9d13b92fe9fb4889fdf4135ea22c669c781c133db",
+        "unchanged": true
+      },
+      {
+        "path": "backend/contracts/API.md",
+        "baselineSha256": "b7d56a7a9d8925ab59c8b2d999ababecf7df7ed0257b6542ac1ac1008bbee755",
+        "currentSha256": "b7d56a7a9d8925ab59c8b2d999ababecf7df7ed0257b6542ac1ac1008bbee755",
+        "unchanged": true
+      },
+      {
+        "path": "backend/contracts/COMMUNITY.md",
+        "baselineSha256": "5c8e692a5c5b9df3ffb2c2a0fb7b71bcbce7d75c4fd9ea659964e91ae4f66868",
+        "currentSha256": "5c8e692a5c5b9df3ffb2c2a0fb7b71bcbce7d75c4fd9ea659964e91ae4f66868",
+        "unchanged": true
+      },
+      {
+        "path": "backend/contracts/ONBOARDING.md",
+        "baselineSha256": "56bd6f8bd063218e4699a097a9e6e6eff9fdd83c28083d5f936ba39f18c60fb4",
+        "currentSha256": "56bd6f8bd063218e4699a097a9e6e6eff9fdd83c28083d5f936ba39f18c60fb4",
+        "unchanged": true
+      },
+      {
+        "path": "backend/contracts/PRIVACY.md",
+        "baselineSha256": "a0c639ee515586203395e8d49c9ed98902be4261435550e9089764be6bac0bc4",
+        "currentSha256": "a0c639ee515586203395e8d49c9ed98902be4261435550e9089764be6bac0bc4",
+        "unchanged": true
+      },
+      {
+        "path": "backend/contracts/PROVIDERS.md",
+        "baselineSha256": "d1bfc395b1efee70bf25453c4a63be37b5065e0062ad8a99c8b084546d00ca96",
+        "currentSha256": "d1bfc395b1efee70bf25453c4a63be37b5065e0062ad8a99c8b084546d00ca96",
+        "unchanged": true
+      },
+      {
+        "path": "backend/contracts/payload-schemas.json",
+        "baselineSha256": "3429190651b54c91ed4cd19fdd89ef5cb62741514e66458f74c24e0796761948",
+        "currentSha256": "3429190651b54c91ed4cd19fdd89ef5cb62741514e66458f74c24e0796761948",
+        "unchanged": true
+      },
+      {
+        "path": "backend/contracts/payloads.ts",
+        "baselineSha256": "04892771347ccf3bfbb8e571dad3c9be34e02325e2330f4808e91eeb5659b3a1",
+        "currentSha256": "04892771347ccf3bfbb8e571dad3c9be34e02325e2330f4808e91eeb5659b3a1",
+        "unchanged": true
+      },
+      {
+        "path": "backend/contracts/study-workflow.ts",
+        "baselineSha256": "fdd93f926ffed935a4c408864932bb964ef4c632134c1399ec43bcd1cc83f4ac",
+        "currentSha256": "fdd93f926ffed935a4c408864932bb964ef4c632134c1399ec43bcd1cc83f4ac",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/001_core.sql",
+        "baselineSha256": "ad28717a354cb950132a7ddbbf8055ed78cdf3200f1e0c7f5fefff7b7a68c7cc",
+        "currentSha256": "ad28717a354cb950132a7ddbbf8055ed78cdf3200f1e0c7f5fefff7b7a68c7cc",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/002_providers.sql",
+        "baselineSha256": "44afe9ce336c082842def5f72cd498381a1d910ae16b76e966293345d90136cf",
+        "currentSha256": "44afe9ce336c082842def5f72cd498381a1d910ae16b76e966293345d90136cf",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/003_core_hardening.sql",
+        "baselineSha256": "53f96d973f9d195d9ba70f215580a91ce5294bd7e746a0e2b7e4b0cd2dc8a597",
+        "currentSha256": "53f96d973f9d195d9ba70f215580a91ce5294bd7e746a0e2b7e4b0cd2dc8a597",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/004_community_and_onboarding.sql",
+        "baselineSha256": "dcb6da8bce3114dd45e1cffaf377bf19c8633b71849355a87eb7d8dc97424353",
+        "currentSha256": "dcb6da8bce3114dd45e1cffaf377bf19c8633b71849355a87eb7d8dc97424353",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/005_privacy_and_participation.sql",
+        "baselineSha256": "3f06264ff44623d088abcaf409f1d66a92ca0d13e7149be8624c506d216fb508",
+        "currentSha256": "3f06264ff44623d088abcaf409f1d66a92ca0d13e7149be8624c506d216fb508",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/006_revision_source_snapshots.sql",
+        "baselineSha256": "885ffb88bf48de66a43df3a61e8fd761d955ccfd75523fc2349e3cf08dfd2cc2",
+        "currentSha256": "885ffb88bf48de66a43df3a61e8fd761d955ccfd75523fc2349e3cf08dfd2cc2",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/007_rooted_theme.sql",
+        "baselineSha256": "fda03999f13da6736dbae5b865a3ad82c33bd2b377ad408f6c5ef6570d662d3f",
+        "currentSha256": "fda03999f13da6736dbae5b865a3ad82c33bd2b377ad408f6c5ef6570d662d3f",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/008_unified_study_approval.sql",
+        "baselineSha256": "59b733fea430c7d547723508a9cef2596a55acb04b3b5fc9a43e4f3792228ebc",
+        "currentSha256": "59b733fea430c7d547723508a9cef2596a55acb04b3b5fc9a43e4f3792228ebc",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/009_rooted_brand_assets.sql",
+        "baselineSha256": "0468ad7994fe82c3905f0790a69945fb4ab74f60f89481522ea69d7fbd29f6af",
+        "currentSha256": "0468ad7994fe82c3905f0790a69945fb4ab74f60f89481522ea69d7fbd29f6af",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/010_theme_capability_backfill.sql",
+        "baselineSha256": "65a165c6a7f7efa93379b21a6bbedf1475cbb7e9ff60b4733a2428f14f13ffc9",
+        "currentSha256": "65a165c6a7f7efa93379b21a6bbedf1475cbb7e9ff60b4733a2428f14f13ffc9",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/011_unique_study_dates.sql",
+        "baselineSha256": "197d205ff5b8227743d3aa12cac41fbd187b17778fdcd83aa93387f06322b58c",
+        "currentSha256": "197d205ff5b8227743d3aa12cac41fbd187b17778fdcd83aa93387f06322b58c",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/012_study_review_requests.sql",
+        "baselineSha256": "cd9170372b19bb7cb007c674cf07b742cd99f3deaba3e7ff75aa81729448691e",
+        "currentSha256": "cd9170372b19bb7cb007c674cf07b742cd99f3deaba3e7ff75aa81729448691e",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/013_engagement_read.sql",
+        "baselineSha256": "66c4bde45f799689466fe211fc7131327c2c3e2539b2d76bcdd5f9d514faf301",
+        "currentSha256": "66c4bde45f799689466fe211fc7131327c2c3e2539b2d76bcdd5f9d514faf301",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/014_manual_publication_mode.sql",
+        "baselineSha256": "73fcc64a73cc7610407c1d9641e2a05c37b873af4aecaccd3cf67301029295e7",
+        "currentSha256": "73fcc64a73cc7610407c1d9641e2a05c37b873af4aecaccd3cf67301029295e7",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/015_local_demo_credentials.sql",
+        "baselineSha256": "a7a006cd75fc111b6e1ddc821685025d6f394538990c58a3e794597d7a9f38bd",
+        "currentSha256": "a7a006cd75fc111b6e1ddc821685025d6f394538990c58a3e794597d7a9f38bd",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/016_single_study_approval.sql",
+        "baselineSha256": "9c7299b7c579426d51c625ed2289e9d446d9f2715da58910cab715b4661247b8",
+        "currentSha256": "9c7299b7c579426d51c625ed2289e9d446d9f2715da58910cab715b4661247b8",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/017_study_lifecycle.sql",
+        "baselineSha256": "16004d3ab8bc8e4a3dad9b3d83f54c5a3dd5588c53ef1491b54961e362f78175",
+        "currentSha256": "16004d3ab8bc8e4a3dad9b3d83f54c5a3dd5588c53ef1491b54961e362f78175",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/018_community_engagement.sql",
+        "baselineSha256": "3e2f7a29934c44f2990e3e22e407e077dfd62023f4b115f5377464929d7fa48e",
+        "currentSha256": "3e2f7a29934c44f2990e3e22e407e077dfd62023f4b115f5377464929d7fa48e",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/019_study_cowriter.sql",
+        "baselineSha256": "24b1bebad94e416f534cd64e57377bf514c2dfebf3177c47603d63e26addbb16",
+        "currentSha256": "24b1bebad94e416f534cd64e57377bf514c2dfebf3177c47603d63e26addbb16",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/020_cowriter_day_scope.sql",
+        "baselineSha256": "5c03d2a94fdbc9946302ee550cdeeb2928c5e2616540afbf862e439928ffbc45",
+        "currentSha256": "5c03d2a94fdbc9946302ee550cdeeb2928c5e2616540afbf862e439928ffbc45",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/021_guided_study_workflows.sql",
+        "baselineSha256": "6bafe33075cc221cbab77f14becf69a5c10484fd6a00c3819de21e20e8217fc2",
+        "currentSha256": "6bafe33075cc221cbab77f14becf69a5c10484fd6a00c3819de21e20e8217fc2",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/022_cowriter_day_confirmation.sql",
+        "baselineSha256": "12084c2df50d5a0225157e686dd6b344c3b3a112ac399af9299b6c56500202d4",
+        "currentSha256": "12084c2df50d5a0225157e686dd6b344c3b3a112ac399af9299b6c56500202d4",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/023_cowriter_conversation_first.sql",
+        "baselineSha256": "d78bd13f6d7637cb2d9508df89454165e613a08d4565bbef8dc0c270f638a10d",
+        "currentSha256": "d78bd13f6d7637cb2d9508df89454165e613a08d4565bbef8dc0c270f638a10d",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/024_conversation_plan_bridge.sql",
+        "baselineSha256": "25ded5e3be636cee036610e53e119cfb4c1222b485cba8595851b4c3b98e58cd",
+        "currentSha256": "25ded5e3be636cee036610e53e119cfb4c1222b485cba8595851b4c3b98e58cd",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/025_auth_continuation.sql",
+        "baselineSha256": "48f137dfdb504d097eac8836b152d9c4108ed428a3ffdac510bc91293c0ae8c6",
+        "currentSha256": "48f137dfdb504d097eac8836b152d9c4108ed428a3ffdac510bc91293c0ae8c6",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/026_positive_reactions.sql",
+        "baselineSha256": "3c100618ee5dc1ffcdb7bbc67e819731b9fceb38266743946e7783f586fd335c",
+        "currentSha256": "3c100618ee5dc1ffcdb7bbc67e819731b9fceb38266743946e7783f586fd335c",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/027_access_based_sessions.sql",
+        "baselineSha256": "61b7ce165fe54702314c72af02614a0b09f09e1920b584c1cac0336a7291c3ba",
+        "currentSha256": "61b7ce165fe54702314c72af02614a0b09f09e1920b584c1cac0336a7291c3ba",
+        "unchanged": true
+      },
+      {
+        "path": "backend/migrations/028_admin_review_authority.sql",
+        "baselineSha256": "e0cda23db4879d5d3ada927df58650a77052b27741f2b70b610ab0018a3df8f7",
+        "currentSha256": "e0cda23db4879d5d3ada927df58650a77052b27741f2b70b610ab0018a3df8f7",
+        "unchanged": true
+      },
+      {
+        "path": "backend/package.json",
+        "baselineSha256": "a7aec9c707efbcb979cfe108bb4c2c70b1de5b5f695315f7780d322c09f4f522",
+        "currentSha256": "a7aec9c707efbcb979cfe108bb4c2c70b1de5b5f695315f7780d322c09f4f522",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/api/commands.ts",
+        "baselineSha256": "f83167378a038d8afc96127b43b9b7f72f2184a4bab71030d7c0528e4d13fd07",
+        "currentSha256": "f83167378a038d8afc96127b43b9b7f72f2184a4bab71030d7c0528e4d13fd07",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/api/community-routes.ts",
+        "baselineSha256": "97d206ecefcf64f38de591dce51dc781dd4f776df9993c3d06a76cf390bc32de",
+        "currentSha256": "97d206ecefcf64f38de591dce51dc781dd4f776df9993c3d06a76cf390bc32de",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/api/core-routes.ts",
+        "baselineSha256": "6b114fd0560fc4ba51bfe1e4be2cd650ee9207ab8ea121b46f663e675ec28896",
+        "currentSha256": "6b114fd0560fc4ba51bfe1e4be2cd650ee9207ab8ea121b46f663e675ec28896",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/api/cowriter-routes.ts",
+        "baselineSha256": "45ea24f268a7118dfcdf069de09dfd5e06c64df27b940b6c8d7227b1ef1539f9",
+        "currentSha256": "45ea24f268a7118dfcdf069de09dfd5e06c64df27b940b6c8d7227b1ef1539f9",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/api/dashboard-routes.ts",
+        "baselineSha256": "1b1bf350304ef7e99cd557afc9e6cc392db5c7662ee0a9046d19c09553a96be7",
+        "currentSha256": "1b1bf350304ef7e99cd557afc9e6cc392db5c7662ee0a9046d19c09553a96be7",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/api/errors.ts",
+        "baselineSha256": "2bfe70833c2b38aa4dbf59353a4604552e399e4f786b547a0dc4f59def5b2ffb",
+        "currentSha256": "2bfe70833c2b38aa4dbf59353a4604552e399e4f786b547a0dc4f59def5b2ffb",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/api/onboarding-routes.ts",
+        "baselineSha256": "6ac81703bdba447670064681259a9275ccd3bc9a4f0dd0bf2acf84ffa29f118d",
+        "currentSha256": "6ac81703bdba447670064681259a9275ccd3bc9a4f0dd0bf2acf84ffa29f118d",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/api/privacy-routes.ts",
+        "baselineSha256": "75e0912f4e7be1f906500cc3fd5654d376ab8906ebefa7b4f6eab63598049844",
+        "currentSha256": "75e0912f4e7be1f906500cc3fd5654d376ab8906ebefa7b4f6eab63598049844",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/api/provider-routes.ts",
+        "baselineSha256": "2d3ce1ca8e8464c16a011e877c14f427bf561901ae8d61015da1cd69e836d600",
+        "currentSha256": "2d3ce1ca8e8464c16a011e877c14f427bf561901ae8d61015da1cd69e836d600",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/api/study-workflow-routes.ts",
+        "baselineSha256": "1ea8ba30bad9f32274f3cdf8ea71f3aee06b397760de320d94a0df1e99eb888c",
+        "currentSha256": "1ea8ba30bad9f32274f3cdf8ea71f3aee06b397760de320d94a0df1e99eb888c",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/api/tenant-boundary.ts",
+        "baselineSha256": "e75c1c227ae02d02b19f9fe477ca25a1bfa5ecc4c7a3d34384bfd621c90dae5b",
+        "currentSha256": "e75c1c227ae02d02b19f9fe477ca25a1bfa5ecc4c7a3d34384bfd621c90dae5b",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/api/theme-routes.ts",
+        "baselineSha256": "d8f73f857e33ebe634788820be865fb424c82b95c193c794499933a7de07cbdb",
+        "currentSha256": "d8f73f857e33ebe634788820be865fb424c82b95c193c794499933a7de07cbdb",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/app.ts",
+        "baselineSha256": "61013bd873b9c4f3d74eeecd39f0a663ddfd01d82c791cd108b5a67c992492a4",
+        "currentSha256": "61013bd873b9c4f3d74eeecd39f0a663ddfd01d82c791cd108b5a67c992492a4",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/auth/continuation.ts",
+        "baselineSha256": "02659e887ce760b59f01487bfbe7cc3e2746df0a8b58aa9a0549f2fa8b825efb",
+        "currentSha256": "02659e887ce760b59f01487bfbe7cc3e2746df0a8b58aa9a0549f2fa8b825efb",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/auth/local-issuer.ts",
+        "baselineSha256": "a3bf975a391d143a2f6c4b955ec66ca09741fae911827228f76c4de9e0cd5c53",
+        "currentSha256": "a3bf975a391d143a2f6c4b955ec66ca09741fae911827228f76c4de9e0cd5c53",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/auth/routes.ts",
+        "baselineSha256": "a48a2a00a1c3a916fd3ee6fbd160f64f92cf48342fb433bd60578af73b824d80",
+        "currentSha256": "a48a2a00a1c3a916fd3ee6fbd160f64f92cf48342fb433bd60578af73b824d80",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/auth/session.ts",
+        "baselineSha256": "a41301ed4c63f28536e695d359ccced96ce4790c36c076dd6a45c7cd0018a7f0",
+        "currentSha256": "a41301ed4c63f28536e695d359ccced96ce4790c36c076dd6a45c7cd0018a7f0",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/auth/verification-diagnostic.ts",
+        "baselineSha256": "2f87f4b599ee434d6cfd5a35392761ecf2baa745311c9465202fe1c486caecd7",
+        "currentSha256": "2f87f4b599ee434d6cfd5a35392761ecf2baa745311c9465202fe1c486caecd7",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/auth/verify-identity-token.ts",
+        "baselineSha256": "05fabbe6088bb63bfd9360b9db7bd7d1fe9e44c6faa944516af0532c490538a5",
+        "currentSha256": "05fabbe6088bb63bfd9360b9db7bd7d1fe9e44c6faa944516af0532c490538a5",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/infrastructure/config.ts",
+        "baselineSha256": "13ec3d84e11996bf74b02e57562d38c1ff60ae3c4c7f11a02036753834f21255",
+        "currentSha256": "13ec3d84e11996bf74b02e57562d38c1ff60ae3c4c7f11a02036753834f21255",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/infrastructure/database.ts",
+        "baselineSha256": "932d18d8f38fe620ec97700cd5625dccacde7e5399141ff1af4761f5d31ab2fc",
+        "currentSha256": "932d18d8f38fe620ec97700cd5625dccacde7e5399141ff1af4761f5d31ab2fc",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/infrastructure/migrate.ts",
+        "baselineSha256": "4a1719ea12459a908de70c4e897447864f280f3c4cfcc50c043285e1747d28d8",
+        "currentSha256": "4a1719ea12459a908de70c4e897447864f280f3c4cfcc50c043285e1747d28d8",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/infrastructure/seed.ts",
+        "baselineSha256": "c00e11d5cd90bcdc837163e4ab85b3384654d5d2b1768c04385eb9c3d2e17823",
+        "currentSha256": "c00e11d5cd90bcdc837163e4ab85b3384654d5d2b1768c04385eb9c3d2e17823",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/integrations/README.md",
+        "baselineSha256": "0d9a6770ea859a9af4ea0dd6490ba1a1b8ef3f2c3b8a4b2ba18b0622eca2843d",
+        "currentSha256": "0d9a6770ea859a9af4ea0dd6490ba1a1b8ef3f2c3b8a4b2ba18b0622eca2843d",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/integrations/ai.ts",
+        "baselineSha256": "21886d6638908a1d9ef2461eaaf25516c568aff18c1617aaaffa7ac3196e7a5e",
+        "currentSha256": "21886d6638908a1d9ef2461eaaf25516c568aff18c1617aaaffa7ac3196e7a5e",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/integrations/cowriter.ts",
+        "baselineSha256": "d70e905c9c3ce1d5df78ba7847bb2ff1f3ab79680800309a769fa4f083a9bb5a",
+        "currentSha256": "d70e905c9c3ce1d5df78ba7847bb2ff1f3ab79680800309a769fa4f083a9bb5a",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/integrations/errors.ts",
+        "baselineSha256": "b5c25d45ae449c9d04ce2db6732af677ac9650783f352a827c757379826aa478",
+        "currentSha256": "b5c25d45ae449c9d04ce2db6732af677ac9650783f352a827c757379826aa478",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/integrations/http.ts",
+        "baselineSha256": "c30cd07231019d70178fa160e03c7e7ed68df2b6d0c814e0cfed8060bd98b00b",
+        "currentSha256": "c30cd07231019d70178fa160e03c7e7ed68df2b6d0c814e0cfed8060bd98b00b",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/integrations/index.ts",
+        "baselineSha256": "6ebdc8d53cad7e840b66ed754b516f98634708f9cb35d9370dffa83524a2d857",
+        "currentSha256": "6ebdc8d53cad7e840b66ed754b516f98634708f9cb35d9370dffa83524a2d857",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/integrations/ingestion.ts",
+        "baselineSha256": "72fba738e96aa6cb8c763cbb65b56e5cb3a8e62d7fc88d1883ee8fa0796848f7",
+        "currentSha256": "72fba738e96aa6cb8c763cbb65b56e5cb3a8e62d7fc88d1883ee8fa0796848f7",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/integrations/planning-center.ts",
+        "baselineSha256": "bc28d92f3901b99406c2ad8743e1bd23f8d37ea8cd2f488d020445fc4d6101c2",
+        "currentSha256": "bc28d92f3901b99406c2ad8743e1bd23f8d37ea8cd2f488d020445fc4d6101c2",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/integrations/scripture.ts",
+        "baselineSha256": "377e9c9c666d143c7844165d068a5b53a6080f24e0270b0ae408b9c0c19f3da6",
+        "currentSha256": "377e9c9c666d143c7844165d068a5b53a6080f24e0270b0ae408b9c0c19f3da6",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/integrations/study-workflow.ts",
+        "baselineSha256": "e0e9dbd18ecca5cb3a1b8a53c269cf62976f35bb9bab7ac57c17fef09d35a099",
+        "currentSha256": "e0e9dbd18ecca5cb3a1b8a53c269cf62976f35bb9bab7ac57c17fef09d35a099",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/integrations/time.ts",
+        "baselineSha256": "17398350fdd7b806bf6f416fd0717c996569a1686947256ed4c392b8fcc91be8",
+        "currentSha256": "17398350fdd7b806bf6f416fd0717c996569a1686947256ed4c392b8fcc91be8",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/integrations/transcription.ts",
+        "baselineSha256": "c6361cf4700b507c1ace631847e2da7bef73ea61689e276c2f9379072052aab3",
+        "currentSha256": "c6361cf4700b507c1ace631847e2da7bef73ea61689e276c2f9379072052aab3",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/integrations/twilio.ts",
+        "baselineSha256": "39e80bef7c9c4c7f02429610743ecedb682aeb40717cb6d65f5c1e5b72e440c2",
+        "currentSha256": "39e80bef7c9c4c7f02429610743ecedb682aeb40717cb6d65f5c1e5b72e440c2",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/integrations/workflow-runtime.ts",
+        "baselineSha256": "cf48e6e54911a8541a0aa370118881ff3503df616b1c9f330bb28d61c48d41f5",
+        "currentSha256": "cf48e6e54911a8541a0aa370118881ff3503df616b1c9f330bb28d61c48d41f5",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/integrations/workflow-verification.ts",
+        "baselineSha256": "60967363ffd278fec97274105c0b571f9a1719441f2574590288536e1be4057f",
+        "currentSha256": "60967363ffd278fec97274105c0b571f9a1719441f2574590288536e1be4057f",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/modules/community-policy.ts",
+        "baselineSha256": "5fc2ee9fbdc8390dd6460d4c8f50d5a6f6c0f5e55eec9af3d5e7dae9ac928ac8",
+        "currentSha256": "5fc2ee9fbdc8390dd6460d4c8f50d5a6f6c0f5e55eec9af3d5e7dae9ac928ac8",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/modules/editorial.ts",
+        "baselineSha256": "d101c588c7a00cb23b8c6962aaff9c82023d4c838a544eb643eaab3a8a7843ef",
+        "currentSha256": "d101c588c7a00cb23b8c6962aaff9c82023d4c838a544eb643eaab3a8a7843ef",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/modules/engagement.ts",
+        "baselineSha256": "d9f0aa598ac66bf7af51685f85cea96b84fa82940f4ce6010844c0a0a8294245",
+        "currentSha256": "d9f0aa598ac66bf7af51685f85cea96b84fa82940f4ce6010844c0a0a8294245",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/modules/revisions.ts",
+        "baselineSha256": "0a6a8d8ac1d2c7b2ff2859241944f935db47a0e904bf9cb1840087ed8003d591",
+        "currentSha256": "0a6a8d8ac1d2c7b2ff2859241944f935db47a0e904bf9cb1840087ed8003d591",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/modules/save-revision.ts",
+        "baselineSha256": "759c0d07c37a342346844dc9bd995e04cba2c9c16c06af33f9e7f4f384a9679f",
+        "currentSha256": "759c0d07c37a342346844dc9bd995e04cba2c9c16c06af33f9e7f4f384a9679f",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/modules/study-lifecycle.ts",
+        "baselineSha256": "e024cada8a8d2a92e807bd40dabd0a70b3084fc771ac1b139b2abb104eac4fe2",
+        "currentSha256": "e024cada8a8d2a92e807bd40dabd0a70b3084fc771ac1b139b2abb104eac4fe2",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/modules/study-workflows.ts",
+        "baselineSha256": "9997c18169bfde2e7b43bb1062db538daedb3c937ffd28907c956770f04fbe6d",
+        "currentSha256": "9997c18169bfde2e7b43bb1062db538daedb3c937ffd28907c956770f04fbe6d",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/modules/theme.ts",
+        "baselineSha256": "644c307bdd0a789a66792962c07a204b30e0c2c5c81bc8804f6992f0ad1c905b",
+        "currentSha256": "644c307bdd0a789a66792962c07a204b30e0c2c5c81bc8804f6992f0ad1c905b",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/server.ts",
+        "baselineSha256": "57202fd663442e9e4184d88133afea6f3c8a9fba351ab71fc641a6d1aedccc24",
+        "currentSha256": "57202fd663442e9e4184d88133afea6f3c8a9fba351ab71fc641a6d1aedccc24",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/testing/workflow-model.ts",
+        "baselineSha256": "9cfb564f7d4326b9ee652f39e17c2bc60a1a9fea8d249f82981047b9855c8ea9",
+        "currentSha256": "9cfb564f7d4326b9ee652f39e17c2bc60a1a9fea8d249f82981047b9855c8ea9",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/workers/publication.ts",
+        "baselineSha256": "6d6cd2efcfbf5c98e5bea786d917e436225b6412898f919e72d603683a3d50e8",
+        "currentSha256": "6d6cd2efcfbf5c98e5bea786d917e436225b6412898f919e72d603683a3d50e8",
+        "unchanged": true
+      },
+      {
+        "path": "backend/src/workers/worker.ts",
+        "baselineSha256": "ca23d0cac8df58ccc4dd027ef2304adfacd91690e48a73390611c7e0904eab8c",
+        "currentSha256": "ca23d0cac8df58ccc4dd027ef2304adfacd91690e48a73390611c7e0904eab8c",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/[route]/page.tsx",
+        "baselineSha256": "34bdc9b8f9a20914a96db2488836a0b7de848dbf0114c66cd89814b5458b3ccd",
+        "currentSha256": "34bdc9b8f9a20914a96db2488836a0b7de848dbf0114c66cd89814b5458b3ccd",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/ai-co-writer/page.tsx",
+        "baselineSha256": "315ee036cc8a28c22f255d7fbfecb10740c0d3cfceb86db786a73951b092a27a",
+        "currentSha256": "315ee036cc8a28c22f255d7fbfecb10740c0d3cfceb86db786a73951b092a27a",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/brand-fix.css",
+        "baselineSha256": "c950475fb4a132f3f141f138be9e400486ca43cbdd08a5c717dc15846e4f31d5",
+        "currentSha256": "c950475fb4a132f3f141f138be9e400486ca43cbdd08a5c717dc15846e4f31d5",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/c/[slug]/layout.tsx",
+        "baselineSha256": "a77c454ee134e50f00baf7906eaf47e4362638fd586bf3612fd2a9597c65ecaf",
+        "currentSha256": "a77c454ee134e50f00baf7906eaf47e4362638fd586bf3612fd2a9597c65ecaf",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/c/[slug]/page.tsx",
+        "baselineSha256": "b887b445d445e4b3c38a161a1298f43e1ece9f72d34f14255a35a432f2f07276",
+        "currentSha256": "b887b445d445e4b3c38a161a1298f43e1ece9f72d34f14255a35a432f2f07276",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/c/[slug]/studies/[id]/page.tsx",
+        "baselineSha256": "7fa8daa32b11bad5b6c9f5ce31b64f8a392dab07022e34f27ae7a428390fb124",
+        "currentSha256": "7fa8daa32b11bad5b6c9f5ce31b64f8a392dab07022e34f27ae7a428390fb124",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/community.css",
+        "baselineSha256": "1083917fb9918eb9bad3b5b05f5099c26f6fc268e82ee9515ad83bfe76011021",
+        "currentSha256": "1083917fb9918eb9bad3b5b05f5099c26f6fc268e82ee9515ad83bfe76011021",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/error.tsx",
+        "baselineSha256": "5ba5a75b117bb77e602103705fef2e677b15672d9498344c19744ad452f92b54",
+        "currentSha256": "5ba5a75b117bb77e602103705fef2e677b15672d9498344c19744ad452f92b54",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/find-church/page.tsx",
+        "baselineSha256": "6a9fa6f6a84438608751a43cac7281f9b4b1546393f2f27175f8e06cd213d56e",
+        "currentSha256": "6a9fa6f6a84438608751a43cac7281f9b4b1546393f2f27175f8e06cd213d56e",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/get-started/page.tsx",
+        "baselineSha256": "3bbc8ec7904befcae8cb42b4f8e3ece054bc6de65c7393e58be792958db41a16",
+        "currentSha256": "3bbc8ec7904befcae8cb42b4f8e3ece054bc6de65c7393e58be792958db41a16",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/globals.css",
+        "baselineSha256": "f179757ce36dd8b5467aa190e6d557e82cedf23e68222512c1900302dc23db52",
+        "currentSha256": "f179757ce36dd8b5467aa190e6d557e82cedf23e68222512c1900302dc23db52",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/homepage-showcase.css",
+        "baselineSha256": "1fa2315bd686895ac51ac7388be4869e54a7c3269994cb75ea06022dea898785",
+        "currentSha256": "1fa2315bd686895ac51ac7388be4869e54a7c3269994cb75ea06022dea898785",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/how-it-works/page.tsx",
+        "baselineSha256": "cccedfe2177852a5167dbfb92571ffb7ba2514727637445d7fcb3a2065838fac",
+        "currentSha256": "cccedfe2177852a5167dbfb92571ffb7ba2514727637445d7fcb3a2065838fac",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/layout.tsx",
+        "baselineSha256": "608a0061d9ab1212fd20c027022b30730fd04c46de761d3a157ed910a7a8f260",
+        "currentSha256": "608a0061d9ab1212fd20c027022b30730fd04c46de761d3a157ed910a7a8f260",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/loading.tsx",
+        "baselineSha256": "b23ae55c8cdb602563c533e2adaf207942bb19e44d77e676bf29f9befbbeecad",
+        "currentSha256": "b23ae55c8cdb602563c533e2adaf207942bb19e44d77e676bf29f9befbbeecad",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/marketing-site.css",
+        "baselineSha256": "dcb11d1676eb38b5d938df41b43ee6857a1faab708f4d9588de502ea40b496e4",
+        "currentSha256": "dcb11d1676eb38b5d938df41b43ee6857a1faab708f4d9588de502ea40b496e4",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/member-landing.css",
+        "baselineSha256": "ff328fb7a1ae371cefd51c2dbdd9c4fc8067bffdb1992f5832bce8ed65228f89",
+        "currentSha256": "ff328fb7a1ae371cefd51c2dbdd9c4fc8067bffdb1992f5832bce8ed65228f89",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/member-study.css",
+        "baselineSha256": "240836f03316a0e24c1fd0887f0b74086876faeba8a5525691c06e1d07216aef",
+        "currentSha256": "240836f03316a0e24c1fd0887f0b74086876faeba8a5525691c06e1d07216aef",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/onboarding/complete/page.tsx",
+        "baselineSha256": "a35f2279f805b5cea55cf90c63424fd77830bea1fdaa7c3e7db9beda848a9791",
+        "currentSha256": "a35f2279f805b5cea55cf90c63424fd77830bea1fdaa7c3e7db9beda848a9791",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/onboarding/page.tsx",
+        "baselineSha256": "c804cc9bbc0a3033c9895460f89eeb39de789ee204caf0889f38b3a597d7e466",
+        "currentSha256": "c804cc9bbc0a3033c9895460f89eeb39de789ee204caf0889f38b3a597d7e466",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/page.tsx",
+        "baselineSha256": "c30f0e7a1935afe232eaa397c9d3081b56909658a1055d8e4eb276a0edeb1b0d",
+        "currentSha256": "c30f0e7a1935afe232eaa397c9d3081b56909658a1055d8e4eb276a0edeb1b0d",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/power-of-four/page.tsx",
+        "baselineSha256": "ec578c1a13ce48c123faeb6e5ce45b8e91d17fc67916df4a363784b25d4dfc81",
+        "currentSha256": "ec578c1a13ce48c123faeb6e5ce45b8e91d17fc67916df4a363784b25d4dfc81",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/public-site.css",
+        "baselineSha256": "a6783beeddb21183fa5bc4804ac781f7eaf2214f5f3615d1fcf5af0653664498",
+        "currentSha256": "a6783beeddb21183fa5bc4804ac781f7eaf2214f5f3615d1fcf5af0653664498",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/questions/page.tsx",
+        "baselineSha256": "2020d01c10886584cb9b7733d2ce40508b7db9f9eb5ecc0e7fff9b2aa965a412",
+        "currentSha256": "2020d01c10886584cb9b7733d2ce40508b7db9f9eb5ecc0e7fff9b2aa965a412",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/robots.ts",
+        "baselineSha256": "d250b1d315de40948eac0327432897603e12fd6a6242ca3be4dd69d7a0a95893",
+        "currentSha256": "d250b1d315de40948eac0327432897603e12fd6a6242ca3be4dd69d7a0a95893",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/sample-study/page.tsx",
+        "baselineSha256": "2533a2b210628bc91a1320b06c62394dc56341080fde1ef6baac03efc7a3787f",
+        "currentSha256": "2533a2b210628bc91a1320b06c62394dc56341080fde1ef6baac03efc7a3787f",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/sign-in/page.tsx",
+        "baselineSha256": "6bc11791f0c440802cf13ce73769f61707ad897c314b43cbfa910e5ef303f360",
+        "currentSha256": "6bc11791f0c440802cf13ce73769f61707ad897c314b43cbfa910e5ef303f360",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/sitemap.ts",
+        "baselineSha256": "ae2eae5be59bcf6c9577940029e5a3f01d653149c37ce2a6bb9e2646236833aa",
+        "currentSha256": "ae2eae5be59bcf6c9577940029e5a3f01d653149c37ce2a6bb9e2646236833aa",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/study-creator.css",
+        "baselineSha256": "042b1cfaf451a772948766408b9a9b321cc128e05ec2ae61a9dc7ae60c69dd8b",
+        "currentSha256": "042b1cfaf451a772948766408b9a9b321cc128e05ec2ae61a9dc7ae60c69dd8b",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/theme/page.tsx",
+        "baselineSha256": "1c9c37d9aad8d5732e5ed6e53104008a7d6bcb9bc104d4f246b7ad7b6d585bff",
+        "currentSha256": "1c9c37d9aad8d5732e5ed6e53104008a7d6bcb9bc104d4f246b7ad7b6d585bff",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/unified-workflow.css",
+        "baselineSha256": "b53bf8963309e3ec1848d6bf45146d69fea4d6018fd6356570908b3fffe582ef",
+        "currentSha256": "b53bf8963309e3ec1848d6bf45146d69fea4d6018fd6356570908b3fffe582ef",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/user/page.tsx",
+        "baselineSha256": "0eb0fa76f051376d79e1a445edb80fd0f437d4c7a0cffcfefb9e202375e5aaf0",
+        "currentSha256": "0eb0fa76f051376d79e1a445edb80fd0f437d4c7a0cffcfefb9e202375e5aaf0",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/app/why-rooted/page.tsx",
+        "baselineSha256": "4be004ee535917fb12ea08743761294d4c5d69c8744b5b591619408ea13c7797",
+        "currentSha256": "4be004ee535917fb12ea08743761294d4c5d69c8744b5b591619408ea13c7797",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/account-requests.tsx",
+        "baselineSha256": "6fd0434e3dae6235433401b7576084b1c57b9c13296e8e01234092127dc5829c",
+        "currentSha256": "6fd0434e3dae6235433401b7576084b1c57b9c13296e8e01234092127dc5829c",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/ai-assistance.test.tsx",
+        "baselineSha256": "522cfee3c7320bfc52fa9ac358960b68014bc2643a5478c28f1dbc17cf3e0c08",
+        "currentSha256": "522cfee3c7320bfc52fa9ac358960b68014bc2643a5478c28f1dbc17cf3e0c08",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/ai-assistance.tsx",
+        "baselineSha256": "5da4bb0369959b4ebbc807f921cdc54ea0f104e0dddca6b41a3ad391cbb03f87",
+        "currentSha256": "5da4bb0369959b4ebbc807f921cdc54ea0f104e0dddca6b41a3ad391cbb03f87",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/audio-transcription.tsx",
+        "baselineSha256": "6ed1670906c6da0aa4405d0ed80321f7cc03bd0af52c80599d0c374396ad2e11",
+        "currentSha256": "6ed1670906c6da0aa4405d0ed80321f7cc03bd0af52c80599d0c374396ad2e11",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/church-brand.test.tsx",
+        "baselineSha256": "2dd560a3a1d4bcb311268ed47360aa0679d15ec4b00fc0190a686fa6dd01474c",
+        "currentSha256": "2dd560a3a1d4bcb311268ed47360aa0679d15ec4b00fc0190a686fa6dd01474c",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/church-brand.tsx",
+        "baselineSha256": "2704c3f4299ab4567af19ca146c5b601446875c37150532c09f4b767c157a103",
+        "currentSha256": "2704c3f4299ab4567af19ca146c5b601446875c37150532c09f4b767c157a103",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/content-editor-with-preview.tsx",
+        "baselineSha256": "03ba5f06fd5ee0bd7ff07b8b0ef90605d597959c4b7404432dd1257a60e7c93b",
+        "currentSha256": "03ba5f06fd5ee0bd7ff07b8b0ef90605d597959c4b7404432dd1257a60e7c93b",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/content-editor.test.tsx",
+        "baselineSha256": "d37aa2de4f28f6299ff0fda6d3b738c838e9f494165635e8673c784616a00b5f",
+        "currentSha256": "d37aa2de4f28f6299ff0fda6d3b738c838e9f494165635e8673c784616a00b5f",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/content-editor.tsx",
+        "baselineSha256": "b5dad9b5466784183b7d928a6d3b55e8275ae2e427d16a96eb8252a3e1c80fda",
+        "currentSha256": "b5dad9b5466784183b7d928a6d3b55e8275ae2e427d16a96eb8252a3e1c80fda",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/cowriter-menu.tsx",
+        "baselineSha256": "0550664e72fbfdcd0d05b66a6a2062b8cb7b8ae3f411e3c6c1036a0a109b9ab9",
+        "currentSha256": "0550664e72fbfdcd0d05b66a6a2062b8cb7b8ae3f411e3c6c1036a0a109b9ab9",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/creator-icons.tsx",
+        "baselineSha256": "7013aa3afcfdb208865840c871341f1299d1324399688d37b11cba651b00845b",
+        "currentSha256": "7013aa3afcfdb208865840c871341f1299d1324399688d37b11cba651b00845b",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/dashboard.tsx",
+        "baselineSha256": "580d399f0b034a1e128c598116c0a4fcb9673d1d06eb7a70913cccd12d29ea6f",
+        "currentSha256": "580d399f0b034a1e128c598116c0a4fcb9673d1d06eb7a70913cccd12d29ea6f",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/delivery-center.tsx",
+        "baselineSha256": "de3f19d799f52fdb71d1e06738d3db8993da41759bd2770880fcdbbf1984ef68",
+        "currentSha256": "de3f19d799f52fdb71d1e06738d3db8993da41759bd2770880fcdbbf1984ef68",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/engagement-workspace.tsx",
+        "baselineSha256": "eafd4aa2d7f19a30a095ac7017930da2e2553135be15d0ba205127473bc02799",
+        "currentSha256": "eafd4aa2d7f19a30a095ac7017930da2e2553135be15d0ba205127473bc02799",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/guided-study-cowriter.tsx",
+        "baselineSha256": "b83d1d3896b93ac41200ee89bc738f144c614cc60fb1df00ad1a8c724620afa9",
+        "currentSha256": "b83d1d3896b93ac41200ee89bc738f144c614cc60fb1df00ad1a8c724620afa9",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/login-screen.tsx",
+        "baselineSha256": "13abac2689ffa6cdf6c6af2661394864f5a0865190607f0b19eb1b57bb05e19e",
+        "currentSha256": "13abac2689ffa6cdf6c6af2661394864f5a0865190607f0b19eb1b57bb05e19e",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/member-actions.tsx",
+        "baselineSha256": "75a62f585e87b95764c39f47cc8e4c0dcbb6badedfa1d1fca1abbba6ad776037",
+        "currentSha256": "75a62f585e87b95764c39f47cc8e4c0dcbb6badedfa1d1fca1abbba6ad776037",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/member-conversation.tsx",
+        "baselineSha256": "b1e69675c85142e4e570d123f4b3cf0ce4270e16a900632c372af340ba250ba4",
+        "currentSha256": "b1e69675c85142e4e570d123f4b3cf0ce4270e16a900632c372af340ba250ba4",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/member-navigation.tsx",
+        "baselineSha256": "c04afc8379ca85462f10fc0291891f51281cc9e38265c7b073914563ceaacb6a",
+        "currentSha256": "c04afc8379ca85462f10fc0291891f51281cc9e38265c7b073914563ceaacb6a",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/member-phone-preview.test.tsx",
+        "baselineSha256": "739fd98f3f304a664450452c426af1b602166166618c668b7d488699b9e02a74",
+        "currentSha256": "739fd98f3f304a664450452c426af1b602166166618c668b7d488699b9e02a74",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/member-phone-preview.tsx",
+        "baselineSha256": "dc228bf5186d113452cfdea08f8355d409c090224a6d6a34199e75801c3217ea",
+        "currentSha256": "dc228bf5186d113452cfdea08f8355d409c090224a6d6a34199e75801c3217ea",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/member-study-reader.tsx",
+        "baselineSha256": "e6be2d8ff530d67aa0bd3e3553a984794a21d0b6593ed1f7f7e01d88c2c69290",
+        "currentSha256": "e6be2d8ff530d67aa0bd3e3553a984794a21d0b6593ed1f7f7e01d88c2c69290",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/membership-settings.tsx",
+        "baselineSha256": "9adf472d8aed685e8c9c5aafd85b59f1eceea0c074f8560220a8a4c4192a3f7c",
+        "currentSha256": "9adf472d8aed685e8c9c5aafd85b59f1eceea0c074f8560220a8a4c4192a3f7c",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/moderation-inbox.tsx",
+        "baselineSha256": "97328dc4905570ff09ee99a7a91c285aaa57d67af726bca7ff93edc2168dcb53",
+        "currentSha256": "97328dc4905570ff09ee99a7a91c285aaa57d67af726bca7ff93edc2168dcb53",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/onboarding.tsx",
+        "baselineSha256": "7013fe2eabfb51cc09993fb5d256cbd46998d85f98d73d8014321caed952e0aa",
+        "currentSha256": "7013fe2eabfb51cc09993fb5d256cbd46998d85f98d73d8014321caed952e0aa",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/plan-editor.test.tsx",
+        "baselineSha256": "a4a2e7288765a575b48ef78b63af5b59a92674e79e52ac4c82d0c247820db212",
+        "currentSha256": "a4a2e7288765a575b48ef78b63af5b59a92674e79e52ac4c82d0c247820db212",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/plan-editor.tsx",
+        "baselineSha256": "0df9e91ba88d29ab4dd64014e3cd3769c75d6a5c54d0fe37041aae4371e99fbc",
+        "currentSha256": "0df9e91ba88d29ab4dd64014e3cd3769c75d6a5c54d0fe37041aae4371e99fbc",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/provider-settings.tsx",
+        "baselineSha256": "173ff154c057e6237e778a4959e1c503ddeef4500e5af6449f27e8567db95199",
+        "currentSha256": "173ff154c057e6237e778a4959e1c503ddeef4500e5af6449f27e8567db95199",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/public/find-church.test.ts",
+        "baselineSha256": "d5975810555d786d2b05441141f012156d63e40c295629c3b07f4fd1fb2db468",
+        "currentSha256": "d5975810555d786d2b05441141f012156d63e40c295629c3b07f4fd1fb2db468",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/public/find-church.tsx",
+        "baselineSha256": "4292bea6a2cc2e9d5b40e0aa64c2e0e972aaa21c94cd0f0d3ba86d099733f4ea",
+        "currentSha256": "4292bea6a2cc2e9d5b40e0aa64c2e0e972aaa21c94cd0f0d3ba86d099733f4ea",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/public/frame.tsx",
+        "baselineSha256": "aa15f8c1aad21a181b639b1d5c7f6acff6e643d87890fb95cace86418fe5f991",
+        "currentSha256": "aa15f8c1aad21a181b639b1d5c7f6acff6e643d87890fb95cace86418fe5f991",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/public/get-started.tsx",
+        "baselineSha256": "a3c19139fa099350232e69e5b7b00f09538f3a1f51d32bb6d3ae86fb57ae54d7",
+        "currentSha256": "a3c19139fa099350232e69e5b7b00f09538f3a1f51d32bb6d3ae86fb57ae54d7",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/public/index.tsx",
+        "baselineSha256": "a9485a09ee84d6737e3dcff3e378e68db9a07ff944efbae4d2c23b8373df7481",
+        "currentSha256": "a9485a09ee84d6737e3dcff3e378e68db9a07ff944efbae4d2c23b8373df7481",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/public/interactions.tsx",
+        "baselineSha256": "4f762f5d3e5beccf9e6c2fa5ccbbeb27be429080d6cf459ed8cc7bc1f5f39f8e",
+        "currentSha256": "4f762f5d3e5beccf9e6c2fa5ccbbeb27be429080d6cf459ed8cc7bc1f5f39f8e",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/public/marketing-frame.tsx",
+        "baselineSha256": "29e27ddadc6204dbbb293f8bfd4f5b9ecdb9fc45106e1f184970de4256db7854",
+        "currentSha256": "29e27ddadc6204dbbb293f8bfd4f5b9ecdb9fc45106e1f184970de4256db7854",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/public/marketing-header.tsx",
+        "baselineSha256": "d1ed6b06ebcabbfa432ecbe009fdfbf92ea0bf61cdf6c00cdfffa1a66df5d4a0",
+        "currentSha256": "d1ed6b06ebcabbfa432ecbe009fdfbf92ea0bf61cdf6c00cdfffa1a66df5d4a0",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/public/marketing-interactions.tsx",
+        "baselineSha256": "c4fc384f5b9e621bf5cdfae5c75ee9e2d9e59debf0e4ddd8e4534a8cc707ea1a",
+        "currentSha256": "c4fc384f5b9e621bf5cdfae5c75ee9e2d9e59debf0e4ddd8e4534a8cc707ea1a",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/public/marketing-pages.tsx",
+        "baselineSha256": "87c4db21138db132232a0df8e9df44d74c6c752f29bc53ec0ee5b8d69139d121",
+        "currentSha256": "87c4db21138db132232a0df8e9df44d74c6c752f29bc53ec0ee5b8d69139d121",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/public/onboarding.tsx",
+        "baselineSha256": "51c943e625a7cbf2b0d0169afde80c9682c2ff9f2c274ccf915348088ec63232",
+        "currentSha256": "51c943e625a7cbf2b0d0169afde80c9682c2ff9f2c274ccf915348088ec63232",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/public/product-showcase.tsx",
+        "baselineSha256": "1453bd04fee2d31f06ee1c7cf34cd3ef60e50be5fde39e33674cf0f941bad3c9",
+        "currentSha256": "1453bd04fee2d31f06ee1c7cf34cd3ef60e50be5fde39e33674cf0f941bad3c9",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/public/sample-study.tsx",
+        "baselineSha256": "a5fe5055e42ded6065ea3bef94e5419494000715543b9521302eab2401d3fe8d",
+        "currentSha256": "a5fe5055e42ded6065ea3bef94e5419494000715543b9521302eab2401d3fe8d",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/public/sign-in.test.tsx",
+        "baselineSha256": "7be4338a85998947f6e05be5da4db7220b35909357c01d282b4e9bad00cdc081",
+        "currentSha256": "7be4338a85998947f6e05be5da4db7220b35909357c01d282b4e9bad00cdc081",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/public/sign-in.tsx",
+        "baselineSha256": "aa6fcf55b6929f752ae09782795ecb51198090c10a38362ca2848f1dfda853b5",
+        "currentSha256": "aa6fcf55b6929f752ae09782795ecb51198090c10a38362ca2848f1dfda853b5",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/skip-link.tsx",
+        "baselineSha256": "f16e23c1c448cfe6737468940ed1e2fcdba92ee218a18c11e43a758a8dc06b04",
+        "currentSha256": "f16e23c1c448cfe6737468940ed1e2fcdba92ee218a18c11e43a758a8dc06b04",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/slot-settings.test.tsx",
+        "baselineSha256": "673212d9ec6dd9fae159b707e67642f84a7788896f146f982a6cc81c0f078d47",
+        "currentSha256": "673212d9ec6dd9fae159b707e67642f84a7788896f146f982a6cc81c0f078d47",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/slot-settings.tsx",
+        "baselineSha256": "e136b308f25393352762b39c11aceba96a2f7f3892ac7e9fa640fe9dd62d5b2c",
+        "currentSha256": "e136b308f25393352762b39c11aceba96a2f7f3892ac7e9fa640fe9dd62d5b2c",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/source-manager.tsx",
+        "baselineSha256": "54374ac53b3e7a608594fb10fcf52c618b08eee73c33d0e93c3c1981c6f9d988",
+        "currentSha256": "54374ac53b3e7a608594fb10fcf52c618b08eee73c33d0e93c3c1981c6f9d988",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/studies-with-calendar-move.tsx",
+        "baselineSha256": "eea64267d68e2557df23b0baee8ff9c6f6393ce0c14ba3a0e2c8044f4f7a2198",
+        "currentSha256": "eea64267d68e2557df23b0baee8ff9c6f6393ce0c14ba3a0e2c8044f4f7a2198",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/studies.test.tsx",
+        "baselineSha256": "bb26d9bd77d90b1943d0656af9ef03bbca84ecfeb86b3f5e3978e1e18b15ddb3",
+        "currentSha256": "bb26d9bd77d90b1943d0656af9ef03bbca84ecfeb86b3f5e3978e1e18b15ddb3",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/studies.tsx",
+        "baselineSha256": "fef846e5dc5845af25c7fee3abfe4f0da893188e6174bf85c9b0f3a60779a0c3",
+        "currentSha256": "fef846e5dc5845af25c7fee3abfe4f0da893188e6174bf85c9b0f3a60779a0c3",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/study-audio.test.tsx",
+        "baselineSha256": "212a2167dfce429f198bcad5a51075459884a45bccf89da645374c3d93a4d1f0",
+        "currentSha256": "212a2167dfce429f198bcad5a51075459884a45bccf89da645374c3d93a4d1f0",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/study-audio.tsx",
+        "baselineSha256": "c1d72f4eea255222e667c271e1f847dae442cf1cc1f145113d75b148b84eb56b",
+        "currentSha256": "c1d72f4eea255222e667c271e1f847dae442cf1cc1f145113d75b148b84eb56b",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/study-composer.test.tsx",
+        "baselineSha256": "b89106febd22e8713881cb80743c4a4b2bb7fe7583a034b768aa91548c0107b2",
+        "currentSha256": "b89106febd22e8713881cb80743c4a4b2bb7fe7583a034b768aa91548c0107b2",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/study-composer.tsx",
+        "baselineSha256": "5c8d3c81c204ffbdb67046f68797117708f2dabc569134f53b767e5f6810645a",
+        "currentSha256": "5c8d3c81c204ffbdb67046f68797117708f2dabc569134f53b767e5f6810645a",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/study-cowriter.tsx",
+        "baselineSha256": "5d1a9956f1445191e4f1512c71875548a44c714fea318236bff138058b471bc0",
+        "currentSha256": "5d1a9956f1445191e4f1512c71875548a44c714fea318236bff138058b471bc0",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/study-date-field.tsx",
+        "baselineSha256": "0b187ff5f917e015269e00dd4220a04650ecfb2203c2a3153a91c2b49d7ead57",
+        "currentSha256": "0b187ff5f917e015269e00dd4220a04650ecfb2203c2a3153a91c2b49d7ead57",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/study-engagement.tsx",
+        "baselineSha256": "9570790065848506ba0d71709faea3d1a1f7d1d87d7d00b80c2662fe7234d3bb",
+        "currentSha256": "9570790065848506ba0d71709faea3d1a1f7d1d87d7d00b80c2662fe7234d3bb",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/study-lifecycle-actions.test.tsx",
+        "baselineSha256": "a66fa5fbdebf22b418be2262369e49e2efaf2131a64f6a2dece5aed9296736d5",
+        "currentSha256": "a66fa5fbdebf22b418be2262369e49e2efaf2131a64f6a2dece5aed9296736d5",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/study-lifecycle-actions.tsx",
+        "baselineSha256": "62e9a4910131db875695df8878b860f83182db1370fa80c9e931856cbac55ce4",
+        "currentSha256": "62e9a4910131db875695df8878b860f83182db1370fa80c9e931856cbac55ce4",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/theme-settings.tsx",
+        "baselineSha256": "6c13d4b1756f8c1ea6f1cab878052f2dc1e31c118fd506dc3cc1faec2c6ba003",
+        "currentSha256": "6c13d4b1756f8c1ea6f1cab878052f2dc1e31c118fd506dc3cc1faec2c6ba003",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/ui.tsx",
+        "baselineSha256": "3d475325d832dfd8d62d90ecaec9a4c1d0e9e195b2fffe8866f35483b43bd1a4",
+        "currentSha256": "3d475325d832dfd8d62d90ecaec9a4c1d0e9e195b2fffe8866f35483b43bd1a4",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/unified-plan-editor.tsx",
+        "baselineSha256": "5dae40c12a4af35ab8c8ce5aa8b027cff4880f2755a02dfa8f7ddfec0134eb64",
+        "currentSha256": "5dae40c12a4af35ab8c8ce5aa8b027cff4880f2755a02dfa8f7ddfec0134eb64",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/workspace-pages.tsx",
+        "baselineSha256": "983b49abe16ed46a7683dbe0e1884bf8ac8d2ff37b5f7314064396f9f409657e",
+        "currentSha256": "983b49abe16ed46a7683dbe0e1884bf8ac8d2ff37b5f7314064396f9f409657e",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/workspace.test.tsx",
+        "baselineSha256": "07b66010c0a128e8aae7c397065f66ef66077efb329da2c59097fab1360b973b",
+        "currentSha256": "07b66010c0a128e8aae7c397065f66ef66077efb329da2c59097fab1360b973b",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/components/workspace.tsx",
+        "baselineSha256": "3ca49b4075d0f71ba8fadbaae664c07c53b04c479dd3cfd71acebf3ec7b8c723",
+        "currentSha256": "3ca49b4075d0f71ba8fadbaae664c07c53b04c479dd3cfd71acebf3ec7b8c723",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/lib/api.ts",
+        "baselineSha256": "22035b972af9167d3ad78eb9ef030099290b1a56db6d5e265002ad1505150d5f",
+        "currentSha256": "22035b972af9167d3ad78eb9ef030099290b1a56db6d5e265002ad1505150d5f",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/lib/content.ts",
+        "baselineSha256": "dae78771475cb66aa81e42357997dd465819fe5a7271945a2db3ee45c382412e",
+        "currentSha256": "dae78771475cb66aa81e42357997dd465819fe5a7271945a2db3ee45c382412e",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/lib/drafts.test.ts",
+        "baselineSha256": "745ab0e75c38276120b6ddd943394e203800c7b07ad72160882a7ca831401a2d",
+        "currentSha256": "745ab0e75c38276120b6ddd943394e203800c7b07ad72160882a7ca831401a2d",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/lib/drafts.ts",
+        "baselineSha256": "6863add8845e1b934e906305c4ece1abe7bcbe1cf6f74db509b819cd1318dda5",
+        "currentSha256": "6863add8845e1b934e906305c4ece1abe7bcbe1cf6f74db509b819cd1318dda5",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/lib/generated/contracts.ts",
+        "baselineSha256": "aac75ec482daee240425807e7f4be68f8a0c4920f04f02d0c90c285e479ff34a",
+        "currentSha256": "aac75ec482daee240425807e7f4be68f8a0c4920f04f02d0c90c285e479ff34a",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/lib/marketing.ts",
+        "baselineSha256": "84c4290420aabf7c75bdbf70f8eb7b48a9dd2dd73582717608c696f849073a4b",
+        "currentSha256": "84c4290420aabf7c75bdbf70f8eb7b48a9dd2dd73582717608c696f849073a4b",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/lib/member-design-preview.ts",
+        "baselineSha256": "bb1cc046cd3610f3d4fcae60b01f634aa53f0ecf6f9ecace4dcd696ec27ae11d",
+        "currentSha256": "bb1cc046cd3610f3d4fcae60b01f634aa53f0ecf6f9ecace4dcd696ec27ae11d",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/lib/member-server.ts",
+        "baselineSha256": "958aedb03aa4240a2cc9f93d7e5af9c7e994a253562431b29d661a7925bb59bc",
+        "currentSha256": "958aedb03aa4240a2cc9f93d7e5af9c7e994a253562431b29d661a7925bb59bc",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/lib/public-metadata.test.ts",
+        "baselineSha256": "a4c82ca8d60f9994164f7afc5a9e3a1b479bef0c97712b2a6d0fa8549e7b1ebb",
+        "currentSha256": "a4c82ca8d60f9994164f7afc5a9e3a1b479bef0c97712b2a6d0fa8549e7b1ebb",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/lib/public-metadata.ts",
+        "baselineSha256": "d9a8ebd1824941d9c1915b240470b50550d1358f91891fee336e67bd24c6fa7a",
+        "currentSha256": "d9a8ebd1824941d9c1915b240470b50550d1358f91891fee336e67bd24c6fa7a",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/lib/sign-in.test.ts",
+        "baselineSha256": "dcb2cf167e35345c1dc6b929e2e819b8f63c1c28ed95a2408c516ba808b99475",
+        "currentSha256": "dcb2cf167e35345c1dc6b929e2e819b8f63c1c28ed95a2408c516ba808b99475",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/lib/sign-in.ts",
+        "baselineSha256": "b97b3366447b5428378c769d629a93d347a8d3709e73784cb113c23539c6b6ca",
+        "currentSha256": "b97b3366447b5428378c769d629a93d347a8d3709e73784cb113c23539c6b6ca",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/lib/study-dates.test.ts",
+        "baselineSha256": "8348723fc96bc78961ce92596c754b39330f4ecb9bd62380aa1235cdcbc01568",
+        "currentSha256": "8348723fc96bc78961ce92596c754b39330f4ecb9bd62380aa1235cdcbc01568",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/lib/study-dates.ts",
+        "baselineSha256": "23838609f454870e9088a0bae7bf574ddc267784b084a69867c18e9ce71089a3",
+        "currentSha256": "23838609f454870e9088a0bae7bf574ddc267784b084a69867c18e9ce71089a3",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/lib/study-permissions.test.ts",
+        "baselineSha256": "b14aa3fe09fee774923ebff6955508fbb5bbde3d29d0377f15abe6144ac1014c",
+        "currentSha256": "b14aa3fe09fee774923ebff6955508fbb5bbde3d29d0377f15abe6144ac1014c",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/lib/study-permissions.ts",
+        "baselineSha256": "5cf9a250decda3a6228e2f9de7ae604935bb09d8a57133bac863ad715bf77017",
+        "currentSha256": "5cf9a250decda3a6228e2f9de7ae604935bb09d8a57133bac863ad715bf77017",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/lib/types.ts",
+        "baselineSha256": "6ed6d855e03c110f5a71a8b538d00ca9d8bafcd5778753e365ea0972ba492b82",
+        "currentSha256": "6ed6d855e03c110f5a71a8b538d00ca9d8bafcd5778753e365ea0972ba492b82",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/next.config.ts",
+        "baselineSha256": "a058efcce89d489982711ee4dc8a2767ec4063b9fa7baa88d48a2198aceb74a7",
+        "currentSha256": "a058efcce89d489982711ee4dc8a2767ec4063b9fa7baa88d48a2198aceb74a7",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/package.json",
+        "baselineSha256": "a81e6f880f6ab6b0d1c706048d6efaca8103d7c604b3de7ed37184ec6e8986fb",
+        "currentSha256": "a81e6f880f6ab6b0d1c706048d6efaca8103d7c604b3de7ed37184ec6e8986fb",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/public/rooted-share.svg",
+        "baselineSha256": "0078f09e67edab823c79fcfeb4ab20c5528ebd4be1fdc353e46c953553935d30",
+        "currentSha256": "0078f09e67edab823c79fcfeb4ab20c5528ebd4be1fdc353e46c953553935d30",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/public/showcase/member-home.webp",
+        "baselineSha256": "59b34c01449497d6d2cf31e642cd306c24973a0a5921eaf00d96cc89515eea49",
+        "currentSha256": "59b34c01449497d6d2cf31e642cd306c24973a0a5921eaf00d96cc89515eea49",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/public/showcase/member-study.webp",
+        "baselineSha256": "0aa2f97bc99202ab9da4c2198587336057d636f2a1eca97516056562c06f8c07",
+        "currentSha256": "0aa2f97bc99202ab9da4c2198587336057d636f2a1eca97516056562c06f8c07",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/public/showcase/team-calendar.webp",
+        "baselineSha256": "71f160b2dab48b9cff9f486c092fef1341337e70710fd53a20228d8f5ffe231e",
+        "currentSha256": "71f160b2dab48b9cff9f486c092fef1341337e70710fd53a20228d8f5ffe231e",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/public/showcase/team-dashboard.webp",
+        "baselineSha256": "17c8e315daf241e6fc6048dabe6fa8b1d89dfffe5321e58320d4b85b81c77db0",
+        "currentSha256": "17c8e315daf241e6fc6048dabe6fa8b1d89dfffe5321e58320d4b85b81c77db0",
+        "unchanged": true
+      },
+      {
+        "path": "frontend/public/showcase/team-editor.webp",
+        "baselineSha256": "c8a80237e34c798e4f62cfe2f5c3bd2a3a9e23927d7937f756dfce2030a8af61",
+        "currentSha256": "c8a80237e34c798e4f62cfe2f5c3bd2a3a9e23927d7937f756dfce2030a8af61",
+        "unchanged": true
+      },
+      {
+        "path": "package-lock.json",
+        "baselineSha256": "b25a06100f521f1850039a87f8a9e2c3d5d1a51dd9ad6ce6fee89160c22f0d8e",
+        "currentSha256": "b25a06100f521f1850039a87f8a9e2c3d5d1a51dd9ad6ce6fee89160c22f0d8e",
+        "unchanged": true
+      },
+      {
+        "path": "package.json",
+        "baselineSha256": "ca1264c85455b329ee60e94802c9e69ba35c5e6eea7f4fe7d8586a58fc4f9b9b",
+        "currentSha256": "ca1264c85455b329ee60e94802c9e69ba35c5e6eea7f4fe7d8586a58fc4f9b9b",
+        "unchanged": true
+      },
+      {
+        "path": "playwright.config.ts",
+        "baselineSha256": "9ddfdddecba3188f842a71417630511dc961dd5bd5354cb6d563ea2492672340",
+        "currentSha256": "9ddfdddecba3188f842a71417630511dc961dd5bd5354cb6d563ea2492672340",
+        "unchanged": true
+      }
+    ],
+    "retainReason": "The real API storage/read/conflict findings remain relevant: all 215 application/build files have identical hashes to the October 31 baseline. The original evidence remains historical. The combined editor and repaired review cycles are proposed; no repeat database run was warranted.",
+    "newConcern": "No-edit resubmission must be solved through repeated review cycles, without requiring an artificial content change."
+  }
+}

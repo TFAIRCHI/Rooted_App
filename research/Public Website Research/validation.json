@@ -1,0 +1,42 @@
+{
+  "at": "2026-10-25T01:43:44.841Z",
+  "passed": true,
+  "screenshots": [
+    "01-home-desktop-full.png",
+    "02-home-desktop-first-impression.png",
+    "17-ai-co-writer-simple-desktop.png",
+    "18-ai-co-writer-detailed-desktop.png",
+    "03-before-sunday-flow-desktop.png",
+    "04-power-of-four-desktop.png",
+    "05-get-started-desktop.png",
+    "06-sign-in-desktop.png",
+    "07-verify-email-desktop.png",
+    "08-church-setup-desktop.png",
+    "09-first-steps-desktop.png",
+    "10-join-a-church-desktop.png",
+    "11-member-study-desktop.png",
+    "12-home-mobile-full.png",
+    "13-get-started-mobile.png",
+    "14-sign-in-mobile.png",
+    "15-church-setup-mobile.png",
+    "16-member-study-mobile.png",
+    "19-ai-co-writer-mobile.png"
+  ],
+  "checks": [
+    "AI co-writer examples switch between simple requests and detailed notes",
+    "AI examples support arrow-key navigation and include church-control safeguards",
+    "Before/After Sunday tabs update the weekly rhythm",
+    "Rhythm tabs support arrow-key navigation",
+    "Church-leader path reaches account sign-in",
+    "Email and code screens simulate navigation without sending email",
+    "Church identity preview responds to editing",
+    "Setup requires local form completion and authority checkbox",
+    "Member path leads to sample member reading, not church creation",
+    "Member reflection control responds locally",
+    "Homepage fits 320px and 390px mobile viewports"
+  ],
+  "errors": [],
+  "boundary": "Isolated research prototype; no production files or connected services were changed.",
+  "reviewBoard": "screenshots/00-design-review-board.png",
+  "reviewBoardImagesLoaded": 8
+}

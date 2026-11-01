@@ -1,0 +1,439 @@
+{
+  "checkedAt": "2026-10-30T18:34:41.538Z",
+  "measurements": [
+    {
+      "route": "/",
+      "size": "desktop",
+      "height": 900,
+      "width": 1440,
+      "viewport": 1440,
+      "mainTop": 137
+    },
+    {
+      "route": "/why-rooted",
+      "size": "desktop",
+      "height": 1032,
+      "width": 1440,
+      "viewport": 1440,
+      "mainTop": 137
+    },
+    {
+      "route": "/how-it-works",
+      "size": "desktop",
+      "height": 929,
+      "width": 1440,
+      "viewport": 1440,
+      "mainTop": 137
+    },
+    {
+      "route": "/ai-co-writer",
+      "size": "desktop",
+      "height": 929,
+      "width": 1440,
+      "viewport": 1440,
+      "mainTop": 137
+    },
+    {
+      "route": "/power-of-four",
+      "size": "desktop",
+      "height": 929,
+      "width": 1440,
+      "viewport": 1440,
+      "mainTop": 137
+    },
+    {
+      "route": "/questions",
+      "size": "desktop",
+      "height": 900,
+      "width": 1440,
+      "viewport": 1440,
+      "mainTop": 137
+    },
+    {
+      "route": "/",
+      "size": "laptop",
+      "height": 768,
+      "width": 1366,
+      "viewport": 1366,
+      "mainTop": 119
+    },
+    {
+      "route": "/why-rooted",
+      "size": "laptop",
+      "height": 964,
+      "width": 1366,
+      "viewport": 1366,
+      "mainTop": 119
+    },
+    {
+      "route": "/how-it-works",
+      "size": "laptop",
+      "height": 870,
+      "width": 1366,
+      "viewport": 1366,
+      "mainTop": 119
+    },
+    {
+      "route": "/ai-co-writer",
+      "size": "laptop",
+      "height": 837,
+      "width": 1366,
+      "viewport": 1366,
+      "mainTop": 119
+    },
+    {
+      "route": "/power-of-four",
+      "size": "laptop",
+      "height": 874,
+      "width": 1366,
+      "viewport": 1366,
+      "mainTop": 119
+    },
+    {
+      "route": "/questions",
+      "size": "laptop",
+      "height": 789,
+      "width": 1366,
+      "viewport": 1366,
+      "mainTop": 119
+    },
+    {
+      "route": "/",
+      "size": "compact",
+      "height": 800,
+      "width": 1280,
+      "viewport": 1280,
+      "mainTop": 119
+    },
+    {
+      "route": "/why-rooted",
+      "size": "compact",
+      "height": 964,
+      "width": 1280,
+      "viewport": 1280,
+      "mainTop": 119
+    },
+    {
+      "route": "/how-it-works",
+      "size": "compact",
+      "height": 870,
+      "width": 1280,
+      "viewport": 1280,
+      "mainTop": 119
+    },
+    {
+      "route": "/ai-co-writer",
+      "size": "compact",
+      "height": 837,
+      "width": 1280,
+      "viewport": 1280,
+      "mainTop": 119
+    },
+    {
+      "route": "/power-of-four",
+      "size": "compact",
+      "height": 874,
+      "width": 1280,
+      "viewport": 1280,
+      "mainTop": 119
+    },
+    {
+      "route": "/questions",
+      "size": "compact",
+      "height": 800,
+      "width": 1280,
+      "viewport": 1280,
+      "mainTop": 119
+    },
+    {
+      "route": "/",
+      "size": "wide-menu-edge",
+      "height": 768,
+      "width": 1101,
+      "viewport": 1101,
+      "mainTop": 119
+    },
+    {
+      "route": "/why-rooted",
+      "size": "wide-menu-edge",
+      "height": 964,
+      "width": 1101,
+      "viewport": 1101,
+      "mainTop": 119
+    },
+    {
+      "route": "/how-it-works",
+      "size": "wide-menu-edge",
+      "height": 870,
+      "width": 1101,
+      "viewport": 1101,
+      "mainTop": 119
+    },
+    {
+      "route": "/ai-co-writer",
+      "size": "wide-menu-edge",
+      "height": 857,
+      "width": 1101,
+      "viewport": 1101,
+      "mainTop": 119
+    },
+    {
+      "route": "/power-of-four",
+      "size": "wide-menu-edge",
+      "height": 874,
+      "width": 1101,
+      "viewport": 1101,
+      "mainTop": 119
+    },
+    {
+      "route": "/questions",
+      "size": "wide-menu-edge",
+      "height": 789,
+      "width": 1101,
+      "viewport": 1101,
+      "mainTop": 119
+    },
+    {
+      "route": "/",
+      "size": "menu-edge",
+      "height": 768,
+      "width": 1100,
+      "viewport": 1100,
+      "mainTop": 79
+    },
+    {
+      "route": "/why-rooted",
+      "size": "menu-edge",
+      "height": 949,
+      "width": 1100,
+      "viewport": 1100,
+      "mainTop": 79
+    },
+    {
+      "route": "/how-it-works",
+      "size": "menu-edge",
+      "height": 858,
+      "width": 1100,
+      "viewport": 1100,
+      "mainTop": 79
+    },
+    {
+      "route": "/ai-co-writer",
+      "size": "menu-edge",
+      "height": 865,
+      "width": 1100,
+      "viewport": 1100,
+      "mainTop": 79
+    },
+    {
+      "route": "/power-of-four",
+      "size": "menu-edge",
+      "height": 846,
+      "width": 1100,
+      "viewport": 1100,
+      "mainTop": 79
+    },
+    {
+      "route": "/questions",
+      "size": "menu-edge",
+      "height": 768,
+      "width": 1100,
+      "viewport": 1100,
+      "mainTop": 79
+    },
+    {
+      "route": "/",
+      "size": "tablet",
+      "height": 768,
+      "width": 1024,
+      "viewport": 1024,
+      "mainTop": 79
+    },
+    {
+      "route": "/why-rooted",
+      "size": "tablet",
+      "height": 942,
+      "width": 1024,
+      "viewport": 1024,
+      "mainTop": 79
+    },
+    {
+      "route": "/how-it-works",
+      "size": "tablet",
+      "height": 855,
+      "width": 1024,
+      "viewport": 1024,
+      "mainTop": 79
+    },
+    {
+      "route": "/ai-co-writer",
+      "size": "tablet",
+      "height": 859,
+      "width": 1024,
+      "viewport": 1024,
+      "mainTop": 79
+    },
+    {
+      "route": "/power-of-four",
+      "size": "tablet",
+      "height": 839,
+      "width": 1024,
+      "viewport": 1024,
+      "mainTop": 79
+    },
+    {
+      "route": "/questions",
+      "size": "tablet",
+      "height": 768,
+      "width": 1024,
+      "viewport": 1024,
+      "mainTop": 79
+    },
+    {
+      "route": "/",
+      "size": "narrow-tablet",
+      "height": 900,
+      "width": 800,
+      "viewport": 800,
+      "mainTop": 79
+    },
+    {
+      "route": "/why-rooted",
+      "size": "narrow-tablet",
+      "height": 973,
+      "width": 800,
+      "viewport": 800,
+      "mainTop": 79
+    },
+    {
+      "route": "/how-it-works",
+      "size": "narrow-tablet",
+      "height": 900,
+      "width": 800,
+      "viewport": 800,
+      "mainTop": 79
+    },
+    {
+      "route": "/ai-co-writer",
+      "size": "narrow-tablet",
+      "height": 919,
+      "width": 800,
+      "viewport": 800,
+      "mainTop": 79
+    },
+    {
+      "route": "/power-of-four",
+      "size": "narrow-tablet",
+      "height": 900,
+      "width": 800,
+      "viewport": 800,
+      "mainTop": 79
+    },
+    {
+      "route": "/questions",
+      "size": "narrow-tablet",
+      "height": 900,
+      "width": 800,
+      "viewport": 800,
+      "mainTop": 79
+    },
+    {
+      "route": "/",
+      "size": "mobile",
+      "height": 1244,
+      "width": 390,
+      "viewport": 390,
+      "mainTop": 76
+    },
+    {
+      "route": "/why-rooted",
+      "size": "mobile",
+      "height": 1464,
+      "width": 390,
+      "viewport": 390,
+      "mainTop": 76
+    },
+    {
+      "route": "/how-it-works",
+      "size": "mobile",
+      "height": 1253,
+      "width": 390,
+      "viewport": 390,
+      "mainTop": 76
+    },
+    {
+      "route": "/ai-co-writer",
+      "size": "mobile",
+      "height": 1416,
+      "width": 390,
+      "viewport": 390,
+      "mainTop": 76
+    },
+    {
+      "route": "/power-of-four",
+      "size": "mobile",
+      "height": 1331,
+      "width": 390,
+      "viewport": 390,
+      "mainTop": 76
+    },
+    {
+      "route": "/questions",
+      "size": "mobile",
+      "height": 1187,
+      "width": 390,
+      "viewport": 390,
+      "mainTop": 76
+    },
+    {
+      "route": "/",
+      "size": "small-mobile",
+      "height": 1215,
+      "width": 320,
+      "viewport": 320,
+      "mainTop": 76
+    },
+    {
+      "route": "/why-rooted",
+      "size": "small-mobile",
+      "height": 1615,
+      "width": 320,
+      "viewport": 320,
+      "mainTop": 76
+    },
+    {
+      "route": "/how-it-works",
+      "size": "small-mobile",
+      "height": 1256,
+      "width": 320,
+      "viewport": 320,
+      "mainTop": 76
+    },
+    {
+      "route": "/ai-co-writer",
+      "size": "small-mobile",
+      "height": 1586,
+      "width": 320,
+      "viewport": 320,
+      "mainTop": 76
+    },
+    {
+      "route": "/power-of-four",
+      "size": "small-mobile",
+      "height": 1384,
+      "width": 320,
+      "viewport": 320,
+      "mainTop": 76
+    },
+    {
+      "route": "/questions",
+      "size": "small-mobile",
+      "height": 1251,
+      "width": 320,
+      "viewport": 320,
+      "mainTop": 76
+    }
+  ],
+  "errors": [],
+  "apiRequests": []
+}

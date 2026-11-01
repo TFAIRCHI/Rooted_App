@@ -1,0 +1,44 @@
+import { chromium, expect } from '@playwright/test';
+import { mkdir, writeFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import { startPreview } from './preview.mjs';
+const folder=fileURLToPath(new URL('../screenshots/',import.meta.url));
+await mkdir(folder,{recursive:true});
+const {server,url}=await startPreview(0);
+const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH??'C:/Program Files/Google/Chrome/Application/chrome.exe'});
+const context=await browser.newContext({viewport:{width:1440,height:1050},deviceScaleFactor:1});
+const page=await context.newPage(),errors=[],screenshots=[];
+page.on('pageerror',error=>errors.push(error.message));
+page.on('response',response=>{if(response.url().startsWith(url)&&response.status()>=400)errors.push(`HTTP ${response.status()} ${response.url()}`);});
+const checks=[];
+async function capture(file,name,fullPage=true){await page.goto(url+'/'+file);await page.evaluate(()=>document.fonts.ready);await page.screenshot({path:folder+name,fullPage});screenshots.push(name);const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);if(overflow)errors.push(`Horizontal overflow: ${file} at ${page.viewportSize().width}px`);}
+try{
+  await capture('index.html','01-home-desktop-full.png');
+  await page.screenshot({path:folder+'02-home-desktop-first-impression.png'});screenshots.push('02-home-desktop-first-impression.png');
+  await page.locator('#ai-co-writer').screenshot({path:folder+'17-ai-co-writer-simple-desktop.png'});screenshots.push('17-ai-co-writer-simple-desktop.png');
+  await page.getByRole('tab',{name:'Detailed notes',exact:true}).click();await expect(page.locator('#ai-detailed-panel')).toBeVisible();await expect(page.locator('#ai-simple-panel')).toBeHidden();
+  await page.locator('#ai-co-writer').screenshot({path:folder+'18-ai-co-writer-detailed-desktop.png'});screenshots.push('18-ai-co-writer-detailed-desktop.png');checks.push('AI co-writer examples switch between simple requests and detailed notes');
+  await page.getByRole('tab',{name:'Detailed notes',exact:true}).press('ArrowLeft');await expect(page.getByRole('tab',{name:'Simple request',exact:true})).toBeFocused();await expect(page.locator('#ai-simple-panel')).toBeVisible();checks.push('AI examples support arrow-key navigation and include church-control safeguards');
+  await page.getByRole('tab',{name:'Before Sunday',exact:true}).click();await expect(page.locator('#before-panel')).toBeVisible();await expect(page.locator('#after-panel')).toBeHidden();
+  await page.locator('#your-week').screenshot({path:folder+'03-before-sunday-flow-desktop.png'});screenshots.push('03-before-sunday-flow-desktop.png');checks.push('Before/After Sunday tabs update the weekly rhythm');
+  await page.getByRole('tab',{name:'Before Sunday',exact:true}).press('ArrowLeft');await expect(page.getByRole('tab',{name:'After Sunday',exact:true})).toBeFocused();await expect(page.locator('#after-panel')).toBeVisible();checks.push('Rhythm tabs support arrow-key navigation');
+  await page.goto(url+'/index.html');await page.locator('#power-of-four').screenshot({path:folder+'04-power-of-four-desktop.png'});screenshots.push('04-power-of-four-desktop.png');
+  await capture('get-started.html','05-get-started-desktop.png');
+  await page.getByRole('link',{name:/I help lead a church/}).click();await expect(page.getByRole('heading',{name:'Welcome to Rooted.'})).toBeVisible();checks.push('Church-leader path reaches account sign-in');
+  await page.screenshot({path:folder+'06-sign-in-desktop.png',fullPage:true});screenshots.push('06-sign-in-desktop.png');
+  await page.getByLabel('Email address').fill('pastor@example.org');await page.getByRole('button',{name:/Continue with email/}).click();await expect(page.locator('#verify-email')).toHaveText('pastor@example.org');
+  await page.screenshot({path:folder+'07-verify-email-desktop.png',fullPage:true});screenshots.push('07-verify-email-desktop.png');
+  await page.getByLabel('Verification code').fill('123456');await page.getByRole('button',{name:/Verify & continue/}).click();await expect(page.getByRole('heading',{name:'Tell us about your church.'})).toBeVisible();checks.push('Email and code screens simulate navigation without sending email');
+  await capture('church-setup.html','08-church-setup-desktop.png');
+  await page.getByLabel('Church name',{exact:true}).fill('A Sample Church');await expect(page.locator('.church-sample .church-name')).toHaveText('A Sample Church');await page.getByLabel('Church name',{exact:true}).fill('Harbor Church');checks.push('Church identity preview responds to editing');
+  await page.getByRole('button',{name:/Create our church space/}).click();await expect(page.getByRole('heading',{name:'Tell us about your church.'})).toBeVisible();await page.getByRole('checkbox').check();await page.getByRole('button',{name:/Create our church space/}).click();await expect(page.getByRole('heading',{name:/There’s room to grow/})).toBeVisible();checks.push('Setup requires local form completion and authority checkbox');
+  await capture('welcome.html','09-first-steps-desktop.png');
+  await capture('find-church.html','10-join-a-church-desktop.png');await page.getByLabel('Church link or invitation').fill('https://example.org/c/harbor');await page.getByRole('button',{name:/Continue to sign in/}).click();await page.getByLabel('Email address').fill('member@example.org');await page.getByRole('button',{name:/Continue with email/}).click();await page.getByLabel('Verification code').fill('123456');await page.getByRole('button',{name:/Verify & continue/}).click();await expect(page).toHaveURL(/sample-study/);checks.push('Member path leads to sample member reading, not church creation');
+  await capture('sample-study.html','11-member-study-desktop.png');await page.getByRole('button',{name:/Mark this moment/}).click();await expect(page.getByRole('status')).toHaveText('Keep coming back. There’s room to grow.');checks.push('Member reflection control responds locally');
+  await page.setViewportSize({width:390,height:844});
+  for(const [file,name]of [['index.html','12-home-mobile-full.png'],['get-started.html','13-get-started-mobile.png'],['sign-in.html?intent=create','14-sign-in-mobile.png'],['church-setup.html','15-church-setup-mobile.png'],['sample-study.html','16-member-study-mobile.png']])await capture(file,name);
+  await page.goto(url+'/index.html');await page.getByRole('tab',{name:'Detailed notes',exact:true}).click();await page.locator('#ai-co-writer').screenshot({path:folder+'19-ai-co-writer-mobile.png'});screenshots.push('19-ai-co-writer-mobile.png');
+  await page.setViewportSize({width:320,height:844});await page.goto(url+'/index.html');if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))errors.push('Horizontal overflow: home at 320px');else checks.push('Homepage fits 320px and 390px mobile viewports');
+  const report={at:new Date().toISOString(),passed:errors.length===0,screenshots,checks,errors,boundary:'Isolated research prototype; no production files or connected services were changed.'};
+  await writeFile(new URL('../validation.json',import.meta.url),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));if(errors.length)process.exitCode=1;
+}finally{await context.close();await browser.close();await new Promise(resolve=>server.close(resolve));}

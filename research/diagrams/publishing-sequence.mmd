@@ -1,0 +1,32 @@
+sequenceDiagram
+    participant W as Worker
+    participant DB as Tenant database
+    participant R as Outbox consumer
+    participant P as Delivery provider
+    W->>DB: Begin with local tenant context and aggregate locks
+    W->>DB: Recheck due version, heads, approvals, revocations and lateness
+    alt Approval pending, revoked or dependency superseded
+        W->>DB: Record Blocked approval and staff alert
+        Note over W,DB: Later approval requires explicit future reschedule
+    else Preapproved but outage exceeds 15 minute catch-up window
+        W->>DB: Record Needs staff review without publication
+    else Eligible approved occurrence
+        W->>DB: Insert unique publication, update live pin, insert outbox
+        DB-->>W: Atomic commit
+        R->>DB: Deduplicate event and create unique recipient delivery
+        R->>DB: Check explicit SMS authorization, consent, quiet hours, expiry and cancellation
+        alt Recipient eligible for dispatch now
+            DB-->>R: Commit Dispatching
+            R->>P: Submit with correlation ID and idempotency only if supported
+            alt Provider returns acceptance
+                P-->>R: Provider message ID
+                R->>DB: Record Accepted
+            else Timeout with ambiguous outcome
+                R->>DB: Record Unknown and reconciliation deadline
+                R->>P: Query status or await authenticated callback
+                Note over R,P: No blind SMS resend or exactly-once delivery promise
+            end
+        else Recipient suppressed, held, deferred or expired
+            R->>DB: Record channel outcome without rolling back publication
+        end
+    end

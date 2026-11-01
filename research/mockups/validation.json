@@ -1,0 +1,160 @@
+{
+  "generatedAt": "2026-10-18T19:54:26.636Z",
+  "method": "Installed headless Chrome, DevTools protocol; Node built-ins only",
+  "screenshots": [
+    {
+      "file": "01-church-admin-dashboard.png",
+      "width": 1440,
+      "height": 1050
+    },
+    {
+      "file": "02-sermon-library-and-ingestion.png",
+      "width": 1440,
+      "height": 1050
+    },
+    {
+      "file": "03-weekly-series-date-selector.png",
+      "width": 1440,
+      "height": 1050
+    },
+    {
+      "file": "04-selected-date-creation-dropdown.png",
+      "width": 1440,
+      "height": 1050
+    },
+    {
+      "file": "05-ai-proposed-plan.png",
+      "width": 1440,
+      "height": 1050
+    },
+    {
+      "file": "06-manual-plan-editor.png",
+      "width": 1440,
+      "height": 1050
+    },
+    {
+      "file": "07-manual-editor-ai-assist-open.png",
+      "width": 1440,
+      "height": 1050
+    },
+    {
+      "file": "08-team-comments-and-revisions.png",
+      "width": 1440,
+      "height": 1050
+    },
+    {
+      "file": "09-pastoral-review-and-approval.png",
+      "width": 1440,
+      "height": 1050
+    },
+    {
+      "file": "10-weekly-calendar-and-status-board.png",
+      "width": 1440,
+      "height": 1050
+    },
+    {
+      "file": "11-member-mobile-study.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "12-member-discussion-and-reactions.png",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "13-sms-preview-and-scheduling.png",
+      "width": 1440,
+      "height": 1200
+    },
+    {
+      "file": "14-church-settings-and-integrations.png",
+      "width": 1440,
+      "height": 1050
+    }
+  ],
+  "checks": [
+    "dashboard: no horizontal overflow",
+    "dashboard: one main landmark",
+    "dashboard: required screen content",
+    "sermons: no horizontal overflow",
+    "sermons: one main landmark",
+    "sermons: required screen content",
+    "overview: no horizontal overflow",
+    "overview: one main landmark",
+    "overview: required screen content",
+    "create: no horizontal overflow",
+    "create: one main landmark",
+    "create: required screen content",
+    "proposed: no horizontal overflow",
+    "proposed: one main landmark",
+    "proposed: required screen content",
+    "blank: no horizontal overflow",
+    "blank: one main landmark",
+    "blank: required screen content",
+    "suggestions: no horizontal overflow",
+    "suggestions: one main landmark",
+    "suggestions: required screen content",
+    "comments: no horizontal overflow",
+    "comments: one main landmark",
+    "comments: required screen content",
+    "review: no horizontal overflow",
+    "review: one main landmark",
+    "review: required screen content",
+    "calendar: no horizontal overflow",
+    "calendar: one main landmark",
+    "calendar: required screen content",
+    "reading: no horizontal overflow",
+    "reading: one main landmark",
+    "reading: required screen content",
+    "reading: primary action visible above navigation",
+    "discussion: no horizontal overflow",
+    "discussion: one main landmark",
+    "discussion: required screen content",
+    "discussion: primary action visible above navigation",
+    "sms: no horizontal overflow",
+    "sms: one main landmark",
+    "sms: required screen content",
+    "SMS blocked scheduling control is fully visible in screenshot",
+    "settings: no horizontal overflow",
+    "settings: one main landmark",
+    "settings: required screen content",
+    "Scratch editor starts with every field blank",
+    "Direct review fixture cannot approve an unadopted plan",
+    "Creation has exactly the two requested native options",
+    "Proposed outline starts unadopted",
+    "Explicit adoption creates three draft dates",
+    "Day selector switches editor content",
+    "Draft survives reload",
+    "Inspecting suggestions does not change drafts",
+    "Adopting question preserves other fields",
+    "Plan approval requires review confirmation",
+    "Plan approval preserves a separate approved snapshot",
+    "Scheduling disabled while content awaits approval",
+    "Content approval requires explicit confirmation",
+    "Scheduling enables only after both approvals",
+    "Schedule action records local demo state",
+    "Content edits revoke content approval and schedule, preserving approved plan",
+    "Recovery restores a draft and retains prior draft backup",
+    "Private reflection survives reload",
+    "Completing reading returns to member week",
+    "Initial weekly selector has no selected date or editor",
+    "Selecting a date opens its planning pane below date cards",
+    "Sermon save requires rights confirmation",
+    "Sermon rights confirmation permits a local source save",
+    "Nonempty objective adoption requires a comparison",
+    "Explicit comparison acceptance replaces only objective",
+    "Objective adoption can be undone",
+    "Anchored team comment persists locally",
+    "Appreciation reaction exposes selected state and count",
+    "Appreciation reaction toggles off",
+    "Discussion submission observes demo sign-in boundary",
+    "Discussion submission remains pending moderation",
+    "Report action records local moderation state",
+    "SMS explains distinct publication and quiet-hour deferral",
+    "SMS phone preview updates with rough provider-validation label",
+    "Editorial time change creates a revision and invalidates both approvals and pending schedule",
+    "No browser runtime exceptions"
+  ],
+  "errors": []
+}

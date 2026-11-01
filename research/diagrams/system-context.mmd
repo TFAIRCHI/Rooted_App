@@ -1,0 +1,12 @@
+flowchart LR
+    AUTHOR[Church contributor] --> SYSTEM[Sermon-to-study system]
+    REVIEWER[Explicit doctrinal approver] --> SYSTEM
+    PUBLISHER[Church publisher] --> SYSTEM
+    MEMBER[Member or authorized public reader] --> SYSTEM
+    SYSTEM --> IDENTITY[Identity provider]
+    SOURCE[Manual notes and authorized source systems] --> SYSTEM
+    SYSTEM --> AI[AI provider for candidate drafts]
+    SYSTEM --> DELIVERY[Email and SMS providers]
+    DELIVERY --> MEMBER
+    OPERATOR[Platform operator with metadata access] --> SYSTEM
+    BREAKGLASS[Approved scoped support access] --> SYSTEM

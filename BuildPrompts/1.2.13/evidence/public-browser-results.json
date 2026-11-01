@@ -1,0 +1,57 @@
+{
+  "stats": {
+    "startTime": "2026-10-25T02:28:19.846Z",
+    "duration": 51032.39,
+    "expected": 5,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "1.2.13 anonymous public pages match the design, work by keyboard and do not call AI",
+      "file": "public-site.spec.ts",
+      "results": [
+        {
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "title": "1.2.13 leader sign-in creates one persisted church after uncertain response and shows actual roles",
+      "file": "public-site.spec.ts",
+      "results": [
+        {
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "title": "1.2.13 member entry rejects external links and accepts only an identity-bound invitation",
+      "file": "public-site.spec.ts",
+      "results": [
+        {
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "title": "1.2.13 identity continuation rejects external targets, survives callback and cannot be replayed",
+      "file": "public-site.spec.ts",
+      "results": [
+        {
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "title": "1.2.13 guest member and workspace deep links use the supported sign-in flow",
+      "file": "public-site.spec.ts",
+      "results": [
+        {
+          "status": "passed"
+        }
+      ]
+    }
+  ]
+}

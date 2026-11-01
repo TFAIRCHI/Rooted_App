@@ -1,0 +1,130 @@
+{
+  "PlanPayload": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "schemaVersion": {
+        "type": "number",
+        "const": 1
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 500
+      },
+      "primaryScripture": {
+        "type": "object",
+        "properties": {
+          "reference": {
+            "type": "string",
+            "maxLength": 500
+          },
+          "translation": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 100
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "reference",
+          "translation"
+        ],
+        "additionalProperties": false
+      },
+      "learningObjective": {
+        "type": "string",
+        "maxLength": 10000
+      },
+      "outline": {
+        "maxItems": 100,
+        "type": "array",
+        "items": {
+          "type": "string",
+          "maxLength": 10000
+        }
+      },
+      "discussionQuestion": {
+        "type": "string",
+        "maxLength": 10000
+      },
+      "notes": {
+        "type": "string",
+        "maxLength": 50000
+      },
+      "extensions": {
+        "maxItems": 50,
+        "type": "array",
+        "items": {}
+      }
+    },
+    "required": [
+      "schemaVersion",
+      "title",
+      "primaryScripture",
+      "learningObjective",
+      "outline",
+      "discussionQuestion",
+      "notes",
+      "extensions"
+    ],
+    "additionalProperties": false
+  },
+  "ContentPayload": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "schemaVersion": {
+        "type": "number",
+        "const": 1
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 500
+      },
+      "body": {
+        "type": "string",
+        "maxLength": 100000
+      },
+      "reflection": {
+        "type": "string",
+        "maxLength": 20000
+      },
+      "discussionQuestion": {
+        "type": "string",
+        "maxLength": 10000
+      },
+      "application": {
+        "type": "string",
+        "maxLength": 20000
+      },
+      "references": {
+        "maxItems": 100,
+        "type": "array",
+        "items": {
+          "type": "string",
+          "maxLength": 1000
+        }
+      },
+      "outboundPreview": {
+        "type": "string",
+        "maxLength": 2000
+      }
+    },
+    "required": [
+      "schemaVersion",
+      "title",
+      "body",
+      "reflection",
+      "discussionQuestion",
+      "application",
+      "references",
+      "outboundPreview"
+    ],
+    "additionalProperties": false
+  }
+}

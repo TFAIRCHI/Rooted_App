@@ -1,0 +1,177 @@
+{
+  "calculatedAt": "2026-10-25T21:24:07.175Z",
+  "currency": "USD",
+  "priceSnapshot": "option-retail-prices-2026-10-25.json",
+  "baseSnapshot": "azure-retail-prices-2026-10-25.json",
+  "rates": {
+    "swaStandardMonthly": 9,
+    "blobGbMonthly": 0.0208,
+    "blobReadPer10k": 0.004,
+    "blobWritePer10k": 0.05,
+    "functionsFlexGbSecond": 0.000026,
+    "functionsFlexPerExecution": 4e-7,
+    "frontDoorBaseMonthly": 35,
+    "frontDoorEgressPerGb": 0.0825,
+    "frontDoorRequestsPer10k": 0.009
+  },
+  "functionsUsage": {
+    "instanceMemoryGb": 2,
+    "apiRequests": 100000,
+    "apiSecondsPerRequest": 0.2,
+    "timerInvocations": 8760,
+    "timerSecondsPerInvocation": 3,
+    "aiJobs": 100,
+    "aiSecondsPerJob": 60
+  },
+  "functionsTotals": {
+    "executions": 108860,
+    "gbSeconds": 104560,
+    "chargeUsd": 0.12
+  },
+  "blobUsage": {
+    "gb": 1,
+    "readOperations": 10000,
+    "writeOperations": 10000,
+    "chargeUsd": 0.07
+  },
+  "sharedGrantAssumption": "Each option is an alternative using one available subscription grant, not cumulative deployments",
+  "exclusions": [
+    "AI/model charges",
+    "registry and CI/artifact costs",
+    "logging/monitoring ingestion and retention",
+    "identity premium/SMS charges",
+    "network egress, NAT, private endpoints and other network services",
+    "additional backups or storage/IOPS",
+    "domain renewals and tax",
+    "idle/cooldown allocation beyond the active-hours assumption",
+    "extra app replicas and consumed subscription grants"
+  ],
+  "rows": [
+    {
+      "id": "A",
+      "label": "SWA Free public preview",
+      "hostingUsd": 0,
+      "storageUsd": 0,
+      "databaseUsd": 0,
+      "coreMonthlyUsd": 0,
+      "coreIfPostgresOfferAppliesUsd": 0,
+      "planningMonthlyUsd": [
+        0,
+        0
+      ],
+      "notes": "Public pages only; within SWA and CI quotas."
+    },
+    {
+      "id": "A-storage",
+      "label": "SWA Free plus optional Blob Storage",
+      "hostingUsd": 0,
+      "storageUsd": 0.07,
+      "databaseUsd": 0,
+      "coreMonthlyUsd": 0.07,
+      "coreIfPostgresOfferAppliesUsd": 0.07,
+      "planningMonthlyUsd": [
+        0.1,
+        1
+      ],
+      "notes": "Still public pages only. Blob adds 1 GB, 10k reads and 10k writes."
+    },
+    {
+      "id": "Storage-edge",
+      "label": "Storage static website plus Front Door Standard",
+      "hostingUsd": 35.92,
+      "storageUsd": 0.07,
+      "databaseUsd": 0,
+      "coreMonthlyUsd": 35.99,
+      "coreIfPostgresOfferAppliesUsd": 35.99,
+      "planningMonthlyUsd": [
+        40,
+        50
+      ],
+      "notes": "Public pages only; 10 GB North America delivery and 100k edge requests; 10k origin reads assumed."
+    },
+    {
+      "id": "B",
+      "label": "Container Apps frontend/API/continuous worker",
+      "hostingUsd": 15.93,
+      "storageUsd": 0,
+      "databaseUsd": 16.09,
+      "coreMonthlyUsd": 32.02,
+      "coreIfPostgresOfferAppliesUsd": 15.93,
+      "planningMonthlyUsd": [
+        35,
+        50
+      ],
+      "notes": "Current worker architecture; no introductory database offer applied."
+    },
+    {
+      "id": "C",
+      "label": "Container Apps frontend/API/bounded jobs",
+      "hostingUsd": 0,
+      "storageUsd": 0,
+      "databaseUsd": 16.09,
+      "coreMonthlyUsd": 16.09,
+      "coreIfPostgresOfferAppliesUsd": 0,
+      "planningMonthlyUsd": [
+        20,
+        30
+      ],
+      "notes": "Worker refactor required; 20 total billed job hours including startup."
+    },
+    {
+      "id": "D-free",
+      "label": "SWA Free frontend plus separate API/continuous worker",
+      "hostingUsd": 14.85,
+      "storageUsd": 0,
+      "databaseUsd": 16.09,
+      "coreMonthlyUsd": 30.94,
+      "coreIfPostgresOfferAppliesUsd": 14.85,
+      "planningMonthlyUsd": [
+        35,
+        50
+      ],
+      "notes": "Hybrid-preview proof or static-client/cross-origin refactor required; not a linked API on Free."
+    },
+    {
+      "id": "D-standard",
+      "label": "SWA Standard static frontend plus linked API/continuous worker",
+      "hostingUsd": 23.85,
+      "storageUsd": 0,
+      "databaseUsd": 16.09,
+      "coreMonthlyUsd": 39.94,
+      "coreIfPostgresOfferAppliesUsd": 23.85,
+      "planningMonthlyUsd": [
+        45,
+        60
+      ],
+      "notes": "Static-client rewrite and linked API/session integration required."
+    },
+    {
+      "id": "E-free",
+      "label": "SWA Free plus Flex Functions/Storage/PostgreSQL",
+      "hostingUsd": 0.12,
+      "storageUsd": 0.07,
+      "databaseUsd": 16.09,
+      "coreMonthlyUsd": 16.28,
+      "coreIfPostgresOfferAppliesUsd": 0.19,
+      "planningMonthlyUsd": [
+        20,
+        30
+      ],
+      "notes": "Serverless rewrite, direct API/cookie integration and timer/finite-worker implementation required."
+    },
+    {
+      "id": "E-standard",
+      "label": "SWA Standard plus linked Flex Functions/Storage/PostgreSQL",
+      "hostingUsd": 9.12,
+      "storageUsd": 0.07,
+      "databaseUsd": 16.09,
+      "coreMonthlyUsd": 25.28,
+      "coreIfPostgresOfferAppliesUsd": 9.19,
+      "planningMonthlyUsd": [
+        30,
+        40
+      ],
+      "notes": "Serverless/static-client rewrite required; includes Standard linked-API charge."
+    }
+  ]
+}

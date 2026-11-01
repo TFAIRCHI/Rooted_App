@@ -1,0 +1,17 @@
+{
+  "name": "mychurch-research-validation",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "node validate.mjs",
+    "validate:schema": "node schema-check.mjs"
+  },
+  "engines": { "node": ">=24" },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.10",
+    "github-slugger": "2.0.0",
+    "marked": "18.1.1",
+    "mermaid": "12.2.0",
+    "playwright-core": "1.64.1"
+  }
+}

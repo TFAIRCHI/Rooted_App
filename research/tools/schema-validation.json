@@ -1,0 +1,214 @@
+{
+  "artifact": "representative-schema-validation",
+  "recordedAt": "2026-10-18T19:50:01.196Z",
+  "schema": "research/schema.sql",
+  "script": "research/tools/schema-check.mjs",
+  "schemaSha256": "87ff3e40eb5a0b48ecc0638babc542311fd9895220c0d09730da06bc2e004304",
+  "scriptSha256": "b4c95187176da50900b0366d24fa0d45d02c0ddd81f09862e6d063d4082f990b",
+  "environment": {
+    "node": "v24.11.1",
+    "pglite": "0.5.10",
+    "postgres": "PostgreSQL 18.6 (PGlite 0.5.10) on wasm32-unknown-emscripten, compiled by emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 6.0.5 (1db513782be24469589d7cb8a1f1834e9a33f271), 32-bit"
+  },
+  "reproduce": {
+    "localDependency": "node research/tools/schema-check.mjs",
+    "temporaryInstall": "npm.cmd install --prefix \"$env:TEMP/mychurch-design-validation\" --no-audit --no-fund @electric-sql/pglite@0.5.10",
+    "temporaryDependency": "node research/tools/schema-check.mjs --dependency-root \"$env:TEMP/mychurch-design-validation\""
+  },
+  "passed": true,
+  "checks": [
+    {
+      "name": "all tenant tables enable and force RLS",
+      "passed": true,
+      "observed": {
+        "tables": 24,
+        "all_forced": true
+      }
+    },
+    {
+      "name": "two complete relational approval and publication chains insert",
+      "passed": true,
+      "observed": {
+        "tenants": 2
+      }
+    },
+    {
+      "name": "checks run as nonowner without superuser or BYPASSRLS",
+      "passed": true,
+      "observed": {
+        "rolsuper": false,
+        "rolbypassrls": false,
+        "nonowner": true
+      }
+    },
+    {
+      "name": "missing tenant context returns no rows",
+      "passed": true,
+      "observed": {
+        "visibleRows": 0
+      }
+    },
+    {
+      "name": "transaction selects only 00000000-0000-0000-0000-000000000100",
+      "passed": true,
+      "observed": {
+        "visibleTenantIds": [
+          "00000000-0000-0000-0000-000000000100"
+        ]
+      }
+    },
+    {
+      "name": "commit clears transaction context on reused connection",
+      "passed": true,
+      "observed": {
+        "visibleRows": 0
+      }
+    },
+    {
+      "name": "transaction selects only 00000000-0000-0000-0000-000000000200",
+      "passed": true,
+      "observed": {
+        "visibleTenantIds": [
+          "00000000-0000-0000-0000-000000000200"
+        ]
+      }
+    },
+    {
+      "name": "rollback clears transaction context on reused connection",
+      "passed": true,
+      "observed": {
+        "visibleRows": 0
+      }
+    },
+    {
+      "name": "cross-tenant write rejected by RLS",
+      "passed": true,
+      "observed": {
+        "expectedCode": "42501",
+        "actualCode": "42501"
+      }
+    },
+    {
+      "name": "existing foreign-tenant parent rejected by composite FK",
+      "passed": true,
+      "observed": {
+        "expectedCode": "23503",
+        "actualCode": "23503"
+      }
+    },
+    {
+      "name": "revision update rejected",
+      "passed": true,
+      "observed": {
+        "expectedCode": "P0001",
+        "actualCode": "P0001"
+      }
+    },
+    {
+      "name": "revision deletion rejected",
+      "passed": true,
+      "observed": {
+        "expectedCode": "P0001",
+        "actualCode": "P0001"
+      }
+    },
+    {
+      "name": "canonical bytes hash mismatch rejected",
+      "passed": true,
+      "observed": {
+        "expectedCode": "23514",
+        "actualCode": "23514"
+      }
+    },
+    {
+      "name": "plan approval hash mismatch rejected",
+      "passed": true,
+      "observed": {
+        "expectedCode": "23503",
+        "actualCode": "23503"
+      }
+    },
+    {
+      "name": "content approval wrong plan reference rejected",
+      "passed": true,
+      "observed": {
+        "expectedCode": "23503",
+        "actualCode": "23503"
+      }
+    },
+    {
+      "name": "plan Scheduled state rejected",
+      "passed": true,
+      "observed": {
+        "expectedCode": "22P02",
+        "actualCode": "22P02"
+      }
+    },
+    {
+      "name": "plan Published state rejected",
+      "passed": true,
+      "observed": {
+        "expectedCode": "22P02",
+        "actualCode": "22P02"
+      }
+    },
+    {
+      "name": "duplicate publication for one schedule rejected",
+      "passed": true,
+      "observed": {
+        "expectedCode": "23505",
+        "actualCode": "23505"
+      }
+    },
+    {
+      "name": "publication mutation rejected",
+      "passed": true,
+      "observed": {
+        "expectedCode": "P0001",
+        "actualCode": "P0001"
+      }
+    },
+    {
+      "name": "content approval mutation rejected",
+      "passed": true,
+      "observed": {
+        "expectedCode": "P0001",
+        "actualCode": "P0001"
+      }
+    },
+    {
+      "name": "end-to-end approval and publication reads stay tenant-scoped",
+      "passed": true,
+      "observed": {
+        "publications": 1,
+        "approvals": 1
+      }
+    },
+    {
+      "name": "three illustrative dates at 08:00 America/New_York resolve to 12:00 UTC",
+      "passed": true,
+      "observed": [
+        {
+          "local_date": "2026-10-19",
+          "due_utc": "2026-10-19T12:00:00Z"
+        },
+        {
+          "local_date": "2026-10-21",
+          "due_utc": "2026-10-21T12:00:00Z"
+        },
+        {
+          "local_date": "2026-10-23",
+          "due_utc": "2026-10-23T12:00:00Z"
+        }
+      ]
+    }
+  ],
+  "failure": null,
+  "limitations": [
+    "Isolated in-memory PGlite PostgreSQL, not a deployed production PostgreSQL or network transaction pool.",
+    "Broad test-role DML grants exercise RLS and constraints; they are not production grants or capability policy.",
+    "Minimal fixture payloads test relational and byte-hash constraints, not canonical JSON/reference equivalence.",
+    "No command handlers, edit cancellation transactions, provider delivery, legal compliance or recovery SLOs validated.",
+    "Sequential replay checks uniqueness; no concurrent worker or crash-injection publication test was run."
+  ]
+}

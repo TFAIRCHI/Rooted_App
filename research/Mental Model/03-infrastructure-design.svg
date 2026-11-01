@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="790" viewBox="0 0 1280 790" role="img" aria-labelledby="title desc">
+  <title id="title">Rooted Azure infrastructure design</title>
+  <desc id="desc">Members and contributors use HTTPS to a Container Apps frontend. The frontend calls an internal API. API and continuous worker connect over private networking to managed PostgreSQL in a region pending provisioning. Separate identity, AI, registry, migration job and monitoring components are shown.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#456b65"/></marker><style>
+    text{font-family:Segoe UI,Arial,sans-serif;fill:#203b38}.title{font-size:28px;font-weight:700}.label{font-size:17px;font-weight:600}.small{font-size:14px}.box{fill:#f4f8f6;stroke:#668c82;stroke-width:2;rx:14}.identity{fill:#fff7e7;stroke:#b48b3e;stroke-width:2;rx:14}.data{fill:#eaf4f4;stroke:#3b8586;stroke-width:2;rx:14}.ops{fill:#f1efff;stroke:#7d70a9;stroke-width:2;rx:14}.line{fill:none;stroke:#456b65;stroke-width:2.3;marker-end:url(#arrow)}.dash{fill:none;stroke:#7d70a9;stroke-width:2;stroke-dasharray:7 6;marker-end:url(#arrow)}
+  </style></defs>
+  <rect width="1280" height="790" fill="#fff"/><text x="40" y="50" class="title">Infrastructure · Azure deployment target, PostgreSQL Ready in Central US</text>
+  <rect x="40" y="115" width="180" height="76" class="box"/><text x="130" y="146" text-anchor="middle" class="label">Members +</text><text x="130" y="170" text-anchor="middle" class="label">contributors</text>
+  <path d="M220 153H285" class="line"/><text x="242" y="139" class="small">HTTPS</text>
+  <rect x="290" y="105" width="235" height="96" class="box"/><text x="407" y="141" text-anchor="middle" class="label">Container Apps</text><text x="407" y="167" text-anchor="middle" class="small">Next.js frontend · public HTTPS</text>
+  <path d="M525 153H590" class="line"/><text x="533" y="139" class="small">internal API</text>
+  <rect x="595" y="105" width="205" height="96" class="box"/><text x="697" y="141" text-anchor="middle" class="label">Application API</text><text x="697" y="167" text-anchor="middle" class="small">Internal ingress · port 4000</text>
+  <rect x="850" y="105" width="300" height="112" class="data"/><text x="1000" y="140" text-anchor="middle" class="label">Azure PostgreSQL Flexible Server</text><text x="1000" y="166" text-anchor="middle" class="small">Central US: Ready; private connectivity pending</text><text x="1000" y="191" text-anchor="middle" class="small">Restricted runtime role + forced RLS</text>
+  <path d="M800 153H845" class="line"/><text x="805" y="138" class="small">private DB</text>
+  <rect x="595" y="290" width="205" height="85" class="box"/><text x="697" y="325" text-anchor="middle" class="label">Continuous worker</text><text x="697" y="350" text-anchor="middle" class="small">Publication + provider + workflows</text>
+  <path d="M800 330H1000V220" class="line"/><text x="838" y="315" class="small">private DB</text>
+  <rect x="850" y="290" width="300" height="85" class="ops"/><text x="1000" y="325" text-anchor="middle" class="label">Finite migration job</text><text x="1000" y="350" text-anchor="middle" class="small">Separate privileged migration role</text>
+  <path d="M1000 290V222" class="line"/>
+  <rect x="290" y="290" width="235" height="85" class="identity"/><text x="407" y="325" text-anchor="middle" class="label">Entra External ID</text><text x="407" y="350" text-anchor="middle" class="small">Separate member + contributor clients</text>
+  <path d="M407 201V285" class="line"/><path d="M595 173H555V330H530" class="line"/><text x="540" y="270" class="small">OIDC</text>
+  <rect x="40" y="465" width="250" height="86" class="ops"/><text x="165" y="500" text-anchor="middle" class="label">Azure Container Registry</text><text x="165" y="526" text-anchor="middle" class="small">Managed identity image pulls</text>
+  <path d="M165 465V420H407V205" class="dash"/><path d="M290 495H250" class="dash"/><text x="50" y="446" class="small">image pull</text>
+  <rect x="345" y="465" width="250" height="86" class="ops"/><text x="470" y="500" text-anchor="middle" class="label">Azure AI / Foundry</text><text x="470" y="526" text-anchor="middle" class="small">Existing East US resource; verify model</text>
+  <path d="M595 335H555V508H600" class="dash"/><text x="560" y="450" class="small">budgeted AI work</text>
+  <rect x="650" y="465" width="250" height="86" class="ops"/><text x="775" y="500" text-anchor="middle" class="label">Log Analytics</text><text x="775" y="526" text-anchor="middle" class="small">Logs, health, bounded retention</text>
+  <path d="M697 205V430H775V460" class="dash"/><path d="M697 380V435" class="dash"/><text x="706" y="420" class="small">telemetry</text>
+  <rect x="955" y="465" width="270" height="86" class="identity"/><text x="1090" y="500" text-anchor="middle" class="label">Tenant boundary</text><text x="1090" y="526" text-anchor="middle" class="small">DefaultDirectory owns subscription</text><text x="1090" y="546" text-anchor="middle" class="small">Rooted Customers handles app identity</text>
+  <rect x="40" y="625" width="1185" height="92" fill="#fbfbf8" stroke="#d0d7d2" stroke-width="1.5" rx="14"/><text x="70" y="660" class="label">Placement and status</text><text x="70" y="687" class="small">Existing apps, registry, AI, and network are recorded in East US. Keep API, worker, migration job, and database together in the chosen region.</text><text x="70" y="708" class="small">Central US PostgreSQL is Ready; private connectivity and app deployment remain pending. SMS, transcription, Planning Center, queues, and object storage are not assumed active.</text>
+</svg>

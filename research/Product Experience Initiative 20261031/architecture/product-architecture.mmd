@@ -1,0 +1,29 @@
+flowchart TB
+  Library[Church channel source library]
+  Import[One Import: files / links / paste / connections]
+  Jobs[Capability registry + bounded capture / OCR / transcription jobs]
+  Versions[Immutable source versions + spans + coverage]
+  Context[Scoped retrieval + selected-source manifest]
+  Compose[ONE Compose document: semantic content + layout + history]
+  Write[Write view: rich text + selected AI proposals]
+  Design[Design view: artboards / objects / layers / reading order]
+  Media[Bounded asset / generation / rendering jobs]
+  Review[Protected conversation + exact revision + review cycles]
+  Publication[Immutable approved publication snapshot]
+  Reader[Shared preview / mobile / accessible member renderer]
+  Deck[Separately approved public deck rendition]
+  Demo[Homepage AI tab: visible muted autoplay recording]
+  Auth[Verified identity + church capabilities]
+  Phone[Conditional phone identity + QR enrollment policy]
+  People[Future authorized People candidate association]
+  Library --> Import --> Jobs --> Versions --> Context --> Compose
+  Compose <--> Write
+  Compose <--> Design
+  Compose <--> Media
+  Compose --> Review --> Publication --> Reader
+  Publication --> Deck
+  Auth --> Library
+  Auth --> Compose
+  Phone --> Auth
+  People -. candidate only .-> Phone
+  Demo -. recorded sample; no visitor model request .-> Compose

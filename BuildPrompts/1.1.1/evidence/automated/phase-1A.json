@@ -1,0 +1,89 @@
+{
+  "version": "1.1.1",
+  "phase": "1A",
+  "startedAt": "2026-10-19T19:23:30.323Z",
+  "completedAt": "2026-10-19T19:24:14.526Z",
+  "node": "v24.11.1",
+  "testedFingerprint": "a5f29e02fd7527e6a91e77ecc143e36bfc1cb8bd178aa3c90cc74ee56ca5cb57",
+  "automatedPassed": true,
+  "complete": true,
+  "status": "gate_passed",
+  "checks": [
+    {
+      "label": "prompt-and-readiness-artifacts",
+      "passed": true,
+      "files": 6,
+      "links": 81,
+      "failures": []
+    },
+    {
+      "label": "research",
+      "command": "npm run test:research",
+      "startedAt": "2026-10-19T19:23:30.404Z",
+      "finishedAt": "2026-10-19T19:23:34.416Z",
+      "exitCode": 0,
+      "requiredSkipped": false,
+      "passed": true,
+      "log": "BuildPrompts/1.1.1/evidence/automated/phase-1A-research.log"
+    },
+    {
+      "label": "lint",
+      "command": "npm run lint",
+      "startedAt": "2026-10-19T19:23:34.416Z",
+      "finishedAt": "2026-10-19T19:23:41.630Z",
+      "exitCode": 0,
+      "requiredSkipped": false,
+      "passed": true,
+      "log": "BuildPrompts/1.1.1/evidence/automated/phase-1A-lint.log"
+    },
+    {
+      "label": "types",
+      "command": "npm run typecheck",
+      "startedAt": "2026-10-19T19:23:41.630Z",
+      "finishedAt": "2026-10-19T19:23:43.816Z",
+      "exitCode": 0,
+      "requiredSkipped": false,
+      "passed": true,
+      "log": "BuildPrompts/1.1.1/evidence/automated/phase-1A-types.log"
+    },
+    {
+      "label": "unit",
+      "command": "npm run test:unit",
+      "startedAt": "2026-10-19T19:23:43.816Z",
+      "finishedAt": "2026-10-19T19:23:49.306Z",
+      "exitCode": 0,
+      "requiredSkipped": false,
+      "passed": true,
+      "log": "BuildPrompts/1.1.1/evidence/automated/phase-1A-unit.log"
+    },
+    {
+      "label": "integration",
+      "command": "npm run test:integration",
+      "startedAt": "2026-10-19T19:23:49.306Z",
+      "finishedAt": "2026-10-19T19:24:07.697Z",
+      "exitCode": 0,
+      "requiredSkipped": false,
+      "passed": true,
+      "log": "BuildPrompts/1.1.1/evidence/automated/phase-1A-integration.log"
+    },
+    {
+      "label": "build",
+      "command": "npm run build",
+      "startedAt": "2026-10-19T19:24:07.698Z",
+      "finishedAt": "2026-10-19T19:24:14.457Z",
+      "exitCode": 0,
+      "requiredSkipped": false,
+      "passed": true,
+      "log": "BuildPrompts/1.1.1/evidence/automated/phase-1A-build.log"
+    },
+    {
+      "label": "stable-tested-source-state",
+      "passed": true,
+      "initialFingerprint": "a5f29e02fd7527e6a91e77ecc143e36bfc1cb8bd178aa3c90cc74ee56ca5cb57",
+      "finalFingerprint": "a5f29e02fd7527e6a91e77ecc143e36bfc1cb8bd178aa3c90cc74ee56ca5cb57"
+    }
+  ],
+  "requiredReviews": [],
+  "deploymentAuthorized": false,
+  "liveMessagingAuthorized": false
+}

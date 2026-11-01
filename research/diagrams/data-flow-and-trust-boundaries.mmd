@@ -1,0 +1,36 @@
+flowchart TD
+    subgraph UNTRUSTED[Untrusted input boundary]
+        CLIENT[Browser request and tenant ID]
+        DOCUMENT[Source files and retrieved text]
+        CALLBACK[Provider callback]
+    end
+    subgraph TRUSTED[Trusted application boundary]
+        AUTH[Authenticate and authorize tenant capability]
+        VALIDATE[Validate file and extract minimized source]
+        VERIFY[Verify provider authentication contract and deduplicate callback]
+        COMMAND[Command transaction and exact-revision checks]
+    end
+    subgraph TENANT[Tenant-scoped data boundary]
+        CONTEXT[Transaction-local church context]
+        DATABASE[(Nonowner FORCE RLS and composite tenant FKs)]
+        STORAGE[(Private objects and tenant-scoped cache)]
+    end
+    subgraph EXTERNAL[External processor boundary]
+        MODEL[AI draft generation with no approval authority]
+        PROVIDER[Delivery provider with ambiguous outcomes]
+    end
+    CLIENT --> AUTH
+    DOCUMENT --> VALIDATE
+    CALLBACK --> VERIFY
+    AUTH --> COMMAND
+    VERIFY --> COMMAND
+    COMMAND --> CONTEXT
+    CONTEXT --> DATABASE
+    AUTH --> STORAGE
+    VALIDATE --> STORAGE
+    VALIDATE --> MODEL
+    MODEL --> CANDIDATE[Untrusted candidate requiring explicit adoption]
+    CANDIDATE --> COMMAND
+    DATABASE --> OUTBOX[Committed outbox and consent-checked dispatch]
+    OUTBOX --> PROVIDER
+    PROVIDER --> CALLBACK

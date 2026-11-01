@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:3000",
+  "dataPreservingRestart": true,
+  "checks": [
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/get-started",
+      "status": 200
+    },
+    {
+      "path": "/sign-in",
+      "status": 200
+    },
+    {
+      "path": "/find-church",
+      "status": 200
+    },
+    {
+      "path": "/sample-study",
+      "status": 200
+    },
+    {
+      "path": "/api/v1/auth/options",
+      "status": 200
+    }
+  ],
+  "signInOptionsLoaded": true
+}

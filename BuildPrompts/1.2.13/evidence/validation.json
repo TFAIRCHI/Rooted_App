@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "markdownFiles": 11,
+  "localLinks": 279,
+  "screenshots": 18,
+  "publicBrowserTestsPassed": 5,
+  "broadBrowserTestsPassed": 16,
+  "inheritedBrowserFailures": 2,
+  "unitTests": {
+    "frontend": 46,
+    "backend": 36,
+    "operations": 4
+  },
+  "integrationTestsPassed": 53,
+  "expandedInvitationCasePassed": true,
+  "lintPassed": true,
+  "typecheckPassed": true,
+  "buildPassed": true,
+  "researchDocumentsPassed": true,
+  "errors": [],
+  "livePreviewPassed": true
+}

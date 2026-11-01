@@ -1,0 +1,33 @@
+{
+  "scenario": "isolated real-process interrupted AI-job recovery",
+  "checkedAt": "2026-10-30T13:52:43.950Z",
+  "deployedImage": "rooted-backend:pilot-20261027-1",
+  "deployedWorkflowModuleSha256": "1d8286830785f9ce2201c331827fc878d53014cb4beef767d1ac7424bb76cae4",
+  "provider": "deterministic local fixture; no external AI requests",
+  "passed": true,
+  "claimedReservation": 7860,
+  "terminatedProcess": {
+    "code": null,
+    "signal": "SIGKILL"
+  },
+  "recovery": {
+    "jobState": "submission_unknown",
+    "workflowState": "failed",
+    "reservedTokens": 0,
+    "conservativeCharge": 7860,
+    "automaticResubmissions": 0,
+    "repeatedRecoveryTicks": 2,
+    "secondsAfterInterruption": 122
+  },
+  "explicitRetry": {
+    "workflowState": "direction_review",
+    "attempts": 2,
+    "completedJobs": 1,
+    "providerSubmissions": 2,
+    "reservedTokens": 0,
+    "chargedDelta": 7930,
+    "duplicateDrafts": 0,
+    "duplicatePublications": 0
+  },
+  "completedAt": "2026-10-30T13:54:48.027Z"
+}

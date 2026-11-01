@@ -1,0 +1,270 @@
+{
+  "schemaVersion": 2,
+  "date": "2026-11-01",
+  "runMode": "full",
+  "startedAt": "2026-11-01T12:36:01.643Z",
+  "finishedAt": "2026-11-01T12:36:10.114Z",
+  "kind": "Independent simulated-member review of rebuilt research prototype; no human participants or live services",
+  "browser": "155.0.4283.62",
+  "base": "http://127.0.0.1:3092/index.html",
+  "prototypeHashesBefore": {
+    "mockups/app.js": "20b1a1ba71f4dcbe9a35cb001006395f08c2b621ea31399b2a0828520ba8ecab",
+    "mockups/styles.css": "77b72151fc9991d018dfffc9fa48764d17be9617b20fbcdd6806185f5c43be38",
+    "mockups/index.html": "37b6150dd15949f31f5384431201b5293f50edd242e884358e5b98fc2b0e32da",
+    "mockups/serve.mjs": "fef766740cc6f89408bdfe3e9266566520a24815d57e1f08643f6571608ca629",
+    "mockups/media/studio-workflow.webm": "40a33b114c05fb6c073598112faf02db3ad3e1c5bc1256f592035f5430ed5b57",
+    "mockups/media/workflow-captions.vtt": "95f7f1063c1f07df2fc943b61bf55754ec8fee14401ef2f3d290263bc1040e06",
+    "mockups/media/workflow-poster.png": "52971002fddf26dbb4f15e884572259c3ce468103668dccafe73295eaa4e2de8",
+    "evidence/member-peer-review.mjs": "b8cd7e42036ebd464e955910f903663d1454fa437b866c6f443731d815c4c6f6"
+  },
+  "prototypeHashesAfter": {
+    "mockups/app.js": "20b1a1ba71f4dcbe9a35cb001006395f08c2b621ea31399b2a0828520ba8ecab",
+    "mockups/styles.css": "77b72151fc9991d018dfffc9fa48764d17be9617b20fbcdd6806185f5c43be38",
+    "mockups/index.html": "37b6150dd15949f31f5384431201b5293f50edd242e884358e5b98fc2b0e32da",
+    "mockups/serve.mjs": "fef766740cc6f89408bdfe3e9266566520a24815d57e1f08643f6571608ca629",
+    "mockups/media/studio-workflow.webm": "40a33b114c05fb6c073598112faf02db3ad3e1c5bc1256f592035f5430ed5b57",
+    "mockups/media/workflow-captions.vtt": "95f7f1063c1f07df2fc943b61bf55754ec8fee14401ef2f3d290263bc1040e06",
+    "mockups/media/workflow-poster.png": "52971002fddf26dbb4f15e884572259c3ce468103668dccafe73295eaa4e2de8",
+    "evidence/member-peer-review.mjs": "b8cd7e42036ebd464e955910f903663d1454fa437b866c6f443731d815c4c6f6"
+  },
+  "prototypeStableDuringRun": true,
+  "passed": 13,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Shared library exposes ready-only selection and one Import entry",
+      "status": "passed",
+      "evidence": {
+        "methods": [
+          "Files",
+          "Links",
+          "Paste text",
+          "Connections"
+        ],
+        "failedSourceCannotEnterContext": true
+      }
+    },
+    {
+      "name": "Compose edit, mode switch, geometry and keyboard reorder reach semantic previews",
+      "status": "passed",
+      "evidence": {
+        "beforeOrder": [
+          "title",
+          "reflection",
+          "connection",
+          "question"
+        ],
+        "editedOrder": [
+          "title",
+          "connection",
+          "reflection",
+          "question"
+        ],
+        "textPreserved": true,
+        "geometryDidNotChangeSemanticOrder": true,
+        "readerIsDraftPreview": true
+      }
+    },
+    {
+      "name": "Inserted chart offers data and unattached study video requires no playback",
+      "status": "passed",
+      "evidence": {
+        "expected": [
+          "title",
+          "connection",
+          "reflection",
+          "block-324fd76",
+          "block-6342f5d",
+          "question"
+        ],
+        "chartDataReadable": true,
+        "videoIsUnattachedPlaceholder": true,
+        "realVideoAccessibilityNotProven": true
+      }
+    },
+    {
+      "name": "Phone church routing, separate reminders and primary reading",
+      "status": "passed",
+      "evidence": {
+        "church": "Salem/North",
+        "remindersDefault": false,
+        "readWithoutSharing": true
+      }
+    },
+    {
+      "name": "Public deck excludes edited private draft and requires separate keyboard choice",
+      "status": "passed",
+      "evidence": {
+        "publicSource": "r10",
+        "editedDraftExcluded": true,
+        "keyboardChoice": true,
+        "cancelUrl": "http://127.0.0.1:3092/index.html?view=reader&state=ready&church=north#member-reflection",
+        "cancelFocus": "member-reflection",
+        "nativeShareInvoked": false
+      }
+    },
+    {
+      "name": "Shared-phone conflict and alternate-provider boundaries stay private",
+      "status": "passed",
+      "evidence": {
+        "conflictExplainsNoMerge": true,
+        "noHouseholdAccountList": true,
+        "alternateIsDescriptive": "An alternate verified provider retains this church. Authentication is not started here."
+      }
+    },
+    {
+      "name": "Member/preview reflow at 320,390,1280",
+      "status": "passed",
+      "evidence": [
+        {
+          "view": "phone",
+          "width": 320,
+          "documentWidth": 320
+        },
+        {
+          "view": "reader",
+          "width": 320,
+          "documentWidth": 320
+        },
+        {
+          "view": "share",
+          "width": 320,
+          "documentWidth": 320
+        },
+        {
+          "view": "preview",
+          "width": 320,
+          "documentWidth": 320
+        },
+        {
+          "view": "phone",
+          "width": 390,
+          "documentWidth": 390
+        },
+        {
+          "view": "reader",
+          "width": 390,
+          "documentWidth": 390
+        },
+        {
+          "view": "share",
+          "width": 390,
+          "documentWidth": 390
+        },
+        {
+          "view": "preview",
+          "width": 390,
+          "documentWidth": 390
+        },
+        {
+          "view": "phone",
+          "width": 1280,
+          "documentWidth": 1280
+        },
+        {
+          "view": "reader",
+          "width": 1280,
+          "documentWidth": 1280
+        },
+        {
+          "view": "share",
+          "width": 1280,
+          "documentWidth": 1280
+        },
+        {
+          "view": "preview",
+          "width": 1280,
+          "documentWidth": 1280
+        }
+      ]
+    },
+    {
+      "name": "Homepage AI demo visible, selected, muted and autoplaying with zero interaction",
+      "status": "passed",
+      "evidence": {
+        "selected": [
+          "AI in Studio"
+        ],
+        "start": {
+          "time": 0.335985,
+          "muted": true,
+          "paused": false,
+          "rect": {
+            "top": 316.375,
+            "bottom": 882.5
+          },
+          "height": 1000
+        },
+        "later": 0.89707,
+        "interactionBeforeObservation": false
+      }
+    },
+    {
+      "name": "Homepage pause and explicit resume control playback",
+      "status": "passed",
+      "evidence": {
+        "pausedAt": {
+          "t": 0.277216,
+          "paused": true
+        },
+        "afterWait": {
+          "t": 0.277216,
+          "paused": true
+        },
+        "resumed": {
+          "t": 0.684749,
+          "paused": false
+        }
+      }
+    },
+    {
+      "name": "Local recording decodes and descriptive captions load",
+      "status": "passed",
+      "evidence": {
+        "width": 1280,
+        "height": 720,
+        "decodedFrames": 14,
+        "cueCount": 9,
+        "muted": true,
+        "currentSrc": "http://127.0.0.1:3092/media/studio-workflow.webm"
+      }
+    },
+    {
+      "name": "Reduced motion avoids automatic playback and offers explicit play",
+      "status": "passed",
+      "evidence": {
+        "initial": {
+          "time": 0,
+          "paused": true
+        },
+        "explicitPlayWorked": true
+      }
+    },
+    {
+      "name": "Blocked-autoplay example offers poster/transcript without claiming live service",
+      "status": "passed",
+      "evidence": {
+        "fallbackVisible": true,
+        "transcriptReadable": true,
+        "simulatedBlockedState": true
+      }
+    },
+    {
+      "name": "Actual media-request failure keeps fallback and readable transcript",
+      "status": "passed",
+      "evidence": {
+        "actualRequestAborted": true,
+        "status": "Media unavailable; transcript remains readable.",
+        "noNativePolicyInference": true
+      }
+    }
+  ],
+  "pageErrors": [],
+  "blockedExternalRequests": [],
+  "limits": [
+    "Session-only draft model; not persisted approved production renderer",
+    "No SMS, People, paid AI or native OS social sharing",
+    "Autoplay checks, when run, cover headless Edge rather than every browser/device policy",
+    "Local motion/failure checks are not a full accessibility audit"
+  ]
+}

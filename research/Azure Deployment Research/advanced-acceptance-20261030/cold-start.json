@@ -1,0 +1,26 @@
+{
+  "scenario": "live frontend zero-replica HTTP activation",
+  "zeroReplicaObservation": "user Azure Portal confirmation",
+  "zeroReplicasObservedAt": "2026-10-30T14:37:58.780Z",
+  "startedAt": "2026-10-30T14:37:58.976Z",
+  "passed": true,
+  "firstRequest": {
+    "status": 200,
+    "milliseconds": 20474,
+    "html": true,
+    "rootedPage": true
+  },
+  "warmRequest": {
+    "status": 200,
+    "milliseconds": 72,
+    "html": true,
+    "rootedPage": true
+  },
+  "backendProxyStatus": 200,
+  "productionAuthOptions": {
+    "localIssuer": false,
+    "demoLogin": false,
+    "accessBasedLogin": true
+  },
+  "completedAt": "2026-10-30T14:38:19.601Z"
+}

@@ -1,0 +1,752 @@
+{
+  "runId": "e027afc2eea44bcb96552ad9",
+  "startedAt": "2026-10-19T14:14:55.494Z",
+  "status": "targets_missed",
+  "envelope": {
+    "tenants": 20,
+    "membersPerTenant": 500,
+    "editorsPerTenant": 2,
+    "studiesPerTenant": 3,
+    "extraPendingRecoveryStudiesPerTenant": 1,
+    "readersPerBurst": 2000,
+    "readBursts": 2,
+    "saveChains": 40,
+    "savesPerChain": 5
+  },
+  "fullReaderEnvelope": true,
+  "environment": {
+    "node": "v24.11.1",
+    "os": "win32 10.0.26200",
+    "cpu": "11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz",
+    "logicalCpus": 8,
+    "memoryBytes": 16806072320,
+    "databaseSourceSha256": "797b44c6872b9e7b0f93e67e88e5c4b87b1bc73ed6efed835a8bb5ba8eb6bd84",
+    "postgres": "PostgreSQL 17.2 on x86_64-windows, compiled by msvc-19.42.34435, 64-bit",
+    "connectionBudget": {
+      "maximum": 100,
+      "superuser_reserved": 3,
+      "currently_used": 6
+    },
+    "runtimePoolMax": 12,
+    "readerConnections": "One preconnected keepalive HTTP/1.1 socket per reader; staged setup excluded from latency"
+  },
+  "databases": [
+    "gather_load_e027afc2eea44bcb96552ad9",
+    "gather_restore_e027afc2eea44bcb96552ad9"
+  ],
+  "metrics": {
+    "authenticatedReads": {
+      "count": 2000,
+      "p50Ms": 1111.4640999999992,
+      "p95Ms": 1941.4609999999993,
+      "maxMs": 2060.1755000000003,
+      "targetMs": 500,
+      "pass": false,
+      "errors": 0,
+      "errorExamples": [],
+      "durationMs": 2114.5920000000006,
+      "offeredConcurrency": 2000
+    },
+    "saves": {
+      "count": 200,
+      "p50Ms": 229.64199999999983,
+      "p95Ms": 2090.093999999999,
+      "maxMs": 2140.0857000000005,
+      "targetMs": 1000,
+      "pass": false,
+      "errors": 0,
+      "errorExamples": []
+    },
+    "publication": {
+      "count": 40,
+      "p50Ms": 3329.8301999999994,
+      "p95Ms": 3341.098499999999,
+      "maxMs": 3341.7650999999996,
+      "targetMs": 60000,
+      "pass": true,
+      "dueOccurrences": 40,
+      "observedTenants": 20,
+      "observation": "Conservative shared visibility time for each pair of occurrences in a tenant",
+      "duplicateReplay": "no additional publications",
+      "clock": "controlled due instant plus measured elapsed time; no scheduler polling"
+    },
+    "publicReads": {
+      "count": 2000,
+      "p50Ms": 1864.4287000000004,
+      "p95Ms": 2637.928099999999,
+      "maxMs": 2718.6831,
+      "targetMs": 500,
+      "pass": false,
+      "errors": 0,
+      "errorExamples": [],
+      "durationMs": 2832.6844999999994,
+      "offeredConcurrency": 2000
+    }
+  },
+  "errors": [],
+  "limits": [
+    "Single host with HTTP client, API and PostgreSQL sharing resources",
+    "Synthetic sessions bypass OIDC issuance; real authentication, CSRF, membership and RLS execute",
+    "Controlled due clock; publication includes worker/database and HTTP visibility, excludes production polling delay",
+    "No cloud availability, regional RPO/RTO, external object/key recovery, SMS/AI throughput or accessibility proof"
+  ],
+  "sqlProfiles": {
+    "session": {
+      "samples": 20,
+      "executionMedianMs": 0.018,
+      "executionMaxMs": 0.026,
+      "lastPlan": {
+        "Plan": {
+          "Node Type": "Index Scan",
+          "Parallel Aware": false,
+          "Async Capable": false,
+          "Scan Direction": "Forward",
+          "Index Name": "auth_sessions_pkey",
+          "Relation Name": "auth_sessions",
+          "Alias": "auth_sessions",
+          "Startup Cost": 0.28,
+          "Total Cost": 8.3,
+          "Plan Rows": 1,
+          "Plan Width": 61,
+          "Actual Startup Time": 0.009,
+          "Actual Total Time": 0.01,
+          "Actual Rows": 1,
+          "Actual Loops": 1,
+          "Index Cond": "(token_hash = '878d0b0c846827b514f6c53dd073e50de4cce242ffc59b666a1c61963aebc421'::text)",
+          "Rows Removed by Index Recheck": 0,
+          "Filter": "(expires_at > now())",
+          "Rows Removed by Filter": 0,
+          "Shared Hit Blocks": 3,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0
+        },
+        "Planning": {
+          "Shared Hit Blocks": 0,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0
+        },
+        "Planning Time": 0.056,
+        "Triggers": [],
+        "Execution Time": 0.019
+      }
+    },
+    "membership": {
+      "samples": 20,
+      "executionMedianMs": 0.032,
+      "executionMaxMs": 0.04,
+      "lastPlan": {
+        "Plan": {
+          "Node Type": "Result",
+          "Parallel Aware": false,
+          "Async Capable": false,
+          "Startup Cost": 0.29,
+          "Total Cost": 8.3,
+          "Plan Rows": 1,
+          "Plan Width": 13,
+          "Actual Startup Time": 0.011,
+          "Actual Total Time": 0.012,
+          "Actual Rows": 1,
+          "Actual Loops": 1,
+          "One-Time Filter": "((NULLIF(current_setting('app.church_id'::text, true), ''::text))::uuid = 'fe43c8cf-379d-4477-995c-e10a5fcdf3ca'::uuid)",
+          "Shared Hit Blocks": 3,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0,
+          "Plans": [
+            {
+              "Node Type": "Index Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Async Capable": false,
+              "Scan Direction": "Forward",
+              "Index Name": "memberships_pkey",
+              "Relation Name": "memberships",
+              "Alias": "memberships",
+              "Startup Cost": 0.29,
+              "Total Cost": 8.3,
+              "Plan Rows": 1,
+              "Plan Width": 13,
+              "Actual Startup Time": 0.007,
+              "Actual Total Time": 0.008,
+              "Actual Rows": 1,
+              "Actual Loops": 1,
+              "Index Cond": "((church_id = 'fe43c8cf-379d-4477-995c-e10a5fcdf3ca'::uuid) AND (user_id = '0-contributor'::text))",
+              "Rows Removed by Index Recheck": 0,
+              "Filter": "active",
+              "Rows Removed by Filter": 0,
+              "Shared Hit Blocks": 3,
+              "Shared Read Blocks": 0,
+              "Shared Dirtied Blocks": 0,
+              "Shared Written Blocks": 0,
+              "Local Hit Blocks": 0,
+              "Local Read Blocks": 0,
+              "Local Dirtied Blocks": 0,
+              "Local Written Blocks": 0,
+              "Temp Read Blocks": 0,
+              "Temp Written Blocks": 0
+            }
+          ]
+        },
+        "Planning": {
+          "Shared Hit Blocks": 0,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0
+        },
+        "Planning Time": 0.047,
+        "Triggers": [],
+        "Execution Time": 0.022
+      }
+    },
+    "publicChurch": {
+      "samples": 20,
+      "executionMedianMs": 0.104,
+      "executionMaxMs": 0.145,
+      "lastPlan": {
+        "Plan": {
+          "Node Type": "Function Scan",
+          "Parallel Aware": false,
+          "Async Capable": false,
+          "Function Name": "public_church",
+          "Alias": "public_church",
+          "Startup Cost": 0.25,
+          "Total Cost": 10.25,
+          "Plan Rows": 1000,
+          "Plan Width": 16,
+          "Actual Startup Time": 0.089,
+          "Actual Total Time": 0.089,
+          "Actual Rows": 1,
+          "Actual Loops": 1,
+          "Shared Hit Blocks": 1,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0
+        },
+        "Planning": {
+          "Shared Hit Blocks": 0,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0
+        },
+        "Planning Time": 0.013,
+        "Triggers": [],
+        "Execution Time": 0.095
+      }
+    },
+    "publishedStudies": {
+      "samples": 20,
+      "executionMedianMs": 0.079,
+      "executionMaxMs": 0.108,
+      "lastPlan": {
+        "Plan": {
+          "Node Type": "Sort",
+          "Parallel Aware": false,
+          "Async Capable": false,
+          "Startup Cost": 19.22,
+          "Total Cost": 19.23,
+          "Plan Rows": 1,
+          "Plan Width": 299,
+          "Actual Startup Time": 0.035,
+          "Actual Total Time": 0.036,
+          "Actual Rows": 1,
+          "Actual Loops": 1,
+          "Sort Key": [
+            "publications.published_at DESC"
+          ],
+          "Sort Method": "quicksort",
+          "Sort Space Used": 25,
+          "Sort Space Type": "Memory",
+          "Shared Hit Blocks": 7,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0,
+          "Plans": [
+            {
+              "Node Type": "Result",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Async Capable": false,
+              "Startup Cost": 0.55,
+              "Total Cost": 19.21,
+              "Plan Rows": 1,
+              "Plan Width": 299,
+              "Actual Startup Time": 0.029,
+              "Actual Total Time": 0.032,
+              "Actual Rows": 1,
+              "Actual Loops": 1,
+              "One-Time Filter": "((NULLIF(current_setting('app.church_id'::text, true), ''::text))::uuid = 'fe43c8cf-379d-4477-995c-e10a5fcdf3ca'::uuid)",
+              "Shared Hit Blocks": 7,
+              "Shared Read Blocks": 0,
+              "Shared Dirtied Blocks": 0,
+              "Shared Written Blocks": 0,
+              "Local Hit Blocks": 0,
+              "Local Read Blocks": 0,
+              "Local Dirtied Blocks": 0,
+              "Local Written Blocks": 0,
+              "Temp Read Blocks": 0,
+              "Temp Written Blocks": 0,
+              "Plans": [
+                {
+                  "Node Type": "Nested Loop",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Async Capable": false,
+                  "Join Type": "Inner",
+                  "Startup Cost": 0.55,
+                  "Total Cost": 19.21,
+                  "Plan Rows": 1,
+                  "Plan Width": 299,
+                  "Actual Startup Time": 0.023,
+                  "Actual Total Time": 0.026,
+                  "Actual Rows": 1,
+                  "Actual Loops": 1,
+                  "Inner Unique": true,
+                  "Shared Hit Blocks": 7,
+                  "Shared Read Blocks": 0,
+                  "Shared Dirtied Blocks": 0,
+                  "Shared Written Blocks": 0,
+                  "Local Hit Blocks": 0,
+                  "Local Read Blocks": 0,
+                  "Local Dirtied Blocks": 0,
+                  "Local Written Blocks": 0,
+                  "Temp Read Blocks": 0,
+                  "Temp Written Blocks": 0,
+                  "Plans": [
+                    {
+                      "Node Type": "Nested Loop",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Async Capable": false,
+                      "Join Type": "Inner",
+                      "Startup Cost": 0.27,
+                      "Total Cost": 10.9,
+                      "Plan Rows": 1,
+                      "Plan Width": 315,
+                      "Actual Startup Time": 0.019,
+                      "Actual Total Time": 0.021,
+                      "Actual Rows": 1,
+                      "Actual Loops": 1,
+                      "Inner Unique": true,
+                      "Shared Hit Blocks": 4,
+                      "Shared Read Blocks": 0,
+                      "Shared Dirtied Blocks": 0,
+                      "Shared Written Blocks": 0,
+                      "Local Hit Blocks": 0,
+                      "Local Read Blocks": 0,
+                      "Local Dirtied Blocks": 0,
+                      "Local Written Blocks": 0,
+                      "Temp Read Blocks": 0,
+                      "Temp Written Blocks": 0,
+                      "Plans": [
+                        {
+                          "Node Type": "Seq Scan",
+                          "Parent Relationship": "Outer",
+                          "Parallel Aware": false,
+                          "Async Capable": false,
+                          "Relation Name": "publications",
+                          "Alias": "publications",
+                          "Startup Cost": 0,
+                          "Total Cost": 1.76,
+                          "Plan Rows": 1,
+                          "Plan Width": 72,
+                          "Actual Startup Time": 0.01,
+                          "Actual Total Time": 0.012,
+                          "Actual Rows": 1,
+                          "Actual Loops": 1,
+                          "Filter": "(church_id = 'fe43c8cf-379d-4477-995c-e10a5fcdf3ca'::uuid)",
+                          "Rows Removed by Filter": 19,
+                          "Shared Hit Blocks": 1,
+                          "Shared Read Blocks": 0,
+                          "Shared Dirtied Blocks": 0,
+                          "Shared Written Blocks": 0,
+                          "Local Hit Blocks": 0,
+                          "Local Read Blocks": 0,
+                          "Local Dirtied Blocks": 0,
+                          "Local Written Blocks": 0,
+                          "Temp Read Blocks": 0,
+                          "Temp Written Blocks": 0
+                        },
+                        {
+                          "Node Type": "Index Scan",
+                          "Parent Relationship": "Inner",
+                          "Parallel Aware": false,
+                          "Async Capable": false,
+                          "Scan Direction": "Forward",
+                          "Index Name": "revisions_church_id_id_hash_key",
+                          "Relation Name": "revisions",
+                          "Alias": "revisions",
+                          "Startup Cost": 0.27,
+                          "Total Cost": 8.29,
+                          "Plan Rows": 1,
+                          "Plan Width": 291,
+                          "Actual Startup Time": 0.007,
+                          "Actual Total Time": 0.008,
+                          "Actual Rows": 1,
+                          "Actual Loops": 1,
+                          "Index Cond": "((church_id = 'fe43c8cf-379d-4477-995c-e10a5fcdf3ca'::uuid) AND (id = publications.revision_id))",
+                          "Rows Removed by Index Recheck": 0,
+                          "Shared Hit Blocks": 3,
+                          "Shared Read Blocks": 0,
+                          "Shared Dirtied Blocks": 0,
+                          "Shared Written Blocks": 0,
+                          "Local Hit Blocks": 0,
+                          "Local Read Blocks": 0,
+                          "Local Dirtied Blocks": 0,
+                          "Local Written Blocks": 0,
+                          "Temp Read Blocks": 0,
+                          "Temp Written Blocks": 0
+                        }
+                      ]
+                    },
+                    {
+                      "Node Type": "Index Scan",
+                      "Parent Relationship": "Inner",
+                      "Parallel Aware": false,
+                      "Async Capable": false,
+                      "Scan Direction": "Forward",
+                      "Index Name": "aggregates_church_id_id_plan_id_key",
+                      "Relation Name": "aggregates",
+                      "Alias": "aggregates",
+                      "Startup Cost": 0.27,
+                      "Total Cost": 8.29,
+                      "Plan Rows": 1,
+                      "Plan Width": 48,
+                      "Actual Startup Time": 0.004,
+                      "Actual Total Time": 0.004,
+                      "Actual Rows": 1,
+                      "Actual Loops": 1,
+                      "Index Cond": "((church_id = 'fe43c8cf-379d-4477-995c-e10a5fcdf3ca'::uuid) AND (id = publications.content_id))",
+                      "Rows Removed by Index Recheck": 0,
+                      "Filter": "(publications.id = live_publication_id)",
+                      "Rows Removed by Filter": 0,
+                      "Shared Hit Blocks": 3,
+                      "Shared Read Blocks": 0,
+                      "Shared Dirtied Blocks": 0,
+                      "Shared Written Blocks": 0,
+                      "Local Hit Blocks": 0,
+                      "Local Read Blocks": 0,
+                      "Local Dirtied Blocks": 0,
+                      "Local Written Blocks": 0,
+                      "Temp Read Blocks": 0,
+                      "Temp Written Blocks": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "Planning": {
+          "Shared Hit Blocks": 0,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0
+        },
+        "Planning Time": 0.357,
+        "Triggers": [],
+        "Execution Time": 0.064
+      }
+    }
+  },
+  "poolDiagnostics": {
+    "authenticatedBurstWithSavesAndPublication": {
+      "queries": 16742,
+      "queryKinds": {
+        "SELECT": 11222,
+        "BEGIN": 2260,
+        "INSERT": 680,
+        "UPDATE": 320,
+        "COMMIT": 2260
+      },
+      "peakWaiting": 2029,
+      "peakConnections": 12,
+      "checkout": {
+        "count": 4482,
+        "p50Ms": 173.4928,
+        "p95Ms": 1544.5450999999994,
+        "maxMs": 1733.5902999999998
+      }
+    },
+    "publicBurst": {
+      "queries": 10000,
+      "queryKinds": {
+        "SELECT": 6000,
+        "BEGIN": 2000,
+        "COMMIT": 2000
+      },
+      "peakWaiting": 1988,
+      "peakConnections": 12,
+      "checkout": {
+        "count": 4000,
+        "p50Ms": 439.7102999999988,
+        "p95Ms": 1746.452800000001,
+        "maxMs": 1908.4577000000008
+      }
+    }
+  },
+  "recovery": {
+    "pass": true,
+    "backupMs": 1082.4838,
+    "restoreAndValidateMs": 2212.1880999999994,
+    "tables": {
+      "aggregates": {
+        "count": 200,
+        "sha256": "4c946429f8f25e536a3ef956fdbae455a66f73a93a3056d7898d5e6e874d4225"
+      },
+      "approvals": {
+        "count": 160,
+        "sha256": "e0c2645ab6fa0007972cb7a22ce241c7f33640041e4e501f670d51d79669f9b1"
+      },
+      "audit": {
+        "count": 1000,
+        "sha256": "19725b03f5d8ba86d745a6026fb70345ee97573fed43a51208a4f95824518cfc"
+      },
+      "auth_flows": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "auth_sessions": {
+        "count": 2040,
+        "sha256": "c19adc84eb3e347c8ce477b59abbccd5253543b5e581935fe51f44292ad46028"
+      },
+      "churches": {
+        "count": 20,
+        "sha256": "a0fb821932fd3588f0e1b553f8925afdb28b660ab7bd165ea89349515463317c"
+      },
+      "comments": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "consent": {
+        "count": 10000,
+        "sha256": "d636af6f1ca3dac028fe8f66fcf7aa07ede527a5feee926c196f17dfee63e0b6"
+      },
+      "delivery": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "discussion_revisions": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "discussions": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "idempotency": {
+        "count": 1000,
+        "sha256": "2d0185345be6fada1e5c3d6e416c2a8f5b75b0142679557ace8300c33ba3a5b0"
+      },
+      "integration_states": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "invitations": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "memberships": {
+        "count": 10040,
+        "sha256": "8fdb1d9d1c65ed50383e36257a02a1cd2293ba53a145a4adb6e1f528fd9d1b63"
+      },
+      "mentions": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "moderation_actions": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "notifications": {
+        "count": 440,
+        "sha256": "5cc8db576cb524955c0609067e80847138d23c7b4ad33eff0608f47bbbee116d"
+      },
+      "onboarding_commands": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "outbox": {
+        "count": 60,
+        "sha256": "e7701ff4500091ee71773b22c40fde45dd6e95c7e400b19587915865d09e11fa"
+      },
+      "participation_restrictions": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "privacy_requests": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "privacy_tombstones": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_adoptions": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_budgets": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_connections": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_consent_events": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_contacts": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_jobs": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_oauth_flows": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_proposals": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_send_intents": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_source_maps": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_source_reviews": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_webhook_inbox": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "publications": {
+        "count": 60,
+        "sha256": "caa4fa07e5615ec1ffa9e297e4052ed29044ec57742cb11a6ae33086c56f5d0d"
+      },
+      "reactions": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "reports": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "reviews": {
+        "count": 160,
+        "sha256": "c0e05290a70466fe25a2ba292b478fb18e2121687d366889fd2727d6109c9858"
+      },
+      "revisions": {
+        "count": 560,
+        "sha256": "d28684fccd2934271d11f87230b1baefddedd39be7fc53520ca44d8bbf59110c"
+      },
+      "schedules": {
+        "count": 80,
+        "sha256": "63483b87d4e3936b558ab99624172f9b3c665e09c85999e09556e883f0cc2f9b"
+      },
+      "schema_migrations": {
+        "count": 6,
+        "sha256": "5e295a796722fe8ed6c46dd08c426ef3d29d9dc33b0d7fcb092c51491725ea92"
+      },
+      "series": {
+        "count": 20,
+        "sha256": "87c6fc800ad9689edd71b8239a7ce8ea1434663a4a54f8bb0d63dc09deb2038f"
+      },
+      "series_sermons": {
+        "count": 20,
+        "sha256": "751fdccdd20d45323d41c0f93ee39e8599f9e3fa76319b2bb30f5773a02a7ec5"
+      },
+      "sermons": {
+        "count": 20,
+        "sha256": "5ba8b3f246ce8ccf97c24f3e00a522afe196b6570a68c30829b13a201922566f"
+      },
+      "slots": {
+        "count": 120,
+        "sha256": "318d7281013db35c163d853507b63799d1d4071a4f4c97e40d54e3d51da39199"
+      },
+      "sources": {
+        "count": 20,
+        "sha256": "324b6e31235fede64d04c3ebda56dcc1567748b1689df734180eedab05e87a1d"
+      }
+    },
+    "sourceCount": 20,
+    "sourceSnapshotSha256": "7b0deb0148a9f9bbc17dae1ec98b10c302f60be6ef2af31a62965668d3989012",
+    "dumpSha256": "d4b0f6d8c636899c82babdcec6c1782996e284bac313a826dc96a19c0afb02c8",
+    "rlsTenantsChecked": 20,
+    "authenticatedApiTenantsChecked": 20,
+    "recoveredPendingOccurrences": 20,
+    "recoveryReplay": "80 total publications after two sweeps; no duplicates",
+    "runtimeRoleUnchanged": true,
+    "scope": "Quiescent logical snapshot; all implemented sources are embedded JSON in PostgreSQL. Sidecar verifies source bytes independently. Not PITR or regional RPO/RTO proof."
+  },
+  "cleanup": [
+    {
+      "database": "gather_restore_e027afc2eea44bcb96552ad9",
+      "dropped": true
+    },
+    {
+      "database": "gather_load_e027afc2eea44bcb96552ad9",
+      "dropped": true
+    }
+  ],
+  "elapsedMs": 21048.518200000002
+}

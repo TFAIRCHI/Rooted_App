@@ -1,0 +1,46 @@
+ROBOTS
+User-Agent: *
+Allow: /$
+Allow: /why-rooted$
+Allow: /how-it-works$
+Allow: /ai-co-writer$
+Allow: /power-of-four$
+Allow: /questions$
+Allow: /get-started$
+Allow: /sample-study$
+Allow: /_next/static/
+Allow: /_next/image
+Allow: /showcase/
+Allow: /rooted-share.svg$
+Disallow: /
+
+Sitemap: https://rooted-together.com/sitemap.xml
+
+SITEMAP
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://rooted-together.com/</loc>
+</url>
+<url>
+<loc>https://rooted-together.com/why-rooted</loc>
+</url>
+<url>
+<loc>https://rooted-together.com/how-it-works</loc>
+</url>
+<url>
+<loc>https://rooted-together.com/ai-co-writer</loc>
+</url>
+<url>
+<loc>https://rooted-together.com/power-of-four</loc>
+</url>
+<url>
+<loc>https://rooted-together.com/questions</loc>
+</url>
+<url>
+<loc>https://rooted-together.com/get-started</loc>
+</url>
+<url>
+<loc>https://rooted-together.com/sample-study</loc>
+</url>
+</urlset>

@@ -1,0 +1,41 @@
+{
+  "capturedAt": "2026-10-30T18:20:12.269Z",
+  "files": [
+    {
+      "file": "frontend/app/page.tsx",
+      "sha256": "0b75261d94d2e253f2e14ea5236796682e917c8fedaf65c85fba0913bc55bdcd"
+    },
+    {
+      "file": "frontend/app/layout.tsx",
+      "sha256": "8128c9e629e4521d7155c0c72c72f459ad561d34c780a1e92ddbdb4ace3e8e12"
+    },
+    {
+      "file": "frontend/app/robots.ts",
+      "sha256": "357127b894703884f6cc373cc18341a11f9b7c27e0761542bab592b5719a6146"
+    },
+    {
+      "file": "frontend/app/sitemap.ts",
+      "sha256": "3fa93db09d5256b80a018c4107c91729a940a97ca2b409dc6ef4e0fabe96a44c"
+    },
+    {
+      "file": "frontend/components/public/index.tsx",
+      "sha256": "0e21f2f3777eefd7c63594d1be8db8ce911f845f7f88f9680a667097e42643af"
+    },
+    {
+      "file": "frontend/components/public/frame.tsx",
+      "sha256": "46a9c18b96f6b8831dd00eb97b6b68447bf21bc35a44492c69ee5a98cf2fb289"
+    },
+    {
+      "file": "frontend/components/public/get-started.tsx",
+      "sha256": "c1915430c0964b9dd0b19565586765395579e3101ebe858f3d343bdf36a720b8"
+    },
+    {
+      "file": "frontend/components/public/sample-study.tsx",
+      "sha256": "12bb6d074846dfc8cc909929363c847bc61fbdd845779e5dc153604a4cb51107"
+    },
+    {
+      "file": "frontend/e2e/public-site.spec.ts",
+      "sha256": "c47e165f4c96f576335247d0878fccb9fa200989eeade215c31e11943732bd01"
+    }
+  ]
+}

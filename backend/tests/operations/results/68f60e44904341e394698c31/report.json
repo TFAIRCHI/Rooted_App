@@ -1,0 +1,302 @@
+{
+  "runId": "68f60e44904341e394698c31",
+  "startedAt": "2026-10-19T14:08:27.915Z",
+  "status": "targets_missed",
+  "envelope": {
+    "tenants": 20,
+    "membersPerTenant": 500,
+    "editorsPerTenant": 2,
+    "studiesPerTenant": 3,
+    "extraPendingRecoveryStudiesPerTenant": 1,
+    "readersPerBurst": 2000,
+    "readBursts": 2,
+    "saveChains": 40,
+    "savesPerChain": 5
+  },
+  "fullReaderEnvelope": true,
+  "environment": {
+    "node": "v24.11.1",
+    "os": "win32 10.0.26200",
+    "cpu": "11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz",
+    "logicalCpus": 8,
+    "memoryBytes": 16806072320,
+    "runtimePoolMax": 12,
+    "postgres": "PostgreSQL 17.2 on x86_64-windows, compiled by msvc-19.42.34435, 64-bit",
+    "readerConnections": "One preconnected keepalive HTTP/1.1 socket per reader; staged setup excluded from latency"
+  },
+  "databases": [
+    "gather_load_68f60e44904341e394698c31",
+    "gather_restore_68f60e44904341e394698c31"
+  ],
+  "metrics": {
+    "authenticatedReads": {
+      "count": 2000,
+      "p50Ms": 1214.5367000000006,
+      "p95Ms": 1819.8660999999993,
+      "maxMs": 1898.0433999999987,
+      "targetMs": 500,
+      "pass": false,
+      "errors": 0,
+      "errorExamples": [],
+      "durationMs": 1977.9999000000025,
+      "offeredConcurrency": 2000
+    },
+    "saves": {
+      "count": 200,
+      "p50Ms": 198.98240000000078,
+      "p95Ms": 1926.8343999999997,
+      "maxMs": 1956.2501999999986,
+      "targetMs": 1000,
+      "pass": false,
+      "errors": 0,
+      "errorExamples": []
+    },
+    "publication": {
+      "count": 40,
+      "p50Ms": 3026.6947,
+      "p95Ms": 3032.222800000003,
+      "maxMs": 3032.3663000000015,
+      "targetMs": 60000,
+      "pass": true,
+      "dueOccurrences": 40,
+      "observedTenants": 20,
+      "observation": "Conservative shared visibility time for each pair of occurrences in a tenant",
+      "duplicateReplay": "no additional publications",
+      "clock": "controlled due instant plus measured elapsed time; no scheduler polling"
+    },
+    "publicReads": {
+      "count": 2000,
+      "p50Ms": 1356.9452999999994,
+      "p95Ms": 1892.9107000000004,
+      "maxMs": 1942.1533000000018,
+      "targetMs": 500,
+      "pass": false,
+      "errors": 0,
+      "errorExamples": [],
+      "durationMs": 2007.744300000002,
+      "offeredConcurrency": 2000
+    }
+  },
+  "errors": [],
+  "limits": [
+    "Single host with HTTP client, API and PostgreSQL sharing resources",
+    "Synthetic sessions bypass OIDC issuance; real authentication, CSRF, membership and RLS execute",
+    "Controlled due clock; publication includes worker/database and HTTP visibility, excludes production polling delay",
+    "No cloud availability, regional RPO/RTO, external object/key recovery, SMS/AI throughput or accessibility proof"
+  ],
+  "recovery": {
+    "pass": true,
+    "backupMs": 1735.0923000000003,
+    "restoreAndValidateMs": 4896.235199999999,
+    "tables": {
+      "aggregates": {
+        "count": 200,
+        "sha256": "a8bc19f629e5deee4784525f7693b32d691c46b730db105cb3ae1e93507cd6d8"
+      },
+      "approvals": {
+        "count": 160,
+        "sha256": "10c3428cf5b0306bbc8f0ffa9be181fc2d1218200f06b13335fbd565de4a5d55"
+      },
+      "audit": {
+        "count": 1000,
+        "sha256": "1a32f25cdc0ece2647d67493ea1b056fae0b9193c46126d1856e09ff2f6799a8"
+      },
+      "auth_flows": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "auth_sessions": {
+        "count": 2040,
+        "sha256": "9591016990297e7284df9b9ce1d25568f9220383ec46852fb753ac5ac581e701"
+      },
+      "churches": {
+        "count": 20,
+        "sha256": "3efac55856d1b929d269ef556999774e987c284a6d0e12585dbce3a00abd4a0a"
+      },
+      "comments": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "consent": {
+        "count": 10000,
+        "sha256": "a05f199a0edb5ed3917a6682ef331731670f290c1c8bbbecf873fd57a1a4e9a6"
+      },
+      "delivery": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "discussion_revisions": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "discussions": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "idempotency": {
+        "count": 1000,
+        "sha256": "735b51d5af0e2b8b17d7f8ebc549dc8cc127960953de7022b1b9d11bffbe78fc"
+      },
+      "integration_states": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "invitations": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "memberships": {
+        "count": 10040,
+        "sha256": "5337776fe6157bf39a562c58cec9048ad286b396e04fb0bc4e6b351adb51aac1"
+      },
+      "mentions": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "moderation_actions": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "notifications": {
+        "count": 440,
+        "sha256": "f20431055cfd66679b3221ad224c6efbcd9d1a31dc6c5fc90336aea2f296e6d5"
+      },
+      "onboarding_commands": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "outbox": {
+        "count": 60,
+        "sha256": "528ee7bcabb78670c81d528283370585c9de38c479cf7f8d23a54261f3b5b3be"
+      },
+      "participation_restrictions": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "privacy_requests": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "privacy_tombstones": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_adoptions": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_budgets": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_connections": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_consent_events": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_contacts": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_jobs": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_oauth_flows": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_proposals": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_send_intents": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_source_maps": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_source_reviews": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "provider_webhook_inbox": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "publications": {
+        "count": 60,
+        "sha256": "b85579852c2e20d91db554a00fdeb27db3aecf9c0c390bd393a2065136ef61ac"
+      },
+      "reactions": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "reports": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "reviews": {
+        "count": 160,
+        "sha256": "f6de09d366ccc2575e60c160fd673bdc9d9969c3edbc477441a726bd29bf396d"
+      },
+      "revisions": {
+        "count": 560,
+        "sha256": "5306d18fc318b768f79873afac95d2d5860f509cbc2c488bc1bd85e7f6f86a01"
+      },
+      "schedules": {
+        "count": 80,
+        "sha256": "66ee2930cae5968e8f39973bf403db224063f8a557892a040b4243d405e802e8"
+      },
+      "schema_migrations": {
+        "count": 5,
+        "sha256": "d6f3b24662742d48898fdfdd8bfc35600d0ea2af092c6f356659b0712eed4d7f"
+      },
+      "series": {
+        "count": 20,
+        "sha256": "eb9fa726675dbc47afb8db08124a1cbb01a08757722133f59c63997514f73e3f"
+      },
+      "series_sermons": {
+        "count": 20,
+        "sha256": "2e3c4294105d84d1d6ed5eac79e86886fb453d5ee601d6cb9a3e8f6196c0ba8e"
+      },
+      "sermons": {
+        "count": 20,
+        "sha256": "8c6c9c96e44d77e7d74b20d51383b5295f89033cf700878205fc1c7d6bd11833"
+      },
+      "slots": {
+        "count": 120,
+        "sha256": "364cbfd37ce1117909dac4f8331b80f34e223b3296c3d81a2cc13162478f2bff"
+      },
+      "sources": {
+        "count": 20,
+        "sha256": "b0c18f7211265f6365465bca00c24b3509f929020137cc9d4b1102790ce06bd9"
+      }
+    },
+    "sourceCount": 20,
+    "sourceSnapshotSha256": "671c2b1d8027bfb7b618b91783236737d29a2c7c7c322721b62ab13e29741bfa",
+    "dumpSha256": "faf9a5283af722652191364424f5f1a7167f0a99c53e0fb7571e9b35e554f7c6",
+    "rlsTenantsChecked": 20,
+    "authenticatedApiTenantsChecked": 20,
+    "recoveredPendingOccurrences": 20,
+    "recoveryReplay": "80 total publications after two sweeps; no duplicates",
+    "runtimeRoleUnchanged": true,
+    "scope": "Quiescent logical snapshot; all implemented sources are embedded JSON in PostgreSQL. Sidecar verifies source bytes independently. Not PITR or regional RPO/RTO proof."
+  },
+  "cleanup": [
+    {
+      "database": "gather_restore_68f60e44904341e394698c31",
+      "dropped": true
+    },
+    {
+      "database": "gather_load_68f60e44904341e394698c31",
+      "dropped": true
+    }
+  ],
+  "elapsedMs": 32425.696700000004
+}

@@ -1,0 +1,19 @@
+{
+  "productionImage": "rooted-frontend:pilot-20261028-3",
+  "runtimeErrors": [],
+  "accessibility": [],
+  "mobileWidths": [
+    390,
+    320
+  ],
+  "showcaseScreens": 5,
+  "competitorNamesAbsent": true,
+  "givingStatVerified": true,
+  "attendanceCopy": "goal, no unverified numerical increase",
+  "statOrder": [
+    "+416%*",
+    "+228%*",
+    "+231%*"
+  ],
+  "asterisksAndSourceLinkVerified": true
+}

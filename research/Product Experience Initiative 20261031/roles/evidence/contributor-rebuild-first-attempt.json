@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-11-01T12:32:19.344Z",
+  "scope": "Independent controls check of November 1 rebuilt research prototype only; no application/provider calls",
+  "routeOrigin": "http://127.0.0.1:3091",
+  "prototypeAppSha256": "6fa9fd9b42655f68e4974c48316806dbccb1dede6c4b52fc1e02cde9283d5644",
+  "checks": [
+    {
+      "name": "Single Import dialog opens from library URL",
+      "pass": true
+    },
+    {
+      "name": "One Import surface lists broad file formats and alternate methods",
+      "pass": true
+    },
+    {
+      "name": "Import labels planned adapters and simulation honestly",
+      "pass": true
+    },
+    {
+      "name": "Failed source cannot be selected as context",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "externalRequestsBlocked": [],
+  "screenshots": [
+    "contributor-import.png"
+  ],
+  "fatal": "locator.uncheck: Timeout 7000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-context=\"s2\"]')\u001b[22m\n\u001b[2m    - locator resolved to <input checked type=\"checkbox\" data-context=\"s2\" aria-label=\"Use John 15 teaching outline.pdf in assistant context\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <dialog open=\"\" id=\"import-dialog\" aria-labelledby=\"import-title\">…</dialog> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <dialog open=\"\" id=\"import-dialog\" aria-labelledby=\"import-title\">…</dialog> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    13 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <dialog open=\"\" id=\"import-dialog\" aria-labelledby=\"import-title\">…</dialog> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
+  "limitations": [
+    "SessionStorage fixture model only; no production save, ingestion, AI generation or publication.",
+    "Text selection was established through a DOM Range and the actual mouseup handler; Apply/Undo and other controls used browser clicks/inputs.",
+    "Review actions update explanatory status rather than storing actual conversation/cycles.",
+    "Phone/provider acceptance, native sharing and screen-reader behavior not tested in this pass."
+  ]
+}

@@ -1,0 +1,1551 @@
+{
+  "generatedAt": "2026-11-01T12:38:11.156Z",
+  "baselineFiles": 106,
+  "currentFiles": 128,
+  "counts": {
+    "modified": 37,
+    "created": 63,
+    "removed": 41,
+    "unchanged": 28
+  },
+  "definition": "Status compares SHA256/content with frozen106-file baseline. Removed originals remain recoverable in verified ZIP. This report and its JSON omit their own hashes/sizes; all paths are still listed.",
+  "preservation": {
+    "checkedAt": "2026-11-01T12:38:11.156Z",
+    "scope": "Original app/build inputs and prior release inputs; research artifacts excluded",
+    "application": {
+      "checked": 215,
+      "changed": [],
+      "unchanged": 215
+    },
+    "priorRelease": {
+      "checked": 121,
+      "changed": [],
+      "unchanged": 121
+    },
+    "applicationBaselineByteUnchanged": true,
+    "pass": true
+  },
+  "entries": [
+    {
+      "path": "DECISIONS_AND_ROADMAP.md",
+      "status": "modified",
+      "beforeBytes": 10432,
+      "afterBytes": 7135,
+      "beforeSha256": "bc46dd4498a71a2bbb9eee924e920faf2a667f105c2b7fcef340f103f029ad01",
+      "afterSha256": "cb14286e6e76490798858db31e95bd9bbae48ea454386b44ebf98d529c3f3495",
+      "note": "Resequenced broad library, unified rich editing, autoplay and downstream release gates."
+    },
+    {
+      "path": "README.md",
+      "status": "modified",
+      "beforeBytes": 8098,
+      "afterBytes": 6309,
+      "beforeSha256": "e3c477969d35bc9cfd6991038df5f2c4dba8e4781f47674e8d3fa7dfc83b6192",
+      "afterSha256": "18ffee3289e6435c4299598e5295d0ecaa7d7ebeac9e1c0067b8670a22930a2e",
+      "note": "Rebuilt entry point, four decisions, new visual links and evidence boundaries."
+    },
+    {
+      "path": "REBUILD_REPORT.md",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": null,
+      "beforeSha256": null,
+      "afterSha256": null,
+      "note": "Self-describing generated inventory; recursive own hash/size intentionally omitted."
+    },
+    {
+      "path": "RESEARCH_CHARTER.md",
+      "status": "modified",
+      "beforeBytes": 5232,
+      "afterBytes": 4200,
+      "beforeSha256": "5a9e1b6dc35b409d27ac0a289fd363f58c3010564d91cf34599d52f86f11f2ac",
+      "afterSha256": "24588d5562788175aa7f52a821376e837b02f7e4090244cc249288db759eaa59",
+      "note": "Reopened scope and all-file reassessment; removed separate-creator/manual-play assumptions."
+    },
+    {
+      "path": "SOURCES.md",
+      "status": "modified",
+      "beforeBytes": 6144,
+      "afterBytes": 6498,
+      "beforeSha256": "06a3d0378dca73021950288a6f14900673f48a29c4d1bc53406ff1142fdbff33",
+      "afterSha256": "050a0308db3f57f7acb19a20a0cd25fb9909ad4d9c12604837e39ae523b2690d",
+      "note": "Primary-source register rebuilt around NotebookLM, Word/Canva, framework licensing and playback policies."
+    },
+    {
+      "path": "VALIDATION.md",
+      "status": "unchanged",
+      "beforeBytes": 9359,
+      "afterBytes": 9359,
+      "beforeSha256": "89494d95b38018b7202f1cce928a51407c89eb048eb687cc567b03383e544671",
+      "afterSha256": "89494d95b38018b7202f1cce928a51407c89eb048eb687cc567b03383e544671",
+      "note": "Replaced old current-UI signoff with dated reruns and fresh peer checks; historical proof explicitly scoped."
+    },
+    {
+      "path": "_audit/archive-verification.json",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 209,
+      "beforeSha256": null,
+      "afterSha256": "18e58d1a76bcc046d9632608e4198df31f0a4e0ce1c415d14e38edd2e4981e16",
+      "note": "New research/audit/peer-review evidence; no application code."
+    },
+    {
+      "path": "_audit/before-20261101.json",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 22714,
+      "beforeSha256": null,
+      "afterSha256": "3644e3e49669c735904e19f09e7ea9d662c0f9e922f05ad6104cdd4546dbac39",
+      "note": "New research/audit/peer-review evidence; no application code."
+    },
+    {
+      "path": "_audit/change-inventory.json",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": null,
+      "beforeSha256": null,
+      "afterSha256": null,
+      "note": "Self-describing generated inventory; recursive own hash/size intentionally omitted."
+    },
+    {
+      "path": "_audit/original-file-dispositions.json",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 43429,
+      "beforeSha256": null,
+      "afterSha256": "56be0f722bb18dc3703b24406be54641a13b561daebf2b90224be209d01fa5c4",
+      "note": "New research/audit/peer-review evidence; no application code."
+    },
+    {
+      "path": "_audit/validate-rebuild.mjs",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 13301,
+      "beforeSha256": null,
+      "afterSha256": "e49057ff6580c4ceb8a419885df8c68e36b2d5c0effdf35f38eb84a33316f186",
+      "note": "New research/audit/peer-review evidence; no application code."
+    },
+    {
+      "path": "_history/20261031-baseline.zip",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 4583795,
+      "beforeSha256": null,
+      "afterSha256": "065c9583edacf927871cba3f1881ee71316ccabfbd7ae96a7b5961f78907edf7",
+      "note": "Verified original106-file archive."
+    },
+    {
+      "path": "architecture/README.md",
+      "status": "modified",
+      "beforeBytes": 3758,
+      "afterBytes": 3776,
+      "beforeSha256": "0cae1fcb021c61c255fb97e39be05bfa6e3dc74f798d383e8f32042a390c53a5",
+      "afterSha256": "9f0b5c61c2ca361365ca1bdd48e3ba75563ce58289bc1e939336493df5942b41",
+      "note": "Replaced split verbal/visual boundaries with one semantic draft and source lifecycle."
+    },
+    {
+      "path": "architecture/product-architecture.mmd",
+      "status": "modified",
+      "beforeBytes": 1255,
+      "afterBytes": 1356,
+      "beforeSha256": "fdac0a636369cc16a846bdc8f9eb5b56ddfc2be254b746dde0c5375e49d8afdf",
+      "afterSha256": "495fb6ca62da243a02f45ab575c25e23f7afb3a2fa08018ac2fe23e508e8f26f",
+      "note": "Regenerated logical graph with broad context, unified creator, publication and identity boundaries."
+    },
+    {
+      "path": "architecture/product-architecture.png",
+      "status": "modified",
+      "beforeBytes": 268293,
+      "afterBytes": 316150,
+      "beforeSha256": "46701733c332169365426ee014a3cf864a113ee32b5c2335a21236ec5e356125",
+      "afterSha256": "354fa4c7834248198a379ea0bbebc403258aef0b7a6c2f8d5ac475f75fb50a3c",
+      "note": "Regenerated from new SVG; actual raster decoded and visually reviewed."
+    },
+    {
+      "path": "architecture/product-architecture.svg",
+      "status": "modified",
+      "beforeBytes": 10056,
+      "afterBytes": 8926,
+      "beforeSha256": "2960187f971c4eb0664f23524f5bd6e944efc0c2bef27c0ecdc34c8f7f58948d",
+      "afterSha256": "fc3eea9401d1f84b07a09e69a5228c4f6b7d8a3d4b159c92d8172867172605c6",
+      "note": "Regenerated from new architecture renderer and inspected for legibility."
+    },
+    {
+      "path": "architecture/render-overview.mjs",
+      "status": "modified",
+      "beforeBytes": 6004,
+      "afterBytes": 5485,
+      "beforeSha256": "c228c135fac1855b012123ee626c75ae62e8a171fe2cd1a402f670c1e324cc97",
+      "afterSha256": "3e8ae51558ed3b0d72dc42dfc6f5af4ff1387e6b90315fc90543df32f9245c41",
+      "note": "Rewrote reproducible renderer for unified architecture; no application renderer changed."
+    },
+    {
+      "path": "architecture/technical-feasibility.md",
+      "status": "modified",
+      "beforeBytes": 22132,
+      "afterBytes": 24397,
+      "beforeSha256": "1d8c22562fa993f50f99b0146820403e857aae56e10666e9422d28676764cc41",
+      "afterSha256": "287fe14817250e49522f530181963bef3473650b29ec58692b9b0d28640a2e9d",
+      "note": "rewrite UX contract and reassess invariants; rebuilt"
+    },
+    {
+      "path": "evidence/application-source-baseline.json",
+      "status": "unchanged",
+      "beforeBytes": 32436,
+      "afterBytes": 32436,
+      "beforeSha256": "49dec6e98fc9af6b160029bb2cf6bdd2c018425c014eca84c1070be93f3812ff",
+      "afterSha256": "49dec6e98fc9af6b160029bb2cf6bdd2c018425c014eca84c1070be93f3812ff",
+      "note": "Retain original baseline: original ZIP/SHA match; all215 entries freshly compared, not stale current-UI evidence."
+    },
+    {
+      "path": "evidence/application-source-preservation.json",
+      "status": "modified",
+      "beforeBytes": 295,
+      "afterBytes": 369,
+      "beforeSha256": "da5d343a8406a645834078c0bcf374baa3eb3a0e50a67dad7544d1e6e36f8de1",
+      "afterSha256": "b33e008f81523b74aa79374160e7b8f27564ddcf2bca84cc9bf9f9fe076f41e6",
+      "note": "Regenerated current comparison for215 app/build and121 prior-release inputs."
+    },
+    {
+      "path": "evidence/approval-roundtrip.json",
+      "status": "unchanged",
+      "beforeBytes": 4504,
+      "afterBytes": 4504,
+      "beforeSha256": "fbe1891ce7a856dbb5006eded1a0af8dbe39a8272b471269af0ae2a9f1dd791f",
+      "afterSha256": "fbe1891ce7a856dbb5006eded1a0af8dbe39a8272b471269af0ae2a9f1dd791f",
+      "note": "retain verbatim historical currentAPI evidence; no new run or new design proof claimed"
+    },
+    {
+      "path": "evidence/approval-roundtrip.ts",
+      "status": "unchanged",
+      "beforeBytes": 18378,
+      "afterBytes": 18378,
+      "beforeSha256": "bde3077afd50687ff184521e014c4f4c38c696a44cf0da71db857b0f0e40a9d2",
+      "afterSha256": "bde3077afd50687ff184521e014c4f4c38c696a44cf0da71db857b0f0e40a9d2",
+      "note": "retain verbatim historical currentAPI evidence; no new run or new design proof claimed"
+    },
+    {
+      "path": "evidence/artifact-validation.json",
+      "status": "modified",
+      "beforeBytes": 5003,
+      "afterBytes": 20238,
+      "beforeSha256": "436f322327a91663261156cf3b81bea3a922eba631886a20dfbca687fde81378",
+      "afterSha256": "43e90f6cc4ca3d3120f74c246510d4163dc9d8888bd8ddb7f98b42092341005b",
+      "note": "Regenerated current document-link/image integrity checks; old counts superseded."
+    },
+    {
+      "path": "evidence/engineering-file-audit.json",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 9601,
+      "beforeSha256": null,
+      "afterSha256": "a2032ef77c6625486516f2a2d31097e6887a8b59a7fa24b3b7c5bdb6b8f23f38",
+      "note": "New research/audit/peer-review evidence; no application code."
+    },
+    {
+      "path": "evidence/engineering-peer-browser.json",
+      "status": "unchanged",
+      "beforeBytes": 2368,
+      "afterBytes": 2368,
+      "beforeSha256": "1174ccdcc1955a2c046f951c6de57413fe26c481a3fc5e76f49f4ce6a5544f8a",
+      "afterSha256": "1174ccdcc1955a2c046f951c6de57413fe26c481a3fc5e76f49f4ce6a5544f8a",
+      "note": "retained-dated-limited-evidence"
+    },
+    {
+      "path": "evidence/engineering-peer-browser.mjs",
+      "status": "modified",
+      "beforeBytes": 5315,
+      "afterBytes": 5582,
+      "beforeSha256": "7075901468057100a7e5565dce4ae5d470d4ed7158831301fc4a52ecb6187c3a",
+      "afterSha256": "3009b6145eddb9452eaea1f57ca7db8b225c860c52202729dedb7a47d7868022",
+      "note": "retired-helper-guarded"
+    },
+    {
+      "path": "evidence/engineering-rerun-20261101/engineering-runtime-results.json",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 1293,
+      "beforeSha256": null,
+      "afterSha256": "448058c1e951bd2667038174d811f867f6aebbfd71f20e75631cb792a78e7802",
+      "note": "Fresh dated engineering rerun/model evidence."
+    },
+    {
+      "path": "evidence/engineering-rerun-20261101/engineering-spike-results.json",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 3576,
+      "beforeSha256": null,
+      "afterSha256": "e0e737293f8f2db3bd88d4000cc2c05f517ef3ee5e300946119aabe44bcdb32f",
+      "note": "Fresh dated engineering rerun/model evidence."
+    },
+    {
+      "path": "evidence/engineering-rerun-20261101/shared-reading.html",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 210,
+      "beforeSha256": null,
+      "afterSha256": "f15b1db86692325d537c683667e8aa1832312a26173d353e13032a39b8dcaca4",
+      "note": "Fresh dated engineering rerun/model evidence."
+    },
+    {
+      "path": "evidence/engineering-rerun-20261101/synthetic-deck-1.png",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 70317,
+      "beforeSha256": null,
+      "afterSha256": "742b701e18a13ad9fa8062254a36072422c1c7c9eb5dbaa8cc57de4d2d5c63ce",
+      "note": "Fresh dated engineering rerun/model evidence."
+    },
+    {
+      "path": "evidence/engineering-rerun-20261101/synthetic-deck-2.png",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 71428,
+      "beforeSha256": null,
+      "afterSha256": "3492006ef15d7e929b8ebd59ad2a247418b73ced2b2600030ab6ccdd06e69bb7",
+      "note": "Fresh dated engineering rerun/model evidence."
+    },
+    {
+      "path": "evidence/engineering-rerun-20261101/synthetic-deck-3.png",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 72143,
+      "beforeSha256": null,
+      "afterSha256": "d87345134ab3cc33bcdf46b7a0ae3660e8cdb56f0d243ddc67b6c44819633724",
+      "note": "Fresh dated engineering rerun/model evidence."
+    },
+    {
+      "path": "evidence/engineering-rerun-20261101/synthetic-fixtures/sermon-notes.docx",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 318,
+      "beforeSha256": null,
+      "afterSha256": "6bab4fcc12e973b0127ed9b30f8862bf66d9505c33ad04e0ae34178bddc1c2ec",
+      "note": "Fresh dated engineering rerun/model evidence."
+    },
+    {
+      "path": "evidence/engineering-rerun-20261101/synthetic-fixtures/study-context.xlsx",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 1004,
+      "beforeSha256": null,
+      "afterSha256": "65c30b51a53b1f01155908fda5121fe23357e7e361aa7691fc7bf9256156b3ea",
+      "note": "Fresh dated engineering rerun/model evidence."
+    },
+    {
+      "path": "evidence/engineering-rerun-20261101/unified-model-results.json",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 6501,
+      "beforeSha256": null,
+      "afterSha256": "85fcf5fd52ca22e37f104c1018a09aedaefc93f8628f030897f65f7a74b793dc",
+      "note": "Fresh dated engineering rerun/model evidence."
+    },
+    {
+      "path": "evidence/engineering-runtime-results.json",
+      "status": "unchanged",
+      "beforeBytes": 1293,
+      "afterBytes": 1293,
+      "beforeSha256": "448058c1e951bd2667038174d811f867f6aebbfd71f20e75631cb792a78e7802",
+      "afterSha256": "448058c1e951bd2667038174d811f867f6aebbfd71f20e75631cb792a78e7802",
+      "note": "retained-dated-limited-evidence"
+    },
+    {
+      "path": "evidence/engineering-runtime-spike.ts",
+      "status": "modified",
+      "beforeBytes": 3503,
+      "afterBytes": 3573,
+      "beforeSha256": "11439da298dd6974f5ded709f78fe308d71ca31fde9b8380ad7a5688a20c6ee3",
+      "afterSha256": "9139b296fadbd5f1737b4a96077ffa3ff1ed6cbe3ed6701adddbb263a98b1fb0",
+      "note": "reassessed-rerun-output-isolated"
+    },
+    {
+      "path": "evidence/engineering-spike-results.json",
+      "status": "unchanged",
+      "beforeBytes": 3576,
+      "afterBytes": 3576,
+      "beforeSha256": "00afdcb670f83d2dd65655eccb19eb0e016ebc6092285d58e2cf5c0d5242fd79",
+      "afterSha256": "00afdcb670f83d2dd65655eccb19eb0e016ebc6092285d58e2cf5c0d5242fd79",
+      "note": "retained-dated-limited-evidence"
+    },
+    {
+      "path": "evidence/engineering-spike.py",
+      "status": "modified",
+      "beforeBytes": 10599,
+      "afterBytes": 10656,
+      "beforeSha256": "8c09a9e4cef58c32c978cb396be5b1e2b8aa997e9aa5603ca21cccd252d0cdf4",
+      "afterSha256": "e81a1d6bb66279260d372bec67bccc2a2d9e5bf4d536b84859800e837afe1789",
+      "note": "reassessed-rerun-output-isolated"
+    },
+    {
+      "path": "evidence/engineering-validation.md",
+      "status": "modified",
+      "beforeBytes": 14002,
+      "afterBytes": 8595,
+      "beforeSha256": "01fdc6c708afbe9943b3b72cba910a86ac094327bef9207f2640ad082ae3455d",
+      "afterSha256": "e52830cf109573d08ea13e5d919c207a1a5d38d9551c0f264cfdf1fa9eb5d39e",
+      "note": "revalidate retained evidence; rebuilt"
+    },
+    {
+      "path": "evidence/member-file-audit.json",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 6355,
+      "beforeSha256": null,
+      "afterSha256": "bae110556521440a5d6cde51d7842e37387cff1ad7031cdd440194765a8b7b08",
+      "note": "New research/audit/peer-review evidence; no application code."
+    },
+    {
+      "path": "evidence/member-peer-review-results.json",
+      "status": "modified",
+      "beforeBytes": 6165,
+      "afterBytes": 8301,
+      "beforeSha256": "fd30ee098cbc58d6be254df06da996c97cfc910b700d34aeb82a31ee77082cc7",
+      "afterSha256": "a03f2dcbf70cac06553aec4bbfe351c952d7935ee4b3afa45d3e9794c2571c21",
+      "note": "replace"
+    },
+    {
+      "path": "evidence/member-peer-review.mjs",
+      "status": "modified",
+      "beforeBytes": 4063,
+      "afterBytes": 14035,
+      "beforeSha256": "f821b79e9c77683e2ea9fed451fd83c77b7c07b7bf66816619b2d94e3136e585",
+      "afterSha256": "b8cd7e42036ebd464e955910f903663d1454fa437b866c6f443731d815c4c6f6",
+      "note": "replace"
+    },
+    {
+      "path": "evidence/member-review-corrections.json",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 2851,
+      "beforeSha256": null,
+      "afterSha256": "46dbeced25767f84ba7c4519b0a9ab174b75a01ca7b52b2b5477fb17d2be66e0",
+      "note": "New research/audit/peer-review evidence; no application code."
+    },
+    {
+      "path": "evidence/member-review-homepage-1440.png",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 396864,
+      "beforeSha256": null,
+      "afterSha256": "d055bd0f442295a3104b95bbd51abded3549568ce11d967f13e5d350881783b5",
+      "note": "New research/audit/peer-review evidence; no application code."
+    },
+    {
+      "path": "evidence/member-review-phone-390.png",
+      "status": "modified",
+      "beforeBytes": 39469,
+      "afterBytes": 35122,
+      "beforeSha256": "92d6ef0a65caf0cea4b30dba40fedd8fb385b0e083d70f0529cf272517575a12",
+      "afterSha256": "a6d79bcc21c4a23ab9808736b70224c338ad7ae61816559c2fe226a184197cf4",
+      "note": "replace"
+    },
+    {
+      "path": "evidence/member-review-reader-390.png",
+      "status": "modified",
+      "beforeBytes": 80990,
+      "afterBytes": 57266,
+      "beforeSha256": "dc01543ecb4af831f06f409f94587a643f06d9d0e5a28269628f110b1990e3b6",
+      "afterSha256": "b72bc1439dc244301df5da06d83063f66cd9e96298a84c3c7b59e2bf4fc08879",
+      "note": "replace"
+    },
+    {
+      "path": "evidence/member-review-share-390.png",
+      "status": "modified",
+      "beforeBytes": 72426,
+      "afterBytes": 63203,
+      "beforeSha256": "cc7e2ea7025d803134ca14c723483a1492f2a2704fb109a7e76ad3e4eaf86b53",
+      "afterSha256": "5dfa2d6b497ea2929ec34c8c281cf70bb84d9c58b698bad2c27b8d573a5f759c",
+      "note": "replace"
+    },
+    {
+      "path": "evidence/rebuild-engineering-docs.py",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 44787,
+      "beforeSha256": null,
+      "afterSha256": "3c52dbb0cf097b607a67426099d1edf19a0d98348b0e0f24d43ff4f066c343c5",
+      "note": "New research/audit/peer-review evidence; no application code."
+    },
+    {
+      "path": "evidence/synthetic-deck-1.png",
+      "status": "unchanged",
+      "beforeBytes": 70317,
+      "afterBytes": 70317,
+      "beforeSha256": "742b701e18a13ad9fa8062254a36072422c1c7c9eb5dbaa8cc57de4d2d5c63ce",
+      "afterSha256": "742b701e18a13ad9fa8062254a36072422c1c7c9eb5dbaa8cc57de4d2d5c63ce",
+      "note": "retained-synthetic-export-only"
+    },
+    {
+      "path": "evidence/synthetic-deck-2.png",
+      "status": "unchanged",
+      "beforeBytes": 71428,
+      "afterBytes": 71428,
+      "beforeSha256": "3492006ef15d7e929b8ebd59ad2a247418b73ced2b2600030ab6ccdd06e69bb7",
+      "afterSha256": "3492006ef15d7e929b8ebd59ad2a247418b73ced2b2600030ab6ccdd06e69bb7",
+      "note": "retained-synthetic-export-only"
+    },
+    {
+      "path": "evidence/synthetic-deck-3.png",
+      "status": "unchanged",
+      "beforeBytes": 72143,
+      "afterBytes": 72143,
+      "beforeSha256": "d87345134ab3cc33bcdf46b7a0ae3660e8cdb56f0d243ddc67b6c44819633724",
+      "afterSha256": "d87345134ab3cc33bcdf46b7a0ae3660e8cdb56f0d243ddc67b6c44819633724",
+      "note": "retained-synthetic-export-only"
+    },
+    {
+      "path": "evidence/synthetic-fixtures/sermon-notes.docx",
+      "status": "unchanged",
+      "beforeBytes": 318,
+      "afterBytes": 318,
+      "beforeSha256": "2ca12a41e2b62581e01e65824f5c8db66f5f6ac41a8e8d2e164a1fb1c318e11c",
+      "afterSha256": "2ca12a41e2b62581e01e65824f5c8db66f5f6ac41a8e8d2e164a1fb1c318e11c",
+      "note": "retained-minimal-fixture-only"
+    },
+    {
+      "path": "evidence/synthetic-fixtures/study-context.xlsx",
+      "status": "unchanged",
+      "beforeBytes": 1004,
+      "afterBytes": 1004,
+      "beforeSha256": "1c3dd854ca9e458524d6a614e76feec8f4904d10a032b720b740142b2689f264",
+      "afterSha256": "1c3dd854ca9e458524d6a614e76feec8f4904d10a032b720b740142b2689f264",
+      "note": "retained-minimal-fixture-only"
+    },
+    {
+      "path": "evidence/unified-model-spike.py",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 12148,
+      "beforeSha256": null,
+      "afterSha256": "e4bf66babc47bbc3a8dbccd2006817f0bc1bb4538e2ea9858d9c60c5b3aee6b5",
+      "note": "New research/audit/peer-review evidence; no application code."
+    },
+    {
+      "path": "items/01-cowriter-context-inputs.md",
+      "status": "modified",
+      "beforeBytes": 6233,
+      "afterBytes": 6618,
+      "beforeSha256": "bfc6b00c45aab506f27a07122429f9882d00c248a4b809c6715c1168da6003f6",
+      "afterSha256": "2d763f198b8831683e2cbe6726dd207477fb244de98dcdcf7498e0872ffc9f3b",
+      "note": "Fully reassessed and rewritten for the revised four decisions and their downstream effect; current scope/gates explicit."
+    },
+    {
+      "path": "items/02-social-sharing.md",
+      "status": "modified",
+      "beforeBytes": 6119,
+      "afterBytes": 3717,
+      "beforeSha256": "3ef3f07d018b9d5cad8226eabcc2a32b21b2e757985fe07a38a8b1435a764f72",
+      "afterSha256": "65b7f5a1874b5bb0fdfe798f59523464c76b6dd94753a972e1e5303c80447bb9",
+      "note": "Fully reassessed and rewritten for the revised four decisions and their downstream effect; current scope/gates explicit."
+    },
+    {
+      "path": "items/03-real-cowriter-demonstration.md",
+      "status": "modified",
+      "beforeBytes": 5390,
+      "afterBytes": 4748,
+      "beforeSha256": "a16ad0c5de9e034f2f3d9dfde76725141b64527cc4cf5a30aa7553d496e3279f",
+      "afterSha256": "8aaae7de51a85fca6be5f16363c01ffb77bc420e7c67a54dd830d9bb0618cb2d",
+      "note": "Fully reassessed and rewritten for the revised four decisions and their downstream effect; current scope/gates explicit."
+    },
+    {
+      "path": "items/04-compact-contributor-workspace.md",
+      "status": "modified",
+      "beforeBytes": 6086,
+      "afterBytes": 4259,
+      "beforeSha256": "179c983bfa50e311f6e3a11965853cef35860046ecec5193803ac6a34f4b0456",
+      "afterSha256": "9b4d9f2d8f42ae63c3e98db9e289d05374b83fc6cd6efdfd7ef441a2598d5b8f",
+      "note": "Fully reassessed and rewritten for the revised four decisions and their downstream effect; current scope/gates explicit."
+    },
+    {
+      "path": "items/05-studio-creator.md",
+      "status": "modified",
+      "beforeBytes": 6338,
+      "afterBytes": 5815,
+      "beforeSha256": "59e7d3fe8af0798d003527c6c7f0e16929717ee8f972555b5adb63809fbc22eb",
+      "afterSha256": "4415b043e33c6348d7cbb10a10bdcd87ecaa39249a97f4c37cad05d00a665694",
+      "note": "Fully reassessed and rewritten for the revised four decisions and their downstream effect; current scope/gates explicit."
+    },
+    {
+      "path": "items/06-member-access.md",
+      "status": "modified",
+      "beforeBytes": 7118,
+      "afterBytes": 4127,
+      "beforeSha256": "3755473544f770130757a41698dae93f7cf97395093cd8f9c88e4b7f1ba619e7",
+      "afterSha256": "379918b80799edf7bdffd567276adb5c433bce8ca51dccfecd1d5c6e5742dbfb",
+      "note": "Fully reassessed and rewritten for the revised four decisions and their downstream effect; current scope/gates explicit."
+    },
+    {
+      "path": "items/07-approval-conversation.md",
+      "status": "modified",
+      "beforeBytes": 17978,
+      "afterBytes": 21104,
+      "beforeSha256": "2e11c28d5fe21c527360eecb00e3f3ac78c328563aa7b70cc86a56b4fd9c9954",
+      "afterSha256": "32917268caa3026758103065c487d9cb3f7ff18d3381ad90989cc9f5945bbe05",
+      "note": "rewrite interaction and retain proven trace"
+    },
+    {
+      "path": "mockups/README.md",
+      "status": "unchanged",
+      "beforeBytes": 6841,
+      "afterBytes": 6841,
+      "beforeSha256": "a11daa3e40220c523f53ff364f0d8cd4271a7fd80ef0208bbd3222d5d199e95a",
+      "afterSha256": "a11daa3e40220c523f53ff364f0d8cd4271a7fd80ef0208bbd3222d5d199e95a",
+      "note": "rewrite guide and manifest"
+    },
+    {
+      "path": "mockups/app.js",
+      "status": "modified",
+      "beforeBytes": 55995,
+      "afterBytes": 58103,
+      "beforeSha256": "838cb7b9074828acc7badcfaabc339ac9c0a737a28a7850387926dc20cb3fdf8",
+      "afterSha256": "08b0e4a147a2534290988025c491ffacbdc650e5e186d5844dd17de3b7b89abd",
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/assets/member-home.webp",
+      "status": "unchanged",
+      "beforeBytes": 56586,
+      "afterBytes": 56586,
+      "beforeSha256": "59b34c01449497d6d2cf31e642cd306c24973a0a5921eaf00d96cc89515eea49",
+      "afterSha256": "59b34c01449497d6d2cf31e642cd306c24973a0a5921eaf00d96cc89515eea49",
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/assets/member-study.webp",
+      "status": "unchanged",
+      "beforeBytes": 54324,
+      "afterBytes": 54324,
+      "beforeSha256": "0aa2f97bc99202ab9da4c2198587336057d636f2a1eca97516056562c06f8c07",
+      "afterSha256": "0aa2f97bc99202ab9da4c2198587336057d636f2a1eca97516056562c06f8c07",
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/assets/team-editor.webp",
+      "status": "unchanged",
+      "beforeBytes": 50332,
+      "afterBytes": 50332,
+      "beforeSha256": "c8a80237e34c798e4f62cfe2f5c3bd2a3a9e23927d7937f756dfce2030a8af61",
+      "afterSha256": "c8a80237e34c798e4f62cfe2f5c3bd2a3a9e23927d7937f756dfce2030a8af61",
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/browser-validation.json",
+      "status": "unchanged",
+      "beforeBytes": 7549,
+      "afterBytes": 7549,
+      "beforeSha256": "735a097a35b44027d3dff4d161a71955612c7e188360a709d2c94cf9bb588729",
+      "afterSha256": "735a097a35b44027d3dff4d161a71955612c7e188360a709d2c94cf9bb588729",
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/capture.mjs",
+      "status": "unchanged",
+      "beforeBytes": 10620,
+      "afterBytes": 10620,
+      "beforeSha256": "4ae7a99edabc43b5f638d1cd0bd06386ce18ab940027a558fc4b6a32d7dd14c4",
+      "afterSha256": "4ae7a99edabc43b5f638d1cd0bd06386ce18ab940027a558fc4b6a32d7dd14c4",
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures-manifest.json",
+      "status": "unchanged",
+      "beforeBytes": 10910,
+      "afterBytes": 10910,
+      "beforeSha256": "6a2837796c7befcb0f802cc0bc096e179ff66c8530eb072d48986d652073f4d9",
+      "afterSha256": "6a2837796c7befcb0f802cc0bc096e179ff66c8530eb072d48986d652073f4d9",
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/00-storyboard.png",
+      "status": "removed",
+      "beforeBytes": 110251,
+      "afterBytes": null,
+      "beforeSha256": "d60b816dc37edaa5567562b0de74c8550bd67ee31dbddb6680976d23a9614cb7",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/01-workspace-overview.png",
+      "status": "removed",
+      "beforeBytes": 124459,
+      "afterBytes": null,
+      "beforeSha256": "194d9b4827356979e5c33a57c58c14621823eabac8dedfd5942dfbe201c9d506",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/02-source-word-review.png",
+      "status": "removed",
+      "beforeBytes": 119174,
+      "afterBytes": null,
+      "beforeSha256": "4cb933ddb18d791c665c877bdb11b6da4a3d8080aa0104f960ab18a1e55826bc",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/03-source-website-review.png",
+      "status": "removed",
+      "beforeBytes": 124364,
+      "afterBytes": null,
+      "beforeSha256": "e2c0f09d223ff40aa313a2beadc0decdea227654b3bcab04d5bb898c6f750f92",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/04-source-youtube-review.png",
+      "status": "removed",
+      "beforeBytes": 123259,
+      "afterBytes": null,
+      "beforeSha256": "78f7dd90d573caa95926dcdd1f99ba6cfb50a537923e6e48430901d17d146965",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/05-source-excel-review.png",
+      "status": "removed",
+      "beforeBytes": 124282,
+      "afterBytes": null,
+      "beforeSha256": "aadc676b2cc6d5c6a4aefcd969533c7e0d833fd99870facd79e8f2cf6b9033aa",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/06-source-empty.png",
+      "status": "removed",
+      "beforeBytes": 108115,
+      "afterBytes": null,
+      "beforeSha256": "cfd18233474c0ad02ff3027c0d1c3ee4e72f0892d9db9c6a9f185a9874e6bfb4",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/07-source-error.png",
+      "status": "removed",
+      "beforeBytes": 107109,
+      "afterBytes": null,
+      "beforeSha256": "fa20f9b755291fd52d45133eefff9bf5c500540ec4cfcd3d16d43f13d8e21dcf",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/08-cowriter-proposal.png",
+      "status": "removed",
+      "beforeBytes": 127361,
+      "afterBytes": null,
+      "beforeSha256": "795060ab390c21fe3ff21e5202f40375086aa5bf3b20abdc29df4e13e8e65f50",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/09-deck-author.png",
+      "status": "removed",
+      "beforeBytes": 128384,
+      "afterBytes": null,
+      "beforeSha256": "016c5c3a94489be1ac2ffd160ff71c55d4989a8a1d4e175a6996c5d45709de1a",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/10-deck-approval.png",
+      "status": "removed",
+      "beforeBytes": 128384,
+      "afterBytes": null,
+      "beforeSha256": "235e306811fa1bb570785787a5f115d3c5953bb2773265d0c78a867e1198ecd4",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/11-deck-stale.png",
+      "status": "removed",
+      "beforeBytes": 128655,
+      "afterBytes": null,
+      "beforeSha256": "da3375bb72ee85f7814d27ae3766d8d9e61869fd5243af975d3cf9c246796812",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/12-homepage-demo.png",
+      "status": "removed",
+      "beforeBytes": 84145,
+      "afterBytes": null,
+      "beforeSha256": "c07727024bee0a0c012623628ab6e9897340cf30c69f2bfd95ae735cb24f8e83",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/13-studio-diagram.png",
+      "status": "removed",
+      "beforeBytes": 146148,
+      "afterBytes": null,
+      "beforeSha256": "c3949bfe6576cac95caedd78689b13983df04a8f67a825b4f48c47fed3c01764",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/14-studio-chart.png",
+      "status": "removed",
+      "beforeBytes": 133484,
+      "afterBytes": null,
+      "beforeSha256": "d2aaf73ad78b732ab2af709bdd8fb819aa85ec8bf3865573fd6fe4373bc9c5c2",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/15-studio-video-empty.png",
+      "status": "removed",
+      "beforeBytes": 141923,
+      "afterBytes": null,
+      "beforeSha256": "3b370bd64c7bfdb8ec68ccbb06698544703ebcf1ff04eeadb6b6ada177369eb6",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/16-immersive-preview.png",
+      "status": "removed",
+      "beforeBytes": 109117,
+      "afterBytes": null,
+      "beforeSha256": "bda80318dfae162d62e6e1e44846c7eee03e8bbcee3d533d2dff02df89abdbf3",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/17-review-conversation.png",
+      "status": "removed",
+      "beforeBytes": 151341,
+      "afterBytes": null,
+      "beforeSha256": "23140fc4898b64e3cbb73af4b9c2fae269f6c725a1702d1b84efc50201c3c608",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/18-church-qr.png",
+      "status": "removed",
+      "beforeBytes": 78975,
+      "afterBytes": null,
+      "beforeSha256": "3f0a29489b8d8bad1504557b46a7e09a01a5abeb558626bd2ec930fc3b1dd3b7",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/19-phone-welcome.png",
+      "status": "removed",
+      "beforeBytes": 39500,
+      "afterBytes": null,
+      "beforeSha256": "6fe386ae4218149c2786645f96d65ddb481b61d060ca7a6bce95143c95495f4b",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/20-phone-verification.png",
+      "status": "removed",
+      "beforeBytes": 33940,
+      "afterBytes": null,
+      "beforeSha256": "cfcc92826c62c4114d4d62806acd07daf690f716b869ec6dc4fffb92d2bebdef",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/21-phone-code-expired.png",
+      "status": "removed",
+      "beforeBytes": 37784,
+      "afterBytes": null,
+      "beforeSha256": "0c281c0c299af1c93617c107e91648cbe3d779014692490d59d6275727269b43",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/22-phone-confirm-name.png",
+      "status": "removed",
+      "beforeBytes": 34508,
+      "afterBytes": null,
+      "beforeSha256": "b33a9efbfb86337bb9e941e31e8d5bf5b5d0cfb6495e6c8f353b25a3918db433",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/23-phone-church-choice.png",
+      "status": "removed",
+      "beforeBytes": 36572,
+      "afterBytes": null,
+      "beforeSha256": "1dc4ac7cc6c630a187b42036684bc6273cfb1240ebd4a72d21b4e3ea71e282e2",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/24-phone-enrollment.png",
+      "status": "removed",
+      "beforeBytes": 35038,
+      "afterBytes": null,
+      "beforeSha256": "595dffe69db9dcd90f31e5893b1f50bef9a6592e7468b5e515efe1003451f5d6",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/25-phone-pending.png",
+      "status": "removed",
+      "beforeBytes": 35238,
+      "afterBytes": null,
+      "beforeSha256": "1f11fd978e4b280dda0639b2f1f9dd4bedb84d950bb7101ca277a28140eb8291",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/26-phone-identity-conflict.png",
+      "status": "removed",
+      "beforeBytes": 34343,
+      "afterBytes": null,
+      "beforeSha256": "b7f7d5fb9bc5fdd0325818dfef81d5965b190a6158350f205f79ee4985f65424",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/27-phone-reading-home.png",
+      "status": "removed",
+      "beforeBytes": 40273,
+      "afterBytes": null,
+      "beforeSha256": "1830939730d8aa9ca894e669e2ac1e18dbaaa13d52551a0a40496790c5040f2f",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/28-member-reading.png",
+      "status": "removed",
+      "beforeBytes": 99725,
+      "afterBytes": null,
+      "beforeSha256": "56e627e1926e2d6fcddfc6a161cf04c1bfbc33952416252d79a2e806dcf012e0",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/29-member-share.png",
+      "status": "removed",
+      "beforeBytes": 66272,
+      "afterBytes": null,
+      "beforeSha256": "9285b3c5d9306f9403542a56b81a849aca12fa9981110118731cf88b2d5c5861",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/30-member-share-options.png",
+      "status": "removed",
+      "beforeBytes": 71758,
+      "afterBytes": null,
+      "beforeSha256": "3ce2b3e46b41485f90d25204c2714cd9d0e0eddb5a712836b9edbb3b5fb8040e",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/31-mobile-workspace.png",
+      "status": "removed",
+      "beforeBytes": 105021,
+      "afterBytes": null,
+      "beforeSha256": "3b0cc24f54774335819336cc74518389d805520a5a6794103df85f2c3727d08a",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/32-mobile-studio.png",
+      "status": "removed",
+      "beforeBytes": 107363,
+      "afterBytes": null,
+      "beforeSha256": "9a1a7857ac8fb705c7701db333f2697bf8bde97b4672e676074da38bf068e501",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/33-mobile-demo.png",
+      "status": "removed",
+      "beforeBytes": 57998,
+      "afterBytes": null,
+      "beforeSha256": "cd308ee1eafe097c54ab2c5aef2ed049bcbe89b194feb030d63f1523b0ba9dda",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/34-mobile-review.png",
+      "status": "removed",
+      "beforeBytes": 127005,
+      "afterBytes": null,
+      "beforeSha256": "9f810a6f130e7745346a0280096274ebfda27ffc4aac47c19fed939a015dc5a8",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/35-compact-source-first-view.png",
+      "status": "removed",
+      "beforeBytes": 95246,
+      "afterBytes": null,
+      "beforeSha256": "22d9f351c03b62e34ff8bd68e2642a6abf6dba4fb89d611fced9f8ab6edd0379",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/36-compact-studio-first-view.png",
+      "status": "removed",
+      "beforeBytes": 106462,
+      "afterBytes": null,
+      "beforeSha256": "3072ff0963cf8ee5078999a51f581a92ef9c971640303bd3a8dadb2e2b6ddcb0",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/captures/37-compact-review-first-view.png",
+      "status": "removed",
+      "beforeBytes": 102358,
+      "afterBytes": null,
+      "beforeSha256": "5d844006241ab90ec5ba39b3492704a6affb0a27c2f80e16957f06a4b202632f",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/export-deck.mjs",
+      "status": "unchanged",
+      "beforeBytes": 2305,
+      "afterBytes": 2305,
+      "beforeSha256": "fceebd37d90dfd91ccfbf47fa3a2c90da5784809e0eaba5d9a66a4bee5e885d1",
+      "afterSha256": "fceebd37d90dfd91ccfbf47fa3a2c90da5784809e0eaba5d9a66a4bee5e885d1",
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/exports/accessible-caption.txt",
+      "status": "unchanged",
+      "beforeBytes": 456,
+      "afterBytes": 456,
+      "beforeSha256": "df48ca6c3502684c7f37b52a83bf79c828c26d4fbf8900793cdf375d37b7852f",
+      "afterSha256": "df48ca6c3502684c7f37b52a83bf79c828c26d4fbf8900793cdf375d37b7852f",
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/exports/grace-rooted-card-1.png",
+      "status": "unchanged",
+      "beforeBytes": 73089,
+      "afterBytes": 73089,
+      "beforeSha256": "c0b93d6a72525f99698b96ea8a6fba6e9711668042452ea676df60bebd625a47",
+      "afterSha256": "c0b93d6a72525f99698b96ea8a6fba6e9711668042452ea676df60bebd625a47",
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/exports/grace-rooted-card-2.png",
+      "status": "unchanged",
+      "beforeBytes": 96775,
+      "afterBytes": 96775,
+      "beforeSha256": "0750dc69a93c6ece4e1dadf650e1e3bf14c3e88cc9f76a8e861b7b1a2539e75b",
+      "afterSha256": "0750dc69a93c6ece4e1dadf650e1e3bf14c3e88cc9f76a8e861b7b1a2539e75b",
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/exports/grace-rooted-card-3.png",
+      "status": "unchanged",
+      "beforeBytes": 99464,
+      "afterBytes": 99464,
+      "beforeSha256": "da8e9158726968603f2e8a2966f14891d3016d4c8107720215e44bd8359ab27d",
+      "afterSha256": "da8e9158726968603f2e8a2966f14891d3016d4c8107720215e44bd8359ab27d",
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/exports/grace-rooted-card-4.png",
+      "status": "unchanged",
+      "beforeBytes": 94303,
+      "afterBytes": 94303,
+      "beforeSha256": "cfd159a26e67d9f2b2416e4d62dc41ec58e52e58a0bdff4e78b05de2ab48af37",
+      "afterSha256": "cfd159a26e67d9f2b2416e4d62dc41ec58e52e58a0bdff4e78b05de2ab48af37",
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/file-review-evidence/baseline-contact-1.html",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 1184266,
+      "beforeSha256": null,
+      "afterSha256": "d2dfa704bff5b5480d228467848be6693ba24dec26b3193675bf0e59315174df",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/file-review-evidence/baseline-contact-1.png",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 320040,
+      "beforeSha256": null,
+      "afterSha256": "2fda7230dbcd74fd6094a9aa569ab9e609d3644facfadc94a7c928b331cb074f",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/file-review-evidence/baseline-contact-2.html",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 1457248,
+      "beforeSha256": null,
+      "afterSha256": "6e8608e2cdc480d36756952fd66061b0720e3ef4dd51fe2121ab11cb2034215a",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/file-review-evidence/baseline-contact-2.png",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 223841,
+      "beforeSha256": null,
+      "afterSha256": "2da2cab6d942bf5894b8dc174fd04939ab6097d86e9fcafa14bdfcd99616dee9",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/file-review-evidence/baseline-contact-3.html",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 886451,
+      "beforeSha256": null,
+      "afterSha256": "2e95ebdc6c48963cf9ba0725a425f00c4e6954e83d8997930ec16de61c509b57",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/file-review-evidence/baseline-contact-3.png",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 227385,
+      "beforeSha256": null,
+      "afterSha256": "3bb0d86b2284325f704c7dc3fa6890ee0a1a67cde8745bb7589036c07f34015f",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/file-review-evidence/baseline-contact-4.html",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 794943,
+      "beforeSha256": null,
+      "afterSha256": "3748b1ec073b01ee5c06565b952b27b02be57935a573cc576d5c22b18f70b46d",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/file-review-evidence/baseline-contact-4.png",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 166732,
+      "beforeSha256": null,
+      "afterSha256": "c490b7f9ba1b8332f41ec872a8bf06174dd38fe687c21843d7c2a2985a1290a6",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/file-review-evidence/baseline-contact-5.html",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 1138517,
+      "beforeSha256": null,
+      "afterSha256": "fc94c601772b86265bc5fbd99a164e9f78894a17d1ec77d88e9886ae0cf0efa5",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/file-review-evidence/baseline-contact-5.png",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 282429,
+      "beforeSha256": null,
+      "afterSha256": "6bac2862bdfccb076f84f88bf0d644ddb4b5ab62eb5122ef0b42fbf107ad5f07",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/finalize-block-renderer.mjs",
+      "status": "removed",
+      "beforeBytes": 3919,
+      "afterBytes": null,
+      "beforeSha256": "ed1670d98500edd6812d8643664400e0fdb79be3bccf7e95b7d175e5af8f0fc3",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/index.html",
+      "status": "modified",
+      "beforeBytes": 451,
+      "afterBytes": 521,
+      "beforeSha256": "534a4038b143b67b8a7a585df27b6bcff3ea564d85407fbcd65d479259894b9f",
+      "afterSha256": "37b6150dd15949f31f5384431201b5293f50edd242e884358e5b98fc2b0e32da",
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/inspect-and-retire.mjs",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 1853,
+      "beforeSha256": null,
+      "afterSha256": "9ac4e01063c9f357855e128a30d9fca6bf25f6733755f1e47658d987fdd860dd",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/keyboard-check.mjs",
+      "status": "unchanged",
+      "beforeBytes": 1360,
+      "afterBytes": 1360,
+      "beforeSha256": "d85545db5c95ae210315e156fb3c03e35857ca5700963eb43c9fc0389fdf0c0c",
+      "afterSha256": "d85545db5c95ae210315e156fb3c03e35857ca5700963eb43c9fc0389fdf0c0c",
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/keyboard-focus-validation.json",
+      "status": "unchanged",
+      "beforeBytes": 9163,
+      "afterBytes": 9163,
+      "beforeSha256": "e0debe0318d3a35944f3d595bb62266a94ef91086b057119dcefe5c96b330c3e",
+      "afterSha256": "e0debe0318d3a35944f3d595bb62266a94ef91086b057119dcefe5c96b330c3e",
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/media/frames/01-library.png",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 83713,
+      "beforeSha256": null,
+      "afterSha256": "f53c0c46de76456d61fbe06be5464be63da6334208a2a9b44d95787370d0d6fd",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/media/frames/02-import.png",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 107697,
+      "beforeSha256": null,
+      "afterSha256": "eee31a61b1d88541a809e7188d0ec0c434304f53b23c436f83983f1ea78f7af5",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/media/frames/03-processing.png",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 83740,
+      "beforeSha256": null,
+      "afterSha256": "db9750179429cb4923b8c345a316be8c8d3490399e95ae803a37abe2d67bc951",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/media/frames/04-ready-error.png",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 83740,
+      "beforeSha256": null,
+      "afterSha256": "db9750179429cb4923b8c345a316be8c8d3490399e95ae803a37abe2d67bc951",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/media/frames/05-compose.png",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 85241,
+      "beforeSha256": null,
+      "afterSha256": "5e2fc26c245d988757474f0fa1dfbdc3838e689563706cf2d29d3b073fe75196",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/media/frames/06-apply.png",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 66224,
+      "beforeSha256": null,
+      "afterSha256": "4bf782e58cf56d82dba843ff76b0c34358bc62b1346515960eeb346eecf5de9f",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/media/frames/07-undo.png",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 84664,
+      "beforeSha256": null,
+      "afterSha256": "69242e02f975745895c24c3f827aee466db722e74d4af92923949b57b121ede0",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/media/frames/08-design.png",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 85245,
+      "beforeSha256": null,
+      "afterSha256": "e68d4f3888058318b8696ad4cecbc312df5b1039e4ba6ca2df18e3022067ef5f",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/media/frames/09-preview.png",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 57157,
+      "beforeSha256": null,
+      "afterSha256": "7f8fb718d50b5ea60af1776a0030d4bd2a8455127c2c0632982f629739c38e72",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/media/recording-manifest.json",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 1721,
+      "beforeSha256": null,
+      "afterSha256": "420c312c2179ee4ed32da2402a699821f885774188980aab28a75baf7e499c4b",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/media/studio-workflow.webm",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 1874594,
+      "beforeSha256": null,
+      "afterSha256": "484c205227f5588ddb54cfc52837d9779455c46c0775c172981322b8939bb467",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/media/workflow-captions.vtt",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 933,
+      "beforeSha256": null,
+      "afterSha256": "95f7f1063c1f07df2fc943b61bf55754ec8fee14401ef2f3d290263bc1040e06",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/media/workflow-poster.png",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 85241,
+      "beforeSha256": null,
+      "afterSha256": "5e2fc26c245d988757474f0fa1dfbdc3838e689563706cf2d29d3b073fe75196",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/record-workflow.mjs",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 4937,
+      "beforeSha256": null,
+      "afterSha256": "d991310837069efece3a00a30e9250a6b795173482f09c40e6905eb032c327d3",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/refine-member-flow.mjs",
+      "status": "removed",
+      "beforeBytes": 3584,
+      "afterBytes": null,
+      "beforeSha256": "dc5594bf9ca6e242de3d1faf871d9b853d358618d04c5f85ac422103dfddbe2b",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/refine-workspace.mjs",
+      "status": "removed",
+      "beforeBytes": 7016,
+      "afterBytes": null,
+      "beforeSha256": "750881a4eecbbd2628037453137a88177c5367df42a35e944d7d027e0ca1b378",
+      "afterSha256": null,
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/retired-paths.json",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 9798,
+      "beforeSha256": null,
+      "afterSha256": "6e4097a183b9bb46a53efe47a9b62ecf46c731387a910361a7a41492d7e4f7d9",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/retirement-proposal.json",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 2102,
+      "beforeSha256": null,
+      "afterSha256": "12725e34a0eff8d222f104a9317c4187e14db8891aabe5b659ce8422a73a92e6",
+      "note": "Rebuilt visual prototype, generated capture/media/export or current validation."
+    },
+    {
+      "path": "mockups/serve.mjs",
+      "status": "modified",
+      "beforeBytes": 973,
+      "afterBytes": 1104,
+      "beforeSha256": "74fd710460dfbe3891be7e24161c08c68227a6af413ab7a63f5b61c125ccc41e",
+      "afterSha256": "fef766740cc6f89408bdfe3e9266566520a24815d57e1f08643f6571608ca629",
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "mockups/styles.css",
+      "status": "modified",
+      "beforeBytes": 27926,
+      "afterBytes": 27233,
+      "beforeSha256": "05eb03b52b5193b0210590068193b9683e2f07b55069d50424d24dc991060690",
+      "afterSha256": "812fb65f2fe1af0eb6362df641be614f2c008715d87f5473b39c74e867abfa43",
+      "note": "Reassessed against revised scope; inspect content-change status and role audit evidence."
+    },
+    {
+      "path": "roles/church-member-assessment.md",
+      "status": "modified",
+      "beforeBytes": 19064,
+      "afterBytes": 18286,
+      "beforeSha256": "127b9265458ac63f93e2e9951ce5bc4b71bc0b1000713b8ac9b93839f7ee7c68",
+      "afterSha256": "ac6bca08d1a33bbcc1c65817b5bf44d030bdd9b0d41c44114f720295491e8bc3",
+      "note": "reassess member impact; replace"
+    },
+    {
+      "path": "roles/contributor-assessment.md",
+      "status": "modified",
+      "beforeBytes": 22881,
+      "afterBytes": 13839,
+      "beforeSha256": "88f704a3b2a2f42dffdbcbacd69fba78ddf9f2b8e1307206f74d7cddc528d445",
+      "afterSha256": "f23bb232ae1c102205c8c7bc008a09f6eed854159a6fb105a57cb9918559960d",
+      "note": "rewrite owned"
+    },
+    {
+      "path": "roles/contributor-document-audit.json",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 100368,
+      "beforeSha256": null,
+      "afterSha256": "cb07b25fb4f033e7793142dbb433f8f752de1ae1ce93bc1dd6d3b5e9ca6c3cf6",
+      "note": "New research/audit/peer-review evidence; no application code."
+    },
+    {
+      "path": "roles/contributor-peer-review.md",
+      "status": "modified",
+      "beforeBytes": 8377,
+      "afterBytes": 10632,
+      "beforeSha256": "cad1c0f7592cf17aac51fc9db898c7b314a769f2504a6e6cf31f9fc8f82bb2a3",
+      "afterSha256": "980f99205c4550c89569d3927b96a5f5d22bbfe525ce6c19d99ac33b94b08762",
+      "note": "rewrite owned pending newimages"
+    },
+    {
+      "path": "roles/data-engineer-assessment.md",
+      "status": "modified",
+      "beforeBytes": 7019,
+      "afterBytes": 4554,
+      "beforeSha256": "6590344f0b4552c4699480fe883afe691c03618a35cd79bdb9bb924c6e906528",
+      "afterSha256": "5be346586bd2f6b3af428818e3ae28012c8a713d19a12c37fa5d4f9d28c4265d",
+      "note": "reassess allseven; rebuilt"
+    },
+    {
+      "path": "roles/engineering-peer-review.md",
+      "status": "modified",
+      "beforeBytes": 7605,
+      "afterBytes": 3801,
+      "beforeSha256": "3a9ce823a755850df6fe0c85a25a405a84d43a68359f1f0b2460a4fc438c6bce",
+      "afterSha256": "a1e4b7d44ef1e3f48d199e67099c059c13d8d63d215cf4d1c7ae70cebcf7e406",
+      "note": "replace active signoff; rebuilt"
+    },
+    {
+      "path": "roles/evidence/contributor-compose-first-view.png",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 89329,
+      "beforeSha256": null,
+      "afterSha256": "ab859b5a2f7315bff566ab52ee99d9216c0fced772040de9e32590e52c01a597",
+      "note": "New research/audit/peer-review evidence; no application code."
+    },
+    {
+      "path": "roles/evidence/contributor-compose.png",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 140053,
+      "beforeSha256": null,
+      "afterSha256": "17fc1b8bbda4bce215b9afe7eda96e217495aa8f03a224f8fb1925e72cd75cbb",
+      "note": "New research/audit/peer-review evidence; no application code."
+    },
+    {
+      "path": "roles/evidence/contributor-deck.png",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 95293,
+      "beforeSha256": null,
+      "afterSha256": "d6d7c2174863bc313febc8c0abc1d14e3d7966f3e1d706a3361f2e5389f9e7f9",
+      "note": "New research/audit/peer-review evidence; no application code."
+    },
+    {
+      "path": "roles/evidence/contributor-design.png",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 145216,
+      "beforeSha256": null,
+      "afterSha256": "dfb2761b50d89119c82e424e0d12e2b6ab9c1f901709c76e513438897ea3ac0a",
+      "note": "New research/audit/peer-review evidence; no application code."
+    },
+    {
+      "path": "roles/evidence/contributor-import.png",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 172485,
+      "beforeSha256": null,
+      "afterSha256": "60f697b0a9b1e8edd152003a790b78817220915fd22ca4a7f36f11a315346059",
+      "note": "New research/audit/peer-review evidence; no application code."
+    },
+    {
+      "path": "roles/evidence/contributor-library.png",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 142850,
+      "beforeSha256": null,
+      "afterSha256": "cbd5388a1848e8481c700ad449f1cb7711d8624ac49a706bfe90a725c7906a2a",
+      "note": "New research/audit/peer-review evidence; no application code."
+    },
+    {
+      "path": "roles/evidence/contributor-rebuild-after-controls.json",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 4931,
+      "beforeSha256": null,
+      "afterSha256": "3f2a37085534c34fe51b68ad108cbebb9df34d70b755624cf2918cd15fad069c",
+      "note": "New research/audit/peer-review evidence; no application code."
+    },
+    {
+      "path": "roles/evidence/contributor-rebuild-before-action-entry.json",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 5186,
+      "beforeSha256": null,
+      "afterSha256": "61f324c89f5e0c2cd856fca163f6d6238681edb47f88b8ca30be1fdbb8072dab",
+      "note": "New research/audit/peer-review evidence; no application code."
+    },
+    {
+      "path": "roles/evidence/contributor-rebuild-before-corrections.json",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 4933,
+      "beforeSha256": null,
+      "afterSha256": "65f6171ec694fc83ad791b1246caf17cd6d8d365d15289e21d20e24ed0722269",
+      "note": "New research/audit/peer-review evidence; no application code."
+    },
+    {
+      "path": "roles/evidence/contributor-rebuild-check.mjs",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 13963,
+      "beforeSha256": null,
+      "afterSha256": "ec0eaf06a4bba7c5c866e964c174f01b28176aa11f3d2e8ea40dad84c0f9572e",
+      "note": "New research/audit/peer-review evidence; no application code."
+    },
+    {
+      "path": "roles/evidence/contributor-rebuild-first-attempt.json",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 3094,
+      "beforeSha256": null,
+      "afterSha256": "bcfb7716c98c1ec8c92f4fa91b206305abad56da52af9a86201a82958550bcf7",
+      "note": "New research/audit/peer-review evidence; no application code."
+    },
+    {
+      "path": "roles/evidence/contributor-rebuild-results.json",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 5457,
+      "beforeSha256": null,
+      "afterSha256": "29a4657149e50cbe4feddcf6de71f9eefa65c8bfc9a0c710f4200eef8f8fc4a8",
+      "note": "New research/audit/peer-review evidence; no application code."
+    },
+    {
+      "path": "roles/evidence/contributor-review.png",
+      "status": "created",
+      "beforeBytes": null,
+      "afterBytes": 118129,
+      "beforeSha256": null,
+      "afterSha256": "2559d99c144709806730a17e902557e77d725a39617d5cbd6b627c220a10baac",
+      "note": "New research/audit/peer-review evidence; no application code."
+    },
+    {
+      "path": "roles/ux-assessment.md",
+      "status": "unchanged",
+      "beforeBytes": 11127,
+      "afterBytes": 11127,
+      "beforeSha256": "68e0a5da73bb5b2784cd41c5e1c7216b8c8541b158d6423878eba58936ed828d",
+      "afterSha256": "68e0a5da73bb5b2784cd41c5e1c7216b8c8541b158d6423878eba58936ed828d",
+      "note": "rewrite model and proof"
+    }
+  ]
+}

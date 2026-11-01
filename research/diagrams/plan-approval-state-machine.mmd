@@ -1,0 +1,16 @@
+stateDiagram-v2
+    [*] --> Draft
+    Draft --> InReview: Submit exact head
+    InReview --> ChangesRequested: Reviewer decision
+    InReview --> Approved: Approve exact hash
+    InReview --> Draft: Edit creates new revision
+    ChangesRequested --> Draft: Edit creates new revision
+    Approved --> Draft: Edit cancels pending dependent schedules
+    Draft --> Draft: Edit creates new revision
+    Draft --> Cancelled: Cancel
+    InReview --> Cancelled: Cancel
+    ChangesRequested --> Cancelled: Cancel
+    Approved --> Cancelled: Cancel
+    Cancelled --> [*]
+    state "In Review" as InReview
+    state "Changes Requested" as ChangesRequested

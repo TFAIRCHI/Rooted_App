@@ -1,0 +1,38 @@
+{
+  "stats": {
+    "startTime": "2026-10-24T04:34:59.496Z",
+    "duration": 249091.039,
+    "expected": 7,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  },
+  "failures": [
+    {
+      "title": "AC01/02/03/05/06/10 date-first blank manual plan saves through the real API and survives reload",
+      "errors": [
+        "Test timeout of 90000ms exceeded.",
+        "Error: locator.click: Test timeout of 90000ms exceeded.\nCall log:\n  - waiting for getByText('Source & planning notes (optional)', { exact: true })\n\n\n  147 |   await expect(page.getByTestId('date-selector')).toBeVisible();\n  148 |   await page.getByTestId(`date-card-${slot.id}`).click();\n> 149 |   await page.getByText('Source & planning notes (optional)', { exact: true }).click();\n      |                                                                               ^\n  150 |   const creation = page.getByTestId('creation-method');\n  151 |   await expect(creation).toBeVisible();\n  152 |   const primaryOptions = await creation.locator('option:not([disabled])').allTextContents();\n    at C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\core.spec.ts:149:79"
+      ]
+    },
+    {
+      "title": "AC07/08/09/11/12/22 one contributor approval gates explicit publication and member snapshots",
+      "errors": [
+        "Error: Automated WCAG checks do not replace human full-process review\n\nexpect(received).toEqual(expected) // deep equality\n\n- Expected  -  1\n+ Received  + 35\n\n- Array []\n+ Array [\n+   Object {\n+     \"id\": \"color-contrast\",\n+     \"impact\": \"serious\",\n+     \"nodes\": Array [\n+       Array [\n+         \"nav > button[type=\\\"button\\\"]:nth-child(2)\",\n+       ],\n+       Array [\n+         \"nav > button[type=\\\"button\\\"]:nth-child(2) > span\",\n+       ],\n+       Array [\n+         \"button[type=\\\"button\\\"]:nth-child(3)\",\n+       ],\n+       Array [\n+         \"button[type=\\\"button\\\"]:nth-child(3) > span\",\n+       ],\n+       Array [\n+         \"button[type=\\\"button\\\"]:nth-child(4)\",\n+       ],\n+       Array [\n+         \"button[type=\\\"button\\\"]:nth-child(4) > span\",\n+       ],\n+       Array [\n+         \"#questions > .chapter-label\",\n+       ],\n+       Array [\n+         \"li > span\",\n+       ],\n+       Array [\n+         \".study-finish > div > p:nth-child(3)\",\n+       ],\n+     ],\n+   },\n+ ]\n\n  14 |     return results.violations.map(violation => ({ id: violation.id, impact: violation.impact, nodes: violation.nodes.map(node => node.target) }));\n  15 |   });\n> 16 |   expect(violations, 'Automated WCAG checks do not replace human full-process review').toEqual([]);\n     |                                                                                        ^\n  17 | }\n  18 |\n  19 | async function login(page: Page, persona: 'admin' | 'contributor' | 'pastor' | 'member') {\n    at auditAccessibility (C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\core.spec.ts:16:88)\n    at C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\core.spec.ts:220:3"
+      ]
+    },
+    {
+      "title": "AC10/11 independent browser editors preserve stale and offline writing until explicit recovery",
+      "errors": [
+        "Test timeout of 90000ms exceeded.",
+        "Error: locator.click: Test timeout of 90000ms exceeded.\nCall log:\n  - waiting for getByText('Source & planning notes (optional)', { exact: true })\n\n\n  243 |   await page.goto(route);\n  244 |   await otherPage.goto(route);\n> 245 |   await page.getByText('Source & planning notes (optional)', { exact: true }).click();\n      |                                                                               ^\n  246 |   await otherPage.getByText('Source & planning notes (optional)', { exact: true }).click();\n  247 |   await expect(page.getByTestId('plan-title')).toBeVisible();\n  248 |   await expect(otherPage.getByTestId('plan-title')).toBeVisible();\n    at C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\core.spec.ts:245:79"
+      ]
+    },
+    {
+      "title": "1.2.9 J1/J3 UI create → one approval → member response → answer → withdraw → confirmed Hard Delete",
+      "errors": [
+        "Error: expect(locator).toHaveCount(expected) failed\n\nLocator:  locator('.study-workflow-steps li')\nExpected: 3\nReceived: 0\nTimeout:  15000ms\n\nCall log:\n  - Expect \"toHaveCount\" locator('.study-workflow-steps li') with timeout 15000ms\n  - waiting for locator('.study-workflow-steps li')\n    33 × locator resolved to 0 elements\n       - unexpected value \"0\"\n\n\n  28 |   const created = await createdResponse; expect(created.status(), await created.text()).toBe(201); const slot = await created.json();\n  29 |   await page.getByRole('button', { name: 'Create study draft', exact: true }).click();\n> 30 |   await expect(page.locator('.study-workflow-steps li')).toHaveCount(3);\n     |                                                          ^\n  31 |   const title = `A shared hope ${randomUUID().slice(0, 8)}`;\n  32 |   const body = 'Peter brings his questions to Jesus. Read John 6:68 in its context.';\n  33 |   await page.getByTestId('content-title').fill(title); await page.getByTestId('content-body').fill(body);\n    at C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\rooted-129.spec.ts:30:58"
+      ]
+    }
+  ]
+}

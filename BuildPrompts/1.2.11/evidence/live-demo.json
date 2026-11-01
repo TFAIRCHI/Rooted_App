@@ -1,0 +1,49 @@
+{
+  "deployment": "gpt-5.6-luna",
+  "endpointPath": "/openai/v1/responses",
+  "requests": [
+    {
+      "kind": "chat",
+      "attemptedAt": "2026-10-24T04:33:27.215Z",
+      "httpStatus": 200,
+      "requestId": "23adba3c-4cb1-49e8-930e-6c45e9782f1c",
+      "status": "completed",
+      "usage": {
+        "inputTokens": 335,
+        "outputTokens": 73
+      },
+      "model": "gpt-5.6-luna",
+      "providerResponseId": "resp_046fb8c1fc34d9e0016adc3518a8848193956aa2468ea57448"
+    },
+    {
+      "kind": "chat",
+      "attemptedAt": "2026-10-24T04:33:30.095Z",
+      "httpStatus": 200,
+      "requestId": "1c2c1cf3-2e79-4521-bc7f-35ab60272e32",
+      "status": "completed",
+      "usage": {
+        "inputTokens": 429,
+        "outputTokens": 43
+      },
+      "model": "gpt-5.6-luna",
+      "providerResponseId": "resp_0353fda813b51fcc016adc351aa134819696cc84e6572836a8"
+    },
+    {
+      "kind": "draft",
+      "attemptedAt": "2026-10-24T04:33:31.605Z",
+      "httpStatus": 200,
+      "requestId": "2f685c01-c249-4096-a045-955d07beb973",
+      "status": "submission_unknown",
+      "usage": null,
+      "model": null,
+      "providerResponseId": null
+    }
+  ],
+  "passed": false,
+  "studyId": "57d287bf-0d59-48b8-87c4-539cc2ddc9f0",
+  "slotId": "674741cf-7742-415c-9e6c-1ee7c92b0b25",
+  "date": "2026-11-02",
+  "originalRevisionId": "43633ff9-31aa-4ebd-b159-90baadee6f15",
+  "startedAt": "2026-10-24T04:33:22.361Z",
+  "blocker": "AI output failed deterministic validation"
+}

@@ -1,0 +1,344 @@
+{
+  "generatedAt": "2026-10-25T21:50:46.377Z",
+  "scope": "documents-only",
+  "passed": true,
+  "markdown": [
+    {
+      "file": "00-executive-summary.md",
+      "relativeLinks": 8
+    },
+    {
+      "file": "01-product-mental-model.md",
+      "relativeLinks": 3
+    },
+    {
+      "file": "02-personas-and-user-journeys.md",
+      "relativeLinks": 3
+    },
+    {
+      "file": "03-functional-requirements.md",
+      "relativeLinks": 5
+    },
+    {
+      "file": "04-nonfunctional-requirements.md",
+      "relativeLinks": 3
+    },
+    {
+      "file": "05-ux-information-architecture.md",
+      "relativeLinks": 19
+    },
+    {
+      "file": "06-data-model-and-tenant-isolation.md",
+      "relativeLinks": 4
+    },
+    {
+      "file": "07-system-architecture.md",
+      "relativeLinks": 12
+    },
+    {
+      "file": "08-planning-center-integration.md",
+      "relativeLinks": 2
+    },
+    {
+      "file": "09-sermon-ingestion-and-transcription.md",
+      "relativeLinks": 8
+    },
+    {
+      "file": "10-ai-workflows-and-guardrails.md",
+      "relativeLinks": 2
+    },
+    {
+      "file": "11-collaboration-approval-and-versioning.md",
+      "relativeLinks": 5
+    },
+    {
+      "file": "12-scheduling-sms-and-notifications.md",
+      "relativeLinks": 2
+    },
+    {
+      "file": "13-auth-security-privacy-and-compliance.md",
+      "relativeLinks": 3
+    },
+    {
+      "file": "14-tech-stack-options-and-tradeoffs.md",
+      "relativeLinks": 2
+    },
+    {
+      "file": "15-cost-model-and-unit-economics.md",
+      "relativeLinks": 7
+    },
+    {
+      "file": "16-phased-build-roadmap.md",
+      "relativeLinks": 2
+    },
+    {
+      "file": "17-testing-observability-and-operations.md",
+      "relativeLinks": 8
+    },
+    {
+      "file": "18-risks-assumptions-and-open-questions.md",
+      "relativeLinks": 3
+    },
+    {
+      "file": "19-competitive-landscape-and-differentiation.md",
+      "relativeLinks": 8
+    },
+    {
+      "file": "20-decisions-and-architecture-decision-records.md",
+      "relativeLinks": 4
+    },
+    {
+      "file": "21-acceptance-criteria-and-test-scenarios.md",
+      "relativeLinks": 3
+    },
+    {
+      "file": "22-delivery-e2e-test-report.md",
+      "relativeLinks": 0
+    },
+    {
+      "file": "23-study-management-workflow-and-engagement.md",
+      "relativeLinks": 20
+    },
+    {
+      "file": "24-church-member-home-and-figma-reference.md",
+      "relativeLinks": 10
+    },
+    {
+      "file": "Agentic Research/25-azure-study-cowriter-setup-and-costs.md",
+      "relativeLinks": 8
+    },
+    {
+      "file": "Agentic Research/README.md",
+      "relativeLinks": 14
+    },
+    {
+      "file": "Agentic Research/agent-behavior-and-teaching-design.md",
+      "relativeLinks": 3
+    },
+    {
+      "file": "Agentic Research/agent-behavior-evaluation.md",
+      "relativeLinks": 0
+    },
+    {
+      "file": "Agentic Research/church-context-isolation-and-site-integration.md",
+      "relativeLinks": 10
+    },
+    {
+      "file": "Agentic Research/model-selection-costs-and-routing.md",
+      "relativeLinks": 3
+    },
+    {
+      "file": "Agentic Research/study-cowriter-command-center-roadmap.md",
+      "relativeLinks": 10
+    },
+    {
+      "file": "Agentic Research/study-cowriter-profiles.md",
+      "relativeLinks": 2
+    },
+    {
+      "file": "Azure Deployment Research/Option B/Application Hosting.md",
+      "relativeLinks": 2
+    },
+    {
+      "file": "Azure Deployment Research/Option B/Background Worker.md",
+      "relativeLinks": 1
+    },
+    {
+      "file": "Azure Deployment Research/Option B/Container Registry.md",
+      "relativeLinks": 1
+    },
+    {
+      "file": "Azure Deployment Research/Option B/Cost Minimization.md",
+      "relativeLinks": 2
+    },
+    {
+      "file": "Azure Deployment Research/Option B/DB.md",
+      "relativeLinks": 4
+    },
+    {
+      "file": "Azure Deployment Research/Option B/Domain and Networking.md",
+      "relativeLinks": 0
+    },
+    {
+      "file": "Azure Deployment Research/Option B/Identity.md",
+      "relativeLinks": 1
+    },
+    {
+      "file": "Azure Deployment Research/Option B/Monitoring.md",
+      "relativeLinks": 0
+    },
+    {
+      "file": "Azure Deployment Research/Option B/README.md",
+      "relativeLinks": 16
+    },
+    {
+      "file": "Azure Deployment Research/Option B/Secrets.md",
+      "relativeLinks": 0
+    },
+    {
+      "file": "Azure Deployment Research/Option B/Storage.md",
+      "relativeLinks": 2
+    },
+    {
+      "file": "Azure Deployment Research/README.md",
+      "relativeLinks": 8
+    },
+    {
+      "file": "Azure Deployment Research/cost-model.md",
+      "relativeLinks": 4
+    },
+    {
+      "file": "Azure Deployment Research/low-cost-domain-deployment.md",
+      "relativeLinks": 15
+    },
+    {
+      "file": "Azure Deployment Research/option-cost-comparison.md",
+      "relativeLinks": 6
+    },
+    {
+      "file": "Public Website Research/01-positioning-and-page-plan.md",
+      "relativeLinks": 2
+    },
+    {
+      "file": "Public Website Research/02-power-of-four-evidence.md",
+      "relativeLinks": 0
+    },
+    {
+      "file": "Public Website Research/03-sign-in-and-church-onboarding.md",
+      "relativeLinks": 0
+    },
+    {
+      "file": "Public Website Research/04-design-review-and-build-handoff.md",
+      "relativeLinks": 10
+    },
+    {
+      "file": "Public Website Research/05-ai-assisted-study-creation.md",
+      "relativeLinks": 4
+    },
+    {
+      "file": "Public Website Research/README.md",
+      "relativeLinks": 35
+    },
+    {
+      "file": "README.md",
+      "relativeLinks": 51
+    },
+    {
+      "file": "backlog.md",
+      "relativeLinks": 0
+    },
+    {
+      "file": "diagrams/README.md",
+      "relativeLinks": 19
+    },
+    {
+      "file": "evidence/messaging.md",
+      "relativeLinks": 0
+    },
+    {
+      "file": "evidence/planning-center.md",
+      "relativeLinks": 1
+    },
+    {
+      "file": "evidence/security.md",
+      "relativeLinks": 1
+    },
+    {
+      "file": "mockups/README.md",
+      "relativeLinks": 17
+    },
+    {
+      "file": "review-checklist.md",
+      "relativeLinks": 15
+    },
+    {
+      "file": "sources.md",
+      "relativeLinks": 4
+    },
+    {
+      "file": "tools/README.md",
+      "relativeLinks": 0
+    },
+    {
+      "file": "traceability.md",
+      "relativeLinks": 50
+    },
+    {
+      "file": "validation.md",
+      "relativeLinks": 8
+    }
+  ],
+  "sourceIds": {
+    "defined": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S09",
+      "S10",
+      "S11",
+      "S20",
+      "S21",
+      "S22",
+      "S23",
+      "S24",
+      "S25",
+      "S26",
+      "S27",
+      "S28",
+      "S30",
+      "S31",
+      "S32",
+      "S33",
+      "S34",
+      "S35",
+      "S36",
+      "S37",
+      "S38",
+      "S39",
+      "S40",
+      "S41",
+      "S42",
+      "S43",
+      "S44",
+      "S45",
+      "S46",
+      "S47",
+      "S48",
+      "S50",
+      "S51",
+      "S52",
+      "S53",
+      "S54",
+      "S55",
+      "S60",
+      "S61",
+      "S62",
+      "S63",
+      "S64",
+      "S65",
+      "S66",
+      "S67",
+      "S68",
+      "S69",
+      "S70",
+      "S71",
+      "S72",
+      "S73",
+      "S74",
+      "S75",
+      "S76"
+    ],
+    "references": 132
+  },
+  "pngs": [],
+  "diagrams": [],
+  "ui": [],
+  "errors": [],
+  "status": "complete",
+  "completedAt": "2026-10-25T21:50:46.756Z"
+}

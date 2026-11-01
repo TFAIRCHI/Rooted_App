@@ -1,0 +1,17 @@
+node_modules/
+.local/
+.env
+.env.*
+!.env.example
+!.env.test.example
+frontend/.next/
+frontend/.next-e2e/
+frontend/coverage/
+frontend/playwright-report/
+frontend/test-results/
+backend/dist/
+backend/coverage/
+backend/tests/operations/results/**/database.dump
+backend/tests/operations/results/**/sources.json
+*.tsbuildinfo
+*.log

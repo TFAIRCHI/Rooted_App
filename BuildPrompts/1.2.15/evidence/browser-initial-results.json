@@ -1,0 +1,689 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\tyler\\Documents\\MyChurch\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "frontend/e2e/public-site.spec.ts",
+      "frontend/e2e/marketing-navigation.spec.ts"
+    ],
+    "configFile": "C:\\Users\\tyler\\Documents\\MyChurch\\playwright.config.ts",
+    "rootDir": "C:/Users/tyler/Documents/MyChurch/frontend/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/tyler/Documents/MyChurch/frontend/test-results/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "C:/Users/tyler/Documents/MyChurch/frontend/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "*.spec.ts"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\test-results\\artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e",
+        "snapshotDir": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e",
+        "testIgnore": [],
+        "testMatch": "*.spec.ts",
+        "timeout": 90000,
+        "use": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium",
+          "baseURL": "http://127.0.0.1:3002",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "launchOptions": {
+            "executablePath": "C:/Program Files/Google/Chrome/Application/chrome.exe"
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "frontend/playwright-report",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "frontend/test-results/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "node backend/scripts/e2e-stack.mjs",
+      "url": "http://127.0.0.1:3002",
+      "timeout": 180000,
+      "reuseExistingServer": false,
+      "stdout": "pipe",
+      "stderr": "pipe"
+    }
+  },
+  "suites": [
+    {
+      "title": "marketing-navigation.spec.ts",
+      "file": "marketing-navigation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "1.2.15 focused public pages preserve the approved layout and accessibility",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2294,
+                  "error": {
+                    "message": "Error: / desktop accessibility\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 10\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Array [\u001b[39m\n\u001b[31m+         \".sermon-book > small\",\u001b[39m\n\u001b[31m+       ],\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: / desktop accessibility\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 10\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Array [\u001b[39m\n\u001b[31m+         \".sermon-book > small\",\u001b[39m\n\u001b[31m+       ],\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\marketing-navigation.spec.ts:47:67",
+                    "location": {
+                      "file": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\marketing-navigation.spec.ts",
+                      "column": 67,
+                      "line": 47
+                    },
+                    "snippet": "  45 |           return (await w.axe.run(document, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'] } })).violations.map(v => ({ id: v.id, nodes: v.nodes.map(n => n.target) }));\n  46 |         });\n> 47 |         expect(issues, `${item.href} ${size.name} accessibility`).toEqual([]);\n     |                                                                   ^\n  48 |       }\n  49 |     }\n  50 |   }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\marketing-navigation.spec.ts",
+                        "column": 67,
+                        "line": 47
+                      },
+                      "message": "Error: / desktop accessibility\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 10\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Array [\u001b[39m\n\u001b[31m+         \".sermon-book > small\",\u001b[39m\n\u001b[31m+       ],\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  45 |           return (await w.axe.run(document, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'] } })).violations.map(v => ({ id: v.id, nodes: v.nodes.map(n => n.target) }));\n  46 |         });\n> 47 |         expect(issues, `${item.href} ${size.name} accessibility`).toEqual([]);\n     |                                                                   ^\n  48 |       }\n  49 |     }\n  50 |   }\n    at C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\marketing-navigation.spec.ts:47:67"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:25:37.350Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\test-results\\artifacts\\marketing-navigation-1-2-1-ef364-ed-layout-and-accessibility\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\test-results\\artifacts\\marketing-navigation-1-2-1-ef364-ed-layout-and-accessibility\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\test-results\\artifacts\\marketing-navigation-1-2-1-ef364-ed-layout-and-accessibility\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\marketing-navigation.spec.ts",
+                    "column": 67,
+                    "line": 47
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "596442d6bcab7728dfce-982ff20fca2aed5cedc7",
+          "file": "marketing-navigation.spec.ts",
+          "line": 9,
+          "column": 1
+        },
+        {
+          "title": "1.2.15 navigation, disclosure, keyboard, examples, and tour work in the application",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 17531,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: \u001b[32m\"http://127.0.0.1:3002/\"\u001b[39m\nReceived: \u001b[31m\"http://127.0.0.1:3002/\u001b[7m#main\u001b[27m\"\u001b[39m\nTimeout:  15000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 15000ms\u001b[22m\n\u001b[2m    34 × locator resolved to <html lang=\"en\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:3002/#main\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: \u001b[32m\"http://127.0.0.1:3002/\"\u001b[39m\nReceived: \u001b[31m\"http://127.0.0.1:3002/\u001b[7m#main\u001b[27m\"\u001b[39m\nTimeout:  15000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 15000ms\u001b[22m\n\u001b[2m    34 × locator resolved to <html lang=\"en\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:3002/#main\"\u001b[22m\n\n    at C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\marketing-navigation.spec.ts:63:43",
+                    "location": {
+                      "file": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\marketing-navigation.spec.ts",
+                      "column": 43,
+                      "line": 63
+                    },
+                    "snippet": "  61 |   await nav.getByRole('link', { name: 'Why Rooted', exact: true }).click();\n  62 |   await expect(page).toHaveURL('/why-rooted');\n> 63 |   await page.goBack(); await expect(page).toHaveURL('/');\n     |                                           ^\n  64 |   await page.goForward(); await expect(page).toHaveURL('/why-rooted');\n  65 |   await page.getByRole('button', { name: 'Before Sunday', exact: true }).click();\n  66 |   await expect(page.getByText('Pray & anticipate', { exact: true })).toBeVisible();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\marketing-navigation.spec.ts",
+                        "column": 43,
+                        "line": 63
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: \u001b[32m\"http://127.0.0.1:3002/\"\u001b[39m\nReceived: \u001b[31m\"http://127.0.0.1:3002/\u001b[7m#main\u001b[27m\"\u001b[39m\nTimeout:  15000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 15000ms\u001b[22m\n\u001b[2m    34 × locator resolved to <html lang=\"en\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:3002/#main\"\u001b[22m\n\n\n  61 |   await nav.getByRole('link', { name: 'Why Rooted', exact: true }).click();\n  62 |   await expect(page).toHaveURL('/why-rooted');\n> 63 |   await page.goBack(); await expect(page).toHaveURL('/');\n     |                                           ^\n  64 |   await page.goForward(); await expect(page).toHaveURL('/why-rooted');\n  65 |   await page.getByRole('button', { name: 'Before Sunday', exact: true }).click();\n  66 |   await expect(page.getByText('Pray & anticipate', { exact: true })).toBeVisible();\n    at C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\marketing-navigation.spec.ts:63:43"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:25:41.632Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\test-results\\artifacts\\marketing-navigation-1-2-1-eabb3-our-work-in-the-application\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\test-results\\artifacts\\marketing-navigation-1-2-1-eabb3-our-work-in-the-application\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\test-results\\artifacts\\marketing-navigation-1-2-1-eabb3-our-work-in-the-application\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\marketing-navigation.spec.ts",
+                    "column": 43,
+                    "line": 63
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "596442d6bcab7728dfce-97006197fbea0848131f",
+          "file": "marketing-navigation.spec.ts",
+          "line": 56,
+          "column": 1
+        },
+        {
+          "title": "1.2.15 legacy homepage links resolve without Back loops and preserve requested examples",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 150000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 36625,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: 'Continue to sign in →' })\nExpected pattern: \u001b[32m/returnTo=%2Fstudies/\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" getByRole('link', { name: 'Continue to sign in →' }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: 'Continue to sign in →' })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: 'Continue to sign in →' })\nExpected pattern: \u001b[32m/returnTo=%2Fstudies/\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" getByRole('link', { name: 'Continue to sign in →' }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: 'Continue to sign in →' })\u001b[22m\n\n    at C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\marketing-navigation.spec.ts:131:75",
+                    "location": {
+                      "file": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\marketing-navigation.spec.ts",
+                      "column": 75,
+                      "line": 131
+                    },
+                    "snippet": "  129 |   await page.evaluate(() => { location.hash = '#how-it-works'; }); await expect(page).toHaveURL('/how-it-works');\n  130 |   await page.goto('/sign-in?returnTo=%2Fstudies&access=contributor#trust');\n> 131 |   await expect(page.getByRole('link', { name: 'Continue to sign in →' })).toHaveAttribute('href', /returnTo=%2Fstudies/);\n      |                                                                           ^\n  132 |   expect(new URL(page.url()).pathname).toBe('/sign-in'); expect(new URL(page.url()).searchParams.get('access')).toBe('contributor');\n  133 | });\n  134 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\marketing-navigation.spec.ts",
+                        "column": 75,
+                        "line": 131
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: 'Continue to sign in →' })\nExpected pattern: \u001b[32m/returnTo=%2Fstudies/\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" getByRole('link', { name: 'Continue to sign in →' }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: 'Continue to sign in →' })\u001b[22m\n\n\n  129 |   await page.evaluate(() => { location.hash = '#how-it-works'; }); await expect(page).toHaveURL('/how-it-works');\n  130 |   await page.goto('/sign-in?returnTo=%2Fstudies&access=contributor#trust');\n> 131 |   await expect(page.getByRole('link', { name: 'Continue to sign in →' })).toHaveAttribute('href', /returnTo=%2Fstudies/);\n      |                                                                           ^\n  132 |   expect(new URL(page.url()).pathname).toBe('/sign-in'); expect(new URL(page.url()).searchParams.get('access')).toBe('contributor');\n  133 | });\n  134 |\n    at C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\marketing-navigation.spec.ts:131:75"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:26:00.639Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\test-results\\artifacts\\marketing-navigation-1-2-1-227e9-preserve-requested-examples\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\test-results\\artifacts\\marketing-navigation-1-2-1-227e9-preserve-requested-examples\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\test-results\\artifacts\\marketing-navigation-1-2-1-227e9-preserve-requested-examples\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\marketing-navigation.spec.ts",
+                    "column": 75,
+                    "line": 131
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "596442d6bcab7728dfce-0af422f5263d717960e2",
+          "file": "marketing-navigation.spec.ts",
+          "line": 116,
+          "column": 1
+        },
+        {
+          "title": "1.2.15 server-rendered public navigation works without JavaScript",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1115,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:26:41.173Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "596442d6bcab7728dfce-ab96dec59cc89d134c99",
+          "file": "marketing-navigation.spec.ts",
+          "line": 135,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "public-site.spec.ts",
+      "file": "public-site.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "1.2.15 anonymous public pages match the design, work by keyboard and do not call AI",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1506,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 10\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Array [\u001b[39m\n\u001b[31m+         \".sermon-book > small\",\u001b[39m\n\u001b[31m+       ],\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 10\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Array [\u001b[39m\n\u001b[31m+         \".sermon-book > small\",\u001b[39m\n\u001b[31m+       ],\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at accessible (C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\public-site.spec.ts:25:18)\n    at C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\public-site.spec.ts:36:41",
+                    "location": {
+                      "file": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\public-site.spec.ts",
+                      "column": 18,
+                      "line": 25
+                    },
+                    "snippet": "  23 |     return (await w.axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa','wcag22aa']}})).violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)}));\n  24 |   });\n> 25 |   expect(issues).toEqual([]);\n     |                  ^\n  26 | }\n  27 |\n  28 | test('1.2.15 anonymous public pages match the design, work by keyboard and do not call AI',async({page})=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\public-site.spec.ts",
+                        "column": 18,
+                        "line": 25
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 10\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Array [\u001b[39m\n\u001b[31m+         \".sermon-book > small\",\u001b[39m\n\u001b[31m+       ],\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  23 |     return (await w.axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa','wcag22aa']}})).violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)}));\n  24 |   });\n> 25 |   expect(issues).toEqual([]);\n     |                  ^\n  26 | }\n  27 |\n  28 | test('1.2.15 anonymous public pages match the design, work by keyboard and do not call AI',async({page})=>{\n    at accessible (C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\public-site.spec.ts:25:18)\n    at C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\public-site.spec.ts:36:41"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:26:42.576Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\test-results\\artifacts\\public-site-1-2-15-anonymo-8036b-keyboard-and-do-not-call-AI\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\test-results\\artifacts\\public-site-1-2-15-anonymo-8036b-keyboard-and-do-not-call-AI\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\test-results\\artifacts\\public-site-1-2-15-anonymo-8036b-keyboard-and-do-not-call-AI\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\public-site.spec.ts",
+                    "column": 18,
+                    "line": 25
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b5ee33d81fbb128f3ae4-07cfc61d4822bd090452",
+          "file": "public-site.spec.ts",
+          "line": 28,
+          "column": 1
+        },
+        {
+          "title": "1.2.13 leader sign-in creates one persisted church after uncertain response and shows actual roles",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 16778,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: 'Continue to sign in →' })\nExpected pattern: \u001b[32m/persona=/\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" getByRole('link', { name: 'Continue to sign in →' }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: 'Continue to sign in →' })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: 'Continue to sign in →' })\nExpected pattern: \u001b[32m/persona=/\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" getByRole('link', { name: 'Continue to sign in →' }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: 'Continue to sign in →' })\u001b[22m\n\n    at C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\public-site.spec.ts:61:71",
+                    "location": {
+                      "file": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\public-site.spec.ts",
+                      "column": 71,
+                      "line": 61
+                    },
+                    "snippet": "  59 |   test.setTimeout(120_000);\n  60 |   await page.goto('/get-started');await page.getByRole('link',{name:/I help lead a church/}).click();\n> 61 |   await expect(page.getByRole('link',{name:'Continue to sign in →'})).toHaveAttribute('href',/persona=/);\n     |                                                                       ^\n  62 |   await page.getByLabel('Local development identity').selectOption('morgan.admin');\n  63 |   await page.getByRole('link',{name:'Continue to sign in →'}).click();await expect(page).toHaveURL(/\\/onboarding\\?intent=create-church/);\n  64 |   const slug=`test-${randomUUID().slice(0,12)}`;"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\public-site.spec.ts",
+                        "column": 71,
+                        "line": 61
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: 'Continue to sign in →' })\nExpected pattern: \u001b[32m/persona=/\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" getByRole('link', { name: 'Continue to sign in →' }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: 'Continue to sign in →' })\u001b[22m\n\n\n  59 |   test.setTimeout(120_000);\n  60 |   await page.goto('/get-started');await page.getByRole('link',{name:/I help lead a church/}).click();\n> 61 |   await expect(page.getByRole('link',{name:'Continue to sign in →'})).toHaveAttribute('href',/persona=/);\n     |                                                                       ^\n  62 |   await page.getByLabel('Local development identity').selectOption('morgan.admin');\n  63 |   await page.getByRole('link',{name:'Continue to sign in →'}).click();await expect(page).toHaveURL(/\\/onboarding\\?intent=create-church/);\n  64 |   const slug=`test-${randomUUID().slice(0,12)}`;\n    at C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\public-site.spec.ts:61:71"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:26:45.297Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\test-results\\artifacts\\public-site-1-2-13-leader--73ffa-onse-and-shows-actual-roles\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\test-results\\artifacts\\public-site-1-2-13-leader--73ffa-onse-and-shows-actual-roles\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\test-results\\artifacts\\public-site-1-2-13-leader--73ffa-onse-and-shows-actual-roles\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\public-site.spec.ts",
+                    "column": 71,
+                    "line": 61
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b5ee33d81fbb128f3ae4-1f862017ae9c67f089fa",
+          "file": "public-site.spec.ts",
+          "line": 58,
+          "column": 1
+        },
+        {
+          "title": "1.2.13 member entry rejects external links and accepts only an identity-bound invitation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6021,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:27:03.261Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b5ee33d81fbb128f3ae4-91745acd1fbde1933727",
+          "file": "public-site.spec.ts",
+          "line": 83,
+          "column": 1
+        },
+        {
+          "title": "1.2.13 identity continuation rejects external targets, survives callback and cannot be replayed",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2794,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:27:09.542Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b5ee33d81fbb128f3ae4-8221268c4bce547c13de",
+          "file": "public-site.spec.ts",
+          "line": 94,
+          "column": 1
+        },
+        {
+          "title": "1.2.13 guest member and workspace deep links use the supported sign-in flow",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 90131,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\public-site.spec.ts",
+                        "column": 63,
+                        "line": 109
+                      },
+                      "message": "Error: locator.click: Test timeout of 90000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'Continue to sign in →' })\u001b[22m\n\n\n  107 |   await expect(signIn).toHaveAttribute('href',/^\\/sign-in\\?returnTo=/);\n  108 |   await signIn.click();await page.getByLabel('Local development identity').selectOption('riley.member');\n> 109 |   await page.getByRole('link',{name:'Continue to sign in →'}).click();await expect(page).toHaveURL('/c/grace');\n      |                                                               ^\n  110 |   const session=await(await page.request.get('/api/v1/auth/session')).json();expect(session.user.id).toBe('riley.member');\n  111 |   await page.getByRole('button',{name:'Sign out',exact:true}).click();\n  112 |   await expect(page.getByRole('link',{name:'Sign in to read',exact:true})).toBeVisible();\n    at C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\public-site.spec.ts:109:63"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:27:12.358Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\test-results\\artifacts\\public-site-1-2-13-guest-m-07f64--the-supported-sign-in-flow\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\test-results\\artifacts\\public-site-1-2-13-guest-m-07f64--the-supported-sign-in-flow\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\test-results\\artifacts\\public-site-1-2-13-guest-m-07f64--the-supported-sign-in-flow\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b5ee33d81fbb128f3ae4-8a11a1912143b03298fc",
+          "file": "public-site.spec.ts",
+          "line": 104,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-30T18:25:24.492Z",
+    "duration": 199039.72100000002,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 6,
+    "flaky": 0
+  }
+}

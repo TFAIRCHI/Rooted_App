@@ -1,0 +1,97 @@
+{
+  "version": "1.2.12",
+  "maxAttempts": 10,
+  "maxTokens": 150000,
+  "requests": [
+    {
+      "id": "586d6d51-0678-4c41-8f00-6da865aba46b",
+      "at": "2026-10-24T16:05:07.490Z",
+      "kind": "workflow_plan",
+      "reservation": 15000,
+      "charged": 1133,
+      "status": "completed",
+      "responseId": "resp_049f7d439f226d5f016adcd7343a308190aebbc22bc44d5b57",
+      "model": "gpt-5.6-luna",
+      "usage": {
+        "inputTokens": 746,
+        "outputTokens": 387
+      },
+      "httpStatus": 200
+    },
+    {
+      "id": "b7eb6970-7657-440d-b9f0-be223ce7f3b3",
+      "at": "2026-10-24T16:05:14.454Z",
+      "kind": "complete_study_day",
+      "reservation": 15000,
+      "charged": 1992,
+      "status": "completed",
+      "responseId": "resp_0af64bbfb8c10360016adcd73abeac8190879488b3110db4da",
+      "model": "gpt-5.6-luna",
+      "usage": {
+        "inputTokens": 1079,
+        "outputTokens": 913
+      },
+      "httpStatus": 200
+    },
+    {
+      "id": "d849b19f-3de0-4677-b955-f242bba5e337",
+      "at": "2026-10-24T16:05:43.749Z",
+      "kind": "workflow_plan",
+      "reservation": 15000,
+      "charged": 1244,
+      "status": "completed",
+      "responseId": "resp_0847bc4cb94264b3016adcd7581abc8190bd86418bdc34ce75",
+      "model": "gpt-5.6-luna",
+      "usage": {
+        "inputTokens": 763,
+        "outputTokens": 481
+      },
+      "httpStatus": 200
+    },
+    {
+      "id": "c6c7a51f-1961-4cce-8185-0dfd380db28c",
+      "at": "2026-10-24T16:05:48.714Z",
+      "kind": "complete_study_day",
+      "reservation": 15000,
+      "charged": 2055,
+      "status": "completed",
+      "responseId": "resp_0b3a745252c2e02c016adcd75cdae881958f8a574b43634997",
+      "model": "gpt-5.6-luna",
+      "usage": {
+        "inputTokens": 1177,
+        "outputTokens": 878
+      },
+      "httpStatus": 200
+    },
+    {
+      "id": "57f19b50-38e6-4f0e-bb90-f07ac7227d5e",
+      "at": "2026-10-24T16:05:54.940Z",
+      "kind": "complete_study_day",
+      "reservation": 15000,
+      "charged": 2045,
+      "status": "completed",
+      "responseId": "resp_07e9fd67e8eeb065016adcd7634fe481958a907e7e143db397",
+      "model": "gpt-5.6-luna",
+      "usage": {
+        "inputTokens": 1181,
+        "outputTokens": 864
+      },
+      "httpStatus": 200
+    },
+    {
+      "id": "54d7e883-b02b-4c22-8892-b49f1760fd27",
+      "at": "2026-10-24T16:06:03.941Z",
+      "kind": "complete_study_day",
+      "reservation": 15000,
+      "charged": 2057,
+      "status": "completed",
+      "responseId": "resp_02f3769620cf399d016adcd76c39608197bdee7a2aa0276871",
+      "model": "gpt-5.6-luna",
+      "usage": {
+        "inputTokens": 1174,
+        "outputTokens": 883
+      },
+      "httpStatus": 200
+    }
+  ]
+}

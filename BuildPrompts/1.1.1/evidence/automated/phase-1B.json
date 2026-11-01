@@ -1,0 +1,107 @@
+{
+  "version": "1.1.1",
+  "phase": "1B",
+  "startedAt": "2026-10-19T19:25:39.847Z",
+  "completedAt": "2026-10-19T19:26:59.355Z",
+  "node": "v24.11.1",
+  "testedFingerprint": "9b7cb76ec971693acc56ed75bd2d3560002f5a8c1725c21d324cd5ff4a4594dc",
+  "automatedPassed": true,
+  "complete": false,
+  "status": "blocked_required_review",
+  "checks": [
+    {
+      "label": "prompt-and-readiness-artifacts",
+      "passed": true,
+      "files": 6,
+      "links": 81,
+      "failures": []
+    },
+    {
+      "label": "research",
+      "command": "npm run test:research",
+      "startedAt": "2026-10-19T19:25:39.972Z",
+      "finishedAt": "2026-10-19T19:25:44.841Z",
+      "exitCode": 0,
+      "requiredSkipped": false,
+      "passed": true,
+      "log": "BuildPrompts/1.1.1/evidence/automated/phase-1B-research.log"
+    },
+    {
+      "label": "lint",
+      "command": "npm run lint",
+      "startedAt": "2026-10-19T19:25:44.841Z",
+      "finishedAt": "2026-10-19T19:25:52.068Z",
+      "exitCode": 0,
+      "requiredSkipped": false,
+      "passed": true,
+      "log": "BuildPrompts/1.1.1/evidence/automated/phase-1B-lint.log"
+    },
+    {
+      "label": "types",
+      "command": "npm run typecheck",
+      "startedAt": "2026-10-19T19:25:52.068Z",
+      "finishedAt": "2026-10-19T19:25:54.315Z",
+      "exitCode": 0,
+      "requiredSkipped": false,
+      "passed": true,
+      "log": "BuildPrompts/1.1.1/evidence/automated/phase-1B-types.log"
+    },
+    {
+      "label": "unit",
+      "command": "npm run test:unit",
+      "startedAt": "2026-10-19T19:25:54.315Z",
+      "finishedAt": "2026-10-19T19:25:59.917Z",
+      "exitCode": 0,
+      "requiredSkipped": false,
+      "passed": true,
+      "log": "BuildPrompts/1.1.1/evidence/automated/phase-1B-unit.log"
+    },
+    {
+      "label": "integration",
+      "command": "npm run test:integration",
+      "startedAt": "2026-10-19T19:25:59.917Z",
+      "finishedAt": "2026-10-19T19:26:18.204Z",
+      "exitCode": 0,
+      "requiredSkipped": false,
+      "passed": true,
+      "log": "BuildPrompts/1.1.1/evidence/automated/phase-1B-integration.log"
+    },
+    {
+      "label": "build",
+      "command": "npm run build",
+      "startedAt": "2026-10-19T19:26:18.204Z",
+      "finishedAt": "2026-10-19T19:26:25.463Z",
+      "exitCode": 0,
+      "requiredSkipped": false,
+      "passed": true,
+      "log": "BuildPrompts/1.1.1/evidence/automated/phase-1B-build.log"
+    },
+    {
+      "label": "browser",
+      "command": "npm run test:e2e",
+      "startedAt": "2026-10-19T19:26:25.463Z",
+      "finishedAt": "2026-10-19T19:26:59.294Z",
+      "exitCode": 0,
+      "requiredSkipped": false,
+      "passed": true,
+      "log": "BuildPrompts/1.1.1/evidence/automated/phase-1B-browser.log"
+    },
+    {
+      "label": "stable-tested-source-state",
+      "passed": true,
+      "initialFingerprint": "9b7cb76ec971693acc56ed75bd2d3560002f5a8c1725c21d324cd5ff4a4594dc",
+      "finalFingerprint": "9b7cb76ec971693acc56ed75bd2d3560002f5a8c1725c21d324cd5ff4a4594dc"
+    }
+  ],
+  "requiredReviews": [
+    {
+      "review": "authoring-accessibility",
+      "phase": "1B",
+      "passed": false,
+      "reason": "Required authorized human/provider evidence is absent, incomplete or stale",
+      "evidence": null
+    }
+  ],
+  "deploymentAuthorized": false,
+  "liveMessagingAuthorized": false
+}

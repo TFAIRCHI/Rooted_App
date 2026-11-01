@@ -1,0 +1,680 @@
+{
+  "checkedAt": "2026-11-01T12:38:11.156Z",
+  "scope": "All current Markdown local links and current raster images; historical ZIP is excluded",
+  "markdownFiles": 22,
+  "relativeLinksChecked": 120,
+  "brokenLinks": [
+    {
+      "file": "README.md",
+      "target": "REBUILD_REPORT.md"
+    },
+    {
+      "file": "README.md",
+      "target": "mockups/captures/01-channel-source-library.png"
+    },
+    {
+      "file": "README.md",
+      "target": "mockups/captures/02-single-import-files.png"
+    },
+    {
+      "file": "README.md",
+      "target": "mockups/captures/08-unified-compose-reading.png"
+    },
+    {
+      "file": "README.md",
+      "target": "mockups/captures/10-compose-design-artboard.png"
+    },
+    {
+      "file": "README.md",
+      "target": "mockups/captures/09-selected-ai-proposal.png"
+    },
+    {
+      "file": "README.md",
+      "target": "mockups/captures/14-review-conversation.png"
+    },
+    {
+      "file": "README.md",
+      "target": "mockups/captures/31-homepage-video-first-view.png"
+    },
+    {
+      "file": "README.md",
+      "target": "mockups/captures/32-homepage-video-phone.png"
+    },
+    {
+      "file": "README.md",
+      "target": "REBUILD_REPORT.md"
+    },
+    {
+      "file": "README.md",
+      "target": "_audit/change-inventory.json"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../frontend/components/content-editor.tsx:107"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../frontend/components/content-editor.tsx:704"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../frontend/components/content-editor.tsx:342"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../backend/src/api/core-routes.ts:225"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../backend/src/api/core-routes.ts:203"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../backend/migrations/012_study_review_requests.sql:8"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../backend/migrations/012_study_review_requests.sql:20"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../backend/src/api/core-routes.ts:182"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../backend/src/api/core-routes.ts:188"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../frontend/components/content-editor.tsx:57"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../frontend/components/content-editor.tsx:117"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../frontend/components/content-editor.tsx:677"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../frontend/components/content-editor.tsx:93"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../frontend/components/content-editor.tsx:749"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../frontend/components/content-editor.tsx:773"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../frontend/components/content-editor.tsx:348"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../backend/src/api/core-routes.ts:236"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../backend/src/api/core-routes.ts:246"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../backend/src/api/core-routes.ts:247"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../backend/src/api/core-routes.ts:248"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../backend/src/api/core-routes.ts:249"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../backend/migrations/001_core.sql:86"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../backend/migrations/001_core.sql:174"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../backend/src/api/core-routes.ts:261"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../backend/src/modules/editorial.ts:47"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../backend/src/api/core-routes.ts:46"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../backend/src/modules/editorial.ts:25"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../backend/src/api/core-routes.ts:86"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../frontend/lib/types.ts:4"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../backend/src/api/privacy-routes.ts:20"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../frontend/components/plan-editor.tsx:90"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../backend/src/api/core-routes.ts:264"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../backend/migrations/012_study_review_requests.sql:14"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../backend/src/api/core-routes.ts:225"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../backend/src/modules/save-revision.ts:18"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../frontend/e2e/admin-review.spec.ts:4"
+    },
+    {
+      "file": "items/07-approval-conversation.md",
+      "target": "../../../backend/tests/integration/editorial.test.ts:24"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/01-workspace-overview.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/35-compact-source-first-view.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/36-compact-studio-first-view.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/02-source-word-review.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/03-source-website-review.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/04-source-youtube-review.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/05-source-excel-review.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/06-source-empty.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/07-source-error.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/08-cowriter-proposal.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/09-deck-author.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/10-deck-approval.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/11-deck-stale.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/29-member-share.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/30-member-share-options.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/12-homepage-demo.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/33-mobile-demo.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/13-studio-diagram.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/14-studio-chart.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/15-studio-video-empty.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/16-immersive-preview.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/28-member-reading.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/18-church-qr.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/19-phone-welcome.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/20-phone-verification.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/21-phone-code-expired.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/22-phone-confirm-name.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/23-phone-church-choice.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/24-phone-enrollment.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/25-phone-pending.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/26-phone-identity-conflict.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/17-review-conversation.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/34-mobile-review.png"
+    },
+    {
+      "file": "mockups/README.md",
+      "target": "captures/37-compact-review-first-view.png"
+    },
+    {
+      "file": "roles/church-member-assessment.md",
+      "target": "../../../frontend/lib/member-server.ts:13"
+    },
+    {
+      "file": "roles/church-member-assessment.md",
+      "target": "../../../backend/src/api/core-routes.ts:349"
+    },
+    {
+      "file": "roles/church-member-assessment.md",
+      "target": "../../../backend/migrations/001_core.sql:198"
+    },
+    {
+      "file": "roles/church-member-assessment.md",
+      "target": "../../../frontend/components/public/sign-in.tsx:9"
+    },
+    {
+      "file": "roles/church-member-assessment.md",
+      "target": "../../../frontend/components/public/onboarding.tsx:22"
+    },
+    {
+      "file": "roles/church-member-assessment.md",
+      "target": "../../../frontend/components/member-study-reader.tsx:44"
+    },
+    {
+      "file": "roles/church-member-assessment.md",
+      "target": "../../../frontend/components/study-audio.tsx:12"
+    },
+    {
+      "file": "roles/church-member-assessment.md",
+      "target": "../../../frontend/components/member-study-reader.tsx:9"
+    },
+    {
+      "file": "roles/church-member-assessment.md",
+      "target": "../../../frontend/components/member-conversation.tsx:34"
+    },
+    {
+      "file": "roles/contributor-assessment.md",
+      "target": "../../../frontend/components/guided-study-cowriter.tsx:17"
+    },
+    {
+      "file": "roles/contributor-assessment.md",
+      "target": "../../../frontend/components/study-cowriter.tsx:103"
+    },
+    {
+      "file": "roles/contributor-assessment.md",
+      "target": "../../../frontend/components/study-composer.tsx:90"
+    },
+    {
+      "file": "roles/contributor-assessment.md",
+      "target": "../../../frontend/components/member-study-reader.tsx:44"
+    },
+    {
+      "file": "roles/contributor-assessment.md",
+      "target": "../../../frontend/lib/generated/contracts.ts:5"
+    },
+    {
+      "file": "roles/contributor-assessment.md",
+      "target": "../../../backend/src/api/onboarding-routes.ts:22"
+    }
+  ],
+  "imagesDecoded": 40,
+  "images": [
+    {
+      "file": "architecture/product-architecture.png",
+      "width": 1800,
+      "height": 1220,
+      "bytes": 316150,
+      "sha256": "354fa4c7834248198a379ea0bbebc403258aef0b7a6c2f8d5ac475f75fb50a3c"
+    },
+    {
+      "file": "evidence/engineering-rerun-20261101/synthetic-deck-1.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 70317,
+      "sha256": "742b701e18a13ad9fa8062254a36072422c1c7c9eb5dbaa8cc57de4d2d5c63ce"
+    },
+    {
+      "file": "evidence/engineering-rerun-20261101/synthetic-deck-2.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 71428,
+      "sha256": "3492006ef15d7e929b8ebd59ad2a247418b73ced2b2600030ab6ccdd06e69bb7"
+    },
+    {
+      "file": "evidence/engineering-rerun-20261101/synthetic-deck-3.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 72143,
+      "sha256": "d87345134ab3cc33bcdf46b7a0ae3660e8cdb56f0d243ddc67b6c44819633724"
+    },
+    {
+      "file": "evidence/member-review-homepage-1440.png",
+      "width": 1440,
+      "height": 1063,
+      "bytes": 396864,
+      "sha256": "d055bd0f442295a3104b95bbd51abded3549568ce11d967f13e5d350881783b5"
+    },
+    {
+      "file": "evidence/member-review-phone-390.png",
+      "width": 390,
+      "height": 845,
+      "bytes": 35122,
+      "sha256": "a6d79bcc21c4a23ab9808736b70224c338ad7ae61816559c2fe226a184197cf4"
+    },
+    {
+      "file": "evidence/member-review-reader-390.png",
+      "width": 390,
+      "height": 984,
+      "bytes": 57266,
+      "sha256": "b72bc1439dc244301df5da06d83063f66cd9e96298a84c3c7b59e2bf4fc08879"
+    },
+    {
+      "file": "evidence/member-review-share-390.png",
+      "width": 390,
+      "height": 1364,
+      "bytes": 63203,
+      "sha256": "5dfa2d6b497ea2929ec34c8c281cf70bb84d9c58b698bad2c27b8d573a5f759c"
+    },
+    {
+      "file": "evidence/synthetic-deck-1.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 70317,
+      "sha256": "742b701e18a13ad9fa8062254a36072422c1c7c9eb5dbaa8cc57de4d2d5c63ce"
+    },
+    {
+      "file": "evidence/synthetic-deck-2.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 71428,
+      "sha256": "3492006ef15d7e929b8ebd59ad2a247418b73ced2b2600030ab6ccdd06e69bb7"
+    },
+    {
+      "file": "evidence/synthetic-deck-3.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 72143,
+      "sha256": "d87345134ab3cc33bcdf46b7a0ae3660e8cdb56f0d243ddc67b6c44819633724"
+    },
+    {
+      "file": "mockups/assets/member-home.webp",
+      "width": 1360,
+      "height": 960,
+      "bytes": 56586,
+      "sha256": "59b34c01449497d6d2cf31e642cd306c24973a0a5921eaf00d96cc89515eea49"
+    },
+    {
+      "file": "mockups/assets/member-study.webp",
+      "width": 1360,
+      "height": 960,
+      "bytes": 54324,
+      "sha256": "0aa2f97bc99202ab9da4c2198587336057d636f2a1eca97516056562c06f8c07"
+    },
+    {
+      "file": "mockups/assets/team-editor.webp",
+      "width": 1360,
+      "height": 960,
+      "bytes": 50332,
+      "sha256": "c8a80237e34c798e4f62cfe2f5c3bd2a3a9e23927d7937f756dfce2030a8af61"
+    },
+    {
+      "file": "mockups/exports/grace-rooted-card-1.png",
+      "width": 1080,
+      "height": 1080,
+      "bytes": 73089,
+      "sha256": "c0b93d6a72525f99698b96ea8a6fba6e9711668042452ea676df60bebd625a47"
+    },
+    {
+      "file": "mockups/exports/grace-rooted-card-2.png",
+      "width": 1080,
+      "height": 1080,
+      "bytes": 96775,
+      "sha256": "0750dc69a93c6ece4e1dadf650e1e3bf14c3e88cc9f76a8e861b7b1a2539e75b"
+    },
+    {
+      "file": "mockups/exports/grace-rooted-card-3.png",
+      "width": 1080,
+      "height": 1080,
+      "bytes": 99464,
+      "sha256": "da8e9158726968603f2e8a2966f14891d3016d4c8107720215e44bd8359ab27d"
+    },
+    {
+      "file": "mockups/exports/grace-rooted-card-4.png",
+      "width": 1080,
+      "height": 1080,
+      "bytes": 94303,
+      "sha256": "cfd159a26e67d9f2b2416e4d62dc41ec58e52e58a0bdff4e78b05de2ab48af37"
+    },
+    {
+      "file": "mockups/file-review-evidence/baseline-contact-1.png",
+      "width": 1600,
+      "height": 1195,
+      "bytes": 320040,
+      "sha256": "2fda7230dbcd74fd6094a9aa569ab9e609d3644facfadc94a7c928b331cb074f"
+    },
+    {
+      "file": "mockups/file-review-evidence/baseline-contact-2.png",
+      "width": 1600,
+      "height": 1195,
+      "bytes": 223841,
+      "sha256": "2da2cab6d942bf5894b8dc174fd04939ab6097d86e9fcafa14bdfcd99616dee9"
+    },
+    {
+      "file": "mockups/file-review-evidence/baseline-contact-3.png",
+      "width": 1600,
+      "height": 1195,
+      "bytes": 227385,
+      "sha256": "3bb0d86b2284325f704c7dc3fa6890ee0a1a67cde8745bb7589036c07f34015f"
+    },
+    {
+      "file": "mockups/file-review-evidence/baseline-contact-4.png",
+      "width": 1600,
+      "height": 1195,
+      "bytes": 166732,
+      "sha256": "c490b7f9ba1b8332f41ec872a8bf06174dd38fe687c21843d7c2a2985a1290a6"
+    },
+    {
+      "file": "mockups/file-review-evidence/baseline-contact-5.png",
+      "width": 1600,
+      "height": 1195,
+      "bytes": 282429,
+      "sha256": "6bac2862bdfccb076f84f88bf0d644ddb4b5ab62eb5122ef0b42fbf107ad5f07"
+    },
+    {
+      "file": "mockups/media/frames/01-library.png",
+      "width": 1280,
+      "height": 720,
+      "bytes": 83713,
+      "sha256": "f53c0c46de76456d61fbe06be5464be63da6334208a2a9b44d95787370d0d6fd"
+    },
+    {
+      "file": "mockups/media/frames/02-import.png",
+      "width": 1280,
+      "height": 720,
+      "bytes": 107697,
+      "sha256": "eee31a61b1d88541a809e7188d0ec0c434304f53b23c436f83983f1ea78f7af5"
+    },
+    {
+      "file": "mockups/media/frames/03-processing.png",
+      "width": 1280,
+      "height": 720,
+      "bytes": 83740,
+      "sha256": "db9750179429cb4923b8c345a316be8c8d3490399e95ae803a37abe2d67bc951"
+    },
+    {
+      "file": "mockups/media/frames/04-ready-error.png",
+      "width": 1280,
+      "height": 720,
+      "bytes": 83740,
+      "sha256": "db9750179429cb4923b8c345a316be8c8d3490399e95ae803a37abe2d67bc951"
+    },
+    {
+      "file": "mockups/media/frames/05-compose.png",
+      "width": 1280,
+      "height": 720,
+      "bytes": 85241,
+      "sha256": "5e2fc26c245d988757474f0fa1dfbdc3838e689563706cf2d29d3b073fe75196"
+    },
+    {
+      "file": "mockups/media/frames/06-apply.png",
+      "width": 1280,
+      "height": 720,
+      "bytes": 66224,
+      "sha256": "4bf782e58cf56d82dba843ff76b0c34358bc62b1346515960eeb346eecf5de9f"
+    },
+    {
+      "file": "mockups/media/frames/07-undo.png",
+      "width": 1280,
+      "height": 720,
+      "bytes": 84664,
+      "sha256": "69242e02f975745895c24c3f827aee466db722e74d4af92923949b57b121ede0"
+    },
+    {
+      "file": "mockups/media/frames/08-design.png",
+      "width": 1280,
+      "height": 720,
+      "bytes": 85245,
+      "sha256": "e68d4f3888058318b8696ad4cecbc312df5b1039e4ba6ca2df18e3022067ef5f"
+    },
+    {
+      "file": "mockups/media/frames/09-preview.png",
+      "width": 1280,
+      "height": 720,
+      "bytes": 57157,
+      "sha256": "7f8fb718d50b5ea60af1776a0030d4bd2a8455127c2c0632982f629739c38e72"
+    },
+    {
+      "file": "mockups/media/workflow-poster.png",
+      "width": 1280,
+      "height": 720,
+      "bytes": 85241,
+      "sha256": "5e2fc26c245d988757474f0fa1dfbdc3838e689563706cf2d29d3b073fe75196"
+    },
+    {
+      "file": "roles/evidence/contributor-compose-first-view.png",
+      "width": 1366,
+      "height": 768,
+      "bytes": 89329,
+      "sha256": "ab859b5a2f7315bff566ab52ee99d9216c0fced772040de9e32590e52c01a597"
+    },
+    {
+      "file": "roles/evidence/contributor-compose.png",
+      "width": 1366,
+      "height": 1269,
+      "bytes": 140053,
+      "sha256": "17fc1b8bbda4bce215b9afe7eda96e217495aa8f03a224f8fb1925e72cd75cbb"
+    },
+    {
+      "file": "roles/evidence/contributor-deck.png",
+      "width": 1366,
+      "height": 926,
+      "bytes": 95293,
+      "sha256": "d6d7c2174863bc313febc8c0abc1d14e3d7966f3e1d706a3361f2e5389f9e7f9"
+    },
+    {
+      "file": "roles/evidence/contributor-design.png",
+      "width": 1366,
+      "height": 1269,
+      "bytes": 145216,
+      "sha256": "dfb2761b50d89119c82e424e0d12e2b6ab9c1f901709c76e513438897ea3ac0a"
+    },
+    {
+      "file": "roles/evidence/contributor-import.png",
+      "width": 1366,
+      "height": 1163,
+      "bytes": 172485,
+      "sha256": "60f697b0a9b1e8edd152003a790b78817220915fd22ca4a7f36f11a315346059"
+    },
+    {
+      "file": "roles/evidence/contributor-library.png",
+      "width": 1366,
+      "height": 1421,
+      "bytes": 142850,
+      "sha256": "cbd5388a1848e8481c700ad449f1cb7711d8624ac49a706bfe90a725c7906a2a"
+    },
+    {
+      "file": "roles/evidence/contributor-review.png",
+      "width": 1366,
+      "height": 1185,
+      "bytes": 118129,
+      "sha256": "2559d99c144709806730a17e902557e77d725a39617d5cbd6b627c220a10baac"
+    }
+  ],
+  "pass": false
+}

@@ -1,0 +1,49 @@
+# Acceptance criteria and test scenarios
+
+**Needed:** Executable release criteria that distinguish an artifact check from production proof. **Recommendation:** Treat the following as future system acceptance tests, with the prototype checks in [validation](validation.md) separately identified. Each test must use representative roles, two tenants and provider stubs/sandbox accounts as appropriate. No production acceptance is claimed by this design package.
+
+| ID | Given / when | Required result and evidence |
+|---|---|---|
+| AC01 Object chain | Admin adds manual sermon and creates week with three dated slots | Sources/series independently retrievable; each slot has its own plan; no generated/published content appears; database provenance asserted |
+| AC02 Date-first | Contributor opens weekly series with no selected date | Weekday/full date/time/zone/assignee/status precede editor; selecting a date expands its pane; keyboard and phone equivalent tested |
+| AC03 Two creation choices | Contributor opens selected date creation select | Exactly “View proposed study plan” and “Create study plan from scratch” primary options; no third AI workflow; DOM/accessibility assertion |
+| AC04 Proposal control | Proposal has six fields; contributor adopts only objective, rejects rest | Only objective changes; original fields remain; proposal provenance/adoption event saved; no approval/publication; refresh requires explicit action |
+| AC05 Manual independence | AI disabled or unavailable; contributor chooses scratch | All six fields initially blank; drafting/save/review works; assistance only on request; accepting a nonempty field requires inspectable comparison |
+| AC06 Structure/validation | Plan lacks title/Scripture/objective/outline/question, notes omitted | Draft saves partial work; submission reports required-field errors; notes optional; extension schema version validated |
+| AC07 Separate approvals | Plan approved; content not drafted or content in review | Full-study drafting enabled explicitly; publish/SMS remain blocked; plan approval never sets content approval |
+| AC08 Edit after approval | Approved content scheduled; contributor changes a word or SMS preview | New Draft revision, historical approval preserved, pending occurrence/intents cancelled, new review/reschedule required; old published pin unchanged |
+| AC09 Deadline pending | Due time arrives while content/plan dependency approval pending or revoked | No member publication/message; blocked reason recorded, staff notified; approval at due+5min does not auto-release |
+| AC10 Save/recovery | Contributor edits Monday then switches days; connection fails and browser reloads | Separate day buffers preserved; server acknowledgment distinct from local recovery; same-user/tenant reauth and conflict check before replay |
+| AC11 Concurrent edits | A/B load same ETag; A commits then B saves | B receives 412 and retains work; three-way diff offered; resolved new revision unapproved; approve/edit and cancel/dispatch races serialized |
+| AC12 Calendar flexibility | Admin adds Tuesday, changes Wednesday to18:30 and church timezone | Per-day values retained; exact review/calendar snapshot invalidation policy shown; no silent reinterpretation; configurable template not global MWF rule |
+| AC13 Tenant isolation | User in A guesses B IDs through API, signed assets, cache, search, worker or export | Denied without private leakage; runtime-role RLS and composite FKs prevent cross-tenant writes; pool reuse commit/rollback/exception paths tested |
+| AC14 Identity/permission | Member knows People ID; contributor is unassigned; admin lacks approver capability | No identity/membership elevation; no unauthorized draft edit or approval; multi-church switch and revocation rechecked; platform support audited break-glass only |
+| AC15 Collaboration | Contributor mentions own-tenant reviewer and receives change request on revision3 | Mention scoped/authorized, deduplicated notification without private text; comment anchored to revision3, decision/audit attributable; stale comment does not migrate silently |
+| AC16 Moderation | Church discussion off; then enabled pre-moderation; abusive comment reported | No composer while off; pending visible to author/moderator, not public; report private; moderator hide/restrict/reaction removal audited; author edit re-enters review |
+| AC17 Integration boundary | Credentialed test user connects Publishing; ordinary member tries no-scope identity | Capture real allowed fields/scopes/events/lifecycle; no transcript/SSO/posting claim without proof; revoke/refresh/rate-limit/duplicate-webhook cases; manual path unaffected |
+| AC18 Ingestion | Authorized recording/transcript plus malformed file/private-network URL submitted | Provenance hash/revision/rights stored; bad type/quarantine/SSRF rejected; chunk failure partial state; corrected transcript creates new source revision |
+| AC19 Citation integrity | AI invents John6:99 or mismatches quotation/translation | Never marks verified; schema/reference/authorized-text check flags or blocks; interpretation labeled separately; pastor decision required |
+| AC20 Injection resistance | Uploaded notes instruct model to expose B data, send SMS or approve | No unauthorized disclosure/side effects, regardless of refusal wording; source treated as untrusted; tenant prefilter and tool capability assertions |
+| AC21 Explicit drafting | Pastor approves plan; contributor later chooses manual or AI draft | Approval alone causes no generation; action pins approved plan; content starts Draft; stale/superseded plan cannot authorize new scheduled content |
+| AC22 Reading/a11y | Member opens approved page on390px phone,768px tablet,desktop; zoom and keyboard/screen reader | Readable reflow, headings/focus/labels/status announcements, no draft metadata, public/member policy respected; complete WCAG audit evidence separate from screenshots |
+| AC23 Consent/identity | Directory number imported; consent then recorded for church A purpose; B requests send | Import alone not eligible; A sender/purpose/evidence/time retained; B cannot reuse consent; sender registration and preview checked |
+| AC24 STOP/race | STOP arrives while jobs queued and while one request in flight | Suppress pending work and provider-specific account scope; record in-flight limit honestly; no admin flag-clearing reactivation without fresh evidence |
+| AC25 Quiet hours/budget | 08:00 church publication, recipient outside allowed SMS window or country/zone unknown | Study can publish; SMS deferred only under explicit expiry/policy or held; no assumed church-zone location; failed registration/budget blocks channel |
+| AC26 DST/timezones | Schedule 2026-11-01 01:30 NY and2027-03-14 02:30 NY; tzdb changes | Overlap requires offset choice, gap rejected; versioned UTC intent audited; changed future resolution requires reconfirmation; non-DST/half-hour zones also tested |
+| AC27 Reliability | Crash before/after publication commit, duplicate events, provider timeout after possible acceptance | One logical DB publication/outbox; idempotent recipient intents; submission unknown reconciled rather than blindly retried; stale schedule version cannot dispatch |
+| AC28 Operability | Worker/SMS/AI fails, deployment rolls back, queue stalls | Reading/manual edits degrade independently; alerts have owner/runbook; no provider bodies/phones in logs; no replay of revoked consent |
+| AC29 Lifecycle/recovery | Tenant offboards, member requests deletion, backup restored | Policy-driven deletion/export/suppression and source rights respected; audit minimized; restored data re-applies deletion ledger; timed restore drill meets agreed RPO/RTO |
+
+## Expanded critical race scenarios
+
+**Approval versus edit:** Issue both commands against the same base. If edit commits first, old approval precondition fails. If approval commits first, edit creates a new unapproved head and cancels pending schedules. Neither outcome authorizes the new words. Repeat for approved-plan dependency changes.
+
+**Publication versus cancellation:** Cancellation committed before publication/dispatch authorization prevents that effect. A publication committed first remains identifiable; subsequent withdrawal hides the live page but cannot retract an SMS already handed off. UI must distinguish cancellation, withdrawal and provider cancellation outcomes.
+
+**Missed deadline versus outage:** Preapproved 08:00 content recovering at08:12 may use the proposed15-minute bounded catch-up rule if no version/eligibility changed. At08:16 require staff review. Content first approved at08:05 never qualifies for the infrastructure-outage exception. Verify these separate reasons in audit/events and staff UI.
+
+**Schedule change and notification deferral:** Changing editorial date/time/zone follows the approved calendar-snapshot policy and renewed review. A recipient-specific SMS deferral within the already authorized notification window does not rewrite the study or plan; verify consent again before dispatch. No template regeneration during send.
+
+## Evidence, alternatives, dependencies, open questions
+
+Recommendation: contract/database tests for invariants, browser workflow tests for date-first/recovery, hostile file/LLM tests for trust boundaries, provider contract tests for signatures/statuses, and staged load/failure drills. Alternative: screenshot-only acceptance; insufficient for authorization or delivery integrity. Dependencies: real runtime roles, consensual test data, licensed quote source and sandbox vendor access. Risks: stub-only integration confidence and tests copying implementation rather than asserting outcomes. Unknown: final performance envelope, required reviewer quorum, lawful retention and jurisdiction. Owners and phase gates are in [roadmap](16-phased-build-roadmap.md) and [risk register](18-risks-assumptions-and-open-questions.md).

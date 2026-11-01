@@ -1,0 +1,196 @@
+{
+  "purpose": "Research-only current API reproduction against fictional isolated data",
+  "startedAt": "2026-11-01T03:39:24.600Z",
+  "database": "gather_research_approval_522e4fa9bbf240ad8226fb23c274485f",
+  "runtimeUrlSource": "DATABASE_URL guarded loopback fallback",
+  "externalServicesEnabled": false,
+  "providerRequestsMade": 0,
+  "statuses": [
+    {
+      "label": "OIDC session contributor",
+      "status": 200
+    },
+    {
+      "label": "OIDC session admin",
+      "status": 200
+    },
+    {
+      "label": "OIDC session member",
+      "status": 200
+    },
+    {
+      "label": "create series",
+      "status": 201
+    },
+    {
+      "label": "create slot",
+      "status": 201
+    },
+    {
+      "label": "get plan",
+      "status": 200
+    },
+    {
+      "label": "save plan",
+      "status": 201
+    },
+    {
+      "label": "submit plan",
+      "status": 200
+    },
+    {
+      "label": "admin approves plan",
+      "status": 201
+    },
+    {
+      "label": "create content",
+      "status": 201
+    },
+    {
+      "label": "save content",
+      "status": 201
+    },
+    {
+      "label": "submit content with note",
+      "status": 200
+    },
+    {
+      "label": "empty change reason",
+      "status": 422,
+      "code": "reason_required"
+    },
+    {
+      "label": "wrong reviewed hash",
+      "status": 409,
+      "code": "hash_changed"
+    },
+    {
+      "label": "stale version decision",
+      "status": 412,
+      "code": "revision_conflict"
+    },
+    {
+      "label": "admin requests changes",
+      "status": 201
+    },
+    {
+      "label": "author aggregate",
+      "status": 200
+    },
+    {
+      "label": "author latest review request",
+      "status": 200
+    },
+    {
+      "label": "author comments",
+      "status": 200
+    },
+    {
+      "label": "member denied aggregate",
+      "status": 403,
+      "code": "forbidden"
+    },
+    {
+      "label": "member denied /review-request",
+      "status": 403,
+      "code": "forbidden"
+    },
+    {
+      "label": "member denied /comments",
+      "status": 403,
+      "code": "forbidden"
+    },
+    {
+      "label": "cross-church author denied",
+      "status": 404,
+      "code": "not_found"
+    },
+    {
+      "label": "no-edit resubmit",
+      "status": 409,
+      "code": "23505"
+    },
+    {
+      "label": "request after failed resubmit",
+      "status": 200
+    },
+    {
+      "label": "edit after changes",
+      "status": 201
+    },
+    {
+      "label": "resubmit edited revision",
+      "status": 200
+    },
+    {
+      "label": "approve edited revision",
+      "status": 201
+    }
+  ],
+  "assertions": {
+    "storedAssignmentNote": true,
+    "storedDecisionReason": true,
+    "storedBothOnSubmittedRevision": true,
+    "author aggregate": {
+      "keys": [
+        "id",
+        "kind",
+        "slotId",
+        "planId",
+        "status",
+        "version",
+        "etag",
+        "headRevisionId",
+        "head",
+        "approvalId",
+        "livePublicationId",
+        "createdAt"
+      ],
+      "includesContributorNote": false,
+      "includesReviewerReason": false
+    },
+    "author latest review request": {
+      "keys": [
+        "request",
+        "approvers"
+      ],
+      "includesContributorNote": true,
+      "includesReviewerReason": false,
+      "requestStatus": "changes_requested"
+    },
+    "author comments": {
+      "keys": [
+        "items"
+      ],
+      "includesContributorNote": false,
+      "includesReviewerReason": false,
+      "itemCount": 0
+    },
+    "sameRevisionResubmitCode": "23505",
+    "failedResubmitPreservesOriginalNoteAndStatus": true,
+    "previousChangeReasonRetainedAfterFinalApproval": true,
+    "newRevisionResubmitAndApprovalSuccessful": true
+  },
+  "cleanup": {
+    "api": "closed",
+    "runtimePool": "closed",
+    "ownedAdminPool": "closed",
+    "oidc": "closed",
+    "ownedDatabase": "dropped and absence verified"
+  },
+  "limits": [
+    "Real current API plus disposable PostgreSQL and local OIDC; no browser UI was started.",
+    "No application source, tests, configuration, packages or deployment changed.",
+    "Successful API/DB evidence does not prove production incident state or UI rendering."
+  ],
+  "ownedLoopbackPorts": {
+    "api": 64964,
+    "oidc": 64965
+  },
+  "fictionalNotes": {
+    "contributorNote": "Fictional contributor note: please check the discussion question.",
+    "reviewerReason": "Fictional administrator reason: clarify the question before approval."
+  },
+  "outcome": "passed",
+  "finishedAt": "2026-11-01T03:39:41.196Z"
+}

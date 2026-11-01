@@ -1,0 +1,162 @@
+{
+  "checkedAt": "2026-11-01T12:32:43.706Z",
+  "scope": "Independent controls check of November 1 rebuilt research prototype only; no application/provider calls",
+  "routeOrigin": "http://127.0.0.1:3091",
+  "prototypeAppSha256": "6fa9fd9b42655f68e4974c48316806dbccb1dede6c4b52fc1e02cde9283d5644",
+  "checks": [
+    {
+      "name": "Single Import dialog opens from library URL",
+      "pass": true
+    },
+    {
+      "name": "One Import surface lists broad file formats and alternate methods",
+      "pass": true
+    },
+    {
+      "name": "Import labels planned adapters and simulation honestly",
+      "pass": true
+    },
+    {
+      "name": "Failed source cannot be selected as context",
+      "pass": true
+    },
+    {
+      "name": "Closing URL-opened Import stays closed after library selection",
+      "pass": false
+    },
+    {
+      "name": "Selected URL appears in embedded library context",
+      "pass": true
+    },
+    {
+      "name": "Processing batch items cannot be selected",
+      "pass": true
+    },
+    {
+      "name": "Mixed batch retains original ready/error filenames",
+      "pass": true
+    },
+    {
+      "name": "Docked assistant uses same selected URL context after navigation",
+      "pass": true,
+      "detail": "1 sources selected for context\nhttps://teaching.example.org/abide\nv2 · article section 2\nManage channel sources →"
+    },
+    {
+      "name": "Proposal cannot claim deselected source as current usable grounding",
+      "pass": true,
+      "detail": "PROPOSED REPLACEMENT / SELECTION\n\nRemaining close to Christ comes before our response. His life is the source of the fruit we cannot produce on our own.\n\nSample request context: https://teaching.example.org/abide · v2 · article section 2\n\nApply to selection"
+    },
+    {
+      "name": "Document text range selection is visible to assistant workflow",
+      "pass": true
+    },
+    {
+      "name": "Apply replaces only selected range in same document",
+      "pass": true
+    },
+    {
+      "name": "Apply leaves unrelated study paragraph unchanged",
+      "pass": true
+    },
+    {
+      "name": "Undo restores prior selected text content",
+      "pass": true
+    },
+    {
+      "name": "Applying and undoing require no CoWriter-to-Studio navigation",
+      "pass": true
+    },
+    {
+      "name": "Direct canvas edit updates local document model",
+      "pass": true
+    },
+    {
+      "name": "Ribbon formatting affects editable document",
+      "pass": true
+    },
+    {
+      "name": "Insert adds an editable block to same document",
+      "pass": true
+    },
+    {
+      "name": "Design mode shares inserted content and logical block order",
+      "pass": true
+    },
+    {
+      "name": "Placement inspector reflects currently selected visual geometry",
+      "pass": false,
+      "detail": {
+        "shownX": 10,
+        "selectedDiagramX": 52
+      }
+    },
+    {
+      "name": "Placement control moves selected visual in artboard model",
+      "pass": true
+    },
+    {
+      "name": "Placement does not alter logical reading order",
+      "pass": true
+    },
+    {
+      "name": "Move changes logical block order",
+      "pass": true
+    },
+    {
+      "name": "Return to reading mode retains same content and reordered IDs",
+      "pass": true
+    },
+    {
+      "name": "Immersive preview uses all edited/reordered blocks",
+      "pass": true
+    },
+    {
+      "name": "Research member rendition uses same logical block order",
+      "pass": true
+    },
+    {
+      "name": "Review shows old quoted anchor and current edited reflection",
+      "pass": true
+    },
+    {
+      "name": "Review explains unchanged-revision fresh cycle without fake edits",
+      "pass": true
+    },
+    {
+      "name": "Reply action explicitly keeps approval request open",
+      "pass": true
+    },
+    {
+      "name": "Fresh cycle is explicitly simulated with no request sent",
+      "pass": true
+    },
+    {
+      "name": "Current unapproved draft cannot approve public rendition",
+      "pass": true
+    },
+    {
+      "name": "Approver scenario distinctly binds prior approved r10",
+      "pass": true
+    },
+    {
+      "name": "Stale deck exposes no approval control",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "externalRequestsBlocked": [],
+  "screenshots": [
+    "contributor-import.png",
+    "contributor-library.png",
+    "contributor-compose.png",
+    "contributor-design.png",
+    "contributor-review.png",
+    "contributor-deck.png"
+  ],
+  "limitations": [
+    "SessionStorage fixture model only; no production save, ingestion, AI generation or publication.",
+    "Text selection was established through a DOM Range and the actual mouseup handler; Apply/Undo and other controls used browser clicks/inputs.",
+    "Review actions update explanatory status rather than storing actual conversation/cycles.",
+    "Phone/provider acceptance, native sharing and screen-reader behavior not tested in this pass."
+  ]
+}

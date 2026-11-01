@@ -1,0 +1,537 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\tyler\\Documents\\MyChurch\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "frontend/e2e/public-site.spec.ts",
+      "frontend/e2e/marketing-navigation.spec.ts"
+    ],
+    "configFile": "C:\\Users\\tyler\\Documents\\MyChurch\\playwright.config.ts",
+    "rootDir": "C:/Users/tyler/Documents/MyChurch/frontend/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/tyler/Documents/MyChurch/frontend/test-results/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "C:/Users/tyler/Documents/MyChurch/frontend/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "*.spec.ts"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\test-results\\artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e",
+        "snapshotDir": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e",
+        "testIgnore": [],
+        "testMatch": "*.spec.ts",
+        "timeout": 90000,
+        "use": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium",
+          "baseURL": "http://127.0.0.1:3002",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "launchOptions": {
+            "executablePath": "C:/Program Files/Google/Chrome/Application/chrome.exe"
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "frontend/playwright-report",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "frontend/test-results/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "node backend/scripts/e2e-stack.mjs",
+      "url": "http://127.0.0.1:3002",
+      "timeout": 180000,
+      "reuseExistingServer": false,
+      "stdout": "pipe",
+      "stderr": "pipe"
+    }
+  },
+  "suites": [
+    {
+      "title": "marketing-navigation.spec.ts",
+      "file": "marketing-navigation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "1.2.15 focused public pages preserve the approved layout and accessibility",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 25860,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:30:05.665Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "596442d6bcab7728dfce-982ff20fca2aed5cedc7",
+          "file": "marketing-navigation.spec.ts",
+          "line": 9,
+          "column": 1
+        },
+        {
+          "title": "1.2.15 navigation, disclosure, keyboard, examples, and tour work in the application",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 16652,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { level: 1 })\nExpected substring: \u001b[32m\"Let Sunday\"\u001b[39m\nReceived string:    \u001b[31m\"More room forthe message to grow.\"\u001b[39m\nTimeout: 15000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('heading', { level: 1 }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { level: 1 })\u001b[22m\n\u001b[2m    34 × locator resolved to <h1>…</h1>\u001b[22m\n\u001b[2m       - unexpected value \"More room forthe message to grow.\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { level: 1 })\nExpected substring: \u001b[32m\"Let Sunday\"\u001b[39m\nReceived string:    \u001b[31m\"More room forthe message to grow.\"\u001b[39m\nTimeout: 15000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('heading', { level: 1 }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { level: 1 })\u001b[22m\n\u001b[2m    34 × locator resolved to <h1>…</h1>\u001b[22m\n\u001b[2m       - unexpected value \"More room forthe message to grow.\"\u001b[22m\n\n    at C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\marketing-navigation.spec.ts:64:57",
+                    "location": {
+                      "file": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\marketing-navigation.spec.ts",
+                      "column": 57,
+                      "line": 64
+                    },
+                    "snippet": "  62 |   await expect(page).toHaveURL('/why-rooted');\n  63 |   await page.goBack(); await expect(page).toHaveURL('/#main');\n> 64 |   await expect(page.getByRole('heading', { level: 1 })).toContainText('Let Sunday');\n     |                                                         ^\n  65 |   await page.goForward(); await expect(page).toHaveURL('/why-rooted');\n  66 |   await page.getByRole('button', { name: 'Before Sunday', exact: true }).click();\n  67 |   await expect(page.getByText('Pray & anticipate', { exact: true })).toBeVisible();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\marketing-navigation.spec.ts",
+                        "column": 57,
+                        "line": 64
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { level: 1 })\nExpected substring: \u001b[32m\"Let Sunday\"\u001b[39m\nReceived string:    \u001b[31m\"More room forthe message to grow.\"\u001b[39m\nTimeout: 15000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('heading', { level: 1 }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { level: 1 })\u001b[22m\n\u001b[2m    34 × locator resolved to <h1>…</h1>\u001b[22m\n\u001b[2m       - unexpected value \"More room forthe message to grow.\"\u001b[22m\n\n\n  62 |   await expect(page).toHaveURL('/why-rooted');\n  63 |   await page.goBack(); await expect(page).toHaveURL('/#main');\n> 64 |   await expect(page.getByRole('heading', { level: 1 })).toContainText('Let Sunday');\n     |                                                         ^\n  65 |   await page.goForward(); await expect(page).toHaveURL('/why-rooted');\n  66 |   await page.getByRole('button', { name: 'Before Sunday', exact: true }).click();\n  67 |   await expect(page.getByText('Pray & anticipate', { exact: true })).toBeVisible();\n    at C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\marketing-navigation.spec.ts:64:57"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:30:31.841Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\test-results\\artifacts\\marketing-navigation-1-2-1-eabb3-our-work-in-the-application\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\test-results\\artifacts\\marketing-navigation-1-2-1-eabb3-our-work-in-the-application\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\test-results\\artifacts\\marketing-navigation-1-2-1-eabb3-our-work-in-the-application\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\marketing-navigation.spec.ts",
+                    "column": 57,
+                    "line": 64
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "596442d6bcab7728dfce-97006197fbea0848131f",
+          "file": "marketing-navigation.spec.ts",
+          "line": 56,
+          "column": 1
+        },
+        {
+          "title": "1.2.15 legacy homepage links resolve without Back loops and preserve requested examples",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 150000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 18841,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:30:50.865Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "596442d6bcab7728dfce-0af422f5263d717960e2",
+          "file": "marketing-navigation.spec.ts",
+          "line": 117,
+          "column": 1
+        },
+        {
+          "title": "1.2.15 server-rendered public navigation works without JavaScript",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1278,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:31:10.135Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "596442d6bcab7728dfce-ab96dec59cc89d134c99",
+          "file": "marketing-navigation.spec.ts",
+          "line": 136,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "public-site.spec.ts",
+      "file": "public-site.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "1.2.15 anonymous public pages match the design, work by keyboard and do not call AI",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7902,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:31:11.475Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b5ee33d81fbb128f3ae4-07cfc61d4822bd090452",
+          "file": "public-site.spec.ts",
+          "line": 28,
+          "column": 1
+        },
+        {
+          "title": "1.2.13 leader sign-in creates one persisted church after uncertain response and shows actual roles",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5246,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: not \u001b[32m\"content:approve\"\u001b[39m\nReceived array:     \u001b[31m[\"workspace:read\", \"memberships:manage\", \"admin:manage\", \"settings:manage\", \"privacy:manage\", \"audit:read\", \"series:manage\", \"sermons:create\", \"studies:delete\", \"engagement:read\", \"plans:approve\", \u001b[7m\"content:approve\"\u001b[27m, \"publication:schedule\", \"comments:write\", \"policy:manage\"]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: not \u001b[32m\"content:approve\"\u001b[39m\nReceived array:     \u001b[31m[\"workspace:read\", \"memberships:manage\", \"admin:manage\", \"settings:manage\", \"privacy:manage\", \"audit:read\", \"series:manage\", \"sermons:create\", \"studies:delete\", \"engagement:read\", \"plans:approve\", \u001b[7m\"content:approve\"\u001b[27m, \"publication:schedule\", \"comments:write\", \"policy:manage\"]\u001b[39m\n    at C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\public-site.spec.ts:77:121",
+                    "location": {
+                      "file": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\public-site.spec.ts",
+                      "column": 121,
+                      "line": 77
+                    },
+                    "snippet": "  75 |   const session=await(await page.request.get('/api/v1/auth/session')).json();const church=session.churches.find((c:{slug:string})=>c.slug===slug);\n  76 |   expect(session.churches.filter((c:{slug:string})=>c.slug===slug)).toHaveLength(1);\n> 77 |   for(const grant of ['ai:use','content:edit','content:approve','publication:schedule'])expect(church.capabilities).not.toContain(grant);\n     |                                                                                                                         ^\n  78 |   await expect(page.getByRole('link',{name:'Create a study →',exact:true})).toHaveCount(0);await expect(page.getByRole('link',{name:'Invite your team →'})).toBeVisible();\n  79 |   await screenshot(page,'first-steps-desktop');await accessible(page);await page.setViewportSize({width:390,height:844});await screenshot(page,'first-steps-mobile');expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await page.reload();await expect(page.getByRole('heading',{level:1})).toContainText('New Rhythm Church');\n  80 |   await page.goto('/onboarding/complete?church=00000000-0000-4000-8000-000000000000');await expect(page.getByRole('heading',{name:'Church access isn’t available.'})).toBeVisible();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\public-site.spec.ts",
+                        "column": 121,
+                        "line": 77
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: not \u001b[32m\"content:approve\"\u001b[39m\nReceived array:     \u001b[31m[\"workspace:read\", \"memberships:manage\", \"admin:manage\", \"settings:manage\", \"privacy:manage\", \"audit:read\", \"series:manage\", \"sermons:create\", \"studies:delete\", \"engagement:read\", \"plans:approve\", \u001b[7m\"content:approve\"\u001b[27m, \"publication:schedule\", \"comments:write\", \"policy:manage\"]\u001b[39m\n\n  75 |   const session=await(await page.request.get('/api/v1/auth/session')).json();const church=session.churches.find((c:{slug:string})=>c.slug===slug);\n  76 |   expect(session.churches.filter((c:{slug:string})=>c.slug===slug)).toHaveLength(1);\n> 77 |   for(const grant of ['ai:use','content:edit','content:approve','publication:schedule'])expect(church.capabilities).not.toContain(grant);\n     |                                                                                                                         ^\n  78 |   await expect(page.getByRole('link',{name:'Create a study →',exact:true})).toHaveCount(0);await expect(page.getByRole('link',{name:'Invite your team →'})).toBeVisible();\n  79 |   await screenshot(page,'first-steps-desktop');await accessible(page);await page.setViewportSize({width:390,height:844});await screenshot(page,'first-steps-mobile');expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await page.reload();await expect(page.getByRole('heading',{level:1})).toContainText('New Rhythm Church');\n  80 |   await page.goto('/onboarding/complete?church=00000000-0000-4000-8000-000000000000');await expect(page.getByRole('heading',{name:'Church access isn’t available.'})).toBeVisible();\n    at C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\public-site.spec.ts:77:121"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:31:19.392Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\test-results\\artifacts\\public-site-1-2-13-leader--73ffa-onse-and-shows-actual-roles\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\test-results\\artifacts\\public-site-1-2-13-leader--73ffa-onse-and-shows-actual-roles\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\test-results\\artifacts\\public-site-1-2-13-leader--73ffa-onse-and-shows-actual-roles\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\tyler\\Documents\\MyChurch\\frontend\\e2e\\public-site.spec.ts",
+                    "column": 121,
+                    "line": 77
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b5ee33d81fbb128f3ae4-1f862017ae9c67f089fa",
+          "file": "public-site.spec.ts",
+          "line": 58,
+          "column": 1
+        },
+        {
+          "title": "1.2.13 member entry rejects external links and accepts only an identity-bound invitation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5313,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:31:28.580Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b5ee33d81fbb128f3ae4-91745acd1fbde1933727",
+          "file": "public-site.spec.ts",
+          "line": 83,
+          "column": 1
+        },
+        {
+          "title": "1.2.13 identity continuation rejects external targets, survives callback and cannot be replayed",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3012,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:31:34.265Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b5ee33d81fbb128f3ae4-8221268c4bce547c13de",
+          "file": "public-site.spec.ts",
+          "line": 94,
+          "column": 1
+        },
+        {
+          "title": "1.2.13 guest member and workspace deep links use the supported sign-in flow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3514,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T18:31:37.296Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b5ee33d81fbb128f3ae4-8a11a1912143b03298fc",
+          "file": "public-site.spec.ts",
+          "line": 104,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-30T18:29:59.297Z",
+    "duration": 103264.62999999999,
+    "expected": 7,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

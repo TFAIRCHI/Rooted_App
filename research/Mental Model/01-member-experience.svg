@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="690" viewBox="0 0 1200 690" role="img" aria-labelledby="title desc">
+  <title id="title">Rooted member experience</title>
+  <desc id="desc">A member opens a church page, reads a published study, signs in by email code only when required, may use optional reader and community actions, and returns to the church studies.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#456b65"/></marker><style>
+    text{font-family:Segoe UI,Arial,sans-serif;fill:#203b38}.title{font-size:28px;font-weight:700}.label{font-size:18px;font-weight:600}.small{font-size:15px}.box{fill:#f4f8f6;stroke:#668c82;stroke-width:2;rx:16}.decision{fill:#fff8e8;stroke:#b48b3e;stroke-width:2}.line{fill:none;stroke:#456b65;stroke-width:2.5;marker-end:url(#arrow)}.optional{fill:#eff4ff;stroke:#7183ab;stroke-width:2;rx:16}
+  </style></defs>
+  <rect width="1200" height="690" fill="#fff"/><text x="50" y="52" class="title">Member experience · find, read, respond</text>
+  <rect x="55" y="115" width="210" height="76" class="box"/><text x="160" y="146" text-anchor="middle" class="label">Open church link</text><text x="160" y="171" text-anchor="middle" class="small">Church studies page</text>
+  <path d="M265 153H330" class="line"/>
+  <rect x="335" y="115" width="220" height="76" class="box"/><text x="445" y="146" text-anchor="middle" class="label">Choose a study</text><text x="445" y="171" text-anchor="middle" class="small">Published and authorized</text>
+  <path d="M555 153H620" class="line"/>
+  <rect x="625" y="105" width="285" height="96" class="box"/><text x="767" y="140" text-anchor="middle" class="label">Study reader</text><text x="767" y="166" text-anchor="middle" class="small">Scripture · reflection · consider</text><text x="767" y="188" text-anchor="middle" class="small">Application · prayer</text>
+  <path d="M910 153H970" class="line"/><polygon points="1030,103 1090,153 1030,203 970,153" class="decision"/><text x="1030" y="148" text-anchor="middle" class="small">Account</text><text x="1030" y="168" text-anchor="middle" class="small">needed?</text>
+  <path d="M1030 203V275H860" class="line"/><text x="1044" y="245" class="small">Yes</text>
+  <rect x="630" y="242" width="225" height="78" class="optional"/><text x="742" y="273" text-anchor="middle" class="label">Email one-time code</text><text x="742" y="298" text-anchor="middle" class="small">Member sign-in</text>
+  <path d="M742 320V370" class="line"/><rect x="630" y="375" width="225" height="75" class="box"/><text x="742" y="406" text-anchor="middle" class="label">Member session</text><text x="742" y="430" text-anchor="middle" class="small">No contributor privileges</text>
+  <path d="M742 450V515H520" class="line"/><path d="M1030 203V515H870" class="line"/><text x="1044" y="385" class="small">No</text>
+  <rect x="300" y="480" width="570" height="100" class="optional"/><text x="585" y="512" text-anchor="middle" class="label">Optional reader and community actions</text><text x="585" y="539" text-anchor="middle" class="small">Listen · mark complete in browser storage · participate if enabled and authorized</text><text x="585" y="562" text-anchor="middle" class="small">If a feature is unavailable, continue reading</text>
+  <path d="M585 580V625H160V200" class="line"/><text x="380" y="652" class="small">Return to church studies and revisit</text>
+</svg>

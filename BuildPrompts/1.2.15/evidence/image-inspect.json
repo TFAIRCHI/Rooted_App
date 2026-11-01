@@ -1,0 +1,8 @@
+{
+  "Id": "sha256:cada40492dd89414805358efc375b78ae0132142791b93e64a56183bb6de10f4",
+  "Os": "linux",
+  "Architecture": "amd64",
+  "User": "node",
+  "Version": "1.2.15",
+  "Source": "sha256:9d7fb2ea255238a1d286439a468899f8a7660d1fb79b6a66c54f48a5e7d7bd70"
+}

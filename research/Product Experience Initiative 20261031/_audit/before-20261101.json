@@ -1,0 +1,642 @@
+{
+  "capturedAt": "2026-11-01T12:14:31.747Z",
+  "root": "research/Product Experience Initiative 20261031",
+  "files": [
+    {
+      "path": "architecture/product-architecture.mmd",
+      "bytes": 1255,
+      "sha256": "fdac0a636369cc16a846bdc8f9eb5b56ddfc2be254b746dde0c5375e49d8afdf",
+      "mtime": "2026-11-01T03:51:05.181Z"
+    },
+    {
+      "path": "architecture/product-architecture.png",
+      "bytes": 268293,
+      "sha256": "46701733c332169365426ee014a3cf864a113ee32b5c2335a21236ec5e356125",
+      "mtime": "2026-11-01T03:56:22.103Z"
+    },
+    {
+      "path": "architecture/product-architecture.svg",
+      "bytes": 10056,
+      "sha256": "2960187f971c4eb0664f23524f5bd6e944efc0c2bef27c0ecdc34c8f7f58948d",
+      "mtime": "2026-11-01T03:56:21.877Z"
+    },
+    {
+      "path": "architecture/README.md",
+      "bytes": 3758,
+      "sha256": "0cae1fcb021c61c255fb97e39be05bfa6e3dc74f798d383e8f32042a390c53a5",
+      "mtime": "2026-11-01T03:51:05.179Z"
+    },
+    {
+      "path": "architecture/render-overview.mjs",
+      "bytes": 6004,
+      "sha256": "c228c135fac1855b012123ee626c75ae62e8a171fe2cd1a402f670c1e324cc97",
+      "mtime": "2026-11-01T03:56:21.442Z"
+    },
+    {
+      "path": "architecture/technical-feasibility.md",
+      "bytes": 22132,
+      "sha256": "1d8c22562fa993f50f99b0146820403e857aae56e10666e9422d28676764cc41",
+      "mtime": "2026-11-01T03:44:24.455Z"
+    },
+    {
+      "path": "DECISIONS_AND_ROADMAP.md",
+      "bytes": 10432,
+      "sha256": "bc46dd4498a71a2bbb9eee924e920faf2a667f105c2b7fcef340f103f029ad01",
+      "mtime": "2026-11-01T03:51:05.178Z"
+    },
+    {
+      "path": "evidence/application-source-baseline.json",
+      "bytes": 32436,
+      "sha256": "49dec6e98fc9af6b160029bb2cf6bdd2c018425c014eca84c1070be93f3812ff",
+      "mtime": "2026-11-01T03:32:48.627Z"
+    },
+    {
+      "path": "evidence/application-source-preservation.json",
+      "bytes": 295,
+      "sha256": "da5d343a8406a645834078c0bcf374baa3eb3a0e50a67dad7544d1e6e36f8de1",
+      "mtime": "2026-11-01T03:54:33.212Z"
+    },
+    {
+      "path": "evidence/approval-roundtrip.json",
+      "bytes": 4504,
+      "sha256": "fbe1891ce7a856dbb5006eded1a0af8dbe39a8272b471269af0ae2a9f1dd791f",
+      "mtime": "2026-11-01T03:39:41.199Z"
+    },
+    {
+      "path": "evidence/approval-roundtrip.ts",
+      "bytes": 18378,
+      "sha256": "bde3077afd50687ff184521e014c4f4c38c696a44cf0da71db857b0f0e40a9d2",
+      "mtime": "2026-11-01T03:39:23.235Z"
+    },
+    {
+      "path": "evidence/artifact-validation.json",
+      "bytes": 5003,
+      "sha256": "436f322327a91663261156cf3b81bea3a922eba631886a20dfbca687fde81378",
+      "mtime": "2026-11-01T03:55:25.878Z"
+    },
+    {
+      "path": "evidence/engineering-peer-browser.json",
+      "bytes": 2368,
+      "sha256": "1174ccdcc1955a2c046f951c6de57413fe26c481a3fc5e76f49f4ce6a5544f8a",
+      "mtime": "2026-11-01T03:43:17.314Z"
+    },
+    {
+      "path": "evidence/engineering-peer-browser.mjs",
+      "bytes": 5315,
+      "sha256": "7075901468057100a7e5565dce4ae5d470d4ed7158831301fc4a52ecb6187c3a",
+      "mtime": "2026-11-01T03:43:10.305Z"
+    },
+    {
+      "path": "evidence/engineering-runtime-results.json",
+      "bytes": 1293,
+      "sha256": "448058c1e951bd2667038174d811f867f6aebbfd71f20e75631cb792a78e7802",
+      "mtime": "2026-11-01T03:32:55.729Z"
+    },
+    {
+      "path": "evidence/engineering-runtime-spike.ts",
+      "bytes": 3503,
+      "sha256": "11439da298dd6974f5ded709f78fe308d71ca31fde9b8380ad7a5688a20c6ee3",
+      "mtime": "2026-11-01T03:32:52.159Z"
+    },
+    {
+      "path": "evidence/engineering-spike-results.json",
+      "bytes": 3576,
+      "sha256": "00afdcb670f83d2dd65655eccb19eb0e016ebc6092285d58e2cf5c0d5242fd79",
+      "mtime": "2026-11-01T03:32:29.363Z"
+    },
+    {
+      "path": "evidence/engineering-spike.py",
+      "bytes": 10599,
+      "sha256": "8c09a9e4cef58c32c978cb396be5b1e2b8aa997e9aa5603ca21cccd252d0cdf4",
+      "mtime": "2026-11-01T03:32:10.798Z"
+    },
+    {
+      "path": "evidence/engineering-validation.md",
+      "bytes": 14002,
+      "sha256": "01fdc6c708afbe9943b3b72cba910a86ac094327bef9207f2640ad082ae3455d",
+      "mtime": "2026-11-01T03:37:13.137Z"
+    },
+    {
+      "path": "evidence/member-peer-review-results.json",
+      "bytes": 6165,
+      "sha256": "fd30ee098cbc58d6be254df06da996c97cfc910b700d34aeb82a31ee77082cc7",
+      "mtime": "2026-11-01T03:39:46.323Z"
+    },
+    {
+      "path": "evidence/member-peer-review.mjs",
+      "bytes": 4063,
+      "sha256": "f821b79e9c77683e2ea9fed451fd83c77b7c07b7bf66816619b2d94e3136e585",
+      "mtime": "2026-11-01T03:39:33.842Z"
+    },
+    {
+      "path": "evidence/member-review-phone-390.png",
+      "bytes": 39469,
+      "sha256": "92d6ef0a65caf0cea4b30dba40fedd8fb385b0e083d70f0529cf272517575a12",
+      "mtime": "2026-11-01T03:39:37.635Z"
+    },
+    {
+      "path": "evidence/member-review-reader-390.png",
+      "bytes": 80990,
+      "sha256": "dc01543ecb4af831f06f409f94587a643f06d9d0e5a28269628f110b1990e3b6",
+      "mtime": "2026-11-01T03:39:38.791Z"
+    },
+    {
+      "path": "evidence/member-review-share-390.png",
+      "bytes": 72426,
+      "sha256": "cc7e2ea7025d803134ca14c723483a1492f2a2704fb109a7e76ad3e4eaf86b53",
+      "mtime": "2026-11-01T03:39:38.514Z"
+    },
+    {
+      "path": "evidence/synthetic-deck-1.png",
+      "bytes": 70317,
+      "sha256": "742b701e18a13ad9fa8062254a36072422c1c7c9eb5dbaa8cc57de4d2d5c63ce",
+      "mtime": "2026-11-01T03:32:55.584Z"
+    },
+    {
+      "path": "evidence/synthetic-deck-2.png",
+      "bytes": 71428,
+      "sha256": "3492006ef15d7e929b8ebd59ad2a247418b73ced2b2600030ab6ccdd06e69bb7",
+      "mtime": "2026-11-01T03:32:55.642Z"
+    },
+    {
+      "path": "evidence/synthetic-deck-3.png",
+      "bytes": 72143,
+      "sha256": "d87345134ab3cc33bcdf46b7a0ae3660e8cdb56f0d243ddc67b6c44819633724",
+      "mtime": "2026-11-01T03:32:55.706Z"
+    },
+    {
+      "path": "evidence/synthetic-fixtures/sermon-notes.docx",
+      "bytes": 318,
+      "sha256": "2ca12a41e2b62581e01e65824f5c8db66f5f6ac41a8e8d2e164a1fb1c318e11c",
+      "mtime": "2026-11-01T03:32:29.339Z"
+    },
+    {
+      "path": "evidence/synthetic-fixtures/study-context.xlsx",
+      "bytes": 1004,
+      "sha256": "1c3dd854ca9e458524d6a614e76feec8f4904d10a032b720b740142b2689f264",
+      "mtime": "2026-11-01T03:32:29.347Z"
+    },
+    {
+      "path": "items/01-cowriter-context-inputs.md",
+      "bytes": 6233,
+      "sha256": "bfc6b00c45aab506f27a07122429f9882d00c248a4b809c6715c1168da6003f6",
+      "mtime": "2026-11-01T03:47:02.128Z"
+    },
+    {
+      "path": "items/02-social-sharing.md",
+      "bytes": 6119,
+      "sha256": "3ef3f07d018b9d5cad8226eabcc2a32b21b2e757985fe07a38a8b1435a764f72",
+      "mtime": "2026-11-01T03:47:02.130Z"
+    },
+    {
+      "path": "items/03-real-cowriter-demonstration.md",
+      "bytes": 5390,
+      "sha256": "a16ad0c5de9e034f2f3d9dfde76725141b64527cc4cf5a30aa7553d496e3279f",
+      "mtime": "2026-11-01T03:47:02.133Z"
+    },
+    {
+      "path": "items/04-compact-contributor-workspace.md",
+      "bytes": 6086,
+      "sha256": "179c983bfa50e311f6e3a11965853cef35860046ecec5193803ac6a34f4b0456",
+      "mtime": "2026-11-01T03:47:02.135Z"
+    },
+    {
+      "path": "items/05-studio-creator.md",
+      "bytes": 6338,
+      "sha256": "59e7d3fe8af0798d003527c6c7f0e16929717ee8f972555b5adb63809fbc22eb",
+      "mtime": "2026-11-01T03:47:02.138Z"
+    },
+    {
+      "path": "items/06-member-access.md",
+      "bytes": 7118,
+      "sha256": "3755473544f770130757a41698dae93f7cf97395093cd8f9c88e4b7f1ba619e7",
+      "mtime": "2026-11-01T03:47:02.140Z"
+    },
+    {
+      "path": "items/07-approval-conversation.md",
+      "bytes": 17978,
+      "sha256": "2e11c28d5fe21c527360eecb00e3f3ac78c328563aa7b70cc86a56b4fd9c9954",
+      "mtime": "2026-11-01T03:56:22.401Z"
+    },
+    {
+      "path": "mockups/app.js",
+      "bytes": 55995,
+      "sha256": "838cb7b9074828acc7badcfaabc339ac9c0a737a28a7850387926dc20cb3fdf8",
+      "mtime": "2026-11-01T03:48:05.949Z"
+    },
+    {
+      "path": "mockups/assets/member-home.webp",
+      "bytes": 56586,
+      "sha256": "59b34c01449497d6d2cf31e642cd306c24973a0a5921eaf00d96cc89515eea49",
+      "mtime": "2026-10-28T11:42:20.258Z"
+    },
+    {
+      "path": "mockups/assets/member-study.webp",
+      "bytes": 54324,
+      "sha256": "0aa2f97bc99202ab9da4c2198587336057d636f2a1eca97516056562c06f8c07",
+      "mtime": "2026-10-28T11:45:38.680Z"
+    },
+    {
+      "path": "mockups/assets/team-editor.webp",
+      "bytes": 50332,
+      "sha256": "c8a80237e34c798e4f62cfe2f5c3bd2a3a9e23927d7937f756dfce2030a8af61",
+      "mtime": "2026-10-28T11:43:33.103Z"
+    },
+    {
+      "path": "mockups/browser-validation.json",
+      "bytes": 7549,
+      "sha256": "735a097a35b44027d3dff4d161a71955612c7e188360a709d2c94cf9bb588729",
+      "mtime": "2026-11-01T03:43:38.082Z"
+    },
+    {
+      "path": "mockups/capture.mjs",
+      "bytes": 10620,
+      "sha256": "4ae7a99edabc43b5f638d1cd0bd06386ce18ab940027a558fc4b6a32d7dd14c4",
+      "mtime": "2026-11-01T03:46:21.976Z"
+    },
+    {
+      "path": "mockups/captures/00-storyboard.png",
+      "bytes": 110251,
+      "sha256": "d60b816dc37edaa5567562b0de74c8550bd67ee31dbddb6680976d23a9614cb7",
+      "mtime": "2026-11-01T03:43:17.136Z"
+    },
+    {
+      "path": "mockups/captures/01-workspace-overview.png",
+      "bytes": 124459,
+      "sha256": "194d9b4827356979e5c33a57c58c14621823eabac8dedfd5942dfbe201c9d506",
+      "mtime": "2026-11-01T03:43:17.586Z"
+    },
+    {
+      "path": "mockups/captures/02-source-word-review.png",
+      "bytes": 119174,
+      "sha256": "4cb933ddb18d791c665c877bdb11b6da4a3d8080aa0104f960ab18a1e55826bc",
+      "mtime": "2026-11-01T03:43:17.956Z"
+    },
+    {
+      "path": "mockups/captures/03-source-website-review.png",
+      "bytes": 124364,
+      "sha256": "e2c0f09d223ff40aa313a2beadc0decdea227654b3bcab04d5bb898c6f750f92",
+      "mtime": "2026-11-01T03:43:18.316Z"
+    },
+    {
+      "path": "mockups/captures/04-source-youtube-review.png",
+      "bytes": 123259,
+      "sha256": "78f7dd90d573caa95926dcdd1f99ba6cfb50a537923e6e48430901d17d146965",
+      "mtime": "2026-11-01T03:43:18.634Z"
+    },
+    {
+      "path": "mockups/captures/05-source-excel-review.png",
+      "bytes": 124282,
+      "sha256": "aadc676b2cc6d5c6a4aefcd969533c7e0d833fd99870facd79e8f2cf6b9033aa",
+      "mtime": "2026-11-01T03:43:18.948Z"
+    },
+    {
+      "path": "mockups/captures/06-source-empty.png",
+      "bytes": 108115,
+      "sha256": "cfd18233474c0ad02ff3027c0d1c3ee4e72f0892d9db9c6a9f185a9874e6bfb4",
+      "mtime": "2026-11-01T03:43:19.245Z"
+    },
+    {
+      "path": "mockups/captures/07-source-error.png",
+      "bytes": 107109,
+      "sha256": "fa20f9b755291fd52d45133eefff9bf5c500540ec4cfcd3d16d43f13d8e21dcf",
+      "mtime": "2026-11-01T03:43:19.536Z"
+    },
+    {
+      "path": "mockups/captures/08-cowriter-proposal.png",
+      "bytes": 127361,
+      "sha256": "795060ab390c21fe3ff21e5202f40375086aa5bf3b20abdc29df4e13e8e65f50",
+      "mtime": "2026-11-01T03:43:20.080Z"
+    },
+    {
+      "path": "mockups/captures/09-deck-author.png",
+      "bytes": 128384,
+      "sha256": "016c5c3a94489be1ac2ffd160ff71c55d4989a8a1d4e175a6996c5d45709de1a",
+      "mtime": "2026-11-01T03:43:20.413Z"
+    },
+    {
+      "path": "mockups/captures/10-deck-approval.png",
+      "bytes": 128384,
+      "sha256": "235e306811fa1bb570785787a5f115d3c5953bb2773265d0c78a867e1198ecd4",
+      "mtime": "2026-11-01T03:43:20.729Z"
+    },
+    {
+      "path": "mockups/captures/11-deck-stale.png",
+      "bytes": 128655,
+      "sha256": "da3375bb72ee85f7814d27ae3766d8d9e61869fd5243af975d3cf9c246796812",
+      "mtime": "2026-11-01T03:48:09.618Z"
+    },
+    {
+      "path": "mockups/captures/12-homepage-demo.png",
+      "bytes": 84145,
+      "sha256": "c07727024bee0a0c012623628ab6e9897340cf30c69f2bfd95ae735cb24f8e83",
+      "mtime": "2026-11-01T03:43:21.432Z"
+    },
+    {
+      "path": "mockups/captures/13-studio-diagram.png",
+      "bytes": 146148,
+      "sha256": "c3949bfe6576cac95caedd78689b13983df04a8f67a825b4f48c47fed3c01764",
+      "mtime": "2026-11-01T03:43:21.793Z"
+    },
+    {
+      "path": "mockups/captures/14-studio-chart.png",
+      "bytes": 133484,
+      "sha256": "d2aaf73ad78b732ab2af709bdd8fb819aa85ec8bf3865573fd6fe4373bc9c5c2",
+      "mtime": "2026-11-01T03:43:22.214Z"
+    },
+    {
+      "path": "mockups/captures/15-studio-video-empty.png",
+      "bytes": 141923,
+      "sha256": "3b370bd64c7bfdb8ec68ccbb06698544703ebcf1ff04eeadb6b6ada177369eb6",
+      "mtime": "2026-11-01T03:43:22.603Z"
+    },
+    {
+      "path": "mockups/captures/16-immersive-preview.png",
+      "bytes": 109117,
+      "sha256": "bda80318dfae162d62e6e1e44846c7eee03e8bbcee3d533d2dff02df89abdbf3",
+      "mtime": "2026-11-01T03:43:22.927Z"
+    },
+    {
+      "path": "mockups/captures/17-review-conversation.png",
+      "bytes": 151341,
+      "sha256": "23140fc4898b64e3cbb73af4b9c2fae269f6c725a1702d1b84efc50201c3c608",
+      "mtime": "2026-11-01T03:43:23.284Z"
+    },
+    {
+      "path": "mockups/captures/18-church-qr.png",
+      "bytes": 78975,
+      "sha256": "3f0a29489b8d8bad1504557b46a7e09a01a5abeb558626bd2ec930fc3b1dd3b7",
+      "mtime": "2026-11-01T03:43:23.596Z"
+    },
+    {
+      "path": "mockups/captures/19-phone-welcome.png",
+      "bytes": 39500,
+      "sha256": "6fe386ae4218149c2786645f96d65ddb481b61d060ca7a6bce95143c95495f4b",
+      "mtime": "2026-11-01T03:43:23.845Z"
+    },
+    {
+      "path": "mockups/captures/20-phone-verification.png",
+      "bytes": 33940,
+      "sha256": "cfcc92826c62c4114d4d62806acd07daf690f716b869ec6dc4fffb92d2bebdef",
+      "mtime": "2026-11-01T03:43:24.079Z"
+    },
+    {
+      "path": "mockups/captures/21-phone-code-expired.png",
+      "bytes": 37784,
+      "sha256": "0c281c0c299af1c93617c107e91648cbe3d779014692490d59d6275727269b43",
+      "mtime": "2026-11-01T03:43:24.288Z"
+    },
+    {
+      "path": "mockups/captures/22-phone-confirm-name.png",
+      "bytes": 34508,
+      "sha256": "b33a9efbfb86337bb9e941e31e8d5bf5b5d0cfb6495e6c8f353b25a3918db433",
+      "mtime": "2026-11-01T03:43:24.528Z"
+    },
+    {
+      "path": "mockups/captures/23-phone-church-choice.png",
+      "bytes": 36572,
+      "sha256": "1dc4ac7cc6c630a187b42036684bc6273cfb1240ebd4a72d21b4e3ea71e282e2",
+      "mtime": "2026-11-01T03:43:24.756Z"
+    },
+    {
+      "path": "mockups/captures/24-phone-enrollment.png",
+      "bytes": 35038,
+      "sha256": "595dffe69db9dcd90f31e5893b1f50bef9a6592e7468b5e515efe1003451f5d6",
+      "mtime": "2026-11-01T03:43:24.972Z"
+    },
+    {
+      "path": "mockups/captures/25-phone-pending.png",
+      "bytes": 35238,
+      "sha256": "1f11fd978e4b280dda0639b2f1f9dd4bedb84d950bb7101ca277a28140eb8291",
+      "mtime": "2026-11-01T03:43:25.183Z"
+    },
+    {
+      "path": "mockups/captures/26-phone-identity-conflict.png",
+      "bytes": 34343,
+      "sha256": "b7f7d5fb9bc5fdd0325818dfef81d5965b190a6158350f205f79ee4985f65424",
+      "mtime": "2026-11-01T03:43:25.400Z"
+    },
+    {
+      "path": "mockups/captures/27-phone-reading-home.png",
+      "bytes": 40273,
+      "sha256": "1830939730d8aa9ca894e669e2ac1e18dbaaa13d52551a0a40496790c5040f2f",
+      "mtime": "2026-11-01T03:43:25.636Z"
+    },
+    {
+      "path": "mockups/captures/28-member-reading.png",
+      "bytes": 99725,
+      "sha256": "56e627e1926e2d6fcddfc6a161cf04c1bfbc33952416252d79a2e806dcf012e0",
+      "mtime": "2026-11-01T03:43:25.904Z"
+    },
+    {
+      "path": "mockups/captures/29-member-share.png",
+      "bytes": 66272,
+      "sha256": "9285b3c5d9306f9403542a56b81a849aca12fa9981110118731cf88b2d5c5861",
+      "mtime": "2026-11-01T03:43:26.141Z"
+    },
+    {
+      "path": "mockups/captures/30-member-share-options.png",
+      "bytes": 71758,
+      "sha256": "3ce2b3e46b41485f90d25204c2714cd9d0e0eddb5a712836b9edbb3b5fb8040e",
+      "mtime": "2026-11-01T03:43:26.489Z"
+    },
+    {
+      "path": "mockups/captures/31-mobile-workspace.png",
+      "bytes": 105021,
+      "sha256": "3b0cc24f54774335819336cc74518389d805520a5a6794103df85f2c3727d08a",
+      "mtime": "2026-11-01T03:43:26.788Z"
+    },
+    {
+      "path": "mockups/captures/32-mobile-studio.png",
+      "bytes": 107363,
+      "sha256": "9a1a7857ac8fb705c7701db333f2697bf8bde97b4672e676074da38bf068e501",
+      "mtime": "2026-11-01T03:43:27.100Z"
+    },
+    {
+      "path": "mockups/captures/33-mobile-demo.png",
+      "bytes": 57998,
+      "sha256": "cd308ee1eafe097c54ab2c5aef2ed049bcbe89b194feb030d63f1523b0ba9dda",
+      "mtime": "2026-11-01T03:43:27.338Z"
+    },
+    {
+      "path": "mockups/captures/34-mobile-review.png",
+      "bytes": 127005,
+      "sha256": "9f810a6f130e7745346a0280096274ebfda27ffc4aac47c19fed939a015dc5a8",
+      "mtime": "2026-11-01T03:43:27.623Z"
+    },
+    {
+      "path": "mockups/captures/35-compact-source-first-view.png",
+      "bytes": 95246,
+      "sha256": "22d9f351c03b62e34ff8bd68e2642a6abf6dba4fb89d611fced9f8ab6edd0379",
+      "mtime": "2026-11-01T03:43:27.881Z"
+    },
+    {
+      "path": "mockups/captures/36-compact-studio-first-view.png",
+      "bytes": 106462,
+      "sha256": "3072ff0963cf8ee5078999a51f581a92ef9c971640303bd3a8dadb2e2b6ddcb0",
+      "mtime": "2026-11-01T03:43:28.114Z"
+    },
+    {
+      "path": "mockups/captures/37-compact-review-first-view.png",
+      "bytes": 102358,
+      "sha256": "5d844006241ab90ec5ba39b3492704a6affb0a27c2f80e16957f06a4b202632f",
+      "mtime": "2026-11-01T03:43:28.342Z"
+    },
+    {
+      "path": "mockups/captures-manifest.json",
+      "bytes": 10910,
+      "sha256": "6a2837796c7befcb0f802cc0bc096e179ff66c8530eb072d48986d652073f4d9",
+      "mtime": "2026-11-01T03:43:38.081Z"
+    },
+    {
+      "path": "mockups/export-deck.mjs",
+      "bytes": 2305,
+      "sha256": "fceebd37d90dfd91ccfbf47fa3a2c90da5784809e0eaba5d9a66a4bee5e885d1",
+      "mtime": "2026-11-01T03:46:20.930Z"
+    },
+    {
+      "path": "mockups/exports/accessible-caption.txt",
+      "bytes": 456,
+      "sha256": "df48ca6c3502684c7f37b52a83bf79c828c26d4fbf8900793cdf375d37b7852f",
+      "mtime": "2026-11-01T03:46:26.165Z"
+    },
+    {
+      "path": "mockups/exports/grace-rooted-card-1.png",
+      "bytes": 73089,
+      "sha256": "c0b93d6a72525f99698b96ea8a6fba6e9711668042452ea676df60bebd625a47",
+      "mtime": "2026-11-01T03:46:25.646Z"
+    },
+    {
+      "path": "mockups/exports/grace-rooted-card-2.png",
+      "bytes": 96775,
+      "sha256": "0750dc69a93c6ece4e1dadf650e1e3bf14c3e88cc9f76a8e861b7b1a2539e75b",
+      "mtime": "2026-11-01T03:46:25.813Z"
+    },
+    {
+      "path": "mockups/exports/grace-rooted-card-3.png",
+      "bytes": 99464,
+      "sha256": "da8e9158726968603f2e8a2966f14891d3016d4c8107720215e44bd8359ab27d",
+      "mtime": "2026-11-01T03:46:26.005Z"
+    },
+    {
+      "path": "mockups/exports/grace-rooted-card-4.png",
+      "bytes": 94303,
+      "sha256": "cfd159a26e67d9f2b2416e4d62dc41ec58e52e58a0bdff4e78b05de2ab48af37",
+      "mtime": "2026-11-01T03:46:26.162Z"
+    },
+    {
+      "path": "mockups/finalize-block-renderer.mjs",
+      "bytes": 3919,
+      "sha256": "ed1670d98500edd6812d8643664400e0fdb79be3bccf7e95b7d175e5af8f0fc3",
+      "mtime": "2026-11-01T03:42:47.565Z"
+    },
+    {
+      "path": "mockups/index.html",
+      "bytes": 451,
+      "sha256": "534a4038b143b67b8a7a585df27b6bcff3ea564d85407fbcd65d479259894b9f",
+      "mtime": "2026-11-01T03:33:19.072Z"
+    },
+    {
+      "path": "mockups/keyboard-check.mjs",
+      "bytes": 1360,
+      "sha256": "d85545db5c95ae210315e156fb3c03e35857ca5700963eb43c9fc0389fdf0c0c",
+      "mtime": "2026-11-01T03:47:18.630Z"
+    },
+    {
+      "path": "mockups/keyboard-focus-validation.json",
+      "bytes": 9163,
+      "sha256": "e0debe0318d3a35944f3d595bb62266a94ef91086b057119dcefe5c96b330c3e",
+      "mtime": "2026-11-01T03:47:37.381Z"
+    },
+    {
+      "path": "mockups/README.md",
+      "bytes": 6841,
+      "sha256": "a11daa3e40220c523f53ff364f0d8cd4271a7fd80ef0208bbd3222d5d199e95a",
+      "mtime": "2026-11-01T03:48:10.566Z"
+    },
+    {
+      "path": "mockups/refine-member-flow.mjs",
+      "bytes": 3584,
+      "sha256": "dc5594bf9ca6e242de3d1faf871d9b853d358618d04c5f85ac422103dfddbe2b",
+      "mtime": "2026-11-01T03:38:24.297Z"
+    },
+    {
+      "path": "mockups/refine-workspace.mjs",
+      "bytes": 7016,
+      "sha256": "750881a4eecbbd2628037453137a88177c5367df42a35e944d7d027e0ca1b378",
+      "mtime": "2026-11-01T03:41:22.415Z"
+    },
+    {
+      "path": "mockups/serve.mjs",
+      "bytes": 973,
+      "sha256": "74fd710460dfbe3891be7e24161c08c68227a6af413ab7a63f5b61c125ccc41e",
+      "mtime": "2026-11-01T03:37:17.949Z"
+    },
+    {
+      "path": "mockups/styles.css",
+      "bytes": 27926,
+      "sha256": "05eb03b52b5193b0210590068193b9683e2f07b55069d50424d24dc991060690",
+      "mtime": "2026-11-01T03:47:31.748Z"
+    },
+    {
+      "path": "README.md",
+      "bytes": 8098,
+      "sha256": "e3c477969d35bc9cfd6991038df5f2c4dba8e4781f47674e8d3fa7dfc83b6192",
+      "mtime": "2026-11-01T03:51:05.177Z"
+    },
+    {
+      "path": "RESEARCH_CHARTER.md",
+      "bytes": 5232,
+      "sha256": "5a9e1b6dc35b409d27ac0a289fd363f58c3010564d91cf34599d52f86f11f2ac",
+      "mtime": "2026-11-01T03:34:18.627Z"
+    },
+    {
+      "path": "roles/church-member-assessment.md",
+      "bytes": 19064,
+      "sha256": "127b9265458ac63f93e2e9951ce5bc4b71bc0b1000713b8ac9b93839f7ee7c68",
+      "mtime": "2026-11-01T03:40:28.473Z"
+    },
+    {
+      "path": "roles/contributor-assessment.md",
+      "bytes": 22881,
+      "sha256": "88f704a3b2a2f42dffdbcbacd69fba78ddf9f2b8e1307206f74d7cddc528d445",
+      "mtime": "2026-11-01T03:48:33.133Z"
+    },
+    {
+      "path": "roles/contributor-peer-review.md",
+      "bytes": 8377,
+      "sha256": "cad1c0f7592cf17aac51fc9db898c7b314a769f2504a6e6cf31f9fc8f82bb2a3",
+      "mtime": "2026-11-01T03:48:33.131Z"
+    },
+    {
+      "path": "roles/data-engineer-assessment.md",
+      "bytes": 7019,
+      "sha256": "6590344f0b4552c4699480fe883afe691c03618a35cd79bdb9bb924c6e906528",
+      "mtime": "2026-11-01T03:44:24.461Z"
+    },
+    {
+      "path": "roles/engineering-peer-review.md",
+      "bytes": 7605,
+      "sha256": "3a9ce823a755850df6fe0c85a25a405a84d43a68359f1f0b2460a4fc438c6bce",
+      "mtime": "2026-11-01T03:44:24.465Z"
+    },
+    {
+      "path": "roles/ux-assessment.md",
+      "bytes": 11127,
+      "sha256": "68e0a5da73bb5b2784cd41c5e1c7216b8c8541b158d6423878eba58936ed828d",
+      "mtime": "2026-11-01T03:48:10.567Z"
+    },
+    {
+      "path": "SOURCES.md",
+      "bytes": 6144,
+      "sha256": "06a3d0378dca73021950288a6f14900673f48a29c4d1bc53406ff1142fdbff33",
+      "mtime": "2026-11-01T03:54:31.844Z"
+    },
+    {
+      "path": "VALIDATION.md",
+      "bytes": 9359,
+      "sha256": "89494d95b38018b7202f1cce928a51407c89eb048eb687cc567b03383e544671",
+      "mtime": "2026-11-01T03:56:22.402Z"
+    }
+  ]
+}

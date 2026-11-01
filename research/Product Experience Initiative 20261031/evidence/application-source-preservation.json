@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-11-01T12:38:11.156Z",
+  "scope": "Original app/build inputs and prior release inputs; research artifacts excluded",
+  "application": {
+    "checked": 215,
+    "changed": [],
+    "unchanged": 215
+  },
+  "priorRelease": {
+    "checked": 121,
+    "changed": [],
+    "unchanged": 121
+  },
+  "applicationBaselineByteUnchanged": true,
+  "pass": true
+}

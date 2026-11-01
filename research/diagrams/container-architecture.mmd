@@ -1,0 +1,16 @@
+flowchart LR
+    STAFF[Staff review interface] --> API[API modular monolith]
+    MEMBER[Member interface] --> API
+    IDP[OIDC identity provider] --> API
+    API --> DB[(PostgreSQL with FORCE RLS)]
+    API --> OBJ[(Private source objects)]
+    DB --> RELAY[Transactional outbox relay]
+    RELAY --> QUEUE[At-least-once queue]
+    QUEUE --> WORKER[Worker using shared domain modules]
+    WORKER --> DB
+    WORKER --> AI[AI draft adapter with no approval authority]
+    WORKER --> PROVIDER[Email and SMS adapters]
+    PROVIDER --> CALLBACK[Verified callbacks and reconciliation]
+    CALLBACK --> API
+    API --> OBS[Redacted telemetry and restricted audit]
+    WORKER --> OBS

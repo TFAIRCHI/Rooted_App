@@ -1,0 +1,157 @@
+/* Figma Make Mn74h4oE7djpVC1NdhbwDC: editor + co-writer only. Live Preview retains its existing styles. */
+.creator-main { container-type: inline-size; min-width: 0; }
+.creator-planning-header { margin-bottom: 20px; }
+.creator-study-meta { display: flex; justify-content: space-between; gap: 16px; align-items: center; padding: 16px 20px; background: var(--white); border: 1px solid var(--line); border-radius: 9px; margin-bottom: 16px; }
+.creator-study-meta > div > span { display: block; font-size: 10px; color: var(--muted); }
+.creator-study-meta strong { font: 21px/1.3 Georgia, serif; display: block; }
+.creator-study-meta > span { display: flex; gap: 8px; align-items: center; font-size: 12px; flex-shrink: 0; color: var(--teal); }
+.creator-day-tabs { display: flex; border: 1px solid var(--line); border-radius: 9px; background: #eeeee8; overflow-x: auto; }
+.creator-day-tabs a { display: flex; flex: 1; min-width: 64px; position: relative; gap: 8px; align-items: center; justify-content: center; padding: 16px 10px; border-right: 1px solid var(--line); color: #677a7c; }
+.creator-day-tabs a:last-child { border-right: 0; }
+.creator-day-tabs a[aria-current] { background: var(--white); color: var(--teal); box-shadow: inset 0 -3px var(--teal); }
+.creator-day-tabs span { font-size: 10px; text-transform: uppercase; font-weight: 700; letter-spacing: .08em; }
+.creator-day-tabs strong { font: 21px Georgia, serif; }
+.creator-day-tabs i { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: #58a879; top: 8px; right: 10px; }
+.creator-editing-area { display: grid; grid-template-columns: minmax(0,1fr); gap: 20px; align-items: start; }
+.creator-editing-area[hidden] { display: none; }
+.creator-editor-card { min-width: 0; padding: 28px; border-radius: 10px; box-shadow: 0 8px 28px #1a32350a; }
+.creator-editor-card .card-top { align-items: start; }
+.creator-editor-card .card-top h2 { font-size: 26px; overflow-wrap: anywhere; }
+.creator-editor-card .card-top .eyebrow { margin-bottom: 8px; font-size: 10px; }
+.creator-editor-card .save-status { font-size: 10px; text-align: right; max-width: 140px; }
+.creator-editor-card > p.muted { font-size: 12px; }
+.study-composer { margin: 0; padding: 0; border: 0; min-width: 0; }
+.creator-field { min-width: 0; margin-top: 20px; }
+.study-composer label { display: block; margin-bottom: 7px; color: #536a6e; font-size: 11px; font-weight: 600; }
+.study-composer input, .study-composer textarea { width: 100%; min-width: 0; background: white; border: 1px solid #c8cdc6; border-radius: 5px; font-size: 13px; padding: 11px 12px; margin: 0; }
+.study-composer textarea { min-height: 100px; resize: vertical; line-height: 1.65; }
+.study-composer input:focus, .study-composer textarea:focus { border-color: var(--teal); }
+.creator-label-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.creator-label-row > span { font-size: 10px; color: var(--muted); }
+.creator-scripture { position: relative; }
+.creator-scripture > svg { position: absolute; left: 12px; top: 13px; color: var(--teal); }
+.creator-scripture textarea { padding-left: 38px; min-height: 68px; }
+.creator-rich-editor { border: 1px solid #c8cdc6; border-radius: 6px; background: white; }
+.creator-toolbar { display: flex; align-items: center; gap: 4px; padding: 6px; border-bottom: 1px solid var(--line); background: #fafaf7; border-radius: 6px 6px 0 0; flex-wrap: wrap; }
+.creator-toolbar select, .creator-toolbar button { min-height: 32px; height: 32px; border: 0; border-radius: 4px; background: transparent; padding: 4px 8px; font-size: 12px; margin: 0; min-width: 32px; }
+.creator-toolbar select { width: auto; }
+.creator-toolbar button:hover { background: #eeeee8; }
+.creator-toolbar-separator { width: 1px; height: 20px; background: var(--line); margin: 0 4px; }
+.creator-rich-editor > textarea { min-height: 230px; border: 0; border-radius: 0; padding: 18px; box-shadow: none; }
+.creator-editor-footer { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px; border-top: 1px solid var(--line); }
+.creator-editor-footer > span { font-size: 10px; color: #677a7c; }
+.creator-add-media { color: var(--teal); background: #e9f4f0; border: 0; border-radius: 5px; font-size: 12px; padding: 6px 9px; }
+.creator-media-wrap { position: relative; }
+.creator-media-menu { position: absolute; bottom: calc(100% + 10px); left: 0; z-index: 4; width: min(280px, 65vw); padding: 6px; border: 1px solid var(--line); border-radius: 9px; background: white; box-shadow: 0 12px 32px #142f5324; }
+.creator-media-menu button { display: flex; align-items: center; justify-content: start; gap: 10px; width: 100%; padding: 10px; border: 0; background: transparent; text-align: left; }
+.creator-media-menu button > span { display: grid; place-items: center; width: 32px; height: 32px; flex-shrink: 0; border-radius: 5px; background: #e9f4f0; color: var(--teal); }
+.creator-media-menu strong, .creator-media-menu small { display: block; font-size: 12px; }
+.creator-media-menu small { font-size: 10px; margin-top: 3px; }
+.creator-link-form { margin-top: 12px; padding: 16px; background: #f3f4ee; border-radius: 6px; }
+.creator-link-form input { margin-bottom: 12px; }
+.creator-link-form p { margin: 10px 0 0; }
+.creator-local-media { margin: 12px; padding: 12px; border: 1px solid var(--line); border-radius: 6px; }
+.creator-local-media img, .creator-local-media video { display: block; max-width: 100%; max-height: 200px; margin: 0 auto 10px; }
+.creator-local-media figcaption { overflow-wrap: anywhere; font-size: 12px; }
+.creator-local-media figcaption span { display: block; font-size: 10px; color: var(--muted); }
+.creator-local-media button { padding: 5px; font-size: 11px; margin-top: 6px; }
+.creator-prompt-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+.creator-message-details { margin-top: 18px; font-size: 12px; }
+.creator-message-details textarea { margin-top: 12px; }
+.study-cowriter { display: flex; flex-direction: column; min-width: 0; border: 1px solid var(--line); background: #fbfbf7; border-radius: 10px; overflow: hidden; }
+.cowriter-header { display: flex; justify-content: space-between; gap: 10px; padding: 20px; border-bottom: 1px solid var(--line); }
+.cowriter-identity { display: flex; align-items: center; gap: 11px; }
+.cowriter-identity > span { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 8px; background: var(--teal); color: white; box-shadow: 0 4px 13px #087d7033; }
+.cowriter-identity h2 { font: 700 15px/1.4 "Segoe UI", sans-serif; margin: 0; }
+.cowriter-identity p { display: flex; gap: 5px; align-items: center; font-size: 10px; color: var(--muted); margin: 3px 0 0; }
+.cowriter-identity i { width: 6px; height: 6px; border-radius: 50%; background: #ae813e; }
+.cowriter-icon-button { padding: 4px; width: 32px; min-height: 32px; background: transparent; }
+.cowriter-context { padding: 12px 20px; border-bottom: 1px solid var(--line); background: #f3f4ee; }
+.cowriter-context span { display: block; color: var(--muted); font-size: 9px; text-transform: uppercase; letter-spacing: .08em; }
+.cowriter-context strong { display: block; margin-top: 3px; font-size: 12px; overflow-wrap: anywhere; }
+.cowriter-chat { padding: 20px; max-height: 600px; overflow-y: auto; }
+.cowriter-quick > p { color: var(--muted); font-size: 11px; margin-bottom: 10px; }
+.cowriter-quick > div { display: grid; gap: 8px; }
+.cowriter-quick button { display: flex; gap: 10px; align-items: center; width: 100%; padding: 11px; border: 1px solid var(--line); border-radius: 8px; background: white; text-align: left; justify-content: start; }
+.cowriter-quick button > span { display: grid; place-items: center; width: 32px; height: 32px; flex-shrink: 0; color: var(--teal); background: #e9f4f0; border-radius: 5px; }
+.cowriter-quick button > div { flex: 1; }
+.cowriter-quick strong, .cowriter-quick small { display: block; font-size: 11px; }
+.cowriter-quick small { font-size: 10px; margin-top: 3px; }
+.cowriter-messages { display: grid; gap: 14px; padding-top: 20px; margin-top: 22px; border-top: 1px solid var(--line); }
+.cowriter-message { display: flex; gap: 8px; align-items: start; }
+.cowriter-message p { margin: 0; padding: 12px; border-radius: 3px 10px 10px; background: #edf1ed; color: var(--ink); font-size: 12px; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; }
+.cowriter-message.user { justify-content: end; }
+.cowriter-message.user p { max-width: 86%; color: white; background: var(--teal); border-radius: 10px 3px 10px 10px; }
+.cowriter-mini { display: grid; place-items: center; width: 27px; height: 27px; flex-shrink: 0; background: var(--teal); color: white; border-radius: 5px; }
+.cowriter-composer { margin: 14px 18px 18px; padding: 10px; border: 1px solid #c8cdc6; border-radius: 10px; background: white; box-shadow: 0 8px 24px #1b333712; }
+.cowriter-composer textarea { display: block; width: 100%; min-height: 70px; padding: 6px; margin: 0; border: 0; resize: vertical; font-size: 12px; }
+.cowriter-composer > div { display: flex; align-items: center; justify-content: space-between; }
+.cowriter-composer > div > span { display: flex; }
+.cowriter-composer button { display: grid; place-items: center; min-height: 36px; width: 36px; padding: 4px; border: 0; background: transparent; }
+.cowriter-composer .cowriter-send { color: white; background: var(--teal); }
+.cowriter-composer .cowriter-send:disabled { color: #69746f; background: #e7e9e3; }
+.cowriter-composer > small { display: block; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--line); color: #677a7c; font-size: 9px; text-align: center; }
+.cowriter-attachments { margin: 0; padding: 4px; list-style: none; }
+.cowriter-attachments li { display: flex; justify-content: space-between; gap: 8px; overflow-wrap: anywhere; font-size: 11px; }
+.cowriter-notice { font-size: 11px; margin: 10px 0 0; color: var(--muted); }
+.cowriter-source, .cowriter-proposal { margin-top: 18px; padding: 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 12px; }
+.cowriter-source summary, .cowriter-proposal summary { cursor: pointer; padding: 6px 0; font-weight: 600; }
+.cowriter-source textarea { width: 100%; min-height: 100px; max-height: 220px; resize: vertical; margin: 8px 0; font-size: 12px; }
+.cowriter-source label { display: block; margin: 10px 0; }
+.cowriter-source input[type="checkbox"] { width: auto; margin-right: 6px; }
+.cowriter-source button, .cowriter-proposal button { padding: 8px 10px; font-size: 12px; }
+.cowriter-proposed-text { white-space: pre-wrap; overflow-wrap: anywhere; }
+.cowriter-composer select { width: 100%; min-height: 32px; font-size: 11px; padding: 4px; }
+.cowriter-context small { display: block; font-size: 10px; margin-top: 5px; }
+.cowriter-launcher { position: fixed; right: 24px; bottom: 24px; z-index: 50; display: grid; place-items: center; width: 48px; height: 48px; padding: 0; min-height: 48px; border: 0; border-radius: 11px; color: white; background: #177569; box-shadow: 0 5px 18px #102f3833; }
+.cowriter-launcher:hover { color: white; background: #105a51; transform: translateY(-2px); }
+.cowriter-launcher[hidden], .cowriter-popup[hidden] { display: none; }
+.cowriter-popup { position: fixed; right: 20px; top: 96px; bottom: 20px; z-index: 50; width: 360px; max-width: calc(100vw - 32px); max-height: calc(100dvh - 116px); box-shadow: 0 12px 48px #102f382e; }
+.cowriter-popup .cowriter-header, .cowriter-popup .cowriter-context, .cowriter-popup .cowriter-composer { flex-shrink: 0; }
+.cowriter-header-actions { display: flex; gap: 5px; align-items: start; }
+.cowriter-menu-panel { position: absolute; top: 72px; right: 12px; left: 12px; z-index: 3; max-height: calc(100% - 90px); overflow-y: auto; padding: 16px; border: 1px solid var(--line); border-radius: 10px; background: #fbfbf7; box-shadow: 0 10px 28px #102f382e; color: var(--ink); font-size: 12px; }
+.cowriter-menu-panel[hidden] { display: none; }
+.cowriter-menu-panel section + section { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
+.cowriter-menu-panel h3 { margin: 0 0 12px; font: 700 12px/1.5 "Segoe UI", sans-serif; color: var(--teal); }
+.cowriter-menu-panel label { display: block; margin: 8px 0; }
+.cowriter-menu-panel select, .cowriter-menu-panel textarea, .cowriter-menu-panel input:not([type="checkbox"]) { width: 100%; max-width: 100%; }
+.cowriter-menu-panel .workflow-toolbar { display: block; }
+.cowriter-menu-panel .cowriter-context { padding: 0; border: 0; background: transparent; }
+.cowriter-menu-panel .cowriter-source { margin-top: 0; }
+.cowriter-messages:empty { margin: 0; padding: 0; border: 0; }
+.workflow-popup .cowriter-messages { margin: 0; padding: 0; border: 0; }
+.workflow-popup .cowriter-message { display: block; }
+.workflow-popup .cowriter-message.user p { margin-left: auto; }
+.cowriter-thinking { margin: 12px 0 0; color: var(--muted); font-size: 12px; }
+.cowriter-menu-panel { overflow-x: hidden; }
+.cowriter-menu-panel section { min-width: 0; overflow-wrap: anywhere; }
+.cowriter-menu-panel textarea { resize: vertical; }
+.cowriter-popup .cowriter-header { padding: 16px; }
+.cowriter-popup .cowriter-chat { flex: 1; min-height: 0; max-height: none; overscroll-behavior: contain; }
+.cowriter-popup .cowriter-composer { margin: 10px 14px 14px; }
+.cowriter-popup .cowriter-composer textarea { max-height: 120px; }
+@media (min-width: 1440px) { body:has(.cowriter-popup:not([hidden]):not(.cowriter-expanded)) .workspace { margin-right: 396px; } }
+@media (max-width: 600px) { .cowriter-launcher { right: 16px; bottom: 16px; } .cowriter-popup { top: 80px; right: 12px; bottom: 12px; width: 360px; max-width: calc(100vw - 24px); max-height: calc(100dvh - 92px); } }
+.cowriter-popup.cowriter-expanded { top: 20px; bottom: 20px; left: 50%; right: auto; transform: translateX(-50%); width: 900px; max-width: calc(100vw - 40px); max-height: calc(100dvh - 40px); }
+body:has(.cowriter-launcher:not(.workflow-launcher)) .workflow-launcher { display: none; }
+.workflow-content label { display: block; margin: 12px 0; font-size: 12px; }
+.workflow-content input, .workflow-content textarea, .workflow-content select { width: 100%; margin-top: 5px; padding: 8px; font-size: 12px; }
+.workflow-content textarea { min-height: 72px; resize: vertical; }
+.workflow-content .workflow-check { display: flex; align-items: start; gap: 8px; }
+.workflow-content input[type="checkbox"] { width: auto; flex-shrink: 0; margin-top: 3px; }
+.workflow-content button { padding: 8px 12px; font-size: 12px; margin: 5px 0; }
+.workflow-day-card, .workflow-confirmation { border: 1px solid var(--line); border-radius: 8px; padding: 12px; margin: 14px 0; }
+.workflow-confirmation { background: #edf4ee; }
+.workflow-content h3 { font-size: 18px; margin: 18px 0 10px; }
+.workflow-content h4 { margin: 0; }
+.workflow-content p, .workflow-content li, .workflow-content summary { font-size: 12px; overflow-wrap: anywhere; }
+.workflow-footer { flex-shrink: 0; padding: 12px 16px; border-top: 1px solid var(--line); font-size: 10px; color: var(--muted); }
+.workflow-toolbar { display: flex; gap: 8px; align-items: end; }
+.workflow-toolbar label { flex: 1; min-width: 0; }
+.cowriter-plan-entry { width: 100%; margin-bottom: 16px; font-size: 12px; }
+.cowriter-expanded .workflow-direction { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 16px; }
+.cowriter-expanded .workflow-direction > .workflow-day-card, .cowriter-expanded .workflow-direction > div { grid-column: 1/-1; }
+@media(max-width:600px) { .cowriter-expanded .workflow-direction { display: block; } }
+.cowriter-expanded .cowriter-message.agent p { max-width: 72ch; }
+@media (max-width: 600px) { .cowriter-popup.cowriter-expanded { top: 12px; bottom: 12px; right: 12px; left: auto; transform: none; width: calc(100vw - 24px); max-width: none; max-height: calc(100dvh - 24px); } }
+@container (max-width: 440px) { .creator-study-meta { flex-direction: column; align-items: start; } .creator-editor-card { padding: 18px; } .creator-prompt-grid { grid-template-columns: 1fr; gap: 0; } .creator-label-row { flex-wrap: wrap; } .creator-toolbar { gap: 0; } .creator-toolbar select { max-width: 110px; } .creator-editor-card .card-top { flex-direction: column; } .creator-editor-card .save-status { text-align: left; max-width: none; } }

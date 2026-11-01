@@ -1,0 +1,39 @@
+{
+  "version": "1.1.1",
+  "phase": "0",
+  "startedAt": "2026-10-19T02:25:57.737Z",
+  "completedAt": "2026-10-19T02:26:02.349Z",
+  "node": "v24.11.1",
+  "testedFingerprint": "426c6757347bcfb0221a581f4088acae8efd738fb2b58ff5b220830b3565bc64",
+  "automatedPassed": true,
+  "complete": true,
+  "status": "gate_passed",
+  "checks": [
+    {
+      "label": "prompt-and-readiness-artifacts",
+      "passed": true,
+      "files": 6,
+      "links": 68,
+      "failures": []
+    },
+    {
+      "label": "research",
+      "command": "npm run test:research",
+      "startedAt": "2026-10-19T02:25:57.752Z",
+      "finishedAt": "2026-10-19T02:26:02.345Z",
+      "exitCode": 0,
+      "requiredSkipped": false,
+      "passed": true,
+      "log": "BuildPrompts/1.1.1/evidence/automated/phase-0-research.log"
+    },
+    {
+      "label": "stable-tested-source-state",
+      "passed": true,
+      "initialFingerprint": "426c6757347bcfb0221a581f4088acae8efd738fb2b58ff5b220830b3565bc64",
+      "finalFingerprint": "426c6757347bcfb0221a581f4088acae8efd738fb2b58ff5b220830b3565bc64"
+    }
+  ],
+  "requiredReviews": [],
+  "deploymentAuthorized": false,
+  "liveMessagingAuthorized": false
+}
