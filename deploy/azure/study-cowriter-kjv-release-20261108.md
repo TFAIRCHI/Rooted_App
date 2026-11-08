@@ -1,11 +1,11 @@
 # Study Co-Writer guidance and KJV reader: deployment handoff
 
-Release tag: `cowriter-kjv-20261108-1`. These `linux/amd64` images are built **locally** and have not been pushed to Azure Container Registry or deployed. The source is included in the release commit on `main`; record its hash alongside the registry manifest digests after publishing the images.
+Release tag: `cowriter-kjv-20261108-1`. Source commit: `b48589f8f8c5578589e197d0fb935d45f588698e`. Both `linux/amd64` images were pushed to Azure Container Registry on 2026-11-08. They have not been deployed.
 
-| Component | Local image | Image ID |
-| --- | --- | --- |
-| API, worker, migration job | `rootedtogethercr-dudpd0aebzeqewa2.azurecr.io/rooted-backend:cowriter-kjv-20261108-1` | `sha256:4767578650844eebd4510c30d513cca42d7ef850d3ab3232f23f728287a2af55` |
-| Frontend | `rootedtogethercr-dudpd0aebzeqewa2.azurecr.io/rooted-frontend:cowriter-kjv-20261108-1` | `sha256:ae42a1a8907f06d13f90ffbdf54b4cba23873ace0611b3672cb60f746e7c4fc7` |
+| Component | Image | Local image ID | ACR manifest digest |
+| --- | --- | --- | --- |
+| API, worker, migration job | `rootedtogethercr-dudpd0aebzeqewa2.azurecr.io/rooted-backend:cowriter-kjv-20261108-1` | `sha256:4767578650844eebd4510c30d513cca42d7ef850d3ab3232f23f728287a2af55` | `sha256:bef4db52d82e262ec302a7b7c362e91f36f9a18728f30a2af2c2e529de8f59f1` |
+| Frontend | `rootedtogethercr-dudpd0aebzeqewa2.azurecr.io/rooted-frontend:cowriter-kjv-20261108-1` | `sha256:ae42a1a8907f06d13f90ffbdf54b4cba23873ace0611b3672cb60f746e7c4fc7` | `sha256:ea60ab4f66621db3ccbfc8840a8fc47f3f371e73f417cf6b4a76338fe3f937f0` |
 
 The backend image includes the pinned eBible/CrossWire KJV 1769 VPL corpus. Its source file SHA-256 is `7f46250da578d6256d195475c4c94b3909665fc7712efaf1989a58c38bf3c69e`. See [source record](../../backend/scripture/SOURCE.md). The application verifies the file digest at runtime and freezes verified verse text in each new content revision.
 
@@ -31,14 +31,14 @@ The backend image includes the pinned eBible/CrossWire KJV 1769 VPL corpus. Its 
 
 ## Publish and rollout
 
-Push the local images using the existing registry authentication:
+Completed from this workspace using the existing registry authentication:
 
 ```powershell
 docker push rootedtogethercr-dudpd0aebzeqewa2.azurecr.io/rooted-backend:cowriter-kjv-20261108-1
 docker push rootedtogethercr-dudpd0aebzeqewa2.azurecr.io/rooted-frontend:cowriter-kjv-20261108-1
 ```
 
-Inspect ACR manifest digests after push and pin those digests in the release record. In resource group `rooted_study_app`, preserve the existing secrets, ingress, scale rules, and image-pull identity. Record accepted revision names and tags first.
+The push output and local Docker digest inspection agree on both ACR manifest digests above. In resource group `rooted_study_app`, preserve the existing secrets, ingress, scale rules, and image-pull identity. Record accepted revision names and tags first.
 
 1. Run `rooted-migrate` once using the new backend image and its existing `node dist/src/infrastructure/migrate.js` command. Require **Succeeded** and migration `032_cowriter_guidance_series.sql` applied. The migration is additive; rolling back images does not undo the schema.
 2. Roll `rooted-api` to the new backend image. Wait for Running and `/health/ready` HTTP 200.
