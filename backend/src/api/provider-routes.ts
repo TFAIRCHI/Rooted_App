@@ -11,6 +11,7 @@ import { audit, loadAggregate, lockAggregate, matchVersion, requireEditor, type 
 import { saveRevision } from '../modules/save-revision.js';
 import { canonical } from '../modules/revisions.js';
 import { decryptToken, encryptToken, fetchSource, IntegrationError, OpenAIResponsesAdapter, OpenAITranscriptionAdapter, parseTranscript, PlanningCenterAdapter, recipientSendWindow, smsSegments, TwilioAdapter, verifyPlanningCenterWebhook, verifyTwilioSignature, type AIProposal, type AIRequest, type OpenAIConfig, type PlanningCenterConfig, type TwilioConfig } from '../integrations/index.js';
+import { schedulePublicSms } from './public-sms-routes.js';
 
 type Settings = ReturnType<typeof config>;
 interface ProviderJob {
@@ -382,7 +383,7 @@ async function registerSMSRoutes(app: FastifyInstance, database: Database, setti
     demand(member.capabilities.includes('settings:manage') || member.capabilities.includes('publication:schedule'), 403, 'forbidden', 'Audience access requires settings or publication capability');
     return {
     sender: { configured: Boolean(runtime.enabled && runtime.twilio?.churchId === churchId && runtime.twilio.activationApproved), scope: runtime.twilio?.churchId === churchId ? runtime.twilio.senderScope : null, liveVerified: false },
-    items: (await client.query('SELECT id,user_id,zone,zone_source,sender_scope,consent_version,suppressed FROM provider_contacts WHERE church_id=$1 ORDER BY id LIMIT 1000', [churchId])).rows.map(contact => ({ id: contact.id, userId: contact.user_id, zone: contact.zone, zoneSource: contact.zone_source, senderScope: contact.sender_scope, consentVersion: contact.consent_version, suppressed: contact.suppressed, window: recipientSendWindow({ now: new Date().toISOString(), expiresAt: new Date(Date.now() + 86400_000).toISOString(), zone: contact.zone }) })),
+    items: (await client.query('SELECT id,user_id,zone,zone_source,sender_scope,consent_version,suppressed,consent_audited,provenance FROM provider_contacts WHERE church_id=$1 ORDER BY id LIMIT 1000', [churchId])).rows.map(contact => ({ id: contact.id, userId: contact.user_id, zone: contact.zone, zoneSource: contact.zone_source, consentVersion: contact.consent_version, consentAudited: contact.consent_audited, suppressed: contact.suppressed, provenance: contact.provenance, window: recipientSendWindow({ now: new Date().toISOString(), expiresAt: new Date(Date.now() + 86400_000).toISOString(), zone: contact.zone }) })),
     };
   }));
   app.post(`${prefix}/twilio/connect`, (request, reply) => command(request, reply, 'settings:manage', async (client, member, churchId) => {
@@ -396,7 +397,7 @@ async function registerSMSRoutes(app: FastifyInstance, database: Database, setti
 
   app.post(`${prefix}/contacts`, (request, reply) => command(request, reply, 'settings:manage', async (client, member, churchId) => {
     smsConfigured(runtime, churchId);
-    const input = z.object({ userId: z.string().min(1).max(200), phone: z.string().regex(/^\+[1-9]\d{7,14}$/), zone: z.string().nullable(), zoneSource: z.string().min(3).max(200).nullable() }).strict().parse(request.body);
+    const input = z.object({ userId: z.string().min(1).max(200).optional(), phone: z.string().regex(/^\+[1-9]\d{7,14}$/), zone: z.string().nullable(), zoneSource: z.string().min(3).max(200).nullable() }).strict().parse(request.body);
     if (input.zone) {
       demand(input.zoneSource, 422, 'zone_source_required', 'Known recipient zones need recorded evidence');
       demand(recipientSendWindow({ zone: input.zone, now: new Date().toISOString(), expiresAt: new Date(Date.now() + 86400_000).toISOString() }).decision !== 'hold_unknown_zone', 422, 'invalid_zone', 'Use a valid IANA recipient zone');
@@ -405,25 +406,46 @@ async function registerSMSRoutes(app: FastifyInstance, database: Database, setti
     const previous = (await client.query('SELECT id FROM provider_contacts WHERE church_id=$1 AND sender_scope=$2 AND phone_hash=$3', [churchId, runtime.twilio!.senderScope, phoneHash])).rows[0];
     if (previous) return { status: 200, body: { contactId: previous.id, consentChanged: false } };
     const id = randomUUID();
-    await client.query('INSERT INTO provider_contacts(church_id,id,user_id,phone_ciphertext,phone_hash,zone,zone_source,sender_scope) VALUES($1,$2,$3,$4,$5,$6,$7,$8)', [churchId, id, input.userId, encryptToken(input.phone, binding(churchId, id), key(runtime)), phoneHash, input.zone, input.zoneSource, runtime.twilio!.senderScope]);
+    await client.query('INSERT INTO provider_contacts(church_id,id,user_id,phone_ciphertext,phone_hash,zone,zone_source,sender_scope,provenance) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9)', [churchId, id, input.userId??null, encryptToken(input.phone, binding(churchId, id), key(runtime)), phoneHash, input.zone, input.zoneSource, runtime.twilio!.senderScope,input.userId?'legacy_member':'admin']);
     return { status: 201, body: { contactId: id, suppressed: true, consentVersion: 0 } };
+  }));
+
+  app.post(`${prefix}/contacts/:contactId/zone`, (request, reply) => command(request, reply, 'settings:manage', async (client, _member, churchId) => {
+    const contactId=uuid.parse((request.params as {contactId:string}).contactId);
+    const input=z.object({zone:z.string().min(3).max(100),zoneSource:z.string().min(3).max(200)}).strict().parse(request.body);
+    demand(recipientSendWindow({zone:input.zone,now:new Date().toISOString(),expiresAt:new Date(Date.now()+86400_000).toISOString()}).decision!=='hold_unknown_zone',422,'invalid_zone','Use a valid IANA recipient zone');
+    const updated=await client.query("UPDATE provider_contacts SET zone=$3,zone_source=$4 WHERE church_id=$1 AND id=$2 AND provenance<>'removed' RETURNING id",[churchId,contactId,input.zone,input.zoneSource]);
+    demand(updated.rowCount,404,'not_found','Recipient not found');
+    return {status:200,body:{contactId,zone:input.zone}};
+  }));
+
+  app.post(`${prefix}/contacts/:contactId/remove-phone`, (request, reply) => command(request, reply, 'settings:manage', async (client, _member, churchId) => {
+    const contactId = uuid.parse((request.params as { contactId: string }).contactId);
+    const contact = (await client.query('SELECT id FROM provider_contacts WHERE church_id=$1 AND id=$2 FOR UPDATE', [churchId, contactId])).rows[0];
+    demand(contact, 404, 'not_found', 'Contact not found');
+    await client.query("UPDATE provider_contacts SET phone_ciphertext='removed',zone=NULL,zone_source=NULL,suppressed=true,consent_audited=false,provenance='removed' WHERE church_id=$1 AND id=$2", [churchId, contactId]);
+    await client.query("UPDATE provider_send_intents SET status='suppressed' WHERE church_id=$1 AND contact_id=$2 AND status IN ('pending','deferred','hold_unknown_zone')", [churchId, contactId]);
+    return { status: 200, body: { contactId, phoneRemoved: true, suppressionTombstoneRetained: true } };
   }));
 
   app.post(`${prefix}/consent`, (request, reply) => command(request, reply, 'settings:manage', async (client, member, churchId) => {
     const input = z.object({ contactId: uuid, status: z.enum(['granted', 'revoked']), evidence: z.object({ source: z.string().min(3).max(300), wordingVersion: z.string().min(1).max(200), evidenceReference: z.string().min(3).max(500), purpose: z.literal('study_notifications'), handsetResubscriptionConfirmed: z.boolean().optional() }).strict() }).strict().parse(request.body);
     const contact = (await client.query('SELECT * FROM provider_contacts WHERE church_id=$1 AND id=$2 FOR UPDATE', [churchId, input.contactId])).rows[0];
     demand(contact, 404, 'not_found', 'Contact not found');
+    demand(input.status !== 'granted' || contact.provenance !== 'removed', 409, 'contact_removed', 'This recipient record has been removed and cannot be reactivated');
     const revoked = (await client.query("SELECT 1 FROM provider_consent_events WHERE church_id=$1 AND contact_id=$2 AND status='revoked' LIMIT 1", [churchId, input.contactId])).rowCount;
     demand(input.status !== 'granted' || !revoked || input.evidence.handsetResubscriptionConfirmed === true, 409, 'resubscription_evidence_required', 'An administrator cannot clear STOP without fresh handset/provider resubscription evidence');
     const version = contact.consent_version + 1;
     await client.query('INSERT INTO provider_consent_events(church_id,id,contact_id,version,status,evidence,actor_id) VALUES($1,$2,$3,$4,$5,$6,$7)', [churchId, randomUUID(), input.contactId, version, input.status, JSON.stringify(input.evidence), member.userId]);
-    await client.query('UPDATE provider_contacts SET consent_version=$3,suppressed=$4 WHERE church_id=$1 AND id=$2', [churchId, input.contactId, version, input.status !== 'granted']);
+    await client.query('UPDATE provider_contacts SET consent_version=$3,suppressed=$4,consent_audited=$5 WHERE church_id=$1 AND id=$2', [churchId, input.contactId, version, input.status !== 'granted', input.status === 'granted']);
     if (input.status === 'revoked') await client.query("UPDATE provider_send_intents SET status='suppressed' WHERE church_id=$1 AND contact_id=$2 AND status IN ('pending','deferred','hold_unknown_zone')", [churchId, input.contactId]);
     return { status: 201, body: { contactId: input.contactId, consentVersion: version, suppressed: input.status !== 'granted' } };
   }));
 
   app.post(`${prefix}/sms/intents`, (request, reply) => command(request, reply, 'publication:schedule', async (client, member, churchId) => {
     smsConfigured(runtime, churchId);
+    const publicDelivery = (await client.query('SELECT study_sms_enabled FROM churches WHERE id=$1', [churchId])).rows[0];
+    demand(!publicDelivery?.study_sms_enabled, 409, 'public_sms_workflow_required', 'Use the approved public study delivery workflow');
     const input = z.object({ publicationId: uuid, connectionId: uuid, contactIds: z.array(uuid).min(1).max(1000), expiresAt: z.string().datetime({ offset: true }), confirmedPreviewHash: z.string().regex(/^[a-f0-9]{64}$/) }).strict().parse(request.body);
     demand(new Set(input.contactIds).size === input.contactIds.length && Date.parse(input.expiresAt) > Date.now() && Date.parse(input.expiresAt) <= Date.now() + 7 * 86400_000, 422, 'invalid_notification', 'Choose unique contacts and an explicit expiry within seven days');
     const publication = (await client.query(`SELECT publications.*,revisions.payload,aggregates.live_publication_id,aggregates.approval_id AS current_approval,aggregates.head_revision_id FROM publications JOIN revisions ON revisions.church_id=publications.church_id AND revisions.id=publications.revision_id JOIN aggregates ON aggregates.church_id=publications.church_id AND aggregates.id=publications.content_id WHERE publications.church_id=$1 AND publications.id=$2`, [churchId, input.publicationId])).rows[0];
@@ -466,7 +488,7 @@ async function registerSMSRoutes(app: FastifyInstance, database: Database, setti
 
   await app.register(async callbacks => {
     callbacks.addContentTypeParser('application/x-www-form-urlencoded', { parseAs: 'buffer', bodyLimit: 1_000_000 }, (_request, body, done) => done(null, body));
-    callbacks.post('/v1/provider-callbacks/twilio/:churchId/:connectionId', async request => {
+    callbacks.post('/v1/provider-callbacks/twilio/:churchId/:connectionId', async (request, reply) => {
       const params = z.object({ churchId: uuid, connectionId: uuid }).parse(request.params);
       smsConfigured(runtime, params.churchId);
       const raw = request.body as Buffer;
@@ -475,16 +497,44 @@ async function registerSMSRoutes(app: FastifyInstance, database: Database, setti
       demand(Buffer.isBuffer(raw) && typeof signature === 'string' && verifyTwilioSignature({ externalUrl, rawBody: raw.toString('utf8'), contentType: 'application/x-www-form-urlencoded', signature, authToken: runtime.twilio!.authToken! }), 403, 'invalid_signature', 'Webhook authentication failed');
       const form = new URLSearchParams(raw.toString('utf8'));
       demand(form.get('AccountSid') === runtime.twilio!.accountSid, 403, 'account_mismatch', 'Callback account does not match this church');
-      return tenantTransaction(database, params.churchId, async client => {
+      const outcome = await tenantTransaction(database, params.churchId, async client => {
         const connection = (await client.query("SELECT * FROM provider_connections WHERE church_id=$1 AND id=$2 AND provider='twilio' AND status='configured'", [params.churchId, params.connectionId])).rows[0];
         demand(connection?.config.senderScope === runtime.twilio!.senderScope && connection.config.accountSid === form.get('AccountSid'), 403, 'sender_mismatch', 'Callback sender program mismatch');
         const eventKey = digest(raw);
         const inserted = await client.query('INSERT INTO provider_webhook_inbox(church_id,id,connection_id,event_key,body_digest,payload) VALUES($1,$2,$3,$4,$4,$5) ON CONFLICT DO NOTHING', [params.churchId, randomUUID(), connection.id, eventKey, JSON.stringify({ messageSid: form.get('MessageSid'), status: form.get('MessageStatus'), optOutType: form.get('OptOutType') })]);
         if (!inserted.rowCount) return { accepted: true, duplicate: true };
         const inbound = form.get('Body')?.trim().toUpperCase();
+        const phone = form.get('From');
+        const senderMatches = runtime.twilio!.messagingServiceSid ? form.get('MessagingServiceSid') === runtime.twilio!.messagingServiceSid : form.get('To') === runtime.twilio!.from;
+        if (['ROOTED','AGREE','START','UNSTOP'].includes(inbound ?? '')) {
+          demand(phone && /^\+[1-9]\d{7,14}$/.test(phone) && senderMatches,403,'sender_mismatch','Keyword must match this sender program');
+          const phoneHash = createHmac('sha256', Buffer.from(key(runtime), 'base64')).update(binding(params.churchId, `${runtime.twilio!.senderScope}:${phone}`)).digest('hex');
+          const existing = (await client.query('SELECT * FROM provider_contacts WHERE church_id=$1 AND sender_scope=$2 AND phone_hash=$3 FOR UPDATE',[params.churchId,runtime.twilio!.senderScope,phoneHash])).rows[0];
+          if (inbound === 'START' || inbound === 'UNSTOP') {
+            await client.query(`INSERT INTO sms_keyword_optins(church_id,sender_scope,phone_hash,phone_ciphertext,unblocked_at)
+              VALUES($1,$2,$3,$4,now()) ON CONFLICT(church_id,sender_scope,phone_hash) DO UPDATE SET unblocked_at=now()`,[params.churchId,runtime.twilio!.senderScope,phoneHash,encryptToken(phone,binding(params.churchId,phoneHash),key(runtime))]);
+            return {accepted:true, message: form.get('OptOutType') ? null : 'Rooted Application: To request study texts, reply ROOTED. Message frequency varies by church. Reply STOP to unsubscribe.'};
+          }
+          if (inbound === 'ROOTED') {
+            if(existing?.provenance==='removed') return {accepted:true,message:'Rooted Application: This number cannot be enrolled here. Email rooted-together@outlook.com for help.'};
+            await client.query(`INSERT INTO sms_keyword_optins(church_id,sender_scope,phone_hash,phone_ciphertext,requested_at,expires_at)
+              VALUES($1,$2,$3,$4,now(),now()+interval '24 hours') ON CONFLICT(church_id,sender_scope,phone_hash)
+              DO UPDATE SET phone_ciphertext=$4,requested_at=now(),expires_at=now()+interval '24 hours'`,[params.churchId,runtime.twilio!.senderScope,phoneHash,encryptToken(phone,binding(params.churchId,phoneHash),key(runtime))]);
+            return {accepted:true,message:'Rooted Application: Reply AGREE within 24 hours to receive recurring Bible study texts and public study links. Message frequency varies by church. Message and data rates may apply. Reply STOP to unsubscribe or HELP for help. Privacy: https://rooted-together.com/privacy Terms: https://rooted-together.com/terms'};
+          }
+          const pending=(await client.query('SELECT * FROM sms_keyword_optins WHERE church_id=$1 AND sender_scope=$2 AND phone_hash=$3 FOR UPDATE',[params.churchId,runtime.twilio!.senderScope,phoneHash])).rows[0];
+          if(!pending?.requested_at || !pending.expires_at || new Date(pending.expires_at).getTime()<Date.now()) return {accepted:true,message:'Rooted Application: Text ROOTED first to review the study text terms.'};
+          const revoked=existing && (await client.query("SELECT max(created_at) AS at FROM provider_consent_events WHERE church_id=$1 AND contact_id=$2 AND status='revoked'",[params.churchId,existing.id])).rows[0].at;
+          if(revoked && (!pending.unblocked_at || new Date(pending.unblocked_at).getTime() < new Date(revoked).getTime())) return {accepted:true,message:'Rooted Application: To resubscribe after STOP, reply START, then ROOTED and AGREE.'};
+          const contactId=existing?.id ?? randomUUID();
+          if(!existing) await client.query('INSERT INTO provider_contacts(church_id,id,user_id,phone_ciphertext,phone_hash,zone,zone_source,sender_scope,provenance) VALUES($1,$2,NULL,$3,$4,NULL,NULL,$5,$6)',[params.churchId,contactId,encryptToken(phone,binding(params.churchId,contactId),key(runtime)),phoneHash,runtime.twilio!.senderScope,'keyword']);
+          const version=(existing?.consent_version??0)+1;
+          await client.query('INSERT INTO provider_consent_events(church_id,id,contact_id,version,status,evidence,actor_id) VALUES($1,$2,$3,$4,$5,$6,$7)',[params.churchId,randomUUID(),contactId,version,'granted',JSON.stringify({source:'twilio_keyword',keyword:'ROOTED',confirmation:'AGREE',requestedAt:pending.requested_at,confirmedMessageSid:form.get('MessageSid'),wordingVersion:'rooted-keyword-20261105-1',purpose:'study_notifications'}),'twilio_callback']);
+          await client.query('UPDATE provider_contacts SET consent_version=$3,suppressed=false,consent_audited=true WHERE church_id=$1 AND id=$2',[params.churchId,contactId,version]);
+          await client.query('DELETE FROM sms_keyword_optins WHERE church_id=$1 AND sender_scope=$2 AND phone_hash=$3',[params.churchId,runtime.twilio!.senderScope,phoneHash]);
+          return {accepted:true,message:'Rooted Application: You are subscribed to study texts. Message frequency varies by church. Reply STOP to unsubscribe or HELP for help.'};
+        }
         if (form.get('OptOutType') === 'STOP' || ['STOP', 'STOPALL', 'UNSUBSCRIBE', 'CANCEL', 'END', 'QUIT', 'REVOKE', 'OPTOUT'].includes(inbound ?? '')) {
-          const phone = form.get('From');
-          const senderMatches = runtime.twilio!.messagingServiceSid ? form.get('MessagingServiceSid') === runtime.twilio!.messagingServiceSid : form.get('To') === runtime.twilio!.from;
           demand(phone && senderMatches, 403, 'sender_mismatch', 'STOP must match this sender program');
           const phoneHash = createHmac('sha256', Buffer.from(key(runtime), 'base64')).update(binding(params.churchId, `${runtime.twilio!.senderScope}:${phone}`)).digest('hex');
           const contact = (await client.query('SELECT * FROM provider_contacts WHERE church_id=$1 AND sender_scope=$2 AND phone_hash=$3 FOR UPDATE', [params.churchId, runtime.twilio!.senderScope, phoneHash])).rows[0];
@@ -493,6 +543,7 @@ async function registerSMSRoutes(app: FastifyInstance, database: Database, setti
             await client.query('UPDATE provider_contacts SET suppressed=true,consent_version=consent_version+1 WHERE church_id=$1 AND id=$2', [params.churchId, contact.id]);
             await client.query("UPDATE provider_send_intents SET status='suppressed' WHERE church_id=$1 AND contact_id=$2 AND status IN ('pending','deferred','hold_unknown_zone')", [params.churchId, contact.id]);
           }
+          await client.query('DELETE FROM sms_keyword_optins WHERE church_id=$1 AND sender_scope=$2 AND phone_hash=$3',[params.churchId,runtime.twilio!.senderScope,phoneHash]);
         } else if (form.get('MessageStatus')) {
           const intentId = (request.query as { intentId?: string }).intentId;
           const sid = form.get('MessageSid');
@@ -503,6 +554,12 @@ async function registerSMSRoutes(app: FastifyInstance, database: Database, setti
         }
         return { accepted: true, duplicate: false };
       });
+      if ('message' in outcome) {
+        const message=outcome.message;
+        const escaped=message?.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;') ?? '';
+        return reply.type('text/xml').send(`<Response>${escaped?`<Message>${escaped}</Message>`:''}</Response>`);
+      }
+      return outcome;
     });
   });
 }
@@ -665,14 +722,21 @@ async function runSMS(database: Database, churchId: string, settings: Settings, 
     if (contact.suppressed || contact.consent_version !== claimed.consent_version || contact.sender_scope !== runtime.twilio!.senderScope) status = 'suppressed';
     const membership = (await client.query('SELECT capabilities FROM memberships WHERE church_id=$1 AND user_id=$2 AND active', [churchId, claimed.actor_id])).rows[0];
     if (!membership?.capabilities.includes('publication:schedule')) status = 'authorization_revoked';
-    const valid = (await client.query(`SELECT revisions.payload,connections.config,content_approval.approver_id AS content_approver_id FROM publications JOIN aggregates ON aggregates.church_id=publications.church_id AND aggregates.id=publications.content_id JOIN slots ON slots.church_id=aggregates.church_id AND slots.id=aggregates.slot_id JOIN revisions ON revisions.church_id=publications.church_id AND revisions.id=publications.revision_id JOIN approvals content_approval ON content_approval.church_id=publications.church_id AND content_approval.id=publications.approval_id JOIN provider_connections connections ON connections.church_id=publications.church_id AND connections.id=$3 WHERE publications.church_id=$1 AND publications.id=$2 AND slots.deleted_at IS NULL AND slots.withdrawn_at IS NULL AND aggregates.live_publication_id=publications.id AND aggregates.head_revision_id=publications.revision_id AND aggregates.approval_id=publications.approval_id AND connections.status='configured'`, [churchId, claimed.publication_id, claimed.connection_id])).rows[0];
-    if (!valid || digest(valid.payload.outboundPreview) !== claimed.preview_hash || valid.config.accountSid !== runtime.twilio!.accountSid || valid.config.senderScope !== runtime.twilio!.senderScope) status = 'approval_changed';
+    const valid = (await client.query(`SELECT revisions.payload,publications.revision_id,publications.approval_id,connections.config,content_approval.approver_id AS content_approver_id FROM publications JOIN aggregates ON aggregates.church_id=publications.church_id AND aggregates.id=publications.content_id JOIN slots ON slots.church_id=aggregates.church_id AND slots.id=aggregates.slot_id JOIN revisions ON revisions.church_id=publications.church_id AND revisions.id=publications.revision_id JOIN approvals content_approval ON content_approval.church_id=publications.church_id AND content_approval.id=publications.approval_id JOIN provider_connections connections ON connections.church_id=publications.church_id AND connections.id=$3 WHERE publications.church_id=$1 AND publications.id=$2 AND slots.deleted_at IS NULL AND slots.withdrawn_at IS NULL AND aggregates.live_publication_id=publications.id AND aggregates.head_revision_id=publications.revision_id AND aggregates.approval_id=publications.approval_id AND connections.status='configured'`, [churchId, claimed.publication_id, claimed.connection_id])).rows[0];
+    const snapshot=claimed.sms_snapshot_id?(await client.query('SELECT * FROM sms_delivery_snapshots WHERE church_id=$1 AND id=$2 AND publication_id=$3 AND superseded_at IS NULL',[churchId,claimed.sms_snapshot_id,claimed.publication_id])).rows[0]:null;
+    const approvedBody=claimed.sms_snapshot_id?snapshot?.body:valid?.payload.outboundPreview;
+    if (!valid || typeof approvedBody!=='string' || digest(approvedBody)!==claimed.preview_hash || valid.config.accountSid !== runtime.twilio!.accountSid || valid.config.senderScope !== runtime.twilio!.senderScope || claimed.sms_snapshot_id && (snapshot?.revision_id!==valid.revision_id || snapshot?.approval_id!==valid.approval_id || snapshot?.body_hash!==claimed.preview_hash || snapshot?.sender_scope!==runtime.twilio!.senderScope || snapshot?.sender_name!==process.env.TWILIO_SENDER_NAME?.trim())) status = 'approval_changed';
+    if(claimed.sms_snapshot_id){
+      const church=(await client.query('SELECT study_sms_enabled,reading_policy FROM churches WHERE id=$1',[churchId])).rows[0];
+      if(!church?.study_sms_enabled||church.reading_policy!=='public'||!contact.consent_audited)status='suppressed';
+    }
     if (valid) {
-      const authorities = await client.query<{ user_id: string; capabilities: string[]; active: boolean }>('SELECT user_id,capabilities,active FROM memberships WHERE church_id=$1 AND user_id=ANY($2::text[]) ORDER BY user_id FOR SHARE', [churchId, [contact.user_id, valid.content_approver_id, claimed.actor_id]]);
+      const authorities = await client.query<{ user_id: string; capabilities: string[]; active: boolean }>('SELECT user_id,capabilities,active FROM memberships WHERE church_id=$1 AND user_id=ANY($2::text[]) ORDER BY user_id FOR SHARE', [churchId, [contact.user_id, valid.content_approver_id, claimed.actor_id,snapshot?.reviewer_id].filter(Boolean)]);
       const recipient = authorities.rows.find(member => member.user_id === contact.user_id);
       const contentApprover = authorities.rows.find(member => member.user_id === valid.content_approver_id);
       const publisher = authorities.rows.find(member => member.user_id === claimed.actor_id);
-      if (!recipient?.active || !contentApprover?.active || !contentApprover.capabilities.includes('content:approve') || !publisher?.active || !publisher.capabilities.includes('publication:schedule')) status = 'authorization_revoked';
+      const smsReviewer=authorities.rows.find(member=>member.user_id===snapshot?.reviewer_id);
+      if ((!claimed.sms_snapshot_id&&!recipient?.active) || !contentApprover?.active || !contentApprover.capabilities.includes('content:approve') || !publisher?.active || !publisher.capabilities.includes('publication:schedule') || claimed.sms_snapshot_id&&(!smsReviewer?.active||!smsReviewer.capabilities.includes('content:approve'))) status = 'authorization_revoked';
     }
     const window = recipientSendWindow({ now: new Date().toISOString(), expiresAt: new Date(claimed.expires_at).toISOString(), zone: contact.zone });
     if (status) { await client.query('UPDATE provider_send_intents SET status=$3 WHERE church_id=$1 AND id=$2', [churchId, claimed.id, status]); return null; }
@@ -730,6 +794,7 @@ export async function runProviderWork(database: Database, settings: Settings, ru
         await finishJob(database, churchId, job, { manualReviewRequired: code === 'SUBMISSION_UNKNOWN' }, code);
       }
     }
+    await schedulePublicSms(database,churchId,runtime);
     for (let attempt = 0; attempt < 10; attempt += 1) submissions += await runSMS(database, churchId, settings, runtime);
   }
   return { jobs, submissions };

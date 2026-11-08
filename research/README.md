@@ -1,5 +1,7 @@
 # Sermon-to-study research package
 
+Reader access comparison, **2026-11-04**: [Option A and Option B research package](member-access-options-20261104/README.md) compares verified-phone member entry with public study links and account-free engagement; it includes the [SMS recipient mental model](member-access-options-20261104/member-mental-model-comparison.md). The original [phone-first research document](phone-first-member-access-20261104.md) remains available.
+
 Research snapshot: **2026-10-18**. Deliverable: product definition, evidence, architecture, and a local UX prototype. Engineering and deployment require a subsequent decision.
 
 Deployment research, **2026-10-25**: [Low-cost Azure deployment and Namecheap domain](Azure%20Deployment%20Research/README.md), comparing Static Web Apps, Storage, the working application's server/database/worker requirements, source-checked DNS steps and a reproducible East US cost example. Research only; no cloud resources or DNS records were changed.

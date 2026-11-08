@@ -10,6 +10,8 @@ import { cancelWorkflow, configureWorkflow, confirmIntent, confirmWorkflow, newW
 import { workflowPlanSchema } from '../../contracts/study-workflow.js';
 import { demand } from './errors.js';
 import { studyWorkflowConfig } from '../integrations/workflow-runtime.js';
+import { transcriptText } from '../integrations/cowriter.js';
+import { sourceReferences } from '../integrations/study-workflow.js';
 
 const uuid=z.string().uuid();
 const versioned=z.object({version:z.number().int().positive()});
@@ -30,7 +32,7 @@ export async function studyWorkflowRoutes(app:FastifyInstance,database:Database,
   });
   type Action=(client:PoolClient,member:Membership,ctx:{churchId:string;id?:string},request:FastifyRequest)=>Promise<string>;
   function command(path:string,action:Action,erasing=false){
-    app.post(prefix+path,async request=>{
+    app.post(prefix+path,{bodyLimit:7_000_000},async request=>{
       const ctx=await context(request,true);const key=z.string().min(8).max(200).parse(request.headers['idempotency-key']);
       const requestHash=hash(canonical(request.body??{}));const operation=request.url.split('?')[0]!;
       return database.transaction(ctx.churchId,ctx.actorId,async(client,member)=>{
@@ -45,21 +47,32 @@ export async function studyWorkflowRoutes(app:FastifyInstance,database:Database,
     });
   }
   command('',async(client,member,ctx,request)=>{
-    const input=z.object({seriesId:uuid,assigneeId:z.string().min(1).max(200),localTime:z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/),task:z.string().trim().min(1).max(2000),sourceText:z.string().max(262144).optional(),librarySourceId:uuid.optional(),reviewed:z.literal(true),rightsConfirmed:z.literal(true),filename:z.string().max(200).optional()}).strict().parse(request.body);
+    const input=z.object({seriesId:uuid,assigneeId:z.string().min(1).max(200),localTime:z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/),task:z.string().trim().min(1).max(2000),sourceText:z.string().max(6*1024*1024).optional(),librarySourceId:uuid.optional(),reviewed:z.literal(true),rightsConfirmed:z.literal(true),filename:z.string().max(200).optional()}).strict().parse(request.body);
     demand(Boolean(input.sourceText)!==Boolean(input.librarySourceId),422,'one_source_required','Choose either reviewed pasted text or one reviewed library source');
-    demand(!input.filename||/\.txt$/i.test(input.filename),422,'text_only','This workflow accepts UTF-8 .txt sources, not audio, video, PDF or images');
+    demand(!input.filename||/\.(?:txt|docx|pdf)$/i.test(input.filename),422,'text_only','Choose a Word document or PDF');
     return newWorkflow(client,member,ctx.churchId,input,clock());
   });
   command('/:id/discuss',async(client,member,ctx,request)=>{
     const input=versioned.extend({task:z.string().trim().min(1).max(2000)}).strict().parse(request.body);const run=await workflowRun(client,ctx.churchId,ctx.id!);
     demand(run.version===input.version,409,'workflow_version','A newer workflow version exists. Reload before changing direction.');await queuePlan(client,member,run,input.task);return run.id;
   });
+  command('/:id/source',async(client,member,ctx,request)=>{
+    const input=versioned.extend({sourceText:z.string().min(1).max(6*1024*1024),filename:z.string().max(200),reviewed:z.literal(true),rightsConfirmed:z.literal(true)}).strict().parse(request.body);
+    demand(/\.(?:docx|pdf)$/i.test(input.filename),422,'unsupported_file','Choose a Word document or PDF');
+    const run=await workflowRun(client,ctx.churchId,ctx.id!);
+    demand(run.version===input.version,409,'workflow_version','Reload the latest conversation before attaching a document');
+    demand(!run.plan&&!run.mapping.length&&!['plan_queued','planning','queued','generating'].includes(run.state),409,'source_unavailable','Wait for the current reply before attaching a document');
+    const text=transcriptText(input.sourceText),digest=hash(text),sourceId=randomUUID();
+    await client.query('INSERT INTO study_workflow_sources(church_id,id,run_id,actor_id,text,sha256,allowed_references) VALUES($1,$2,$3,$4,$5,$6,$7)',[ctx.churchId,sourceId,run.id,member.userId,text,digest,JSON.stringify(sourceReferences(text))]);
+    await client.query('UPDATE study_workflows SET source_id=$3,source_hash=$4,source_reviewed=true,conversation_source=false,version=version+1 WHERE church_id=$1 AND id=$2',[ctx.churchId,run.id,sourceId,digest]);
+    return run.id;
+  });
   command('/chat',async(client,member,ctx,request)=>{
     const input=z.object({task:z.string().trim().min(1).max(2000)}).strict().parse(request.body);
     return newWorkflow(client,member,ctx.churchId,{task:input.task,assigneeId:member.userId,localTime:'08:00',clarificationOnly:true},clock());
   });
   command('/:id/setup',async(client,member,ctx,request)=>{
-    const input=versioned.extend({seriesId:uuid,localTime:z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/),task:z.string().trim().max(2000).optional(),sourceText:z.string().max(262144).optional(),librarySourceId:uuid.optional(),reviewed:z.literal(true),rightsConfirmed:z.literal(true)}).strict().parse(request.body);
+    const input=versioned.extend({seriesId:uuid,localTime:z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/),task:z.string().trim().max(2000).optional(),sourceText:z.string().max(6*1024*1024).optional(),librarySourceId:uuid.optional(),reviewed:z.literal(true),rightsConfirmed:z.literal(true)}).strict().parse(request.body);
     demand(Boolean(input.sourceText)!==Boolean(input.librarySourceId),422,'one_source_required','Choose one reviewed source');
     const run=await workflowRun(client,ctx.churchId,ctx.id!);demand(run.version===input.version,409,'workflow_version','A newer conversation version exists. Review the latest reply.');
     await configureWorkflow(client,member,run,input);return run.id;

@@ -33,7 +33,7 @@ export async function publishOccurrence(client:PoolClient,churchId:string,schedu
     await client.query("UPDATE aggregates SET status='approved',version=version+1 WHERE church_id=$1 AND id=$2 AND status='scheduled'",[churchId,aggregate.id]);
     return;
   }
-  const publicationId=randomUUID();
+  const publicationId=schedule.reserved_publication_id ?? randomUUID();
   await client.query('INSERT INTO publications(church_id,id,content_id,revision_id,approval_id,schedule_id,published_at) VALUES($1,$2,$3,$4,$5,$6,$7) ON CONFLICT(church_id,schedule_id) DO NOTHING',[churchId,publicationId,aggregate.id,schedule.revision_id,schedule.approval_id,scheduleId,now]);
   const publication=(await client.query('SELECT id FROM publications WHERE church_id=$1 AND schedule_id=$2',[churchId,scheduleId])).rows[0];
   await snapshotPublicationAudience(client,churchId,publication.id);
@@ -59,6 +59,7 @@ export async function runLocalWork(database:Database,now=new Date()) {
         await client.query("UPDATE outbox SET status=$3 WHERE church_id=$1 AND id=$2",[church.id,event.id,event.type==='study.published'?'provider_disabled':'processed']);
       }
       await retireEngagementIdentifiers(client,church.id,now);
+      await client.query("DELETE FROM public_activity_limits WHERE church_id=$1 AND created_at<$2::timestamptz-interval '30 days'",[church.id,now]);
       await client.query('COMMIT');
     }catch(error){await client.query('ROLLBACK');throw error;}finally{client.release();}
   }

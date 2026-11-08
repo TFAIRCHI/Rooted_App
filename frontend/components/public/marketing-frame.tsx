@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { MarketingHeader } from "./marketing-header";
 
 export function MarketingFooter() {
-  return <footer className="wrap"><p>Rooted in Scripture. Growing together.</p><div><Link href="/questions">Questions</Link><Link href="/get-started">Find your next step ↗</Link></div></footer>;
+  return <footer className="wrap"><p>Rooted in Scripture. Growing together.</p><div><Link href="/questions">Questions</Link><Link href="/sms">Study texts</Link><Link href="/privacy">Privacy Policy</Link><Link href="/terms">Terms &amp; Conditions</Link><Link href="/get-started">Find your next step ↗</Link></div></footer>;
 }
 
 export function MarketingFrame({ children, legacy = false }: { children: ReactNode; legacy?: boolean }) {

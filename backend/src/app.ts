@@ -8,6 +8,8 @@ import { authRoutes } from './auth/routes.js';
 import { coreRoutes } from './api/core-routes.js';
 import { registerProviderRoutes } from './api/provider-routes.js';
 import { communityRoutes } from './api/community-routes.js';
+import { publicCommunityRoutes } from './api/public-community-routes.js';
+import { publicSmsRoutes } from './api/public-sms-routes.js';
 import { onboardingRoutes } from './api/onboarding-routes.js';
 import { privacyRoutes } from './api/privacy-routes.js';
 import { themeRoutes } from './api/theme-routes.js';
@@ -39,6 +41,8 @@ export async function buildApp(options: AppOptions = {}) {
   await cowriterRoutes(app,database,settings);
   await studyWorkflowRoutes(app,database,settings,options.clock ?? (()=>new Date()));
   await communityRoutes(app,database,settings);
+  await publicCommunityRoutes(app,database,settings);
+  await publicSmsRoutes(app,database,settings);
   await onboardingRoutes(app,database,settings);
   await privacyRoutes(app,database,settings);
   await themeRoutes(app,database,settings);

@@ -23,7 +23,9 @@ test('complete day schema requires all editor fields and exact source evidence',
   assert.throws(()=>validateCompleteDay({...day,evidence:day.evidence.slice(1)},day.date,id,['John 6:68']));
   assert.throws(()=>validateCompleteDay(day,day.date,randomUUID(),['John 6:68']));
   assert.throws(()=>validateCompleteDay({...day,content:{...day.content,references:['John 1:1']}},day.date,id,['John 6:68']));
-  assert.throws(()=>prepareWorkflowRequest({kind:'day',task:'Draft',sourceId:id,sourceText:'x'.repeat(15000),allowedReferences:['John 6:68'],profile:'Demo',timeZone:'America/New_York',referenceSunday:'2026-10-25',plan:fixturePlan,date:day.date,history:[]}));
+  const oversized={kind:'day' as const,task:'Draft',sourceId:id,sourceText:'x'.repeat(50000),allowedReferences:['John 6:68'],profile:'Demo',timeZone:'America/New_York',referenceSunday:'2026-10-25',plan:fixturePlan,date:day.date,history:[]};
+  assert.ok(prepareWorkflowRequest(oversized).input.sourceText.length<5000);
+  assert.throws(()=>prepareWorkflowRequest({...oversized,history:[{role:'user',text:'x'.repeat(30000)}]}));
 });
 test('full-day Azure response preserves complete payload, source IDs and actual usage',async()=>{
   const id=randomUUID(),date='2026-11-02';

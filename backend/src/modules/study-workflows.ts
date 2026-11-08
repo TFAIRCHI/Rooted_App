@@ -37,7 +37,6 @@ export async function confirmIntent(client:PoolClient,member:Membership,run:Work
   workflowPermission(member);
   demand(run.sequential&&!run.intent_confirmed&&run.state==='direction_review'&&run.plan,409,'intent_unavailable','Wait for the request understanding before confirming it');
   demand(planHash===hash(canonical(run.plan)),409,'intent_stale','Review the latest request understanding');
-  demand(!run.plan.questions.length,422,'intent_unresolved','Answer the co-writer questions before confirming the intention');
   demand(!run.conversation_source||run.source_reviewed||reviewedSource,422,'source_review_required','Review the conversation notes and confirm permission to use them before agreeing to the plan');
   await boundSource(client,run);
   const day=run.plan.days[0]!;
@@ -170,7 +169,6 @@ export async function reviewPlan(client:PoolClient,member:Membership,run:Workflo
   demand(!run.sequential||run.intent_confirmed,409,'intent_required','Confirm the request understanding before reviewing a day');
   assertGuidedPlan(run,plan);
   const source=await boundSource(client,run);validateWorkflowPlan(plan,source.allowed_references,run.time_zone);await assertDatesFree(client,run,pendingPlan(run,plan));
-  demand(!plan.questions.length,422,'direction_unresolved','Resolve the plan questions before confirming direction');
   await releasePending(client,run);
   if(run.sequential)await client.query('UPDATE study_workflows SET messages=messages||$3::jsonb WHERE church_id=$1 AND id=$2',[run.church_id,run.id,JSON.stringify([{role:'user',text:`Reviewed day ${run.mapping.length+1}: ${plan.days[run.mapping.length]!.title} (${plan.days[run.mapping.length]!.date}). Objective: ${plan.days[run.mapping.length]!.objective}. References: ${plan.days[run.mapping.length]!.references.join(', ')}. Audience: ${plan.direction.audience}. Takeaway: ${plan.direction.takeaway}. Depth: ${plan.direction.depth}. Translation: ${plan.direction.translation}. Illustrations: ${plan.direction.illustrations}. Application: ${plan.direction.application}.`},{role:'assistant',text:`Please confirm creation of day ${run.mapping.length+1} only. The remaining days will wait for their own review and confirmation.`}])]);
   const version=run.version+1;
@@ -314,7 +312,7 @@ export async function runStudyWorkflows(database:Database,runtime:WorkflowRuntim
           if(run.sequential&&run.intent_confirmed&&run.plan&&plan.days.length===run.plan.days.length)plan={...plan,days:plan.days.map((day,index)=>index===run.mapping.length?day:run.plan!.days[index]!)};
           assertGuidedPlan(run,plan);const version=run.version+1;
           await client.query('INSERT INTO study_workflow_plans(church_id,id,run_id,actor_id,version,payload,sha256) VALUES($1,$2,$3,$4,$5,$6,$7)',[run.church_id,randomUUID(),run.id,run.actor_id,version,JSON.stringify(plan),hash(canonical(plan))]);
-          await client.query("UPDATE study_workflows SET state='direction_review',version=$3,plan=$4,messages=messages||$5::jsonb,error=NULL,updated_at=now() WHERE church_id=$1 AND id=$2",[run.church_id,run.id,version,JSON.stringify(plan),JSON.stringify([{role:'assistant',text:(result.reply?result.reply+'\n\n':'')+(plan.questions.length?plan.questions.join('\n'):run.sequential&&!run.intent_confirmed?`My understanding: ${plan.days.length} studies in the week beginning ${plan.weekStart}, about ${plan.theme}, for ${plan.direction.audience}. ${plan.progression} Please confirm this intention or tell me what to adjust. No study has been created.`:run.sequential?`Day ${run.mapping.length+1} proposal: ${plan.days[run.mapping.length]!.title}. ${plan.days[run.mapping.length]!.objective} Tell me what to adjust, or review and confirm this day before I create it.`:`Plan ready: ${plan.days.length} days. ${plan.progression}`)}])]);
+          await client.query("UPDATE study_workflows SET state='direction_review',version=$3,plan=$4,messages=messages||$5::jsonb,error=NULL,updated_at=now() WHERE church_id=$1 AND id=$2",[run.church_id,run.id,version,JSON.stringify(plan),JSON.stringify([{role:'assistant',text:(result.reply?result.reply+'\n\n':'')+(run.sequential&&!run.intent_confirmed?`My understanding: ${plan.days.length} studies in the week beginning ${plan.weekStart}, about ${plan.theme}, for ${plan.direction.audience}. ${plan.progression} Please confirm this intention or tell me what to adjust. No study has been created.`:run.sequential?`Day ${run.mapping.length+1} proposal: ${plan.days[run.mapping.length]!.title}. ${plan.days[run.mapping.length]!.objective} Tell me what to adjust, or review and confirm this day before I create it.`:`Plan ready: ${plan.days.length} days. ${plan.progression}`)}])]);
         }
       });
     }catch(error){

@@ -13,11 +13,11 @@ export default async function StudyPage({ params, searchParams }: { params: Prom
   const exampleId = preview && id.startsWith("figma-previous-");
   const result = await publishedResource(slug, exampleId ? undefined : id);
   const example = exampleId && result.data ? memberDesignExamples(result.churchId ?? "preview").find(item => item.id === id) : null;
-  if (result.status === 404 && result.session || exampleId && !example) notFound();
+  if (result.status === 404 || exampleId && !example) notFound();
   const study = example || (exampleId ? null : result.data as Publication | null);
-  const churchName = result.session?.churches.find(church => church.slug === slug)?.name ?? "Your church";
+  const churchName = result.theme?.churchName ?? result.session?.churches.find(church => church.slug === slug)?.name ?? "Your church";
   return <div className="member-study-root">
-    {study ? <MemberStudyReader study={study} slug={slug} userId={result.session?.user.id ?? "guest"} session={result.session} preview={preview} /> : <main id="main" className="library-content unavailable-study">{result.status === 503 ? <Notice error>The published study service is unavailable. Please try again shortly.</Notice> : <section className="card"><h1>Sign in to read with your church.</h1><p>This study is available according to church membership policy.</p><a className="button primary" href={`/sign-in?returnTo=${encodeURIComponent(`/c/${slug}/studies/${id}`)}`}>Sign in</a></section>}</main>}
+    {study ? <MemberStudyReader study={study} slug={slug} preview={preview} /> : <main id="main" className="library-content unavailable-study">{result.status === 503 ? <Notice error>The published study service is unavailable. Please try again shortly.</Notice> : <section className="card"><h1>Study unavailable.</h1><p>Ask your church for its current public study link.</p></section>}</main>}
     <footer className="site-footer"><span className="wordmark">Rooted</span><p>Made for the people growing in faith together.</p><span>{churchName}</span></footer>
   </div>;
 }

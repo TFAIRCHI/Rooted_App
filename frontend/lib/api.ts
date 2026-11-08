@@ -5,7 +5,7 @@ export class ApiError extends Error {
 }
 
 export type ThemeTokens = { brand: string; brandStrong: string; accent: string; pageSurface: string; panelSurface: string; navSurface: string; actionSurface: string; focusRing: string; textOnBrand: string; textOnSurface: string; border: string };
-export type ChurchTheme = { mode: "light" | "dark" | "system"; primary: string; accent: string; surface: string; tokens?: ThemeTokens; assetId?: string | null; logoUrl?: string | null };
+export type ChurchTheme = { mode: "light" | "dark" | "system"; primary: string; accent: string; surface: string; tokens?: ThemeTokens; assetId?: string | null; logoUrl?: string | null; churchName?: string };
 export type Church = { id: string; slug: string; name: string; timeZone?: string; capabilities: string[]; contributorAccess?: boolean; theme?: ChurchTheme };
 export type Session = { user: { id: string; displayName: string }; churches: Church[]; csrfToken: string; access?: 'member' | 'contributor' };
 

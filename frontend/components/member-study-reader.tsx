@@ -3,19 +3,18 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import type { Publication } from "../lib/member-server";
-import type { Session } from "../lib/api";
 import { StudyAudio } from "./study-audio";
-import { MemberActions } from "./member-conversation";
+import { PublicStudyActions } from "./public-study-actions";
 
-export function completionKey(churchId: string, userId: string, studyId: string) {
-  return `rooted:completed:${churchId}:${userId}:${studyId}`;
+export function completionKey(churchId: string, studyId: string) {
+  return `rooted:completed:public:${churchId}:${studyId}`;
 }
 
-export function StudyCompletionLabel({ churchId, userId, studyId }: { churchId: string; userId: string; studyId: string }) {
+export function StudyCompletionLabel({ churchId, studyId }: { churchId: string; studyId: string }) {
   const [completed, setCompleted] = useState(false);
   useEffect(() => {
-    try { setCompleted(localStorage.getItem(completionKey(churchId, userId, studyId)) === "true"); } catch { /* Reading is still available when storage is blocked. */ }
-  }, [churchId, userId, studyId]);
+    try { setCompleted(localStorage.getItem(completionKey(churchId, studyId)) === "true"); } catch { /* Reading is still available when storage is blocked. */ }
+  }, [churchId, studyId]);
   return <span>{completed ? "Completed" : "Read this study →"}</span>;
 }
 
@@ -23,11 +22,11 @@ function Mark({ className }: { className: string }) {
   return <svg aria-hidden="true" className={className} viewBox="0 0 100 100" fill="none"><path d="M50 5V95M5 50H95M18 18L82 82M82 18L18 82" /></svg>;
 }
 
-export function MemberStudyReader({ study, slug, userId, session = null, preview = false }: { study: Publication; slug: string; userId: string; session?: Session | null; preview?: boolean }) {
+export function MemberStudyReader({ study, slug, preview = false }: { study: Publication; slug: string; preview?: boolean }) {
   const [activeSection, setActiveSection] = useState("begin");
   const [completed, setCompleted] = useState(false);
   const [storageError, setStorageError] = useState("");
-  const key = completionKey(study.churchId, userId, study.id);
+  const key = completionKey(study.churchId, study.id);
   useEffect(() => {
     try { setCompleted(localStorage.getItem(key) === "true"); } catch { /* Storage is optional for reading. */ }
   }, [key]);
@@ -70,7 +69,7 @@ export function MemberStudyReader({ study, slug, userId, session = null, preview
         <section className="application-section"><p className="chapter-label">For the week ahead</p><h2>Put it into practice.</h2>{paragraphs(payload.application)}</section>
         <section id="prayer" className="prayer-section" data-study-section><Mark className="prayer-mark" /><p className="chapter-label">A prayer to carry</p><blockquote>{prayer}</blockquote></section>
         <div className="study-finish"><div><p className="eyebrow">For the week ahead</p><h2 aria-live="polite">{completed ? "Study completed." : "Carry it with you."}</h2><p>{completed ? "Come back whenever you need to revisit this reflection." : "Mark this study complete when you’re ready."}</p>{storageError && <p role="status">{storageError}</p>}</div><button type="button" className={completed ? "complete-button done" : "complete-button"} aria-pressed={completed} onClick={() => { const next = !completed; setCompleted(next); try { localStorage.setItem(key, String(next)); setStorageError(""); } catch { setStorageError("Your completion is saved for this visit only."); } }}><span className="check">{completed ? "✓" : ""}</span>{completed ? "Completed" : "Mark as complete"}</button></div>
-        {!preview && <div className="study-community"><MemberActions key={`${study.churchId}:${study.id}:${session?.user.id ?? "guest"}`} publicationId={study.id} churchId={study.churchId} session={session} slug={slug} /></div>}
+        {!preview && <div className="study-community"><PublicStudyActions key={`${study.churchId}:${study.id}`} publicationId={study.id} slug={slug} /></div>}
       </article>
     </div>
   </main>;

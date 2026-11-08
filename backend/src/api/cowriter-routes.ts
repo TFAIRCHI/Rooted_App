@@ -97,10 +97,10 @@ export async function cowriterRoutes(app: FastifyInstance, database: Database, s
       return { cleared: true };
     });
   });
-  app.post(`${prefix}/sources`, { bodyLimit: 1_600_000 }, async request => {
+  app.post(`${prefix}/sources`, { bodyLimit: 7_000_000 }, async request => {
     const ctx = await identity(request, true);
-    const input = z.object({ conversationId: uuid, text: z.string().min(1).max(262_144), confirmed: z.literal(true), rightsConfirmed: z.literal(true), filename: z.string().max(200).optional() }).strict().parse(request.body);
-    demand(!input.filename || /\.txt$/i.test(input.filename), 422, 'unsupported_file', 'This demo accepts UTF-8 .txt transcripts only');
+    const input = z.object({ conversationId: uuid, text: z.string().min(1).max(6*1024*1024), confirmed: z.literal(true), rightsConfirmed: z.literal(true), filename: z.string().max(200).optional() }).strict().parse(request.body);
+    demand(!input.filename || /\.(?:txt|docx|pdf)$/i.test(input.filename), 422, 'unsupported_file', 'Attach a Word document or PDF');
     const text = transcriptText(input.text);
     return database.transaction(ctx.churchId, ctx.userId, async (client, member) => {
       await authorized(client, member, ctx.churchId, ctx.studyId);
@@ -133,7 +133,7 @@ export async function cowriterRoutes(app: FastifyInstance, database: Database, s
       const profileVersion = `${budget.rights_confirmed ? budget.profile_version : 'demo-collaborator-v1'}:${hash(profile)}`;
       const history = conv.messages;
       demand(history.length <= 16, 422, 'conversation_limit', 'Start a new conversation to keep context and cost bounded');
-      const context = { profile, profileVersion, selectedDate: day, selectedDates: dates, reviewedTranscript: reviewed?.text ?? null, sourceId: reviewed?.id ?? null };
+      const context = { profile, profileVersion, selectedDate: day, selectedDates: dates, reviewedTranscript: reviewed?.text.slice(0,4000) ?? null, sourceId: reviewed?.id ?? null };
       demand(Buffer.byteLength(JSON.stringify({ context, history, task: input.task })) + 1800 <= (input.kind === 'draft' ? 10_000 : 12_000), 422, 'input_limit', 'Shorten the transcript or start a new conversation; this request exceeds the demo context limit');
       demand((await client.query('SELECT reserve_cowriter_allowance() AS allowed')).rows[0].allowed, 429, 'daily_limit', 'Demo request allowance reached (30 per church / 100 total per UTC day)');
       // The allowance function may reconcile an interrupted prior request.
@@ -152,7 +152,7 @@ export async function cowriterRoutes(app: FastifyInstance, database: Database, s
     let result: unknown; let charged = 13500; let error: string | null = null;
     try {
       if (input.kind === 'draft') {
-        const aiInput: AIRequest = { workflow: 'study_draft', explicitAction: true, task: `${input.task}\nSelected day: ${reserved.context!.selectedDate}. Keep the body concise and all fields within 1500 output tokens.`, baseRevisionId: input.baseRevisionId, profile: reserved.profile!, profileVersion: reserved.profileVersion!, sources: [{ revisionId: reserved.reviewed!.id, spans: [{ id: 'transcript', text: reserved.reviewed!.text }] }], budget: { reservedInputTokens: 12000, reservedOutputTokens: 1500 } };
+        const aiInput: AIRequest = { workflow: 'study_draft', explicitAction: true, task: `${input.task}\nSelected day: ${reserved.context!.selectedDate}. Keep the body concise and all fields within 1500 output tokens.`, baseRevisionId: input.baseRevisionId, profile: reserved.profile!, profileVersion: reserved.profileVersion!, sources: [{ revisionId: reserved.reviewed!.id, spans: [{ id: 'transcript', text: reserved.reviewed!.text.slice(0,4000) }] }], budget: { reservedInputTokens: 12000, reservedOutputTokens: 1500 } };
         const proposal = await adapter.propose(aiInput); result = { proposal, text: 'Draft proposal ready for review. Your study has not changed.', usage: proposal.provenance.usage };
         charged = proposal.provenance.usage.inputTokens + proposal.provenance.usage.outputTokens;
       } else {

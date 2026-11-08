@@ -40,9 +40,10 @@ export interface WorkflowModelInput {
 }
 export interface WorkflowModelRequest { input:WorkflowModelInput; schema:Record<string,unknown>; instructions:string; outputLimit:number; reservation:number }
 export function prepareWorkflowRequest(input:WorkflowModelInput, outputLimit=3000):WorkflowModelRequest {
+  if (input.sourceText.length > 4000) input={...input,sourceText:input.sourceText.slice(0,4000)+'\n[Additional uploaded text is stored in the conversation; this request uses the opening excerpt.]'};
   if(input.clarificationOnly){
-    if(Buffer.byteLength(JSON.stringify(input)+cowriterInstructions)+1600>12000)throw new IntegrationError('WORKFLOW_INPUT_LIMIT','Shorten the conversation before sending another message',422);
-    return {input,schema:{},instructions:cowriterInstructions,outputLimit:1500,reservation:13500};
+    if(Buffer.byteLength(JSON.stringify(input)+cowriterInstructions)+1600>25000)throw new IntegrationError('WORKFLOW_INPUT_LIMIT','Shorten the conversation before sending another message',422);
+    return {input,schema:{},instructions:cowriterInstructions,outputLimit:1500,reservation:26500};
   }
   const base=input.kind==='plan'?proposedPlanSchema:completeDaySchema;
   const json=z.toJSONSchema(base,{target:'draft-7'}) as Record<string,unknown>;
@@ -60,7 +61,7 @@ export function prepareWorkflowRequest(input:WorkflowModelInput, outputLimit=300
   constrain(json);
   const instructions=cowriterInstructions+' Use only the supplied allowedReferences exactly. Do not quote Scripture. For a plan include a conversational reply that directly answers the latest question, explains your understanding or proposed adjustment, and asks for confirmation without claiming any action was taken. Interpret the request and follow-up in context, propose 1–7 days and weekday numbers (Sunday=0). weekOffset is counted from referenceSunday; next week is 1. Honor the latest USER corrections over earlier assistant suggestions, especially dates. If the user asks for consecutive days starting on a date, use consecutive calendar days rather than assuming a Monday/Wednesday/Friday cadence. Preserve the agreed audience, reading duration, requested prayers and exclusions. Ask at most three focused questions only when material context is missing. Do not repeat answered questions. Otherwise use clearly labeled assumptions for adult mixed familiarity and simple-to-intermediate depth. For a day return the full content schema, every text field meaningfully filled, a body sized to the agreed reading duration (normally 300–450 words; a roughly five-minute devotional can include 450–600 words with reflection and prayer), include a closing prayer in the body when requested, nonempty references, and evidence for ALL seven fields with exact sourceId and spanId outline. No HTML, hyperlinks, publication or approval claims.';
   const size=Buffer.byteLength(JSON.stringify(input)+JSON.stringify(json)+instructions)+256;
-  if(size>12000) throw new IntegrationError('WORKFLOW_INPUT_LIMIT','Shorten the source or conversation; this step exceeds the 12,000-token conservative context allowance',422);
+  if(size>25000) throw new IntegrationError('WORKFLOW_INPUT_LIMIT','Shorten the source or conversation; this step exceeds the 25,000-token conservative context allowance',422);
   if(outputLimit<1||outputLimit>4000)throw new IntegrationError('WORKFLOW_OUTPUT_LIMIT','Day output allowance must be between 1 and 4,000 tokens',422);
   return {input,schema:json,instructions,outputLimit,reservation:size+outputLimit};
 }
@@ -81,7 +82,7 @@ export class WorkflowModel {
     const chunks:string[]=[];
     for(const item of response.output){const message=object(item);if(message.type==='reasoning')continue;if(message.type!=='message'||message.role!=='assistant'||!Array.isArray(message.content))throw new IntegrationError('INVALID_WORKFLOW_OUTPUT','Unexpected model output',502);for(const part of message.content){const content=object(part);if(content.type==='refusal')throw new IntegrationError('WORKFLOW_REFUSAL','The model declined this request',422);if(content.type!=='output_text'||typeof content.text!=='string')throw new IntegrationError('INVALID_WORKFLOW_OUTPUT','Expected structured text',502);chunks.push(content.text);}}
     const usage=object(response.usage);
-    if(!Number.isSafeInteger(usage.input_tokens)||!Number.isSafeInteger(usage.output_tokens)||Number(usage.input_tokens)<0||Number(usage.input_tokens)>12000||Number(usage.output_tokens)<0||Number(usage.output_tokens)>prepared.outputLimit)throw new IntegrationError('INVALID_WORKFLOW_USAGE','Provider usage was missing or invalid',502);
+    if(!Number.isSafeInteger(usage.input_tokens)||!Number.isSafeInteger(usage.output_tokens)||Number(usage.input_tokens)<0||Number(usage.input_tokens)>25000||Number(usage.output_tokens)<0||Number(usage.output_tokens)>prepared.outputLimit)throw new IntegrationError('INVALID_WORKFLOW_USAGE','Provider usage was missing or invalid',502);
     let parsed:unknown;try{parsed=JSON.parse(chunks.join(''));}catch{throw new IntegrationError('INVALID_WORKFLOW_OUTPUT','Model output was not complete JSON',502);}
     const input=prepared.input;
     let value:WorkflowPlan|CompleteDay;let reply:string|undefined;

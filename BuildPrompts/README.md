@@ -1,5 +1,7 @@
 # Build prompt versions
 
+New research-backed migration package, **2026-11-04**: [Option B public study migration](option-b-public-study-migration/README.md) is implemented locally with versioned backend and frontend images. Local browser acceptance passes; production activation remains open. See [execution evidence](option-b-public-study-migration/evidence/implementation.md).
+
 Current build package: **1.2.15**, the approved focused public-page navigation, **implemented and verified locally**. The frontend image `navigation-20261030-1` is ready for Tyler’s release review/upload/Portal rollout. See [execution evidence](1.2.15/evidence/execution.md), [exact release handoff](../deploy/azure/homepage-navigation-release-20261030.md), and [phase tracker](1.2.15/PHASE_TRACKER.md). The approved mockup and independent UX review remain in [Homepage Navigation Research](../research/Homepage%20Navigation%20Research/README.md).
 
 Previous deployment build request: **1.2.14**, Path B Azure implementation at `rooted-together.com`. All 35 agreed production acceptance checks are now complete; the authoritative status is the [October 30 acceptance record](../research/Azure%20Deployment%20Research/resume-20261028.md). Older pending statements below are historical package descriptions, not new outstanding checks.

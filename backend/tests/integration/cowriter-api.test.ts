@@ -59,7 +59,7 @@ test('co-writer with restricted PostgreSQL: private context, idempotency, ground
   const created = await call('contributor', 'POST', prefix + '/conversations', {}); assert.equal(created.statusCode, 201, created.body); const conv = created.json().id;
   const source = { conversationId: conv, text: 'Synthetic sermon: John 6:68. Trust Jesus through uncertainty. Ask honest questions and encourage one another.', confirmed: true, rightsConfirmed: true, filename: 'sermon.txt' };
   assert.equal((await call('second', 'POST', prefix + '/sources', source)).statusCode, 404);
-  assert.equal((await call('contributor', 'POST', prefix + '/sources', { ...source, filename: 'x.pdf' })).statusCode, 422);
+  assert.equal((await call('contributor', 'POST', prefix + '/sources', { ...source, filename: 'x.exe' })).statusCode, 422);
   assert.equal((await call('contributor', 'POST', prefix + '/sources', source)).statusCode, 200);
   const body = { conversationId: conv, kind: 'chat', task: 'Explain simply', baseRevisionId: study.headRevisionId };
   const key = randomUUID(); const first = await call('contributor', 'POST', prefix + '/messages', body, key); assert.equal(first.statusCode, 200, first.body); assert.equal(first.json().status, 'completed', first.body); assert.equal(calls, 1);

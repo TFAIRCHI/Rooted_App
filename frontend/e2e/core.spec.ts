@@ -80,12 +80,13 @@ test('1.1.5 standalone theme and account pages provide a safe way back home', as
   await expect(page.getByText('Gather', { exact: true })).toHaveCount(0);
 });
 
-test('1.1.5 authenticated public church pages provide logout navigation', async ({ page }) => {
+test('public church pages remain readable after sign-out', async ({ page }) => {
   await login(page, 'member');
   await page.goto(`/c/grace`);
   await expect(page.getByRole('button', { name: 'Sign out' })).toBeVisible();
   await page.getByRole('button', { name: 'Sign out' }).click();
-  await expect(page.getByRole('link', { name: 'Sign in to read' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Make room for what matters.' })).toBeVisible();
+  expect((await page.request.get('/api/v1/auth/session')).status()).toBe(401);
 });
 
 test('1.2.0 calendar view toggles with list view and opens all study details in the visible month', async ({ page }) => {
@@ -180,7 +181,7 @@ test('AC07/08/09/11/12/22 one contributor approval gates explicit publication an
   await login(staffPage, 'contributor');
   const reviewerContext = await browser.newContext();
   const reviewerPage = await reviewerContext.newPage();
-  await login(reviewerPage, 'james.contributor');
+  await login(reviewerPage, 'admin');
   const create = async (context: BrowserContext, route: string, body: unknown, etag?: string, status = 201) => {
     const response = await command(context, 'POST', `/churches/${grace}${route}`, body, etag);
     expect(response.status(), await response.text()).toBe(status);
@@ -194,8 +195,8 @@ test('AC07/08/09/11/12/22 one contributor approval gates explicit publication an
   const payload = { schemaVersion: 1, title: `Published hope ${randomUUID()}`, body: 'Read John 6:60–69. Consider the setting of Peter’s response.', reflection: 'Pause and reflect on the question Jesus asks.', discussionQuestion: 'What do you notice about Peter’s reply?', application: 'Read the surrounding passage with someone this week.', references: ['John 6:68'], outboundPreview: 'Read today’s reflection with Grace Community.' };
   content = await create(staffContext, `/content/${content.id}/revisions`, { baseRevisionId: content.headRevisionId, payload }, content.etag);
   const denied = await command(reviewerContext, 'POST', `/churches/${grace}/content/${content.id}/publish`, { revisionId: content.headRevisionId, approvalId: randomUUID() }, content.etag);
-  expect(denied.status()).toBe(409);
-  content = await create(staffContext, `/content/${content.id}/submit`, { revisionId: content.headRevisionId, approverId: 'james.contributor', note: 'Review the exact member-facing revision.' }, content.etag, 200);
+  expect([404,409]).toContain(denied.status());
+  content = await create(staffContext, `/content/${content.id}/submit`, { revisionId: content.headRevisionId, approverId: 'admin', note: 'Review the exact public revision.' }, content.etag, 200);
   await reviewerPage.goto(`/studies?church=${grace}&slot=${slot.id}&month=${publicationDate.slice(0, 7)}`);
   await reviewerPage.getByTestId(`date-card-${slot.id}`).click();
   await reviewerPage.getByTestId('content-approve').click();
@@ -206,11 +207,32 @@ test('AC07/08/09/11/12/22 one contributor approval gates explicit publication an
   content = await (await staffContext.request.get(`${baseUrl}/api/v1/churches/${grace}/content/${content.id}`)).json();
   expect(content.status).toBe('published');
   expect(content.livePublicationId).toBeTruthy();
-  await login(page, 'member');
+  const adminContext = await browser.newContext(); const adminPage = await adminContext.newPage();
+  await login(adminPage, 'admin');
+  const reviewed = await command(adminContext, 'POST', `/churches/${grace}/public-access`, { action: 'enable_read', evidence: 'Browser fixture content reviewed for public reading.' });
+  expect(reviewed.status(), await reviewed.text()).toBe(200);
+  expect((await command(adminContext, 'POST', `/churches/${grace}/public-access`, { action: 'enable_engagement' })).status()).toBe(200);
+  expect((await command(adminContext, 'POST', `/churches/${grace}/settings`, { discussionsEnabled: true })).status()).toBe(200);
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(`/c/grace/studies/${content.livePublicationId}`);
+  expect((await page.request.get('/api/v1/auth/session')).status()).toBe(401);
   await expect(page.getByRole('heading', { name: payload.title, exact: true })).toBeVisible();
   await expect(page.getByText(payload.body, { exact: true })).toBeVisible();
+  await page.getByRole('button', { name: /^Like ·/ }).click();
+  await expect(page.getByRole('button', { name: /^Like ·/ })).toHaveAttribute('aria-pressed', 'true');
+  await page.getByLabel('Your name').fill('Browser reader');
+  await page.getByLabel('Your comment').fill('A question from a guest browser.');
+  await page.getByRole('button', { name: 'Submit for review' }).click();
+  await expect(page.getByText('Your comment was submitted for church review.')).toBeVisible();
+  const moderationResponse = await staffContext.request.get(`${baseUrl}/api/v1/churches/${grace}/public-moderation`);
+  expect(moderationResponse.status(), await moderationResponse.text()).toBe(200);
+  const moderation = await moderationResponse.json();
+  const pending = moderation.items.find((item: { body: string; id: string }) => item.body === 'A question from a guest browser.');
+  expect(pending).toBeTruthy();
+  const approvedComment = await command(staffContext, 'POST', `/churches/${grace}/public-moderation/${pending.id}/decision`, { decision: 'approve', reason: 'Reviewed browser fixture.' });
+  expect(approvedComment.status(), await approvedComment.text()).toBe(200);
+  await page.reload();
+  await expect(page.getByText('A question from a guest browser.')).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBeTruthy();
   await auditAccessibility(page);
   await page.screenshot({ path: 'frontend/test-results/member-published-mobile.png', fullPage: true });
@@ -221,6 +243,7 @@ test('AC07/08/09/11/12/22 one contributor approval gates explicit publication an
   await expect(page.getByText('Unapproved replacement must remain private')).toHaveCount(0);
   await staffContext.close();
   await reviewerContext.close();
+  await adminContext.close();
 });
 
 test('AC10/11 independent browser editors preserve stale and offline writing until explicit recovery', async ({ browser, page }) => {

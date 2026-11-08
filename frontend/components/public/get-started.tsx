@@ -117,7 +117,7 @@ export function GetStarted() { return <PublicFrame><svg xmlns="http://www.w3.org
 <section className="form-card">
 <h2>{"How will you use Rooted?"}</h2>
 <p>{"Choose the path that fits your next step."}</p>
-<a className="choice" href="/sign-in?returnTo=%2Fonboarding%3Fintent%3Dcreate-church">
+<a className="choice" href="/onboarding?intent=create-church">
 <svg className="icon " aria-hidden="true">
 <use href="#church">
 </use>
@@ -135,7 +135,7 @@ export function GetStarted() { return <PublicFrame><svg xmlns="http://www.w3.org
 <p>{"Find your church’s experience using its link or invitation."}</p>
 <span className="choice-arrow">{"↗"}</span>
 </a>
-<div className="form-separator">{"Already part of Rooted? "}<a className="text-link" href="/sign-in">{"Sign in →"}</a>
+<div className="form-separator">{"Already on a church team? "}<a className="text-link" href="/sign-in">{"Sign in →"}</a>
 </div>
 <div className="choice-note">
 <svg className="icon " aria-hidden="true">

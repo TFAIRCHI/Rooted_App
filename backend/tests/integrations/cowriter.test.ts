@@ -10,7 +10,7 @@ test('Azure endpoint normalization, configuration gates and text validation fail
   assert.equal(cowriterConfig(env).provider, 'azure');
   assert.throws(() => cowriterConfig({ ...env, AZURE_OPENAI_DEPLOYMENT: 'other' }));
   assert.equal(transcriptText(' Notes '), 'Notes');
-  for (const text of ['', 'binary\u0000text', '\uFFFD', 'x'.repeat(262145)]) assert.throws(() => transcriptText(text));
+  for (const text of ['', 'binary\u0000text', '\uFFFD', 'x'.repeat(6 * 1024 * 1024 + 1)]) assert.throws(() => transcriptText(text));
 });
 
 test('Azure chat is bounded, uses key authentication, does not retry and sanitizes failures', async () => {
@@ -27,7 +27,7 @@ test('Azure chat is bounded, uses key authentication, does not retry and sanitiz
   };
   const config = { apiKey: 'fixture-key', model: 'gpt-5.6-luna', baseUrl: 'https://demo.openai.azure.com/openai/v1', fetch: fetcher };
   assert.equal((await new CowriterAdapter(config).chat({ task: 'Explain', context: {}, history: [] })).text, 'A simple explanation.');
-  await assert.rejects(new CowriterAdapter(config).chat({ task: 'x'.repeat(12001), context: {}, history: [] })); assert.equal(calls, 1);
+  await assert.rejects(new CowriterAdapter(config).chat({ task: 'x'.repeat(25001), context: {}, history: [] })); assert.equal(calls, 1);
   for (const status of [401, 403, 404, 429, 500]) {
     const adapter = new CowriterAdapter({ ...config, fetch: async () => { calls++; return new Response('private provider body', { status }); } });
     await assert.rejects(adapter.chat({ task: 'Hi', context: {}, history: [] }), error => error instanceof Error && !error.message.includes('private provider body'));

@@ -14,8 +14,8 @@ export async function publishedResource(slug: string, publicationId?: string): P
     const session: Session | null = sessionResponse.ok ? await sessionResponse.json() : null;
     const church = session?.churches.find(item => item.slug === slug);
     const suffix = publicationId ? `/studies/${encodeURIComponent(publicationId)}` : "/studies";
-    const path = church ? `/churches/${church.id}${suffix}` : `/public/churches/${encodeURIComponent(slug)}${suffix}`;
-    const [response, themeResponse] = await Promise.all([memberFetch(path), memberFetch(church ? `/churches/${church.id}/theme` : `/public/churches/${encodeURIComponent(slug)}/theme`)]);
+    const path = `/public/churches/${encodeURIComponent(slug)}${suffix}`;
+    const [response, themeResponse] = await Promise.all([memberFetch(path), memberFetch(`/public/churches/${encodeURIComponent(slug)}/theme`)]);
     return { data: response.ok ? await response.json() : null, session, churchId: church?.id ?? null, theme: themeResponse.ok ? await themeResponse.json() : null, status: response.status >= 500 ? 503 : response.status };
   } catch { return { data: null, session: null, churchId: null, theme: null, status: 503 }; }
 }

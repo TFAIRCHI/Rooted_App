@@ -58,12 +58,21 @@ test('1.2.15 anonymous public pages match the design, work by keyboard and do no
 test('1.2.13 leader sign-in creates one persisted church after uncertain response and shows actual roles',async({page})=>{
   test.setTimeout(120_000);
   await page.goto('/get-started');await page.getByRole('link',{name:/I help lead a church/}).click();
-  await expect(page.locator('a[href^="/api/v1/auth/login?"]')).toHaveAttribute('href',/persona=/);
-  await page.getByLabel('Local development identity').selectOption('morgan.admin');
-  await page.locator('a[href^="/api/v1/auth/login?"]').click();await expect(page).toHaveURL(/\/onboarding\?intent=create-church/);
+  await expect(page).toHaveURL(/\/onboarding\?intent=create-church/);
+  await expect(page.getByRole('heading',{name:'Set up your church.'})).toBeVisible();
   const slug=`test-${randomUUID().slice(0,12)}`;
   await page.getByLabel('Church name',{exact:true}).fill('New Rhythm Church');await page.getByLabel('Your church link').fill(slug);
   await page.getByLabel('Church IANA timezone').fill('Not/AZone');await page.getByLabel('I’m authorized').check();
+  await page.getByRole('button',{name:'Continue to account setup →'}).click();
+  await expect(page).toHaveURL(/\/sign-in\?returnTo=/);
+  await expect(page.getByRole('heading',{name:'Continue church setup.'})).toBeVisible();
+  await expect(page.locator('a[href^="/api/v1/auth/login?"]')).toHaveAttribute('href',/persona=/);
+  await page.getByLabel('Local development identity').selectOption('morgan.admin');
+  await page.locator('a[href^="/api/v1/auth/login?"]').click();await expect(page).toHaveURL(/\/onboarding\?intent=create-church/);
+  await expect(page.getByLabel('Church name',{exact:true})).toHaveValue('New Rhythm Church');
+  await expect(page.getByLabel('Your church link')).toHaveValue(slug);
+  await expect(page.getByLabel('Church IANA timezone')).toHaveValue('Not/AZone');
+  await page.getByLabel('I’m authorized').check();
   await page.getByRole('button',{name:'Create church workspace',exact:true}).click();await expect(page.locator('main').getByRole('alert')).toContainText('valid IANA timezone');
   await page.getByLabel('Church IANA timezone').fill('America/New_York');await screenshot(page,'church-setup-desktop');await accessible(page);
   await page.setViewportSize({width:390,height:844});await screenshot(page,'church-setup-mobile');await page.setViewportSize({width:1440,height:1000});
@@ -83,7 +92,7 @@ test('1.2.13 leader sign-in creates one persisted church after uncertain respons
 });
 
 test('1.2.13 member entry rejects external links and accepts only an identity-bound invitation',async({browser,page})=>{
-  await page.goto('/find-church');await page.getByLabel('Church link or slug').fill('https://evil.example/c/grace');await page.getByRole('button',{name:'Open church link →'}).click();await expect(page.locator('main').getByRole('alert')).toContainText('this Rooted site');
+  await page.goto('/find-church');await page.getByLabel('Church link or slug').fill('https://evil.example/c/grace');await page.getByRole('button',{name:'Open church link →'}).click();await expect(page.locator('main').getByRole('alert')).toContainText('public Rooted link');
   await login(page,'morgan.admin');const created=await command(page.context(),'/churches',{name:'Invitation Test Church',slug:`invite-${randomUUID().slice(0,12)}`,timeZone:'America/New_York'});expect(created.status()).toBe(201);const church=await created.json();
   const invited=await command(page.context(),`/churches/${church.id}/invitations`,{targetSubject:'riley.member',role:'member',reason:'Explicit test invitation'});expect(invited.status()).toBe(201);const token=(await invited.json()).token;
   const other=await browser.newContext();const wrong=await other.newPage();await login(wrong,'anna.contributor');expect((await command(other,'/invitations/accept',{token})).status()).toBe(404);await other.close();
@@ -103,14 +112,9 @@ test('1.2.13 identity continuation rejects external targets, survives callback a
   await page.getByRole('button',{name:'Sign out',exact:true}).click();await expect(page).toHaveURL('/');expect((await page.request.get('/api/v1/auth/session')).status()).toBe(401);
 });
 
-test('1.2.13 guest member and workspace deep links use the supported sign-in flow',async({page})=>{
+test('public church reading needs no sign-in while workspace still does',async({page})=>{
   await page.goto('/c/grace');
-  const signIn=page.getByRole('link',{name:'Sign in to read',exact:true});
-  await expect(signIn).toHaveAttribute('href',/^\/sign-in\?returnTo=/);
-  await signIn.click();await page.getByLabel('Local development identity').selectOption('riley.member');
-  await page.locator('a[href^="/api/v1/auth/login?"]').click();await expect(page).toHaveURL('/c/grace');
-  const session=await(await page.request.get('/api/v1/auth/session')).json();expect(session.user.id).toBe('riley.member');
-  await page.getByRole('button',{name:'Sign out',exact:true}).click();
-  await expect(page.getByRole('link',{name:'Sign in to read',exact:true})).toBeVisible();
+  await expect(page.getByRole('heading',{name:'Make room for what matters.'})).toBeVisible();
+  expect((await page.request.get('/api/v1/auth/session')).status()).toBe(401);
   await page.goto('/dashboard');await expect(page.locator('a[href^="/api/v1/auth/login?"]')).toHaveAttribute('href',/returnTo=%2Fdashboard/);
 });

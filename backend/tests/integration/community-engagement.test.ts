@@ -8,6 +8,7 @@ import { config } from '../../src/infrastructure/config.js';
 import { migrate } from '../../src/infrastructure/migrate.js';
 import { seed, graceId, riversideId } from '../../src/infrastructure/seed.js';
 import { publicationEngagement, retireEngagementIdentifiers } from '../../src/modules/engagement.js';
+import { schedulePublicSms } from '../../src/api/public-sms-routes.js';
 
 type Aggregate = { id: string; etag: string; headRevisionId: string; approvalId: string; livePublicationId: string; status: string; head: { hash: string; payload: Record<string, unknown> } };
 
@@ -55,6 +56,85 @@ test('Rooted member conversation, reach, answers, withdrawal and permanent histo
     const audience = await database.transaction(graceId, 'contributor', client => publicationEngagement(client, graceId, publicationId));
     assert.ok(audience.audienceMemberCount && audience.audienceMemberCount > 0); assert.equal(audience.uniqueOpens, 0);
     const count = await privileged.query('SELECT count(*)::integer AS count FROM publication_audiences WHERE publication_id=$1', [publicationId]); assert.equal(count.rows[0].count, 1);
+  });
+  await context.test('public link, anonymous reactions and reviewed named comments', async () => {
+    const publicPath = `/v1/public/churches/grace/studies/${publicationId}`;
+    const guest = (method: 'GET' | 'POST' | 'PUT', suffix = '', payload?: unknown, cookie?: string) => app.inject({
+      method, url: publicPath + suffix,
+      headers: { origin: 'http://127.0.0.1:3000', ...(cookie ? { cookie } : {}), ...(payload === undefined ? {} : { 'content-type': 'application/json' }) },
+      ...(payload === undefined ? {} : { payload: JSON.stringify(payload) })
+    });
+    assert.equal((await guest('GET')).statusCode, 404);
+    await command('admin', '/public-access', { action: 'enable_read', evidence: 'Local fixture study content reviewed for public access.' });
+    await command('admin', '/public-access', { action: 'enable_engagement' });
+    await command('admin', '/settings', { discussionsEnabled: true });
+    assert.equal((await guest('GET')).statusCode, 200);
+    assert.equal((await app.inject({ url: `/v1/public/churches/riverside/studies/${publicationId}` })).statusCode, 404);
+    process.env.PUBLIC_VISITOR_SECRET = 'local-test-public-visitor-secret-32-characters';
+    const reaction = await guest('PUT', '/reaction', { type: 'like' });
+    assert.equal(reaction.statusCode, 200, reaction.body);
+    const visitorCookie = reaction.cookies.find(cookie => cookie.name === 'rooted_visitor');
+    assert.ok(visitorCookie);
+    const cookie = `${visitorCookie.name}=${visitorCookie.value}`;
+    assert.equal((await guest('GET', '/community', undefined, cookie)).json().myReaction, 'like');
+    assert.equal((await guest('PUT', '/reaction', { type: null }, cookie)).statusCode, 200);
+    assert.equal((await guest('GET', '/community', undefined, cookie)).json().reactions.like, 0);
+    assert.equal((await guest('POST', '/comments', { displayName: '', body: 'A comment' }, cookie)).statusCode, 422);
+    const submitted = await guest('POST', '/comments', { displayName: 'A reader', body: 'A question for the church', kind: 'question' }, cookie);
+    assert.equal(submitted.statusCode, 201, submitted.body);
+    assert.equal((await guest('GET', '/community')).json().comments.length, 0);
+    await command('reviewer', `/public-moderation/${submitted.json().id}/decision`, { decision: 'approve', reason: 'Reviewed for publication.' });
+    const approved = (await guest('GET', '/community')).json().comments;
+    assert.equal(approved.length, 1); assert.equal(approved[0].nameVerified, false);
+    const report = await guest('POST', '/reports', { commentId: submitted.json().id, reason: 'Please review the tone.' }, cookie);
+    assert.equal(report.statusCode, 201, report.body);
+    const inbox = await call('reviewer', 'GET', '/public-moderation');
+    assert.equal(inbox.statusCode, 200, inbox.body);
+    assert.equal(inbox.json().reports.length, 1);
+    const audit = await privileged.query('SELECT count(*)::integer AS count FROM public_moderation_actions WHERE church_id=$1 AND discussion_id=$2', [graceId, submitted.json().id]);
+    assert.equal(audit.rows[0].count, 1);
+    assert.equal((await guest('POST', `/comments/${submitted.json().id}/remove`, {}, cookie)).statusCode, 200);
+    assert.equal((await guest('GET', '/community')).json().comments.length, 0);
+  });
+  await context.test('reviewed public SMS creates one intent only for audited consent', async () => {
+    const schedule = (await privileged.query('SELECT id FROM schedules WHERE church_id=$1 AND content_id=$2', [graceId, content.id])).rows[0];
+    assert.ok(schedule);
+    await privileged.query("UPDATE schedules SET due_at=now() WHERE church_id=$1 AND id=$2", [graceId, schedule.id]);
+    process.env.TWILIO_SENDER_NAME = 'Grace Community Church';
+    process.env.TWILIO_SENDER_SCOPE = 'fixture-sender';
+    process.env.TWILIO_CHURCH_ID = graceId;
+    process.env.TWILIO_ACTIVATION_APPROVED = 'true';
+    const connectionId = randomUUID();
+    const eligibleId = randomUUID();
+    const suppressedId = randomUUID();
+    await privileged.query("INSERT INTO provider_connections(church_id,id,provider,owner_id,status,config) VALUES($1,$2,'twilio','admin','configured',$3)", [graceId, connectionId, JSON.stringify({ senderScope: 'fixture-sender', accountSid: 'ACfixture' })]);
+    await privileged.query("INSERT INTO provider_budgets(church_id,monthly_limit,period,profile_version,profile,rights_confirmed,sms_segment_limit) VALUES($1,100000,to_char(now(),'YYYY-MM'),'fixture','Fixture profile',true,100)", [graceId]);
+    for (const [id, audited, suppressed] of [[eligibleId, true, false], [suppressedId, false, true]] as const) {
+      await privileged.query('INSERT INTO provider_contacts(church_id,id,user_id,phone_ciphertext,phone_hash,zone,zone_source,sender_scope,consent_version,suppressed,consent_audited,provenance) VALUES($1,$2,NULL,$3,$4,$5,$6,$7,1,$8,$9,$10)', [graceId, id, 'fixture-encrypted', id, 'America/New_York', 'local test', 'fixture-sender', suppressed, audited, 'admin']);
+    }
+    const note = await command('contributor', `/sms/public-plans/${schedule.id}/note`, { note: 'A word for the week ahead.' });
+    assert.match(note.body, new RegExp(publicationId));
+    assert.equal((await call('contributor', 'POST', `/sms/public-plans/${schedule.id}/approve`, {})).statusCode, 409);
+    const approved = await command('reviewer', `/sms/public-plans/${schedule.id}/approve`, {});
+    assert.equal(approved.approved, true);
+    assert.match(approved.body, /Reply STOP to unsubscribe/);
+    await command('admin', '/public-access', { action: 'enable_sms', evidence: 'Local fixture sender and opt-in audit approved for a dry-run only.' });
+    const runtime = { enabled: true, twilio: { accountSid: 'ACfixture', authToken: 'fixture-token', from: '+15551234567', churchId: graceId, senderScope: 'fixture-sender', activationApproved: true } };
+    assert.equal(await schedulePublicSms(database, graceId, runtime), 1);
+    assert.equal(await schedulePublicSms(database, graceId, runtime), 0);
+    const intents = await privileged.query('SELECT contact_id,status,sms_snapshot_id FROM provider_send_intents WHERE church_id=$1 AND publication_id=$2', [graceId, publicationId]);
+    assert.equal(intents.rowCount, 1); assert.equal(intents.rows[0].contact_id, eligibleId); assert.equal(intents.rows[0].status, 'pending');
+    assert.ok(intents.rows[0].sms_snapshot_id);
+    await command('contributor', `/sms/public-plans/${schedule.id}/note`, { note: 'A changed introduction.' });
+    const changed = await privileged.query('SELECT status FROM provider_send_intents WHERE church_id=$1 AND publication_id=$2', [graceId, publicationId]);
+    assert.equal(changed.rows[0].status, 'approval_changed');
+    const removed = await command('admin', `/providers/contacts/${eligibleId}/remove-phone`, {});
+    assert.equal(removed.phoneRemoved, true);
+    const contact = await privileged.query('SELECT phone_ciphertext,suppressed,consent_audited,provenance FROM provider_contacts WHERE church_id=$1 AND id=$2', [graceId, eligibleId]);
+    assert.equal(contact.rows[0].phone_ciphertext, 'removed'); assert.equal(contact.rows[0].suppressed, true);
+    assert.equal(contact.rows[0].consent_audited, false);
+    await command('admin', '/public-access', { action: 'disable_read' });
+    assert.equal((await app.inject({ url: `/v1/public/churches/grace/studies/${publicationId}/community` })).statusCode, 404);
   });
   await context.test('unique member opens exclude previews and new members do not inflate the original audience percentage', async () => {
     for (const user of ['member', 'member', 'contributor']) assert.equal((await call(user, 'POST', `/studies/${publicationId}/open`, {})).statusCode, 200);
@@ -107,6 +187,8 @@ test('Rooted member conversation, reach, answers, withdrawal and permanent histo
     assert.equal((await call('admin', 'POST', `/slots/${studyId}/hard-delete`, { confirmation: `PERMANENTLY DELETE ${studyId}`, reason: 'Fixture only' }, lifecycle.etag)).statusCode, 409);
     await command('contributor', `/slots/${studyId}/withdraw`, { reason: 'Retain this exact historical artifact' }, lifecycle.etag);
     assert.equal((await call('member', 'GET', `/studies/${publicationId}`)).statusCode, 404);
+    assert.equal((await app.inject({ url: `/v1/public/churches/grace/studies/${publicationId}` })).statusCode, 404);
+    assert.equal((await app.inject({ url: `/v1/public/churches/grace/studies/${publicationId}/community` })).statusCode, 404);
     const retained = await call('admin', 'GET', `/engagement/studies/${publicationId}`); assert.equal(retained.statusCode, 200, retained.body); assert.equal(retained.json().publication.withdrawn, true); assert.equal(retained.json().publication.payload.title, 'Words for our week');
     lifecycle = (await call('admin', 'GET', `/slots/${studyId}/lifecycle`)).json();
     assert.equal((await call('contributor', 'POST', `/slots/${studyId}/hard-delete`, { confirmation: `PERMANENTLY DELETE ${studyId}`, reason: 'Fixture only' }, lifecycle.etag)).statusCode, 403);

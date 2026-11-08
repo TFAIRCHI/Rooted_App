@@ -297,6 +297,20 @@ test('provider API + worker contracts with real isolated PostgreSQL and loopback
     assert.equal((await administrative.query('SELECT suppressed FROM provider_contacts WHERE id=$1', [contactId])).rows[0].suppressed, true);
     await call('admin', 'POST', `${prefix}/contacts`, { userId: 'member', phone: '+12025550100', zone, zoneSource: 'Reimport fixture' });
     assert.equal((await administrative.query('SELECT suppressed FROM provider_contacts WHERE id=$1', [contactId])).rows[0].suppressed, true);
+    async function keyword(body: string, digit: string, from = '+12025550999') {
+      const form = { AccountSid: accountSid, MessageSid: `SM${digit.repeat(32)}`, From: from, To: '+12025550101', Body: body };
+      const signed = stopUrl + Object.keys(form).sort().map(name => name + form[name as keyof typeof form]).join('');
+      return app.inject({ method: 'POST', url: stopUrl.replace(`${settings.appOrigin}/api`, ''), headers: { 'content-type': 'application/x-www-form-urlencoded', 'x-twilio-signature': createHmac('sha1', 'fixture-auth-token').update(signed).digest('base64') }, payload: new URLSearchParams(form).toString() });
+    }
+    const initial = await keyword('AGREE', '4'); assert.match(initial.body, /Text ROOTED first/);
+    const request = await keyword('ROOTED', '5'); assert.equal(request.statusCode, 200, request.body); assert.match(request.body, /Reply AGREE/);
+    const confirm = await keyword('AGREE', '6'); assert.equal(confirm.statusCode, 200, confirm.body); assert.match(confirm.body, /subscribed/);
+    const keywordContact=(await administrative.query("SELECT id,suppressed,consent_audited,zone FROM provider_contacts WHERE provenance='keyword' AND church_id=$1",[graceId])).rows[0];
+    assert.equal(keywordContact.suppressed,false); assert.equal(keywordContact.consent_audited,true); assert.equal(keywordContact.zone,null);
+    const zoneUpdate=await call('admin','POST',`${prefix}/contacts/${keywordContact.id}/zone`,{zone,zoneSource:'Pilot recipient confirmed their local zone'});
+    assert.equal(zoneUpdate.statusCode,200,zoneUpdate.body);
+    const stoppedKeyword=await keyword('STOP','7'); assert.equal(stoppedKeyword.statusCode,200,stoppedKeyword.body);
+    assert.equal((await administrative.query('SELECT suppressed FROM provider_contacts WHERE id=$1',[keywordContact.id])).rows[0].suppressed,true);
   });
 
   await context.test('dispatch rejects recipient removal and final-content approver or publisher revocation after enqueue', async () => {

@@ -127,7 +127,15 @@
 .cowriter-menu-panel section { min-width: 0; overflow-wrap: anywhere; }
 .cowriter-menu-panel textarea { resize: vertical; }
 .cowriter-popup .cowriter-header { padding: 16px; }
-.cowriter-popup .cowriter-chat { flex: 1; min-height: 0; max-height: none; overscroll-behavior: contain; }
+.cowriter-popup .cowriter-chat { flex: 1; min-height: 0; max-height: none; overscroll-behavior: contain; position: relative; }
+.cowriter-drop-active { outline: 3px dashed #55745b; outline-offset: -8px; background: #f0f6ef; }
+.cowriter-drop-overlay { position: absolute; inset: 12px; z-index: 4; display: grid; place-items: center; padding: 24px; border: 2px dashed #55745b; border-radius: 10px; background: rgb(240 246 239 / 94%); color: #29452f; font-weight: 700; text-align: center; pointer-events: none; }
+.cowriter-attachment { display: flex; align-items: center; gap: 8px; margin: 0 0 12px; padding: 9px 11px; border-radius: 8px; overflow-wrap: anywhere; background: #f1f4f1; }
+.cowriter-attachment span { display: grid; place-items: center; flex: none; width: 20px; height: 20px; border-radius: 50%; color: white; font-weight: 700; }
+.cowriter-attachment.success span { background: #22804f; }
+.cowriter-attachment.failure span { background: #bb3434; }
+.cowriter-attachment.ready span { background: #60786d; }
+.cowriter-attachment small { margin-left: auto; }
 .cowriter-popup .cowriter-composer { margin: 10px 14px 14px; }
 .cowriter-popup .cowriter-composer textarea { max-height: 120px; }
 @media (min-width: 1440px) { body:has(.cowriter-popup:not([hidden]):not(.cowriter-expanded)) .workspace { margin-right: 396px; } }

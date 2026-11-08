@@ -41,7 +41,7 @@ test('co-writer popup keeps preview intact, reviews sources, shows proposals and
   await expect(page.getByText('Conversation restored. Continue where you left off.',{exact:true})).toBeVisible();
   await page.getByRole('button',{name:'Co-writer menu',exact:true}).click();
   await page.locator('.cowriter-source summary').click();
-  await expect(page.getByLabel('Sermon transcript text')).toHaveValue('John 6:68. Saved earlier sermon conversation.');
+  await expect(page.getByLabel('Study document text')).toHaveValue('John 6:68. Saved earlier sermon conversation.');
   await page.locator('.cowriter-source summary').click();
   await page.getByRole('button',{name:'New conversation',exact:true}).click();
   const panel = page.getByRole('dialog', { name: 'Study co-writer' });
@@ -56,12 +56,12 @@ test('co-writer popup keeps preview intact, reviews sources, shows proposals and
   expect((await panel.boundingBox())!.width).toBe(normalBounds!.width);
   await page.getByRole('button',{name:'Co-writer menu',exact:true}).click();
   await page.locator('.cowriter-source summary').click();
-  await page.getByLabel('Sermon transcript text').fill('Synthetic sermon notes for the fixture.');
-  await expect(page.getByRole('button', { name: 'Confirm transcript', exact: true })).toBeDisabled();
+  await page.getByLabel('Study document text').fill('Synthetic sermon notes for the fixture.');
+  await expect(page.getByRole('button', { name: 'Confirm document', exact: true })).toBeDisabled();
   await page.getByRole('checkbox', { name: /I reviewed this text/ }).check();
-  await page.getByRole('button', { name: 'Confirm transcript', exact: true }).click();
+  await page.getByRole('button', { name: 'Confirm document', exact: true }).click();
   await page.getByRole('button',{name:'Co-writer menu',exact:true}).click();
-  await expect(page.getByRole('button', { name: 'Transcript confirmed', exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Document confirmed', exact: true })).toBeVisible();
   await page.getByRole('button', { name: /Write today’s study/ }).click();
   await page.getByRole('button', { name: 'Send message', exact: true }).click();
   const adopt = page.getByRole('button', { name: 'Adopt proposal into saved draft' }); await expect(adopt).toBeVisible();
