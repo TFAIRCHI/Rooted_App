@@ -89,7 +89,7 @@ test('production access sessions: persistent reading, verified MFA, account bind
     const session = await app.inject({url:'/v1/auth/session',headers:{cookie:readingCookie}});
     assert.equal(session.json().access,'member'); assert.deepEqual(session.json().churches[0].capabilities,[]);
     assert.equal(session.json().churches[0].contributorAccess,true);
-    for (const path of ['workspace','invitations','moderation','providers/status',`content/${randomUUID()}/cowriter/status`]) {
+    for (const path of ['workspace','members/access','invitations','moderation','providers/status',`content/${randomUUID()}/cowriter/status`]) {
       const response = await app.inject({url:`/v1/churches/${church}/${path}`,headers:{cookie:readingCookie}});
       assert.equal(response.statusCode,403,`${path}: ${response.body}`); assert.equal(response.json().code,'mfa_required');
     }
@@ -137,6 +137,10 @@ test('production access sessions: persistent reading, verified MFA, account bind
     assert.ok(current.churches.find((item:{id:string})=>item.id===church).capabilities.includes('workspace:read'));
     const invitations=await app.inject({url:`/v1/churches/${church}/invitations`,headers:{cookie:privilegedCookie}});
     assert.equal(invitations.statusCode,200,invitations.body);
+    const members=await app.inject({url:`/v1/churches/${church}/members/access`,headers:{cookie:privilegedCookie}});
+    assert.equal(members.statusCode,200,members.body);
+    assert.equal(members.json().items[0].userId,actor);
+    assert.equal((await app.inject({url:`/v1/churches/${foreign}/members/access`,headers:{cookie:privilegedCookie}})).statusCode,403);
     const noRole=await app.inject({url:`/v1/churches/${foreign}/invitations`,headers:{cookie:privilegedCookie}});
     assert.equal(noRole.statusCode,403,noRole.body); assert.equal(noRole.json().code,'forbidden');
     const replay=await app.inject({url:`/v1/auth/callback?state=${upgraded.state}&code=${upgraded.code}`,headers:{cookie:`gather_oidc_state=${upgraded.state}`}});
@@ -148,6 +152,7 @@ test('production access sessions: persistent reading, verified MFA, account bind
     assert.equal(session.access,'member');
     assert.equal((await app.inject({url:`/v1/churches/${church}/studies`,headers:{cookie:privilegedCookie}})).statusCode,200);
     assert.equal((await app.inject({url:`/v1/churches/${church}/invitations`,headers:{cookie:privilegedCookie}})).statusCode,403);
+    assert.equal((await app.inject({url:`/v1/churches/${church}/members/access`,headers:{cookie:privilegedCookie}})).statusCode,403);
     const missingCsrf=await app.inject({method:'POST',url:'/v1/auth/logout',headers:{cookie:privilegedCookie}});
     assert.equal(missingCsrf.statusCode,403);
     const logout=await app.inject({method:'POST',url:'/v1/auth/logout',headers:{cookie:privilegedCookie,'x-csrf-token':session.csrfToken}});

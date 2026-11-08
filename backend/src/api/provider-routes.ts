@@ -159,6 +159,11 @@ export async function registerProviderRoutes(app: FastifyInstance, database: Dat
     externalProof: 'blocked_until_authorized_evidence',
   })));
 
+  app.get(`${prefix}/settings`, request => read(request, 'settings:manage', async (client, _member, churchId) => {
+    const row = (await client.query('SELECT monthly_limit,profile,profile_version,rights_confirmed,sms_segment_limit,transcription_second_limit FROM provider_budgets WHERE church_id=$1', [churchId])).rows[0];
+    return row ? { configured: true, monthlyTokenLimit: row.monthly_limit, profile: row.profile, profileVersion: row.profile_version, rightsConfirmed: row.rights_confirmed, smsSegmentLimit: row.sms_segment_limit, transcriptionSecondLimit: row.transcription_second_limit } : { configured: false };
+  }));
+
   app.post(`${prefix}/settings`, (request, reply) => command(request, reply, 'settings:manage', async (client, member, churchId) => {
     const input = z.object({ monthlyTokenLimit: z.number().int().min(1).max(100_000_000), profile: z.string().min(1).max(8000), profileVersion: z.string().min(1).max(100), rightsConfirmed: z.boolean(), smsSegmentLimit: z.number().int().min(0).max(1_000_000).default(0), transcriptionSecondLimit: z.number().int().min(0).max(1_000_000).default(0) }).strict().parse(request.body);
     await client.query(`INSERT INTO provider_budgets(church_id,monthly_limit,period,profile,profile_version,rights_confirmed,sms_segment_limit,transcription_second_limit) VALUES($1,$2,to_char(now(),'YYYY-MM'),$3,$4,$5,$6,$7) ON CONFLICT(church_id) DO UPDATE SET monthly_limit=$2,profile=$3,profile_version=$4,rights_confirmed=$5,sms_segment_limit=$6,transcription_second_limit=$7`, [churchId, input.monthlyTokenLimit, input.profile, input.profileVersion, input.rightsConfirmed, input.smsSegmentLimit, input.transcriptionSecondLimit]);

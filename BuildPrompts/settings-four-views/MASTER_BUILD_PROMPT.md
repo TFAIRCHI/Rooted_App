@@ -1,6 +1,6 @@
 # Build prompt: four Settings views from Figma
 
-**Status:** Draft for Tyler's review. This document authorizes planning only. Implement after Tyler approves the build prompt. Do not deploy as part of the build without separate release authorization.
+**Status:** Approved by Tyler and implemented locally on November 8, 2026. The original scope and acceptance criteria remain below. See [implementation evidence](evidence/implementation.md). Deployment remains a separate user-operated step.
 
 ## Objective
 

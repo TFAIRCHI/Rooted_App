@@ -50,17 +50,15 @@ test('1.1.3 authorized church teams can upload a logo, review object palette, an
 
 test('1.1.4 church administrators can edit tenant name without replacing Rooted identity', async ({ page }) => {
   await login(page, 'admin');
-  await page.goto(`/settings?church=${grace}`);
-  const name = page.locator('#church-identity-name');
+  await page.goto(`/settings/church?church=${grace}`);
+  const name = page.locator('#settings-church-name');
   await expect(name).toHaveValue('Grace Community Church');
   await name.fill('Grace Community Church · Rooted Test');
-  await page.getByRole('button', { name: 'Save church name' }).click();
-  await page.waitForLoadState('networkidle');
+  await page.getByRole('button', { name: 'Save changes' }).click();
   await expect(page.locator('.church-name')).toContainText('Grace Community Church · Rooted Test');
   await expect(page.locator('.sidebar .brand')).toBeVisible();
   await name.fill('Grace Community Church');
-  await page.getByRole('button', { name: 'Save church name' }).click();
-  await page.waitForLoadState('networkidle');
+  await page.getByRole('button', { name: 'Save changes' }).click();
   await expect(page.locator('.church-name')).toContainText('Grace Community Church');
 });
 

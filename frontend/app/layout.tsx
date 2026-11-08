@@ -10,6 +10,7 @@ import "./study-creator.css";
 import "./public-site.css";
 import "./homepage-showcase.css";
 import "./marketing-site.css";
+import "./settings-views.css";
 
 export const metadata: Metadata = { title: "Rooted · Church workspace", description: "Growing Deeper Together.", robots: { index: false, follow: false } };
 

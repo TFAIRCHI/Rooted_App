@@ -139,6 +139,13 @@ test('provider API + worker contracts with real isolated PostgreSQL and loopback
     assert.equal(response.json().reviewStatus, 'needs_review');
     const settingsResponse = await call('admin', 'POST', `${prefix}/settings`, { monthlyTokenLimit: 10_000, profile: 'Human church review required.', profileVersion: 'fixture-v1', rightsConfirmed: true, smsSegmentLimit: 100, transcriptionSecondLimit: 100 });
     assert.equal(settingsResponse.statusCode, 200, settingsResponse.body);
+    const savedSettings = await call('admin', 'GET', `${prefix}/settings`);
+    assert.equal(savedSettings.statusCode, 200, savedSettings.body);
+    assert.deepEqual(savedSettings.json(), { configured: true, monthlyTokenLimit: 10_000, profile: 'Human church review required.', profileVersion: 'fixture-v1', rightsConfirmed: true, smsSegmentLimit: 100, transcriptionSecondLimit: 100 });
+    assert.equal((await call('member', 'GET', `${prefix}/settings`)).statusCode, 403);
+    const otherChurchSettings = await call('admin', 'GET', `/v1/churches/${riversideId}/providers/settings`);
+    assert.equal(otherChurchSettings.statusCode, 200);
+    assert.deepEqual(otherChurchSettings.json(), { configured: false });
     assert.equal((await call('contributor', 'POST', `${prefix}/sources/${sourceId}/review`, { confirmed: true })).statusCode, 200);
     const isolation = await runtimeDb.transaction(riversideId, 'admin', client => client.query('SELECT id FROM sources WHERE id=$1', [sourceId]));
     assert.equal(isolation.rowCount, 0);

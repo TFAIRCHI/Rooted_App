@@ -58,6 +58,11 @@ export async function onboardingRoutes(app:FastifyInstance,database:Database,set
   });
   const routes=tenantRoutes(app,database,settings);
   const memberRoutes=tenantRoutes(app,database,settings,'member');
+  routes.get('/members/access',async({client,member,churchId})=>{
+    requireCapability(member,'memberships:manage');
+    const result=await client.query('SELECT user_id,display_name,capabilities,active FROM memberships WHERE church_id=$1 ORDER BY display_name,user_id LIMIT 500',[churchId]);
+    return {items:result.rows.map(row=>({userId:row.user_id,displayName:row.display_name,capabilities:row.capabilities,active:row.active}))};
+  });
   routes.get('/invitations',async({client,member,churchId})=>{
     requireCapability(member,'memberships:manage');
     const result=await client.query('SELECT id,target_subject,role,invited_by,expires_at,accepted_at,revoked_at,created_at FROM invitations WHERE church_id=$1 ORDER BY created_at DESC LIMIT 100',[churchId]);
