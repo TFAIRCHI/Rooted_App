@@ -1,13 +1,13 @@
 # Church-first invitations: Azure deployment handoff
 
-Release tag: `church-invites-20261108-1`. Image source commit: `1264cc985af8c04d66418ba62bb81836328d697f` (`Build church-first email invitations and team sign-in`). This package is built locally for `linux/amd64`; the images have not been pushed to ACR or deployed. The live Entra and Azure Communication Services checks below are required before production activation.
+Release tag: `church-invites-20261108-1`. Image source commit: `1264cc985af8c04d66418ba62bb81836328d697f` (`Build church-first email invitations and team sign-in`). This package is built for `linux/amd64` and both images have been pushed to ACR. The migration and new app revisions have not been run. The live Entra and email-delivery checks below are required before production activation.
 
-| Component | Local image | Local image ID |
-| --- | --- | --- |
-| API and migration job | `rootedtogethercr-dudpd0aebzeqewa2.azurecr.io/rooted-backend:church-invites-20261108-1` | `sha256:75fc11f9ac89de3dc7610d4d44be8304cdc38ecb33d7997f8894443d3f2ebb1c` |
-| Frontend | `rootedtogethercr-dudpd0aebzeqewa2.azurecr.io/rooted-frontend:church-invites-20261108-1` | `sha256:c5bac47de52f141fd31ff3b40345043b90d68ea1b02080329225590d42d6d2ee` |
+| Component | Image | Local image ID | ACR manifest digest |
+| --- | --- | --- | --- |
+| API and migration job | `rootedtogethercr-dudpd0aebzeqewa2.azurecr.io/rooted-backend:church-invites-20261108-1` | `sha256:75fc11f9ac89de3dc7610d4d44be8304cdc38ecb33d7997f8894443d3f2ebb1c` | `sha256:72dec2ed4e2954754c3860b8c5515f7addf059a06862cea7271d2eb160cdcd63` |
+| Frontend | `rootedtogethercr-dudpd0aebzeqewa2.azurecr.io/rooted-frontend:church-invites-20261108-1` | `sha256:c5bac47de52f141fd31ff3b40345043b90d68ea1b02080329225590d42d6d2ee` | `sha256:21187b7ef889b5dd385f96584279a0b82a068322c9b282392a8176cb604adc76` |
 
-These are local image IDs, not ACR manifest digests. Confirm the tag is unused in ACR before push; if already used, retag both images to a fresh release tag. Record the digests printed by `docker push`.
+The push output and a read-only registry inspection confirmed both manifest digests. Do not overwrite these tags.
 
 ## Required Azure configuration
 
@@ -16,9 +16,11 @@ These are local image IDs, not ACR manifest digests. Confirm the tag is unused i
 3. In the production Entra External ID customer flow, verify that new and existing contributor accounts complete the configured MFA requirement. Inspect the real ID-token email and verification claims for test accounts. If `email_verified` is absent or cannot be trusted, the app's mailbox code challenge must deliver and succeed; do not assume a plain email claim proves mailbox ownership. Verify the stable tenant/object identity across the configured clients. See the [customer flow documentation](https://learn.microsoft.com/en-us/entra/external-id/customers/how-to-user-flow-sign-up-sign-in-customers) and [OIDC claims mapping](https://learn.microsoft.com/en-us/entra/external-id/customers/reference-oidc-claims-mapping-customers).
 4. Use a test church and test inboxes for the first live invitation. Confirm provider acceptance and actual inbox receipt before inviting real contributors. Monitor API logs for email send failures and `unknown` states without logging tokens or codes.
 
+Progress: `rooted-email` and the Azure-managed domain are provisioned; the domain shows Verified with SPF/DKIM Verified and is Connected to `rooted-communications`. Its MailFrom address is `DoNotReply@40c8d53f-d59d-4a60-822a-28f53e0e82a5.azurecomm.net`. The `acs-email-connection-string` secret exists in `rooted-api`; its value was not shared. The API environment variables and new revision are still pending.
+
 ## Publish
 
-From this workspace after the release commit is pulled and local images are present:
+Completed from this workspace; commands retained for release traceability:
 
 ```powershell
 docker push rootedtogethercr-dudpd0aebzeqewa2.azurecr.io/rooted-backend:church-invites-20261108-1
