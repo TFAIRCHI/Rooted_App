@@ -1,6 +1,6 @@
 # Church-first invitations: Azure deployment handoff
 
-Release tag: `church-invites-20261108-1`. Source commit: **record from `git rev-parse HEAD` after pull**. This package is built locally for `linux/amd64`; the images have not been pushed to ACR or deployed. The live Entra and Azure Communication Services checks below are required before production activation.
+Release tag: `church-invites-20261108-1`. Image source commit: `1264cc985af8c04d66418ba62bb81836328d697f` (`Build church-first email invitations and team sign-in`). This package is built locally for `linux/amd64`; the images have not been pushed to ACR or deployed. The live Entra and Azure Communication Services checks below are required before production activation.
 
 | Component | Local image | Local image ID |
 | --- | --- | --- |
