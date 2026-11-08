@@ -55,7 +55,7 @@ async function login(persona:string) {
     const location=response.headers.get('location');
     if(!location) throw new Error('OIDC redirect missing');
     target=new URL(location,target).href;
-    if(target===`${apiOrigin}/dashboard`||target===`${apiOrigin}/c/grace`){callbackReached=true;break;}
+    if(new URL(target).origin===apiOrigin&&['/dashboard','/c/grace','/choose-church'].includes(new URL(target).pathname)){callbackReached=true;break;}
   }
   assert.ok(callbackReached,'Actual OIDC code+PKCE flow must reach application callback');
   const cookie=[...jar].map(([name,value])=>`${name}=${value}`).join('; ');

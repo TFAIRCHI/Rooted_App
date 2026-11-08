@@ -7,14 +7,15 @@ import { saveRevision } from './save-revision.js';
 import { blankPlan, canonical, hash, insertRevision } from './revisions.js';
 import { demoProfile, transcriptText } from '../integrations/cowriter.js';
 import { studyWorkflowConfig } from '../integrations/workflow-runtime.js';
-import { prepareWorkflowRequest, sourceReferences, validateCompleteDay, validateWorkflowPlan, weekSunday, WorkflowModel, type WorkflowModelRequest, type WorkflowModelResult } from '../integrations/study-workflow.js';
+import { prepareWorkflowRequest, selectSourceExcerpt, sourceReferences, validateCompleteDay, validateWorkflowPlan, weekSunday, WorkflowModel, type WorkflowModelRequest, type WorkflowModelResult } from '../integrations/study-workflow.js';
 import type { WorkflowPlan, WorkflowSummary } from '../../contracts/study-workflow.js';
 import type { OpenAIConfig } from '../integrations/ai.js';
 import { resolveCivilTime } from '../integrations/time.js';
+import { resolveKjv } from '../integrations/kjv.js';
 
 export interface WorkflowRow {
   sequential:boolean;intent_confirmed:boolean;conversation_source:boolean;source_reviewed:boolean;
-  church_id:string;id:string;actor_id:string;series_id:string|null;assignee_id:string;time_zone:string;local_time:string;
+  church_id:string;id:string;actor_id:string;series_id:string|null;create_series:boolean;assignee_id:string;time_zone:string;local_time:string;
   state:WorkflowSummary['state'];version:number;source_id:string;source_hash:string;profile:string;profile_hash:string;
   reference_sunday:string|Date;plan:WorkflowPlan|null;messages:{role:'user'|'assistant';text:string}[];
   confirmation:{planHash:string;sourceHash:string;profileHash:string;version:number;actorId:string;at:string}|null;
@@ -52,7 +53,9 @@ export async function workflowRun(client:PoolClient,churchId:string,id:string):P
 export async function workflowView(client:PoolClient,run:WorkflowRow):Promise<WorkflowSummary> {
   const source=(await client.query('SELECT text FROM study_workflow_sources WHERE church_id=$1 AND id=$2',[run.church_id,run.source_id])).rows[0];
   const jobs=(await client.query('SELECT id,kind,local_date::text AS date,state,error,usage FROM study_workflow_jobs WHERE church_id=$1 AND run_id=$2 ORDER BY created_at,id',[run.church_id,run.id])).rows;
-  return {conversationSource:run.conversation_source,sourceReviewed:run.source_reviewed,sequential:run.sequential,intentConfirmed:run.intent_confirmed,id:run.id,state:run.state,version:run.version,sourceHash:run.source_hash,profileHash:run.profile_hash,planHash:run.plan?hash(canonical(run.plan)):null,seriesId:run.series_id,assigneeId:run.assignee_id,localTime:run.local_time,timeZone:run.time_zone,plan:run.plan,sourceId:run.source_id,sourceText:source?.text??'',messages:run.messages,jobs,mapping:run.mapping,tokensUsed:run.tokens_used,tokensReserved:run.tokens_reserved,attempts:run.attempts,error:run.error,expiresAt:run.expires_at.toISOString()};
+  let selectedSourceExcerpt:string|null=null;
+  if(source?.text){try{selectedSourceExcerpt=selectSourceExcerpt(source.text,run.plan?.days[run.mapping.length]?.objective??run.messages.find(message=>message.role==='user')?.text??'');}catch{selectedSourceExcerpt=null;}}
+  return {conversationSource:run.conversation_source,sourceReviewed:run.source_reviewed,sequential:run.sequential,intentConfirmed:run.intent_confirmed,id:run.id,state:run.state,version:run.version,sourceHash:run.source_hash,profileHash:run.profile_hash,planHash:run.plan?hash(canonical(run.plan)):null,seriesId:run.series_id,createNewSeries:run.create_series,assigneeId:run.assignee_id,localTime:run.local_time,timeZone:run.time_zone,plan:run.plan,sourceId:run.source_id,sourceText:source?.text??'',selectedSourceExcerpt,messages:run.messages,jobs,mapping:run.mapping,tokensUsed:run.tokens_used,tokensReserved:run.tokens_reserved,attempts:run.attempts,error:run.error,expiresAt:run.expires_at.toISOString()};
 }
 export async function profileSnapshot(client:PoolClient,churchId:string) {
   const budget=(await client.query('SELECT * FROM provider_budgets WHERE church_id=$1',[churchId])).rows[0];
@@ -77,10 +80,10 @@ export async function assertDatesFree(client:PoolClient,run:WorkflowRow,plan:Wor
     demand(!(await client.query('SELECT 1 FROM slots WHERE church_id=$1 AND local_date=$2 AND deleted_at IS NULL AND withdrawn_at IS NULL',[run.church_id,day.date])).rowCount,409,'date_conflict',`A study already occupies ${day.date}. Choose another date; existing work will not be replaced.`);
   }
 }
-export async function newWorkflow(client:PoolClient,member:Membership,churchId:string,input:{seriesId?:string;assigneeId:string;localTime:string;task:string;sourceText?:string;librarySourceId?:string;clarificationOnly?:boolean},now:Date) {
+export async function newWorkflow(client:PoolClient,member:Membership,churchId:string,input:{seriesId?:string;createNewSeries?:boolean;assigneeId:string;localTime:string;task:string;sourceText?:string;librarySourceId?:string;clarificationOnly?:boolean},now:Date) {
   workflowPermission(member);demand(input.assigneeId===member.userId,403,'workflow_assignee','This first release creates drafts assigned to you.');
   const church=(await client.query('SELECT time_zone FROM churches WHERE id=$1',[churchId])).rows[0];
-  if(!input.clarificationOnly)demand((await client.query('SELECT 1 FROM series WHERE church_id=$1 AND id=$2',[churchId,input.seriesId])).rowCount,404,'series_not_found','Choose an existing study series');
+  if(!input.clarificationOnly){demand(Boolean(input.seriesId)!==Boolean(input.createNewSeries),422,'series_choice','Choose an existing series or create a new series from this conversation');if(input.seriesId)demand((await client.query('SELECT 1 FROM series WHERE church_id=$1 AND id=$2',[churchId,input.seriesId])).rowCount,404,'series_not_found','Choose an existing study series');}
   let sourceText=input.sourceText??'';let libraryHash:string|null=null;
   if(input.librarySourceId){
     const source=(await client.query('SELECT s.payload,s.rights FROM sources s JOIN provider_source_reviews r ON r.church_id=s.church_id AND r.source_id=s.id WHERE s.church_id=$1 AND s.id=$2',[churchId,input.librarySourceId])).rows[0];
@@ -91,7 +94,7 @@ export async function newWorkflow(client:PoolClient,member:Membership,churchId:s
   demand(input.clarificationOnly||refs.length,422,'source_passage_required','Add the sermon passage reference to the reviewed outline before planning; references will not be invented.');
   await client.query("INSERT INTO provider_budgets(church_id,monthly_limit,period,profile,profile_version) VALUES($1,200000,to_char(now() AT TIME ZONE 'UTC','YYYY-MM'),$2,'demo-collaborator-v1') ON CONFLICT DO NOTHING",[churchId,demoProfile]);
   const profile=await profileSnapshot(client,churchId);const id=randomUUID(),sourceId=randomUUID();
-  await client.query('INSERT INTO study_workflows(church_id,id,actor_id,series_id,assignee_id,time_zone,local_time,source_id,source_hash,profile,profile_hash,reference_sunday,sequential) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,true)',[churchId,id,member.userId,input.seriesId??null,input.assigneeId,church.time_zone,input.localTime,sourceId,hash(sourceText),profile.profile,profile.hash,weekSunday(now,church.time_zone)]);
+  await client.query('INSERT INTO study_workflows(church_id,id,actor_id,series_id,assignee_id,time_zone,local_time,source_id,source_hash,profile,profile_hash,reference_sunday,sequential,create_series) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,true,$13)',[churchId,id,member.userId,input.seriesId??null,input.assigneeId,church.time_zone,input.localTime,sourceId,hash(sourceText),profile.profile,profile.hash,weekSunday(now,church.time_zone),!!input.createNewSeries||!!input.clarificationOnly]);
   await client.query('INSERT INTO study_workflow_sources(church_id,id,run_id,actor_id,text,sha256,allowed_references,library_source_id,library_hash) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9)',[churchId,sourceId,id,member.userId,sourceText,hash(sourceText),JSON.stringify(refs),input.librarySourceId??null,libraryHash]);
   const run=await workflowRun(client,churchId,id);await queuePlan(client,member,run,input.task);
   await audit(client,churchId,member.userId,'workflow.created',id,{sourceHash:run.source_hash});return id;
@@ -109,11 +112,12 @@ async function reserveJobs(client:PoolClient,run:WorkflowRow,prepared:{date:stri
   await client.query('UPDATE study_workflows SET tokens_reserved=tokens_reserved+$3 WHERE church_id=$1 AND id=$2',[run.church_id,run.id,amount]);
   for(const item of prepared)await client.query("INSERT INTO study_workflow_jobs(church_id,id,run_id,actor_id,kind,local_date,run_version,state,prepared,reservation,period) VALUES($1,$2,$3,$4,$5,$6,$7,'pending',$8,$9,$10)",[run.church_id,randomUUID(),run.id,run.actor_id,item.kind,item.date,run.version,JSON.stringify(item.request),item.request.reservation,budget.current_period]);
 }
-export async function configureWorkflow(client:PoolClient,member:Membership,run:WorkflowRow,input:{seriesId:string;localTime:string;task?:string;sourceText?:string;librarySourceId?:string}) {
+export async function configureWorkflow(client:PoolClient,member:Membership,run:WorkflowRow,input:{seriesId?:string;createNewSeries?:boolean;localTime:string;task?:string;sourceText?:string;librarySourceId?:string}) {
   workflowPermission(member);
   demand(!run.plan&&!run.intent_confirmed&&!run.mapping.length&&['direction_review','failed','canceled','paused_conflict'].includes(run.state),409,'setup_unavailable','Wait for the current reply before adding planning details');
   demand(!(await client.query("SELECT 1 FROM study_workflow_jobs WHERE church_id=$1 AND run_id=$2 AND state IN ('pending','running')",[run.church_id,run.id])).rowCount,409,'workflow_busy','Wait for the current reply');
-  demand((await client.query('SELECT 1 FROM series WHERE church_id=$1 AND id=$2',[run.church_id,input.seriesId])).rowCount,404,'series_not_found','Choose an existing study series');
+  demand(Boolean(input.seriesId)!==Boolean(input.createNewSeries),422,'series_choice','Choose an existing series or create a new series');
+  if(input.seriesId)demand((await client.query('SELECT 1 FROM series WHERE church_id=$1 AND id=$2',[run.church_id,input.seriesId])).rowCount,404,'series_not_found','Choose an existing study series');
   let text=input.sourceText??'',libraryHash:string|null=null;
   if(input.librarySourceId){
     const source=(await client.query('SELECT s.payload,s.rights FROM sources s JOIN provider_source_reviews r ON r.church_id=s.church_id AND r.source_id=s.id WHERE s.church_id=$1 AND s.id=$2',[run.church_id,input.librarySourceId])).rows[0];
@@ -123,7 +127,7 @@ export async function configureWorkflow(client:PoolClient,member:Membership,run:
   text=transcriptText(text);const refs=sourceReferences(text);demand(refs.length,422,'source_passage_required','Include the passage reference in the reviewed source');
   const id=randomUUID();
   await client.query('INSERT INTO study_workflow_sources(church_id,id,run_id,actor_id,text,sha256,allowed_references,library_source_id,library_hash) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9)',[run.church_id,id,run.id,member.userId,text,hash(text),JSON.stringify(refs),input.librarySourceId??null,libraryHash]);
-  await client.query('UPDATE study_workflows SET series_id=$3,local_time=$4,source_id=$5,source_hash=$6,version=version+1,confirmation=NULL WHERE church_id=$1 AND id=$2',[run.church_id,run.id,input.seriesId,input.localTime,id,hash(text)]);
+  await client.query('UPDATE study_workflows SET series_id=$3,local_time=$4,source_id=$5,source_hash=$6,create_series=$7,version=version+1,confirmation=NULL WHERE church_id=$1 AND id=$2',[run.church_id,run.id,input.seriesId??null,input.localTime,id,hash(text),!!input.createNewSeries]);
   const current=await workflowRun(client,run.church_id,run.id);
   await queuePlan(client,member,current,input.task?.trim()||'Develop the study plan requested in this conversation using the newly reviewed source. Preserve the requested day count, dates and agreed teaching direction.');
 }
@@ -219,7 +223,7 @@ async function commitDrafts(client:PoolClient,member:Membership,run:WorkflowRow)
   const targets=run.sequential?run.plan.days.slice(run.mapping.length,run.mapping.length+1):run.plan.days;
   demand(jobs.length===targets.length&&jobs.every(job=>job.state==='completed'&&job.result),409,'incomplete_batch','Every day must be complete before saving');
   if(!run.series_id){
-    demand(run.conversation_source&&run.source_reviewed,409,'series_required','A reviewed conversation plan is required to create a new study series');
+    demand(run.create_series&&run.source_reviewed,409,'series_required','Review the source and confirm creation of a new series');
     const seriesId=randomUUID();await client.query('INSERT INTO series(church_id,id,title,week_anchor,time_zone) VALUES($1,$2,$3,$4,$5)',[run.church_id,seriesId,run.plan.theme,run.plan.days[0]!.date,run.time_zone]);
     await client.query('UPDATE study_workflows SET series_id=$3 WHERE church_id=$1 AND id=$2',[run.church_id,run.id,seriesId]);run.series_id=seriesId;
   }
@@ -234,7 +238,10 @@ async function commitDrafts(client:PoolClient,member:Membership,run:WorkflowRow)
     const planRevision=await insertRevision(client,{churchId:run.church_id,aggregateId:planId,kind:'plan',number:1,authorId:member.userId,payload:{...blankPlan(),title:day.title,primaryScripture:{reference:day.references[0],translation:run.plan.direction.translation},learningObjective:day.objective,outline:[day.theme],discussionQuestion:proposal.content.discussionQuestion},calendar,sourceSnapshot:snapshot});
     await client.query('UPDATE aggregates SET head_revision_id=$3 WHERE church_id=$1 AND id=$2',[run.church_id,planId,planRevision]);
     const created=await createContent(client,await loadAggregate(client,run.church_id,planId),member);
-    const saved=await saveRevision(client,await loadAggregate(client,run.church_id,created.id),member,{baseRevisionId:created.headRevisionId,payload:proposal.content,sourceSnapshot:snapshot});
+    const reading=day.references.map(reference=>resolveKjv(reference)).find(Boolean);
+    demand(!!reading,422,'kjv_reference_required','Choose a valid KJV passage of up to 30 verses before saving this study');
+    const content={...proposal.content,scriptureReading:{...reading,featuredVerse:reading.verses[0]!.number}};
+    const saved=await saveRevision(client,await loadAggregate(client,run.church_id,created.id),member,{baseRevisionId:created.headRevisionId,payload:content,sourceSnapshot:snapshot});
     mapping.push({date:day.date,slotId,planId,contentId:saved.id,revisionId:saved.headRevisionId});
   }
   const done=mapping.length===run.plan.days.length;

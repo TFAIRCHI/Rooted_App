@@ -141,7 +141,7 @@ test('provider API + worker contracts with real isolated PostgreSQL and loopback
     assert.equal(settingsResponse.statusCode, 200, settingsResponse.body);
     const savedSettings = await call('admin', 'GET', `${prefix}/settings`);
     assert.equal(savedSettings.statusCode, 200, savedSettings.body);
-    assert.deepEqual(savedSettings.json(), { configured: true, monthlyTokenLimit: 10_000, profile: 'Human church review required.', profileVersion: 'fixture-v1', rightsConfirmed: true, smsSegmentLimit: 100, transcriptionSecondLimit: 100 });
+    assert.deepEqual(savedSettings.json(), { configured: true, monthlyTokenLimit: 10_000, profile: 'Human church review required.', profileVersion: 'fixture-v1', rightsConfirmed: true, smsSegmentLimit: 100, transcriptionSecondLimit: 100, guidance: {principles:'',boundaries:'',voice:'',standingInstructions:'Human church review required.'}, guidanceRevision:0 });
     assert.equal((await call('member', 'GET', `${prefix}/settings`)).statusCode, 403);
     const otherChurchSettings = await call('admin', 'GET', `/v1/churches/${riversideId}/providers/settings`);
     assert.equal(otherChurchSettings.statusCode, 200);
@@ -149,6 +149,21 @@ test('provider API + worker contracts with real isolated PostgreSQL and loopback
     assert.equal((await call('contributor', 'POST', `${prefix}/sources/${sourceId}/review`, { confirmed: true })).statusCode, 200);
     const isolation = await runtimeDb.transaction(riversideId, 'admin', client => client.query('SELECT id FROM sources WHERE id=$1', [sourceId]));
     assert.equal(isolation.rowCount, 0);
+  });
+
+  await context.test('structured church guidance is versioned, immutable and tenant scoped', async () => {
+    const guidance={principles:'Grace and prayer shape the teaching.',boundaries:'Pastoral review for disputed interpretations.',voice:'Clear, warm, and accessible.',standingInstructions:'Retell source stories before applying them.'};
+    const body={monthlyTokenLimit:10_000,profile:'Human church review required.',profileVersion:'fixture-v1',guidance,rightsConfirmed:true,smsSegmentLimit:100,transcriptionSecondLimit:100};
+    assert.equal((await call('member','POST',`${prefix}/settings`,body)).statusCode,403);
+    const response=await call('admin','POST',`${prefix}/settings`,body);
+    assert.equal(response.statusCode,200,response.body);
+    const saved=(await call('admin','GET',`${prefix}/settings`)).json();
+    assert.equal(saved.profileVersion,'guidance-v1');assert.equal(saved.guidanceRevision,1);assert.deepEqual(saved.guidance,guidance);
+    const history=(await administrative.query('SELECT * FROM church_ai_guidance_revisions WHERE church_id=$1 AND revision=1',[graceId])).rows[0];
+    assert.deepEqual(history.guidance,guidance);
+    await assert.rejects(administrative.query('UPDATE church_ai_guidance_revisions SET profile=$3 WHERE church_id=$1 AND revision=$2',[graceId,1,'tampered']),/immutable/);
+    const foreign=await runtimeDb.transaction(riversideId,'admin',client=>client.query('SELECT * FROM church_ai_guidance_revisions WHERE revision=1'));
+    assert.equal(foreign.rowCount,0);
   });
 
   await context.test('AI queued job uses real HTTP worker once, stores proposal and actual budget usage, explicit adoption creates draft', async () => {

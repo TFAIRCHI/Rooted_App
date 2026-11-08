@@ -109,6 +109,10 @@
   top: 35px;
   align-self: start;
 }
+.featured-scripture { margin: 32px 0 0; padding: 22px 0; border-top: 1px solid var(--line); color: var(--teal-dark); }
+.featured-scripture blockquote { margin: 0 0 14px; font-family: var(--serif); font-size: 1.12rem; line-height: 1.5; }
+.featured-scripture figcaption { color: var(--muted); font-size: .72rem; font-weight: 700; }
+.scripture-card blockquote { white-space: pre-line; }
 
 .study-aside > p {
   margin: 0 0 18px;
@@ -391,6 +395,7 @@
   .study-aside {
     position: static;
   }
+  .featured-scripture { max-width: 42rem; margin-top: 22px; }
 
   .study-aside > p {
     display: none;

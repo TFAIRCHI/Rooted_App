@@ -7,3 +7,9 @@ for (const name of (await readdir(source)).filter(name=>name.endsWith('.sql'))) 
   const sql=await readFile(new URL(name,source),'utf8');
   await writeFile(new URL(name,target),sql.replace(/\r\n/g,'\n'));
 }
+const scriptureSource=new URL('../scripture/',import.meta.url);
+const scriptureTarget=new URL('../dist/scripture/',import.meta.url);
+await mkdir(scriptureTarget,{recursive:true});
+for(const name of (await readdir(scriptureSource)).filter(name=>name.endsWith('.txt'))){
+  await writeFile(new URL(name,scriptureTarget),await readFile(new URL(name,scriptureSource)));
+}

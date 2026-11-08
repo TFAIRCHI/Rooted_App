@@ -47,7 +47,7 @@ export async function studyWorkflowRoutes(app:FastifyInstance,database:Database,
     });
   }
   command('',async(client,member,ctx,request)=>{
-    const input=z.object({seriesId:uuid,assigneeId:z.string().min(1).max(200),localTime:z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/),task:z.string().trim().min(1).max(2000),sourceText:z.string().max(6*1024*1024).optional(),librarySourceId:uuid.optional(),reviewed:z.literal(true),rightsConfirmed:z.literal(true),filename:z.string().max(200).optional()}).strict().parse(request.body);
+    const input=z.object({seriesId:uuid.optional(),createNewSeries:z.boolean().optional(),assigneeId:z.string().min(1).max(200),localTime:z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/),task:z.string().trim().min(1).max(2000),sourceText:z.string().max(6*1024*1024).optional(),librarySourceId:uuid.optional(),reviewed:z.literal(true),rightsConfirmed:z.literal(true),filename:z.string().max(200).optional()}).strict().parse(request.body);
     demand(Boolean(input.sourceText)!==Boolean(input.librarySourceId),422,'one_source_required','Choose either reviewed pasted text or one reviewed library source');
     demand(!input.filename||/\.(?:txt|docx|pdf)$/i.test(input.filename),422,'text_only','Choose a Word document or PDF');
     return newWorkflow(client,member,ctx.churchId,input,clock());
@@ -69,10 +69,10 @@ export async function studyWorkflowRoutes(app:FastifyInstance,database:Database,
   });
   command('/chat',async(client,member,ctx,request)=>{
     const input=z.object({task:z.string().trim().min(1).max(2000)}).strict().parse(request.body);
-    return newWorkflow(client,member,ctx.churchId,{task:input.task,assigneeId:member.userId,localTime:'08:00',clarificationOnly:true},clock());
+    return newWorkflow(client,member,ctx.churchId,{task:input.task,assigneeId:member.userId,localTime:'08:00',clarificationOnly:true,createNewSeries:true},clock());
   });
   command('/:id/setup',async(client,member,ctx,request)=>{
-    const input=versioned.extend({seriesId:uuid,localTime:z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/),task:z.string().trim().max(2000).optional(),sourceText:z.string().max(6*1024*1024).optional(),librarySourceId:uuid.optional(),reviewed:z.literal(true),rightsConfirmed:z.literal(true)}).strict().parse(request.body);
+    const input=versioned.extend({seriesId:uuid.optional(),createNewSeries:z.boolean().optional(),localTime:z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/),task:z.string().trim().max(2000).optional(),sourceText:z.string().max(6*1024*1024).optional(),librarySourceId:uuid.optional(),reviewed:z.literal(true),rightsConfirmed:z.literal(true)}).strict().parse(request.body);
     demand(Boolean(input.sourceText)!==Boolean(input.librarySourceId),422,'one_source_required','Choose one reviewed source');
     const run=await workflowRun(client,ctx.churchId,ctx.id!);demand(run.version===input.version,409,'workflow_version','A newer conversation version exists. Review the latest reply.');
     await configureWorkflow(client,member,run,input);return run.id;

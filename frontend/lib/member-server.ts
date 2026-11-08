@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import type { ChurchTheme, Session } from "./api";
 
-export type Publication = { id: string; churchId: string; contentId: string; payload: { title: string; body: string; reflection: string; discussionQuestion: string; application: string; references?: string[] }; publishedAt: string };
+export type Publication = { id: string; churchId: string; contentId: string; payload: { title: string; body: string; reflection: string; discussionQuestion: string; application: string; references?: string[]; scriptureReading?: {reference:string;translation:'KJV';edition:'1769';source:string;digest:string;verses:{number:number;text:string}[];featuredVerse:number} }; publishedAt: string };
 
 export async function memberFetch(path: string) {
   const cookieStore = await cookies();

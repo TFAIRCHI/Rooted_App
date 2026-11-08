@@ -16,7 +16,7 @@ export const workflowPlanSchema = z.object({
   questions: z.array(z.string().min(1).max(500)).max(3), assumptions: z.array(z.string().min(1).max(500)).max(10),
 }).strict();
 export const completeDaySchema = z.object({
-  date: z.iso.date(), content: contentPayloadSchema,
+  date: z.iso.date(), content: contentPayloadSchema.omit({scriptureReading:true}),
   evidence: z.array(z.object({ field: z.enum(['title','references','body','reflection','discussionQuestion','application','outboundPreview']), sourceId: z.string().uuid(), spanId: z.literal('outline') }).strict()).min(7).max(21),
   warnings: z.array(z.string().min(1).max(500)).max(10),
 }).strict();
@@ -27,8 +27,8 @@ export interface WorkflowSummary {
   conversationSource: boolean; sourceReviewed: boolean;
   sequential: boolean; intentConfirmed: boolean;
   id: string; state: WorkflowState; version: number; sourceHash: string; profileHash: string; planHash:string|null;
-  seriesId: string | null; assigneeId: string; localTime: string; timeZone: string; plan: WorkflowPlan | null;
-  sourceId: string; sourceText: string; messages: {role:'user'|'assistant';text:string}[];
+  seriesId: string | null; createNewSeries:boolean; assigneeId: string; localTime: string; timeZone: string; plan: WorkflowPlan | null;
+  sourceId: string; sourceText: string; selectedSourceExcerpt: string|null; messages: {role:'user'|'assistant';text:string}[];
   jobs: {id:string;kind:string;date:string|null;state:string;error:string|null;usage:{inputTokens:number;outputTokens:number}|null}[];
   mapping: {date:string;slotId:string;planId:string;contentId:string;revisionId:string}[];
   tokensUsed: number; tokensReserved: number; attempts: number; error: string|null; expiresAt:string;

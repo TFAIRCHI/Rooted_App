@@ -13,7 +13,7 @@ export function GuidedStudyCowriter({ data, session }: { data: WorkspaceData; se
   const [mounted, setMounted] = useState(false), [open, setOpen] = useState(false), [expanded, setExpanded] = useState(false);
   const [run, setRun] = useState<WorkflowSummary | null>(null), [plan, setPlan] = useState<WorkflowPlan | null>(null);
   const [list, setList] = useState<RunList>({ items: [], configured: false }), [selected, setSelected] = useState("");
-  const [seriesId, setSeriesId] = useState(data.series[0]?.id ?? ""), [localTime, setLocalTime] = useState("08:00");
+  const [seriesId, setSeriesId] = useState("new"), [localTime, setLocalTime] = useState("08:00");
   const [task, setTask] = useState("");
   const [sourceText, setSourceText] = useState(""), [filename, setFilename] = useState(""), [reviewed, setReviewed] = useState(false);
   const [sources, setSources] = useState<LibrarySource[]>([]), [libraryId, setLibraryId] = useState("");
@@ -29,7 +29,7 @@ export function GuidedStudyCowriter({ data, session }: { data: WorkspaceData; se
   const allowed = ["ai:use", "series:manage", "plans:edit", "content:edit"].every(cap => caps.includes(cap));
   useEffect(() => { alive.current = true; setMounted(true); return () => { alive.current = false; }; }, []);
   const remember = useCallback((value: string) => { setSelected(value); try { if (value) localStorage.setItem(scopeKey, value); else localStorage.removeItem(scopeKey); } catch { /* Server state still persists. */ } }, [scopeKey]);
-  const accept = useCallback((value: WorkflowSummary) => { if (!alive.current) return; setRun(value); remember(value.id); setPlan(structuredClone(value.plan)); }, [remember]);
+  const accept = useCallback((value: WorkflowSummary) => { if (!alive.current) return; setRun(value); setSeriesId(value.seriesId??"new"); remember(value.id); setPlan(structuredClone(value.plan)); }, [remember]);
   useEffect(() => {
     function launch() { setRun(null); setPlan(null); setSelected(""); setShowConversation(false); setMenuOpen(false); setError(""); setOpen(true); }
     window.addEventListener("rooted:plan-studies", launch);
@@ -52,7 +52,7 @@ export function GuidedStudyCowriter({ data, session }: { data: WorkspaceData; se
         const result = await api<WorkflowSummary>(prefix + "/" + selected);
         if (!current || !alive.current) return;
         // Never overwrite unsaved direction edits during a status poll.
-        setRun(previous => { if (previous?.id !== result.data.id || previous.version !== result.data.version) { setPlan(structuredClone(result.data.plan)); } return result.data; });
+        setRun(previous => { if (previous?.id !== result.data.id || previous.version !== result.data.version) { setPlan(structuredClone(result.data.plan)); setSeriesId(result.data.seriesId??"new"); } return result.data; });
       } catch (failure) { if (current) setError(failure instanceof Error ? failure.message : "Cannot resume workflow."); }
     }
     void poll(); const timer = window.setInterval(() => { void poll(); }, 1500);
@@ -83,15 +83,14 @@ export function GuidedStudyCowriter({ data, session }: { data: WorkspaceData; se
   }
   function submitSetup() {
     const source=libraryId?{librarySourceId:libraryId}:{sourceText};
-    const details={seriesId,localTime,task,...source,reviewed:true,rightsConfirmed:true};
+    const details={...(seriesId==="new"?{createNewSeries:true}:{seriesId}),localTime,task,...source,reviewed:true,rightsConfirmed:true};
     if(run&&!run.plan)void command(`/${run.id}/setup`,{...details,version:run.version});
     else void command("",{...details,assigneeId:session.user.id});
   }
   function sendInitialMessage() {
     if(!task.trim()||sending.current)return;
     if (sourceText.trim() && filename) {
-      if (!seriesId) { setError("Choose a study series before discussing the attached document."); setMenuOpen(true); return; }
-      void command("",{seriesId,assigneeId:session.user.id,localTime,task:task.trim(),sourceText,reviewed:true,rightsConfirmed:true});
+      void command("",{...(seriesId==="new"?{createNewSeries:true}:{seriesId}),assigneeId:session.user.id,localTime,task:task.trim(),sourceText,reviewed:true,rightsConfirmed:true});
     } else void command("/chat",{task:task.trim()});
   }
   async function attach(selectedFile: File | undefined) {
@@ -133,15 +132,15 @@ export function GuidedStudyCowriter({ data, session }: { data: WorkspaceData; se
     <button ref={launcher} type="button" className="cowriter-launcher workflow-launcher" aria-label="Plan studies with co-writer" aria-expanded={open} aria-controls={id} hidden={open} onClick={() => { setRun(null); setPlan(null); setSelected(""); setShowConversation(false); setMenuOpen(false); setError(""); setOpen(true); }}><CreatorIcon name="sparkles" size={26} /></button>
     <aside id={id} className={`study-cowriter cowriter-popup workflow-popup${expanded ? " cowriter-expanded" : ""}`} role="dialog" aria-label="Study planning co-writer" hidden={!open}>
       <header className="cowriter-header"><div className="cowriter-identity"><span><CreatorIcon name="sparkles" /></span><div><h2>Study Co-writer</h2><p>Plan studies · {data.church.name}</p></div></div><div className="cowriter-header-actions"><CowriterMenu open={menuOpen} onOpenChange={setMenuOpen}><section><h3>Conversations</h3>        <div className="workflow-toolbar"><label>Previous conversations<select aria-label="Previous planning conversations" value={selected} onChange={event => { setRun(null); setPlan(null); remember(event.target.value); setShowConversation(!!event.target.value); setMenuOpen(false); setError(""); }}>{<option value="">New conversation</option>}{list.items.map(item => <option key={item.id} value={item.id}>{item.theme || "Planning request"} · {(item.id===run?.id?run.state:item.state).replaceAll("_", " ")}</option>)}</select></label><button type="button" disabled={busy} onClick={() => { setRun(null); setPlan(null); remember(""); setShowConversation(false); setTask(""); setError(""); }}>New conversation</button></div>
-</section><section>        {((!run && !selected)||(run&&!run.plan&&!working)) && <form onSubmit={event => { event.preventDefault(); submitSetup(); }}>
+</section><section><h3>Series destination</h3><button type="button" onClick={()=>{setSeriesId("new");setMenuOpen(false);}}>Create new series from this conversation</button><p className="fine">The series is created only when you confirm and save the first study day.</p></section><section>        {((!run && !selected)||(run&&!run.plan&&!working)) && <form onSubmit={event => { event.preventDefault(); submitSetup(); }}>
           <h3>Study planning</h3><label>Your request<textarea aria-label="Study planning request" value={task} maxLength={2000} onChange={event => setTask(event.target.value)} /></label>
-          <label>Study series<select aria-label="Planning study series" value={seriesId} onChange={event => setSeriesId(event.target.value)}><option value="">Choose existing series</option>{data.series.map(series => <option key={series.id} value={series.id}>{series.title}</option>)}</select></label>
+          <label>Study series<select aria-label="Planning study series" value={seriesId} onChange={event => setSeriesId(event.target.value)}><option value="new">Create new series from this conversation</option>{data.series.map(series => <option key={series.id} value={series.id}>{series.title}</option>)}</select></label>
           <p>Assigned to {session.user.displayName} · {data.church.timeZone ?? "church timezone"}</p><label>Local study time<input aria-label="Planned study time" type="time" value={localTime} onChange={event => setLocalTime(event.target.value)} /></label>
           <h3>Sources</h3><label>Reviewed library source<select aria-label="Planning library source" value={libraryId} onChange={event => { setLibraryId(event.target.value); const source = sources.find(source => source.id === event.target.value); if (source) setSourceText(source.payload.spans?.map(span => span.text).join("\n") ?? ""); setReviewed(false); }}><option value="">Paste or upload text instead</option>{sources.map(source => <option key={source.id} value={source.id}>{source.payload.spans?.[0]?.text.slice(0, 65) || source.id}</option>)}</select></label>
           <label>Review sermon outline<textarea aria-label="Planning sermon outline" value={sourceText} maxLength={6*1024*1024} readOnly={!!libraryId} onChange={event => { setSourceText(event.target.value); setFilename(""); setReviewed(false); }} placeholder="Include the sermon passage, for example John 6:68." /></label>
           <button type="button" onClick={() => file.current?.click()}>Attach Word or PDF (up to 10 MB)</button>
           <label className="workflow-check"><input type="checkbox" checked={reviewed} onChange={event => setReviewed(event.target.checked)} /> I reviewed this source and have permission to use it.</label>
-          <p>The co-writer will confirm its understanding first. Each day needs its own review and confirmation before creation.</p><button className="primary" type="submit" disabled={busy || !reviewed || !sourceText.trim() || !seriesId || (!run && !task.trim()) || !list.configured}>{run?"Develop the study plan":"Discuss my request"}</button>{!list.configured && <p>The Azure co-writer is not configured or enabled.</p>}
+          <p>The co-writer will confirm its understanding first. Each day needs its own review and confirmation before creation.</p><button className="primary" type="submit" disabled={busy || !reviewed || !sourceText.trim() || (!run && !task.trim()) || !list.configured}>{run?"Develop the study plan":"Discuss my request"}</button>{!list.configured && <p>The Azure co-writer is not configured or enabled.</p>}
         </form>}
 </section>{run&&plan&&run.plan&&<section className="workflow-content"><h3>Study direction and sources</h3>            <details><summary>Reviewed source and grounding</summary><p className="cowriter-proposed-text">{run.sourceText}</p><small>Source version {run.sourceId}; Scripture references require human verification.</small></details>
             <details open={run.state!=="drafts_saved"}><summary>{run.state==="drafts_saved"?"View agreed plan and direction":"Review the current day and direction"}</summary><fieldset disabled={busy || !editable} className="workflow-direction"><legend>Plan and direction</legend>
@@ -165,6 +164,7 @@ export function GuidedStudyCowriter({ data, session }: { data: WorkspaceData; se
         {showConversation && run && <>
           
           {run.error && <p role="alert">{run.error}</p>}
+          {run.selectedSourceExcerpt && run.plan && <details><summary>Review the source excerpt used for this study</summary><p className="cowriter-proposed-text">{run.selectedSourceExcerpt}</p></details>}
           <div className="cowriter-messages" role="log" aria-label="Planning conversation history">{run.messages.map((message,index)=><div className={`cowriter-message ${message.role==='assistant'?'agent':'user'}`} key={index}><strong className="sr-only">{message.role==='user'?'You':'Study Co-writer'}</strong><p>{message.text}</p></div>)}</div>
           {run.mapping.length > 0 && <section aria-label="Created study drafts"><h3>{run.state==="drafts_saved"?"All study days saved":"Confirmed days saved"}</h3><p>Open each day to review its complete draft. Human final approval is still required.</p><ul>{run.mapping.map(day => <li key={day.slotId}><a href={`/studies?church=${data.church.id}&month=${day.date.slice(0, 7)}&slot=${day.slotId}`}>Open study for {day.date}</a></li>)}</ul></section>}
           {!run.plan&&!working&&run.messages.length>=4&&run.messages.some(message=>message.role==='user'&&/\d+:\d+/.test(message.text))&&<button type="button" className="primary" disabled={busy} onClick={()=>void command(`/${run.id}/prepare`,{version:run.version})}>Prepare the discussed study plan</button>}

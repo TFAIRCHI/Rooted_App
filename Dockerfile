@@ -12,6 +12,7 @@ RUN npm ci --workspace=@gather/backend --include-workspace-root=false
 COPY backend/tsconfig.json ./backend/tsconfig.json
 COPY backend/src ./backend/src
 COPY backend/contracts ./backend/contracts
+COPY backend/scripture ./backend/scripture
 COPY backend/migrations ./backend/migrations
 COPY backend/scripts/copy-assets.mjs ./backend/scripts/copy-assets.mjs
 RUN npm run build --workspace=@gather/backend

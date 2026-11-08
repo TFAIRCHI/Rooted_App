@@ -1,5 +1,7 @@
 # Build prompt versions
 
+Proposed Study Co-Writer and Scripture package, **2026-11-08**: [Research and recommendation](../research/study-cowriter-guidance-scripture-and-reader.md) and [Build prompt](study-cowriter-guidance-scripture/MASTER_BUILD_PROMPT.md) are ready for review. Implementation has not started.
+
 Church-first identity migration, **2026-11-08**: [Research and recommendation](../research/church-first-invitations-and-sign-in.md) and [Build prompt](church-first-invitations/MASTER_BUILD_PROMPT.md) are implemented and locally tested. The API/frontend release still requires Azure email sender setup and live identity/email verification before production rollout. See [implementation evidence](church-first-invitations/evidence/implementation.md).
 
 Settings navigation migration, **2026-11-08**: [Four Settings views](settings-four-views/MASTER_BUILD_PROMPT.md) is implemented locally with desktop/mobile browser evidence and a pending user-operated Azure release. See [execution evidence](settings-four-views/evidence/implementation.md).

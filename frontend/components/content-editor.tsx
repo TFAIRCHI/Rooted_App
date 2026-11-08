@@ -28,7 +28,7 @@ const fields = [
 ] as const;
 
 function draftFromContent(aggregate: Aggregate): ContentDraft {
-  return Object.fromEntries(
+  const fieldsDraft = Object.fromEntries(
     fields.map(([field]) => [
       field,
       field === "referencesText"
@@ -37,7 +37,9 @@ function draftFromContent(aggregate: Aggregate): ContentDraft {
           : ""
         : String(aggregate.head?.payload[field] ?? ""),
     ]),
-  ) as ContentDraft;
+  ) as unknown as ContentDraft;
+  const reading = aggregate.head?.payload.scriptureReading as { featuredVerse?: number } | undefined;
+  return { ...fieldsDraft, ...(reading?.featuredVerse ? { featuredVerse: reading.featuredVerse } : {}) };
 }
 
 export type ContentEditorProps = {
@@ -217,7 +219,7 @@ export function ContentEditor({
       if (legacyKey) localStorage.removeItem(legacyKey);
     }
   }, [key, legacyKey]);
-  function edit(field: string, value: string) {
+  function edit(field: string, value: string | number) {
     const next = { ...draftRef.current, [field]: value };
     draftRef.current = next;
     dirtyRef.current = true;
@@ -513,6 +515,17 @@ export function ContentEditor({
             edit={edit}
             disabled={!canEdit || busy}
           />
+          {(() => {
+            const reading = content.head?.payload.scriptureReading as { reference: string; verses: { number: number; text: string }[] } | undefined;
+            if (!reading?.verses?.length) return null;
+            return <section className="reading-preview" aria-label="Verified KJV reading">
+              <h3>Verified KJV reading · {reading.reference}</h3>
+              <p>The complete passage appears in the published study. Choose one verse for the reader’s side quote.</p>
+              <label>Featured verse <select disabled={!canEdit || busy} value={draft.featuredVerse ?? reading.verses[0]?.number} onChange={event => edit("featuredVerse", Number(event.target.value))}>
+                {reading.verses.map(verse => <option key={verse.number} value={verse.number}>{verse.number} · {verse.text}</option>)}
+              </select></label>
+            </section>;
+          })()}
           <div className="footer-actions">
             <button onClick={() => setPreview(!preview)}>
               {preview ? "Close reading preview" : "Preview reading"}
