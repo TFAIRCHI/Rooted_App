@@ -1,6 +1,6 @@
 # Church-first invitations: Azure deployment handoff
 
-Release tag: `church-invites-20261108-1`. Image source commit: `1264cc985af8c04d66418ba62bb81836328d697f` (`Build church-first email invitations and team sign-in`). This package is built for `linux/amd64` and both images have been pushed to ACR. The migration and new app revisions have not been run. The live Entra and email-delivery checks below are required before production activation.
+Release tag: `church-invites-20261108-1`. Image source commit: `1264cc985af8c04d66418ba62bb81836328d697f` (`Build church-first email invitations and team sign-in`). This package is built for `linux/amd64` and both images have been pushed to ACR. The user reports that `rooted-migrate` completed successfully and its log showed `Migrations applied`; the new app revisions have not been confirmed. The live Entra and email-delivery checks below are required before production activation.
 
 | Component | Image | Local image ID | ACR manifest digest |
 | --- | --- | --- | --- |
@@ -39,5 +39,7 @@ Resource group: **rooted_study_app**. Container Apps environment: **rooted-envir
 4. **Live acceptance:** Test invite creation from Settings, inbox receipt, link preview, account creation/sign-in, mailbox challenge if needed, MFA, dashboard entry, a second-church invitation for the same account, later church-first sign-in, wrong-church denial, resend/revoke, and public study link reading. Check desktop and mobile and confirm no sensitive link token appears in access logs.
 
 The worker's code path and environment do not change. A worker revision is unnecessary. If rollout fails, restore the previously accepted API/frontend revisions or tags; retain the additive migration and inspect any invitations already created. Do not reuse or overwrite a release tag. Follow the [manual Azure process](ci-cd-process.md) for health checks and rollback.
+
+Progress on step 1: the user reported a successful migration-job execution and the `Migrations applied` log message. The job's exact image/configuration and schema row have not been independently inspected; verify the job image was this release's backend image before relying on this as confirmation of migration `031`.
 
 Implementation evidence: [church-first invitations](../../BuildPrompts/church-first-invitations/evidence/implementation.md).
