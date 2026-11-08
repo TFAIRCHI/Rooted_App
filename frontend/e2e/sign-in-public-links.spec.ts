@@ -3,6 +3,8 @@ import { test, expect } from '@playwright/test';
 test('readers use church links while sign-in stays for church teams', async ({ page }) => {
   await page.goto('/sign-in?access=member');
   await expect(page.getByRole('link', { name: 'Member sign in →' })).toHaveCount(0);
+  await page.getByLabel('Church link or slug').fill('/c/grace');
+  await page.getByLabel('Email address').fill('riley.member@rooted.test');
   await expect(page.getByRole('link', { name: 'Contributor or administrator sign in →' })).toHaveAttribute('href', /access=contributor/);
 
   await page.getByRole('link', { name: 'Use a church link or invitation →' }).click();

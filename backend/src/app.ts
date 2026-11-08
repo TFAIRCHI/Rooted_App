@@ -11,6 +11,7 @@ import { communityRoutes } from './api/community-routes.js';
 import { publicCommunityRoutes } from './api/public-community-routes.js';
 import { publicSmsRoutes } from './api/public-sms-routes.js';
 import { onboardingRoutes } from './api/onboarding-routes.js';
+import { emailInvitationRoutes } from './api/email-invitation-routes.js';
 import { privacyRoutes } from './api/privacy-routes.js';
 import { themeRoutes } from './api/theme-routes.js';
 import { dashboardRoutes } from './api/dashboard-routes.js';
@@ -44,6 +45,7 @@ export async function buildApp(options: AppOptions = {}) {
   await publicCommunityRoutes(app,database,settings);
   await publicSmsRoutes(app,database,settings);
   await onboardingRoutes(app,database,settings);
+  emailInvitationRoutes(app,database,settings);
   await privacyRoutes(app,database,settings);
   await themeRoutes(app,database,settings);
   await dashboardRoutes(app,database,settings,options.clock ?? (()=>new Date()));

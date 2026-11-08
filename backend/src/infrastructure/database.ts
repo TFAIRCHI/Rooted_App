@@ -25,7 +25,7 @@ export class Database {
     const result = await this.pool.query(`SELECT
       to_regclass('public.provider_jobs') IS NOT NULL AND to_regclass('public.privacy_tombstones') IS NOT NULL
       AND to_regclass('public.study_purge_audit') IS NOT NULL AND to_regclass('public.publication_audiences') IS NOT NULL
-      AND to_regclass('public.study_workflows') IS NOT NULL
+      AND to_regclass('public.study_workflows') IS NOT NULL AND to_regclass('public.email_invitations') IS NOT NULL
       AND EXISTS(SELECT 1 FROM pg_attribute WHERE attrelid=to_regclass('public.slots') AND attname='withdrawn_at' AND NOT attisdropped)
       AND EXISTS(SELECT 1 FROM pg_attribute WHERE attrelid=to_regclass('public.revisions') AND attname='source_snapshot' AND NOT attisdropped) AS current_schema,
       EXISTS(SELECT 1 FROM pg_attribute WHERE attrelid=to_regclass('public.auth_sessions') AND attname='mfa_verified_until' AND NOT attisdropped)

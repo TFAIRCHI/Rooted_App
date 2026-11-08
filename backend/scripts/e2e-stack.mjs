@@ -22,7 +22,7 @@ runtimeUrl.username = 'gather_runtime';
 runtimeUrl.password = process.env.RUNTIME_DATABASE_PASSWORD ?? 'gather_local_development';
 const environment = {
   ...process.env,
-  NODE_ENV: 'test', GATHER_E2E: 'true', EXTERNAL_SERVICES_ENABLED: 'false', ROOTED_WORKFLOW_FIXTURE: 'true', ROOTED_ENABLE_DEMO_LOGINS: 'true',
+  NODE_ENV: 'test', GATHER_E2E: 'true', EXTERNAL_SERVICES_ENABLED: 'false', ROOTED_WORKFLOW_FIXTURE: 'true', ROOTED_ENABLE_DEMO_LOGINS: 'true', ROOTED_EMAIL_TEST_MODE: 'true',
   GATHER_E2E_CLOCK_TOKEN: process.env.GATHER_E2E_CLOCK_TOKEN ?? 'gather-browser-clock-local-fixture-only-111',
   PUBLIC_VISITOR_SECRET: 'gather-browser-public-visitor-local-fixture-only-111',
   MIGRATION_DATABASE_URL: migrationUrl, DATABASE_URL: runtimeUrl.href,

@@ -1,5 +1,7 @@
 # Build prompt versions
 
+Church-first identity migration, **2026-11-08**: [Research and recommendation](../research/church-first-invitations-and-sign-in.md) and [Build prompt](church-first-invitations/MASTER_BUILD_PROMPT.md) are implemented and locally tested. The API/frontend release still requires Azure email sender setup and live identity/email verification before production rollout. See [implementation evidence](church-first-invitations/evidence/implementation.md).
+
 Settings navigation migration, **2026-11-08**: [Four Settings views](settings-four-views/MASTER_BUILD_PROMPT.md) is implemented locally with desktop/mobile browser evidence and a pending user-operated Azure release. See [execution evidence](settings-four-views/evidence/implementation.md).
 
 New research-backed migration package, **2026-11-04**: [Option B public study migration](option-b-public-study-migration/README.md) is implemented locally with versioned backend and frontend images. Local browser acceptance passes; production activation remains open. See [execution evidence](option-b-public-study-migration/evidence/implementation.md).

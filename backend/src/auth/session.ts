@@ -8,6 +8,8 @@ export interface Session {
   displayName: string;
   csrfToken: string;
   privileged: boolean;
+  verifiedEmail?: string;
+  claimedEmail?: string;
 }
 
 export function requireMfa(session: Session) {

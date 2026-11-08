@@ -37,7 +37,7 @@ for (const validIssuer of [true, false]) {
         if (access === 'contributor') {
           assert.equal(target.searchParams.get('prompt'),'login');
           assert.equal(target.searchParams.get('max_age'),'0');
-          assert.deepEqual(JSON.parse(target.searchParams.get('claims')!),{id_token:{amr:{essential:true,values:['mfa']},auth_time:{essential:true}}});
+          assert.deepEqual(JSON.parse(target.searchParams.get('claims')!),{id_token:{email:{essential:true},email_verified:{essential:false},amr:{essential:true,values:['mfa']},auth_time:{essential:true}}});
         }
       }
     }

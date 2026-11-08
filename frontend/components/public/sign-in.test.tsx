@@ -1,5 +1,5 @@
 import React from 'react';
-import { cleanup, render, screen, waitFor } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { PublicSignIn } from './sign-in';
 
@@ -10,10 +10,14 @@ const json=(value:unknown,status=200)=>new Response(JSON.stringify(value),{statu
 it('offers contributor sign-in and a church-link route for readers',async()=>{
   vi.spyOn(globalThis,'fetch').mockImplementation(async input=>String(input).endsWith('/auth/options')?json({localIssuer:false,demoLogin:false}):json({message:'Sign in'},401));
   render(<PublicSignIn/>);
-  const link=await screen.findByRole('link',{name:'Contributor or administrator sign in →'});
+  const link=screen.getByText('Contributor or administrator sign in →');
+  fireEvent.change(screen.getByLabelText('Church link or slug'),{target:{value:'/c/grace'}});
+  fireEvent.change(screen.getByLabelText('Email address'),{target:{value:'team@rooted.test'}});
   await waitFor(()=>expect(link).toHaveAttribute('href'));
   const target=new URL(link.getAttribute('href')!,'https://rooted.test');
   expect(target.searchParams.get('access')).toBe('contributor');
+  expect(target.searchParams.get('church')).toBe('grace');
+  expect(target.searchParams.get('email')).toBe('team@rooted.test');
   expect(target.searchParams.has('returnTo')).toBe(false);
   expect(screen.getByText(/Members can read studies through a church link without signing in/)).toBeInTheDocument();
   expect(screen.getByRole('link',{name:'Use a church link or invitation →'})).toHaveAttribute('href','/find-church');

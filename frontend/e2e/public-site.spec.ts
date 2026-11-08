@@ -45,7 +45,7 @@ test('1.2.15 anonymous public pages match the design, work by keyboard and do no
   await expect(page.getByText('Pray & anticipate',{exact:true})).toBeVisible();await page.locator('#example-week').screenshot({path:evidence+'/before-sunday-desktop.png'});
   for(const width of [390,320]){await page.setViewportSize({width,height:844});await page.goto('/');expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);if(width===390){await screenshot(page,'home-mobile');await page.goto('/ai-co-writer');await screenshot(page,'ai-mobile');}}
   for(const route of ['/get-started','/sign-in','/find-church','/sample-study']){
-    await page.setViewportSize({width:1440,height:900});await page.goto(route);if(route==='/sign-in')await expect(page.locator('a[href^="/api/v1/auth/login?"]')).toHaveAttribute('href',/auth\/login/);
+    await page.setViewportSize({width:1440,height:900});await page.goto(route);if(route==='/sign-in'){await expect(page.getByLabel('Church link or slug')).toBeVisible();await expect(page.getByLabel('Email address')).toBeVisible();await expect(page.locator('a.public-wide[aria-disabled="true"]')).toBeVisible();}
     await accessible(page);await screenshot(page,route.slice(1)+'-desktop');
     await page.setViewportSize({width:390,height:844});await screenshot(page,route.slice(1)+'-mobile');expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   }

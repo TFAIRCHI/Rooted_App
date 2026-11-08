@@ -7,10 +7,10 @@ export async function startLocalIssuer(port = 4010) {
   const issuer = `http://127.0.0.1:${port}`;
   const provider = new Provider(issuer, {
     clients: [{ client_id: process.env.OIDC_CLIENT_ID ?? 'gather-local', redirect_uris: [process.env.OIDC_CALLBACK_URL ?? 'http://127.0.0.1:3000/api/v1/auth/callback'], response_types: ['code'], grant_types: ['authorization_code'], token_endpoint_auth_method: 'none' }],
-    features: { devInteractions: { enabled: false } },
+    features: { devInteractions: { enabled: false }, claimsParameter: { enabled: true } },
     pkce: { required: () => true },
-    claims: { openid: ['sub'], profile: ['name'] },
-    findAccount: async (_context, subject) => ({ accountId: subject, claims: async () => ({sub: subject, name: `Local ${subject}`}) }),
+    claims: { openid: ['sub'], profile: ['name'], email: ['email','email_verified'] },
+    findAccount: async (_context, subject) => ({ accountId: subject, claims: async () => ({sub: subject, name: `Local ${subject}`, email: `${subject}@rooted.test`, email_verified: true}) }),
     interactions: { url: async (_context, interaction) => `/interaction/${interaction.uid}` },
     cookies: { keys: ['local-fixture-issuer-key-only-not-for-production'] },
   });

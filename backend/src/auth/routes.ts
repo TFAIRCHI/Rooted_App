@@ -19,11 +19,11 @@ function verifyCredential(password:string,encoded:string) { const [,n,r,p,saltTe
 export async function authenticate(database: Database, request: FastifyRequest, access: 'member' | 'contributor' = 'contributor'): Promise<Session> {
   const token = request.cookies.gather_session;
   demand(token,401,'unauthenticated','Sign in to continue');
-  const result = await database.pool.query('SELECT user_id,display_name,csrf_token,mfa_verified_until FROM auth_sessions WHERE token_hash=$1 AND (expires_at IS NULL OR expires_at>now())',[digest(token)]);
+  const result = await database.pool.query('SELECT user_id,display_name,csrf_token,mfa_verified_until,verified_email,claimed_email FROM auth_sessions WHERE token_hash=$1 AND (expires_at IS NULL OR expires_at>now())',[digest(token)]);
   const row = result.rows[0];
   demand(row,401,'session_expired','Your session expired');
   const production = request.server.rootedProduction ?? process.env.NODE_ENV === 'production';
-  const session = {userId:row.user_id,displayName:row.display_name,csrfToken:row.csrf_token,privileged:!production || !!row.mfa_verified_until && new Date(row.mfa_verified_until).getTime()>Date.now()};
+  const session = {userId:row.user_id,displayName:row.display_name,csrfToken:row.csrf_token,privileged:!production || !!row.mfa_verified_until && new Date(row.mfa_verified_until).getTime()>Date.now(),verifiedEmail:row.verified_email ?? undefined,claimedEmail:row.claimed_email ?? undefined};
   request.rootedSessionToken = token;
   if (access === 'contributor') requireMfa(session);
   return session;
@@ -86,6 +86,8 @@ export async function authRoutes(app: FastifyInstance, database: Database, setti
     const clientId = access === 'contributor' ? settings.contributorClientId : settings.clientId;
     const continuation=safeContinuation(query.returnTo);
     demand(!query.returnTo||continuation,422,'invalid_continuation','Choose a supported application destination');
+    const churchSlug=query.church ? z.string().regex(/^[a-z0-9](?:[a-z0-9-]{1,58}[a-z0-9])$/).parse(query.church) : null;
+    const loginHint=query.email ? z.email().max(320).parse(query.email) : null;
     if (query.persona) demand(!settings.production && new URL(settings.issuer).hostname==='127.0.0.1' && ['contributor','pastor','admin','member','anna.contributor','james.contributor','riley.member','morgan.admin'].includes(query.persona),422,'invalid_persona','Fixture personas are only available with the local issuer');
     let prior: Session | undefined;
     if (access === 'contributor' && request.cookies.gather_session) {
@@ -93,17 +95,18 @@ export async function authRoutes(app: FastifyInstance, database: Database, setti
       catch (error) { if (!(error instanceof ApiError) || error.statusCode !== 401) throw error; }
     }
     const state = random(); const verifier = random(); const nonce = random();
-    await database.pool.query("INSERT INTO auth_flows(state_hash,verifier,nonce,expires_at,continuation,access,prior_user_id,prior_session_hash) VALUES($1,$2,$3,now()+interval '10 minutes',$4,$5,$6,$7)",[digest(state),verifier,nonce,continuation??null,access,prior?.userId??null,prior ? digest(request.cookies.gather_session!) : null]);
+    await database.pool.query("INSERT INTO auth_flows(state_hash,verifier,nonce,expires_at,continuation,access,prior_user_id,prior_session_hash,church_slug) VALUES($1,$2,$3,now()+interval '10 minutes',$4,$5,$6,$7,$8)",[digest(state),verifier,nonce,continuation??null,access,prior?.userId??null,prior ? digest(request.cookies.gather_session!) : null,churchSlug]);
     reply.setCookie('gather_oidc_state',state,{httpOnly:true,secure:settings.production,sameSite:'lax',path:'/',maxAge:600});
     const target = new URL((await metadata()).authorization_endpoint);
-    const parameters = {client_id:clientId,redirect_uri:settings.callbackUrl,response_type:'code',scope:'openid profile',state,nonce,code_challenge:createHash('sha256').update(verifier).digest('base64url'),code_challenge_method:'S256',...(access === 'contributor' ? {prompt:'login',max_age:'0',claims:JSON.stringify({id_token:{amr:{essential:true,values:['mfa']},auth_time:{essential:true}}})} : {}),...(query.persona ? {login_hint:query.persona,prompt:'login'} : {})};
+    const emailClaims={email:{essential:true},email_verified:{essential:false}};
+    const parameters = {client_id:clientId,redirect_uri:settings.callbackUrl,response_type:'code',scope:'openid profile email',state,nonce,code_challenge:createHash('sha256').update(verifier).digest('base64url'),code_challenge_method:'S256',claims:JSON.stringify({id_token:{...emailClaims,...(access==='contributor'?{amr:{essential:true,values:['mfa']},auth_time:{essential:true}}:{})}}),...(access === 'contributor' ? {prompt:'login',max_age:'0'} : {}),...(loginHint ? {login_hint:loginHint} : {}),...(query.persona ? {login_hint:query.persona,prompt:'login'} : {})};
     Object.entries(parameters).forEach(([name,value])=>target.searchParams.set(name,value));
     return reply.redirect(target.href);
   });
   app.get('/v1/auth/callback',async (request,reply) => {
     const query = request.query as Record<string,string>;
     demand(query.state && query.state===request.cookies.gather_oidc_state && query.code,401,'invalid_oauth_state','Identity callback could not be validated');
-    const flows = await database.pool.query('DELETE FROM auth_flows WHERE state_hash=$1 AND expires_at>now() RETURNING verifier,nonce,continuation,access,prior_user_id,prior_session_hash',[digest(query.state)]);
+    const flows = await database.pool.query('DELETE FROM auth_flows WHERE state_hash=$1 AND expires_at>now() RETURNING verifier,nonce,continuation,access,prior_user_id,prior_session_hash,church_slug',[digest(query.state)]);
     const flow = flows.rows[0]; demand(flow,401,'invalid_oauth_state','Identity flow expired or already used');
     const contributor = flow.access === 'contributor';
     const clientId = contributor ? settings.contributorClientId : settings.clientId;
@@ -124,6 +127,8 @@ export async function authRoutes(app: FastifyInstance, database: Database, setti
     }
     demand(verified.payload.nonce===flow.nonce && verified.payload.sub,401,'identity_token_invalid','Identity token did not match login');
     const userId = identitySubject(verified.payload, settings.subjectMode, settings.tenantId);
+    const verifiedEmail = verified.payload.email_verified === true && typeof verified.payload.email === 'string' ? verified.payload.email.trim().toLowerCase() : null;
+    const claimedEmail = typeof verified.payload.email === 'string' ? verified.payload.email.trim().toLowerCase() : null;
     let mfaUntil: Date | null = null;
     if (contributor && settings.production) {
       demand(Array.isArray(verified.payload.amr) && verified.payload.amr.includes('mfa'),403,'mfa_required','Multi-factor authentication is required for contributor access');
@@ -144,14 +149,16 @@ export async function authRoutes(app: FastifyInstance, database: Database, setti
         const prior = await client.query('DELETE FROM auth_sessions WHERE token_hash=$1 AND user_id=$2 AND (expires_at IS NULL OR expires_at>now()) RETURNING user_id',[flow.prior_session_hash,userId]);
         demand(prior.rowCount,401,'identity_session_changed','Your reading session ended; start sign-in again');
       }
-      await client.query('INSERT INTO auth_sessions(token_hash,user_id,display_name,csrf_token,expires_at,mfa_verified_until) VALUES($1,$2,$3,$4,NULL,$5)',[digest(token),userId,String(verified.payload.name ?? verified.payload.sub),random(),mfaUntil]);
+      await client.query('INSERT INTO auth_sessions(token_hash,user_id,display_name,csrf_token,expires_at,mfa_verified_until,verified_email,claimed_email) VALUES($1,$2,$3,$4,NULL,$5,$6,$7)',[digest(token),userId,String(verified.payload.name ?? verified.payload.sub),random(),mfaUntil,verifiedEmail,claimedEmail]);
       await client.query('COMMIT');
     } catch (error) { await client.query('ROLLBACK'); throw error; } finally { client.release(); }
     reply.clearCookie('gather_oidc_state',{path:'/'});
     reply.setCookie('gather_session',token,{httpOnly:true,secure:settings.production,sameSite:'lax',path:'/',maxAge:MEMBER_COOKIE_SECONDS});
-    const membership=(await database.pool.query('SELECT * FROM auth_memberships($1) ORDER BY name',[userId])).rows[0];
+    const memberships=(await database.pool.query('SELECT * FROM auth_memberships($1) ORDER BY name',[userId])).rows;
+    const membership=flow.church_slug ? memberships.find(item=>item.slug===flow.church_slug) : memberships[0];
     const workspaceAccess = !settings.production || contributor;
-    return reply.redirect(`${settings.appOrigin}${safeContinuation(flow.continuation)??(membership&&(!workspaceAccess||!membership.capabilities.includes('workspace:read'))?`/c/${membership.slug}`:membership?'/dashboard':'/onboarding?intent=join')}`);
+    const destination=flow.church_slug && !membership ? '/sign-in?issue=church-access' : membership&&(!workspaceAccess||!membership.capabilities.includes('workspace:read'))?`/c/${membership.slug}`:membership?`/dashboard?church=${membership.id}`:flow.continuation?flow.continuation:'/onboarding?intent=join';
+    return reply.redirect(`${settings.appOrigin}${flow.church_slug && !membership ? destination : safeContinuation(flow.continuation)??(!flow.church_slug&&memberships.length>1?'/choose-church':destination)}`);
   });
   app.get('/v1/auth/session',async request => {
     const session = await authenticate(database,request,'member');

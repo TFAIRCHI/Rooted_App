@@ -1,0 +1,48 @@
+import { test, expect } from '@playwright/test';
+import { randomUUID } from 'node:crypto';
+
+test('admin invites by name and email; recipient joins a second church and selects it on later sign-in',async({page,browser})=>{
+  await page.goto('/api/v1/auth/login?persona=morgan.admin');
+  await page.waitForURL(url=>!url.pathname.startsWith('/api/'));
+  const session=(await (await page.request.get('/api/v1/auth/session')).json()) as {csrfToken:string};
+  const slug=`invitation-${randomUUID().slice(0,8)}`;
+  const created=await page.request.post('/api/v1/churches',{headers:{'x-csrf-token':session.csrfToken,'idempotency-key':randomUUID(),origin:'http://127.0.0.1:3002'},data:{name:'Invitation Test Church',slug,timeZone:'America/New_York'}});
+  expect(created.status()).toBe(201);
+  const churchId=(await created.json()).id as string;
+  await page.goto(`/settings/members?church=${churchId}`);
+  await page.getByRole('button',{name:'Invite person'}).click();
+  const dialog=page.getByRole('dialog');
+  await dialog.getByLabel('First name').fill('Riley');
+  await dialog.getByLabel('Last name').fill('Morgan');
+  await dialog.getByLabel('Email address').fill('riley.member@rooted.test');
+  const responsePromise=page.waitForResponse(response=>response.url().endsWith(`/churches/${churchId}/email-invitations`)&&response.request().method()==='POST');
+  await dialog.getByRole('button',{name:/Send invitation to/}).click();
+  const invitation=await responsePromise;
+  expect(invitation.status()).toBe(201);
+  const token=(await invitation.json()).testToken as string;
+  expect(token.length).toBeGreaterThan(32);
+  await expect(page.getByText('riley.member@rooted.test').first()).toBeVisible();
+
+  const recipient=await browser.newContext();
+  const member=await recipient.newPage();
+  await member.goto(`/invitation#token=${token}`);
+  await expect(member.getByRole('heading',{name:'Join Invitation Test Church'})).toBeVisible();
+  await member.getByRole('link',{name:'Sign in or create your account →'}).click();
+  await member.waitForURL(url=>url.pathname==='/invitation');
+  await expect(member.getByRole('button',{name:'Join Invitation Test Church'})).toBeVisible();
+  await member.getByRole('button',{name:'Join Invitation Test Church'}).click();
+  await expect(member).toHaveURL(new RegExp(`/dashboard\\?church=${churchId}$`));
+  const joined=(await (await member.request.get('/api/v1/auth/session')).json()) as {churches:Array<{id:string}>};
+  expect(joined.churches.some(church=>church.id===churchId)).toBe(true);
+  expect(joined.churches.length).toBeGreaterThan(1);
+  const memberSession=(await (await member.request.get('/api/v1/auth/session')).json()) as {csrfToken:string};
+  const logout=await member.request.post('/api/v1/auth/logout',{headers:{'x-csrf-token':memberSession.csrfToken,origin:'http://127.0.0.1:3002'},data:{}});
+  expect(logout.status()).toBe(200);
+  await member.goto('/sign-in');
+  await member.getByLabel('Church link or slug').fill(`/c/${slug}`);
+  await member.getByLabel('Email address').fill('riley.member@rooted.test');
+  await member.getByLabel('Local development identity').selectOption('riley.member');
+  await member.getByRole('link',{name:'Contributor or administrator sign in →'}).click();
+  await expect(member).toHaveURL(new RegExp(`/dashboard\\?church=${churchId}$`));
+  await recipient.close();
+});
