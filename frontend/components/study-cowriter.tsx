@@ -7,15 +7,29 @@ import { api, type Session } from "../lib/api";
 import type { Aggregate } from "../lib/types";
 type Proposal = { fields: { path: string; suggestion: string; warnings: string[]; scriptureReferences: string[] }[] };
 type Result = { id: string; status: string; error: string | null; result: { text: string; proposal?: Proposal; usage: { inputTokens: number; outputTokens: number } } | null };
+type PendingAction = { input: { kind: "full_kjv"; contentId: string; baseRevisionId: string } | { kind: "move"; slotId: string; slotEtag: string; destinationDate: string }; preview: { reference?: string; verses?: { number: number; text: string }[]; from?: string; to?: string; consequence?: string } };
+function moveDestination(task: string, selectedDate: string): string | null {
+  if (!/\b(move|reschedule|change the date)\b/i.test(task)) return null;
+  const iso = /\b(\d{4}-\d{2}-\d{2})\b/.exec(task)?.[1];
+  if (iso) return iso;
+  const named = /\b(?:to|for|on)\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2})(?:st|nd|rd|th)?(?:,?\s+(\d{4}))?/i.exec(task);
+  if (!named) return null;
+  const month = new Date(`${named[1]} 1, 2000`).getUTCMonth() + 1;
+  const year = Number(named[3] ?? selectedDate.slice(0, 4));
+  const day = Number(named[2]);
+  const value = `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+  const parsed = new Date(`${value}T00:00:00Z`);
+  return Number.isFinite(parsed.getTime()) && parsed.toISOString().slice(0, 10) === value ? value : null;
+}
 const actions: { icon: IconName; label: string; hint: string; kind: "chat" | "weekly" | "draft" | "clip"; prompt: string }[] = [
   { icon: "file", label: "Read sermon transcript", hint: "Paste or attach a text transcript", kind: "chat", prompt: "Identify the central theme and supporting passage references in my reviewed sermon transcript. Ask a focused question if context is missing." },
   { icon: "video", label: "Examine sermon clip", hint: "Transcript analysis available", kind: "clip", prompt: "" },
   { icon: "calendar", label: "Build the weekly plan", hint: "Read-only outline for selected dates", kind: "weekly", prompt: "Build a concise weekly outline from the reviewed sermon for the selected dates." },
   { icon: "sparkles", label: "Write today’s study", hint: "Create a proposal for review", kind: "draft", prompt: "Write a concise devotional study for the selected day, grounded in the reviewed sermon." },
 ];
-export function StudyCowriter({ date, title, active = true, churchId, study, session, unsaved, onAdopt, prepare }: {
+export function StudyCowriter({ date, title, active = true, churchId, study, session, unsaved, onAdopt, prepare, slotId, slotEtag, onMoved }: {
   date: string; title: string; active?: boolean; churchId: string; study: Aggregate; session: Session; unsaved: boolean;
-  onAdopt: (study: Aggregate) => void; prepare: () => Aggregate;
+  onAdopt: (study: Aggregate) => void; prepare: () => Aggregate; slotId?: string; slotEtag?: string; onMoved?: (date: string) => void;
 }) {
   const [mounted, setMounted] = useState(false), [open, setOpen] = useState(false), [input, setInput] = useState("");
   const [expanded, setExpanded] = useState(false), [menuOpen, setMenuOpen] = useState(false), [dragging, setDragging] = useState(false);
@@ -28,11 +42,14 @@ export function StudyCowriter({ date, title, active = true, churchId, study, ses
   const [busy, setBusy] = useState(false), [notice, setNotice] = useState(""), [error, setError] = useState("");
   const [configured, setConfigured] = useState(false), [verified, setVerified] = useState(false);
   const [proposal, setProposal] = useState<Result | null>(null), [usage, setUsage] = useState("");
+  const [selectedFields, setSelectedFields] = useState<string[]>([]);
+  const [pendingAction, setPendingAction] = useState<PendingAction | null>(null);
   const panelId = useId(), launcher = useRef<HTMLButtonElement>(null), closeButton = useRef<HTMLButtonElement>(null);
   const composer = useRef<HTMLTextAreaElement>(null), fileInput = useRef<HTMLInputElement>(null), chat = useRef<HTMLDivElement>(null);
   const alive = useRef(true), sending = useRef(false), attempt = useRef<{ fingerprint: string; key: string } | null>(null);
   const prefix = `/churches/${churchId}/content/${study.id}/cowriter`;
   useEffect(() => { setMounted(true); alive.current = true; return () => { alive.current = false; }; }, []);
+  useEffect(() => { if (active && slotId && new URLSearchParams(window.location.search).get("cowriter") === "1" && new URLSearchParams(window.location.search).get("slot") === slotId) { setOpen(true); const key = `rooted:cowriter-draft:${churchId}:${slotId}`; try { const draft = sessionStorage.getItem(key); if (draft) { setInput(draft); sessionStorage.removeItem(key); } } catch { /* The selected study still opens. */ } } }, [active, churchId, slotId]);
   useEffect(() => {
     if (!open || !active) return;
     closeButton.current?.focus(); let current = true;
@@ -77,9 +94,20 @@ export function StudyCowriter({ date, title, active = true, churchId, study, ses
     if (!input.trim() || sending.current) return; sending.current = true; setBusy(true); setError(""); setNotice("");
     try {
       const current = prepare();
+      const destinationDate = moveDestination(input, date);
+      const wantsFullPassage = /\b(full|entire|complete)\b/i.test(input) && /\b(verse|verses|passage|scripture)\b/i.test(input) && /\b(show|display|include|add|attach|put)\b/i.test(input);
+      if (destinationDate || wantsFullPassage) {
+        if (destinationDate && (!slotId || !slotEtag)) throw new Error("This study date is unavailable. Reload the study before requesting a move.");
+        const action = destinationDate ? { kind: "move" as const, slotId: slotId!, slotEtag: slotEtag!, destinationDate } : { kind: "full_kjv" as const, contentId: study.id, baseRevisionId: current.headRevisionId! };
+        const { data } = await api<PendingAction["preview"]>(prefix + "/actions/preview", { method: "POST", csrf: session.csrfToken, body: action });
+        if (alive.current) { setPendingAction({ input: action, preview: data }); setNotice("Review the proposed action below. Your study has not changed."); }
+        return;
+      }
       if (sourceText.trim() && !sourceConfirmed) throw new Error("Confirm the transcript you are reviewing before sending a request.");
-      if (kind !== "chat" && !sourceConfirmed) throw new Error("Add and confirm sermon text before planning or drafting.");
-      const id = await ensureConversation(), body = { conversationId: id, kind, task: input.trim(), baseRevisionId: current.headRevisionId }, fingerprint = JSON.stringify(body);
+      if (kind === "weekly" && !sourceConfirmed) throw new Error("Add and confirm sermon text before weekly planning.");
+      if (kind === "draft" && !sourceConfirmed && !String(current.head?.payload.body ?? "").trim()) throw new Error("Save study content or confirm source text before requesting a draft proposal.");
+      const requestKind = kind === "chat" && /\b(edit|revise|adjust|rewrite|change|improve)\b/i.test(input) ? "draft" : kind;
+      const id = await ensureConversation(), body = { conversationId: id, kind: requestKind, task: input.trim(), baseRevisionId: current.headRevisionId }, fingerprint = JSON.stringify(body);
       if (attempt.current?.fingerprint !== fingerprint) attempt.current = { fingerprint, key: crypto.randomUUID() };
       const { data } = await api<Result>(prefix + "/messages", { method: "POST", csrf: session.csrfToken, key: attempt.current.key, body });
       if (!alive.current) return;
@@ -89,14 +117,27 @@ export function StudyCowriter({ date, title, active = true, churchId, study, ses
       setMessages(current => [...current, { role: "user", text: input.trim() }, { role: "agent", text: data.result!.text }]);
       setUsage(`${data.result.usage.inputTokens} input / ${data.result.usage.outputTokens} output tokens`);
       setConversations(items=>items.map(item=>item.id===id&&item.title==="New conversation"?{...item,title:input.trim()}:item));
-      setVerified(true); setProposal(data.result.proposal ? data : null); setInput(""); setKind("chat");
+      setVerified(true); setProposal(data.result.proposal ? data : null); setSelectedFields([]); setInput(""); setKind("chat");
     } catch (failure) { failureMessage(failure); } finally { sending.current = false; if (alive.current) setBusy(false); }
   }
+  async function applyAction() {
+    if (!pendingAction || sending.current) return;
+    sending.current = true; setBusy(true); setError("");
+    try {
+      const action = pendingAction;
+      const { data } = await api<{ kind: "full_kjv" | "move"; study: Aggregate }>(prefix + "/actions/apply", { method: "POST", csrf: session.csrfToken, body: action.input });
+      if (!alive.current) return;
+      setPendingAction(null); setInput("");
+      if (data.kind === "full_kjv") { onAdopt(data.study); setNotice("The verified KJV passage was saved to this study. Review and approve the new revision before publishing."); }
+      else { setNotice("The study moved. Its approval and pending delivery were reset."); onMoved?.(action.preview.to!); }
+    } catch (failure) { failureMessage(failure); }
+    finally { sending.current = false; if (alive.current) setBusy(false); }
+  }
   async function adopt() {
-    if (!proposal || sending.current) return; sending.current = true; setBusy(true); setError("");
+    if (!proposal || !selectedFields.length || sending.current) return; sending.current = true; setBusy(true); setError("");
     try {
       const current = prepare();
-      const { data } = await api<Aggregate>(prefix + `/requests/${proposal.id}/adopt`, { method: "POST", csrf: session.csrfToken, etag: current.etag, body: { confirmedReplacement: true } });
+      const { data } = await api<Aggregate>(prefix + `/requests/${proposal.id}/adopt`, { method: "POST", csrf: session.csrfToken, etag: current.etag, body: { confirmedReplacement: true, fields: selectedFields } });
       if (alive.current) { onAdopt(data); setProposal(null); setNotice("Proposal adopted as a new saved draft revision. Approval and publication still require human action."); }
     } catch (failure) { failureMessage(failure); } finally { sending.current = false; if (alive.current) setBusy(false); }
   }
@@ -142,7 +183,8 @@ export function StudyCowriter({ date, title, active = true, churchId, study, ses
       <div ref={chat} className={`cowriter-chat${dragging ? " cowriter-drop-active" : ""}`} onDragEnter={event => { if (event.dataTransfer.types.includes("Files")) { event.preventDefault(); setDragging(true); } }} onDragOver={event => { if (event.dataTransfer.types.includes("Files")) event.preventDefault(); }} onDragLeave={event => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setDragging(false); }} onDrop={event => { event.preventDefault(); setDragging(false); void chooseFile(event.dataTransfer.files[0]); }}>
         {dragging && <div className="cowriter-drop-overlay">Drop a Word document or PDF to add it as context</div>}
         <div className="cowriter-messages" role="log" aria-label="Co-writer conversation">{messages.map((message, index) => <div className={`cowriter-message ${message.role}`} key={index}>{message.role === "agent" && <span className="cowriter-mini"><CreatorIcon name="sparkles" size={14} /></span>}<p>{message.text}</p></div>)}</div>
-        {proposal?.result?.proposal && <section className="cowriter-proposal" aria-label="Study draft proposal"><h3>Review proposed changes</h3><p>Your saved study has not changed. Adopting replaces the fields below.</p>{proposal.result.proposal.fields.map(field => <details key={field.path}><summary>{field.path}</summary><p className="cowriter-proposed-text">{field.suggestion}</p>{field.scriptureReferences.length > 0 && <small>Suggested references for verification: {field.scriptureReferences.join(", ")}</small>}{field.warnings.map((warning, i) => <p key={i}>{warning}</p>)}</details>)}<button type="button" disabled={busy || unsaved} onClick={() => void adopt()}>Adopt proposal into saved draft</button>{unsaved && <p>Save or discard your editor changes before adopting.</p>}</section>}
+        {proposal?.result?.proposal && <section className="cowriter-proposal" aria-label="Study draft proposal"><h3>Review proposed changes</h3><p>Your saved study has not changed. Select only the fields you want to replace.</p>{proposal.result.proposal.fields.map(field => <details key={field.path}><summary>{field.path}</summary><label><input type="checkbox" checked={selectedFields.includes(field.path)} onChange={event => setSelectedFields(current => event.target.checked ? [...current, field.path] : current.filter(path => path !== field.path))} /> Replace {field.path}</label><p className="cowriter-proposed-text">{field.suggestion}</p>{field.scriptureReferences.length > 0 && <small>Suggested references for verification: {field.scriptureReferences.join(", ")}</small>}{field.warnings.map((warning, i) => <p key={i}>{warning}</p>)}</details>)}<button type="button" disabled={busy || unsaved || !selectedFields.length} onClick={() => void adopt()}>Adopt selected fields into saved draft</button>{unsaved && <p>Save or discard your editor changes before adopting.</p>}</section>}
+        {pendingAction && <section className="cowriter-proposal" aria-label="Review Co-Writer action"><h3>Review proposed action</h3>{pendingAction.input.kind === "full_kjv" ? <><p>Attach the verified KJV text for {pendingAction.preview.reference} to this selected study.</p><blockquote>{pendingAction.preview.verses?.map(verse => <p key={verse.number}>{verse.number} {verse.text}</p>)}</blockquote><p>This creates a new draft revision and resets approval.</p></> : <p>Move this study from {pendingAction.preview.from} to {pendingAction.preview.to}. {pendingAction.preview.consequence}</p>}<button type="button" disabled={busy || unsaved} onClick={() => void applyAction()}>Confirm and apply</button><button type="button" disabled={busy} onClick={() => setPendingAction(null)}>Keep study unchanged</button></section>}
         {busy && <p role="status">Working… Your saved study stays unchanged until adoption.</p>}
       </div>
       <form className="cowriter-composer" onSubmit={event => { event.preventDefault(); void send(); }}>

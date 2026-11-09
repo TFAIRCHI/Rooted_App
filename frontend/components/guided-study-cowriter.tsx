@@ -15,6 +15,7 @@ export function GuidedStudyCowriter({ data, session }: { data: WorkspaceData; se
   const [list, setList] = useState<RunList>({ items: [], configured: false }), [selected, setSelected] = useState("");
   const [seriesId, setSeriesId] = useState("new"), [localTime, setLocalTime] = useState("08:00");
   const [task, setTask] = useState("");
+  const [existingStudyId, setExistingStudyId] = useState("");
   const [sourceText, setSourceText] = useState(""), [filename, setFilename] = useState(""), [reviewed, setReviewed] = useState(false);
   const [sources, setSources] = useState<LibrarySource[]>([]), [libraryId, setLibraryId] = useState("");
   const [reply, setReply] = useState(""), [busy, setBusy] = useState(false), [error, setError] = useState("");
@@ -89,6 +90,17 @@ export function GuidedStudyCowriter({ data, session }: { data: WorkspaceData; se
   }
   function sendInitialMessage() {
     if(!task.trim()||sending.current)return;
+    if (/\b(edit|revise|adjust|rewrite|change|improve|move|reschedule|show|display|attach)\b/i.test(task) && /\b(study|verse|verses|passage|scripture)\b/i.test(task)) {
+      const iso = /\b\d{4}-\d{2}-\d{2}\b/.exec(task)?.[0];
+      const named = /\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2})(?:st|nd|rd|th)?(?:,?\s+(\d{4}))?/i.exec(task);
+      const month = named ? new Date(`${named[1]} 1, 2000`).getUTCMonth() + 1 : null;
+      const matches = existingStudies.filter(({ slot }) => iso ? slot?.localDate === iso : named ? Number(slot?.localDate.slice(5, 7)) === month && Number(slot?.localDate.slice(8, 10)) === Number(named[2]) && (!named[3] || slot?.localDate.startsWith(named[3])) : false);
+      if (matches.length !== 1) { setError(matches.length ? "More than one study matches that date. Select the study below or include its year." : "I could not identify an existing study from that request. Select the scheduled study below before editing it."); return; }
+      const selectedStudy = matches[0];
+      try { sessionStorage.setItem(`rooted:cowriter-draft:${data.church.id}:${selectedStudy.slot!.id}`, task.trim()); } catch { /* Navigation still opens the selected study. */ }
+      window.location.assign(`/studies?church=${data.church.id}&month=${selectedStudy.slot!.localDate.slice(0, 7)}&slot=${selectedStudy.slot!.id}&cowriter=1`);
+      return;
+    }
     if (sourceText.trim() && filename) {
       void command("",{...(seriesId==="new"?{createNewSeries:true}:{seriesId}),assigneeId:session.user.id,localTime,task:task.trim(),sourceText,reviewed:true,rightsConfirmed:true});
     } else void command("/chat",{task:task.trim()});
@@ -128,6 +140,8 @@ export function GuidedStudyCowriter({ data, session }: { data: WorkspaceData; se
   const dayIndex=run?.mapping.length??0;
   const intentReview=Boolean(run?.sequential&&!run.intentConfirmed);
   const dirtyPlan = Boolean(run?.plan && plan && JSON.stringify(run.plan) !== JSON.stringify(plan));
+  const existingStudies = data.content.map(content => ({ content, slot: data.slots.find(slot => slot.id === content.slotId) })).filter(item => item.slot && !item.slot.deleted && !item.slot.withdrawn).sort((a, b) => (b.slot?.localDate ?? "").localeCompare(a.slot?.localDate ?? ""));
+  const chosenStudy = existingStudies.find(item => item.content.id === existingStudyId);
   return createPortal(<>
     <button ref={launcher} type="button" className="cowriter-launcher workflow-launcher" aria-label="Plan studies with co-writer" aria-expanded={open} aria-controls={id} hidden={open} onClick={() => { setRun(null); setPlan(null); setSelected(""); setShowConversation(false); setMenuOpen(false); setError(""); setOpen(true); }}><CreatorIcon name="sparkles" size={26} /></button>
     <aside id={id} className={`study-cowriter cowriter-popup workflow-popup${expanded ? " cowriter-expanded" : ""}`} role="dialog" aria-label="Study planning co-writer" hidden={!open}>
@@ -158,6 +172,7 @@ export function GuidedStudyCowriter({ data, session }: { data: WorkspaceData; se
           {(run.state === "failed" || run.state === "paused_conflict") && <button type="button" disabled={busy} onClick={() => void command(`/${run.id}/retry`, { version: run.version })}>{!run.plan?"Retry message":run.sequential?"Retry current day":"Retry failed days only"}</button>}
 </section>}<section><h3>Privacy</h3><p>Private to you and this church. Saved conversations are available for 30 days.</p>{run&&<>          <details><summary>Delete private workflow content</summary><p>Removes private discussion, source copies and staged results. Already saved studies, numeric usage and retained audit/backup records remain.</p><label className="workflow-check"><input type="checkbox" checked={eraseConfirm} onChange={event => setEraseConfirm(event.target.checked)} /> Delete this workflow's private content</label><button type="button" disabled={busy || !eraseConfirm} onClick={() => void command(`/${run.id}/erase`, { confirmed: true }, true)}>Delete workflow content</button></details></>}</section></CowriterMenu><button type="button" className="cowriter-icon-button" aria-label={expanded ? "Restore planning panel size" : "Expand planning panel"} aria-expanded={expanded} onClick={() => setExpanded(value => !value)}>{expanded ? "↙" : "↗"}</button><button ref={closeButton} type="button" className="cowriter-icon-button" aria-label="Close study planning" onClick={() => { setOpen(false); launcher.current?.focus(); }}>×</button></div></header>
       <div ref={chat} className={`cowriter-chat workflow-content${dragging ? " cowriter-drop-active" : ""}`} onDragEnter={event => { if (event.dataTransfer.types.includes("Files")) { event.preventDefault(); setDragging(true); } }} onDragOver={event => { if (event.dataTransfer.types.includes("Files")) event.preventDefault(); }} onDragLeave={event => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setDragging(false); }} onDrop={event => { event.preventDefault(); setDragging(false); void attach(event.dataTransfer.files[0]); }} onScroll={()=>{const node=chat.current;if(node)followLatest.current=node.scrollHeight-node.scrollTop-node.clientHeight<64;}}>
+        {!showConversation && <section className="cowriter-proposal" aria-label="Choose existing study"><h3>Work on an existing study</h3><p>Select a scheduled study to edit its content or move its date. New study planning remains available below.</p><select aria-label="Existing study" value={existingStudyId} onChange={event => setExistingStudyId(event.target.value)}><option value="">Select a scheduled study</option>{existingStudies.map(({ content, slot }) => <option key={content.id} value={content.id}>{slot!.localDate} · {String(content.head?.payload.title ?? "Untitled study")}</option>)}</select>{chosenStudy && <a className="button primary" href={`/studies?church=${data.church.id}&month=${chosenStudy.slot!.localDate.slice(0, 7)}&slot=${chosenStudy.slot!.id}&cowriter=1`} onClick={() => { try { if (task.trim()) sessionStorage.setItem(`rooted:cowriter-draft:${data.church.id}:${chosenStudy.slot!.id}`, task.trim()); } catch { /* Selected study still opens. */ } }}>Open selected study Co-Writer →</a>}</section>}
         {dragging && <div className="cowriter-drop-overlay">Drop a Word document or PDF to add it as context</div>}
         {attachment && <div className={`cowriter-attachment ${attachment.status}`} role="status"><span aria-hidden="true">{attachment.status==="success"?"✓":attachment.status==="failure"?"×":"…"}</span><strong>{attachment.name}</strong><small>{attachment.detail}</small></div>}
         {showConversation && !run && selected && <p role="status">Loading your saved workflow…</p>}

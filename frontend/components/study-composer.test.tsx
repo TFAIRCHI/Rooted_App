@@ -101,3 +101,25 @@ it("opens from the floating launcher and preserves writing when closed and reope
   fireEvent.keyDown(document, { key: "Escape" });
   expect(screen.queryByRole("dialog")).toBeNull();
 });
+
+it("previews a selected study Scripture action and waits for confirmation before saving", async () => {
+  Object.defineProperty(HTMLElement.prototype, "scrollTo", { configurable: true, value: vi.fn() });
+  const onAdopt = vi.fn();
+  const fetch = vi.spyOn(globalThis, "fetch").mockImplementation(async input => {
+    const url = String(input);
+    if (url.endsWith("/status")) return Response.json({ configured: true });
+    if (url.endsWith("/conversations")) return Response.json({ items: [] });
+    if (url.endsWith("/actions/preview")) return Response.json({ reference: "John 6:68", verses: [{ number: 68, text: "Thou hast the words of eternal life." }] });
+    if (url.endsWith("/actions/apply")) return Response.json({ kind: "full_kjv", study });
+    throw new Error(`Unexpected request: ${url}`);
+  });
+  render(<StudyCowriter {...cowriterProps} onAdopt={onAdopt} slotId="slot" slotEtag='"slot:slot:1"' />);
+  fireEvent.click(screen.getByRole("button", { name: "Open study co-writer" }));
+  fireEvent.change(screen.getByRole("textbox", { name: "Message the study co-writer" }), { target: { value: "Show the entire Bible verse in this study" } });
+  await waitFor(() => expect(screen.getByRole("button", { name: "Send message" })).toBeEnabled());
+  fireEvent.click(screen.getByRole("button", { name: "Send message" }));
+  await waitFor(() => expect(screen.getByRole("region", { name: "Review Co-Writer action" })).toHaveTextContent("John 6:68"));
+  expect(fetch.mock.calls.some(call => String(call[0]).endsWith("/actions/apply"))).toBe(false);
+  fireEvent.click(screen.getByRole("button", { name: "Confirm and apply" }));
+  await waitFor(() => expect(onAdopt).toHaveBeenCalledWith(study));
+});

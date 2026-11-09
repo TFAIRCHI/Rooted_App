@@ -613,6 +613,9 @@ export function ContentEditor({
           key={`${session.user.id}:${churchId}:${content.id}:${slot.localDate}`}
           churchId={churchId}
           study={content}
+          slotId={slot.id}
+          slotEtag={slot.etag}
+          onMoved={(destination) => { window.location.assign(`/studies?church=${churchId}&month=${destination.slice(0, 7)}&slot=${slot.id}`); }}
           session={session}
           unsaved={dirty || !!conflict}
           prepare={() => {
