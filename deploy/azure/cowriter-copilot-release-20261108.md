@@ -1,11 +1,12 @@
 # Study Co-Writer copilot: deployment handoff
 
 Image tag: `cowriter-copilot-20261108-1`.
+Source commit: `c6b168f314082bb511ebca6e3e2df88ea8c60697`.
 
-| Component | Image | Local image ID |
-| --- | --- | --- |
-| API and worker | `rootedtogethercr-dudpd0aebzeqewa2.azurecr.io/rooted-backend:cowriter-copilot-20261108-1` | `sha256:fbbe88b65a029dcacde8225e688d40b4a905ada8c777229115c7a9ee47caea24` |
-| Frontend | `rootedtogethercr-dudpd0aebzeqewa2.azurecr.io/rooted-frontend:cowriter-copilot-20261108-1` | `sha256:950f51e4513f4d5c8134cd4e81b95e245af82236798fd0730db172d23c110a09` |
+| Component | Image | Local image ID | ACR manifest digest |
+| --- | --- | --- | --- |
+| API and worker | `rootedtogethercr-dudpd0aebzeqewa2.azurecr.io/rooted-backend:cowriter-copilot-20261108-1` | `sha256:fbbe88b65a029dcacde8225e688d40b4a905ada8c777229115c7a9ee47caea24` | `sha256:260173357d8a59ecdf42c9ccb522a90ec62120aabfa66cd56a1760ba1adfd1c8` |
+| Frontend | `rootedtogethercr-dudpd0aebzeqewa2.azurecr.io/rooted-frontend:cowriter-copilot-20261108-1` | `sha256:950f51e4513f4d5c8134cd4e81b95e245af82236798fd0730db172d23c110a09` | `sha256:a9b3e5c6772fb59a441ef630517a601dc2831314c5d20171c6e79c2394bfa95d` |
 
 ## What changes
 
