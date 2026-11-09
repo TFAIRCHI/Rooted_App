@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { azureBaseUrl, cowriterConfig, CowriterAdapter, transcriptText } from '../../src/integrations/cowriter.js';
+import { IntegrationError } from '../../src/integrations/errors.js';
 
 test('Azure endpoint normalization, configuration gates and text validation fail closed', () => {
   for (const endpoint of ['https://demo.openai.azure.com', 'https://demo.openai.azure.com/', 'https://demo.openai.azure.com/openai/v1/']) assert.equal(azureBaseUrl(endpoint), 'https://demo.openai.azure.com/openai/v1');
@@ -35,4 +36,27 @@ test('Azure chat is bounded, uses key authentication, does not retry and sanitiz
   assert.equal(calls, 6);
   for (const response of [{ status: 'incomplete' }, { id: 'x', model: 'x', status: 'completed', output: [{ type: 'message', role: 'assistant', content: [{ type: 'refusal' }] }] }, { id: 'x', model: 'x', status: 'completed', output: [] }]) await assert.rejects(new CowriterAdapter({ ...config, fetch: async () => Response.json(response) }).chat({ task: 'Hi', context: {}, history: [] }));
   await assert.rejects(new CowriterAdapter({ ...config, fetch: async () => { throw new Error('private header/key'); } }).chat({ task: 'Hi', context: {}, history: [] }), /no automatic retry/);
+});
+
+test('Azure incomplete replies identify safe provider reasons without exposing response content', async () => {
+  const cases = [
+    { status: 'incomplete', incomplete_details: { reason: 'max_output_tokens' }, code: 'AI_OUTPUT_LIMIT', text: 'reply length limit' },
+    { status: 'incomplete', incomplete_details: { reason: 'content_filter' }, code: 'AI_CONTENT_FILTER', text: 'content filter' },
+    { status: 'incomplete', incomplete_details: { reason: 'other_private_reason' }, code: 'AI_INCOMPLETE', text: 'stopped the reply' },
+    { status: 'failed', error: { message: 'private provider detail' }, code: 'AI_PROVIDER_FAILED', text: 'generation failed' },
+    { status: 'cancelled', code: 'AI_PROVIDER_CANCELLED', text: 'cancelled the reply' },
+    { status: 'completed', output: null, code: 'AI_INVALID_RESPONSE', text: 'unexpected reply format' },
+  ];
+  for (const item of cases) {
+    const response = { id: 'resp_abc123', model: 'gpt-5.6-luna', output: [], ...item };
+    const adapter = new CowriterAdapter({ apiKey: 'fixture', model: 'gpt-5.6-luna', baseUrl: 'https://demo.openai.azure.com/openai/v1', fetch: async () => Response.json(response) });
+    await assert.rejects(adapter.chat({ task: 'Explain', context: {}, history: [] }), error => {
+      assert.ok(error instanceof IntegrationError);
+      assert.equal(error.code, item.code);
+      assert.match(error.message, new RegExp(item.text));
+      assert.match(error.message, /resp_abc123/);
+      assert.doesNotMatch(error.message, /private/);
+      return true;
+    });
+  }
 });

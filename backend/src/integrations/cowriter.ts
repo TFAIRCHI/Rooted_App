@@ -24,6 +24,17 @@ export function transcriptText(text: string): string {
 }
 
 export interface ChatInput { task: string; context: unknown; history: { role: 'user' | 'assistant'; content: string }[] }
+function incompleteReply(response: Record<string, unknown>): IntegrationError {
+  const details = response.incomplete_details;
+  const reason = details && typeof details === 'object' && !Array.isArray(details) ? (details as Record<string, unknown>).reason : undefined;
+  const reference = typeof response.id === 'string' && /^resp_[a-zA-Z0-9_-]{1,100}$/.test(response.id) ? ` Reference: ${response.id}.` : '';
+  if (response.status === 'incomplete' && reason === 'max_output_tokens') return new IntegrationError('AI_OUTPUT_LIMIT', `The model reached its reply length limit before finishing. Ask for a shorter answer or split the task into smaller parts.${reference}`, 502);
+  if (response.status === 'incomplete' && reason === 'content_filter') return new IntegrationError('AI_CONTENT_FILTER', `The provider stopped the reply because of a content filter. Revise the request or source text; retrying it unchanged may give the same result.${reference}`, 502);
+  if (response.status === 'incomplete') return new IntegrationError('AI_INCOMPLETE', `The provider stopped the reply before it finished. Try a focused request; if this continues, contact support with the response reference.${reference}`, 502);
+  if (response.status === 'failed') return new IntegrationError('AI_PROVIDER_FAILED', `The provider reported that generation failed. Try again later; if this continues, contact support with the response reference.${reference}`, 502);
+  if (response.status === 'cancelled') return new IntegrationError('AI_PROVIDER_CANCELLED', `The provider cancelled the reply. Try again later; if this continues, contact support with the response reference.${reference}`, 502);
+  return new IntegrationError('AI_INVALID_RESPONSE', `The provider returned an unexpected reply format. Try again later; if this continues, contact support with the response reference.${reference}`, 502);
+}
 export class CowriterAdapter {
   constructor(private readonly config: OpenAIConfig) {}
   async chat(input: ChatInput) {
@@ -34,7 +45,7 @@ export class CowriterAdapter {
       method: 'POST', headers: { 'api-key': this.config.apiKey!, 'Content-Type': 'application/json' }, signal: AbortSignal.timeout(45_000),
       body: JSON.stringify({ model: this.config.model, store: false, instructions, input: messages, tools: [], reasoning: { effort: 'none' }, max_output_tokens: 1500 }),
     }, true));
-    if (response.status !== 'completed' || typeof response.id !== 'string' || typeof response.model !== 'string' || !Array.isArray(response.output)) throw new IntegrationError('AI_INCOMPLETE', 'The model did not complete a usable reply. Shorten the request and try again.', 502);
+    if (response.status !== 'completed' || typeof response.id !== 'string' || typeof response.model !== 'string' || !Array.isArray(response.output)) throw incompleteReply(response);
     const texts: string[] = [];
     for (const output of response.output) {
       const message = object(output);
